@@ -1,0 +1,48 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:The file '/myproject/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:The file '/myproject/Task/Task/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/session.aspx. Error Message:Error in: http://localhost:1776/myproject/session.aspx. Error Message:d:\ASPProjects\myproject\session.aspx.cs(55): error CS0841: Cannot use local variable 'action1' before it is declared
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/session.aspx. Error Message:Error in: http://localhost:1776/myproject/session.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/session.aspx. Error Message:Error in: http://localhost:1776/myproject/session.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/session.aspx. Error Message:Error in: http://localhost:1776/myproject/session.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/main.aspx. Error Message:Error in: http://localhost:1776/myproject/Task/main.aspx. Error Message:The remote server returned an error: (404) Not Found.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/main.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/main.aspx. Error Message:A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 209.200.118.22:80
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/main.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/main.aspx. Error Message:The operation has timed out
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:d:\ASPProjects\myproject\Tasks\Taskbyme.aspx.cs(85): error CS1501: No overload for method 'isadmin' takes '2' arguments
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:The server tag is not well formed.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:The server tag is not well formed.
+__________________________

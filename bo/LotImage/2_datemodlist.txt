@@ -1,0 +1,43 @@
+<table><tr><td style=" font-family: Century; font-size: large; font-weight: bolder; font-style: normal; font-variant: normal; color: #800000
+">Select expected date to complete task :</td><td>Date</td>
+<td>
+
+<select size="1" name="days">
+<OPTION>Select Day</OPTION>
+ <cfloop from="1" to="31" index="i">
+  <cfoutput>
+  <br />
+ 
+ <OPTION VALUE=#i#> #i#</OPTION>
+
+  </cfoutput>
+</cfloop>
+</select>
+
+</td>
+<td>Months</td>
+<td>
+<select size="1" name="Months">
+<OPTION>Select Month</OPTION>
+ <cfloop from="1" to="12" index="j">
+  <cfoutput>
+  <br />
+ 
+ <OPTION VALUE=#j#> #j#</OPTION>
+
+  </cfoutput>
+</cfloop>
+</select>
+</td>
+<td>Years</td>
+<td>
+<SELECT SIZE="1" NAME="years">
+<OPTION>Select Year</OPTION>
+<OPTION VALUE="2011">2011</OPTION>
+<OPTION VALUE="2012">2012</OPTION>
+<OPTION VALUE="2013">2013</OPTION>
+<OPTION VALUE="2014">2014</OPTION>
+</SELECT>		
+</td>
+</tr>
+</table>

@@ -1,0 +1,80 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:24:22+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:24:22+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:27:07+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:21:57+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:21:57+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:26:03+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:26:03+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:21:57+PM&tby=rpgoswami&status=active. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:21:57+PM&tby=rpgoswami&status=active. Error Message:String was not recognized as a valid DateTime.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:24:22+PM&action=OC&tby=rpgoswami&status=active&pdc=12/30/2010+12:00:00+AM. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/6/2010+1:24:22+PM&action=OC&tby=rpgoswami&status=active&pdc=12/30/2010+12:00:00+AM. Error Message:Input string was not in a correct format.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:d:\ASPProjects\myproject\Tasks\TaskForMe.aspx.cs(28): error CS0103: The name 'name' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Both DataSource and DataSourceID are defined on 'GrdVTaskforMe'.  Remove one definition.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=1/27/2005+7:29:38+AM&action=nitish&tby=nitish&status=active&pdc=3/22/2005+12:00:00+AM. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=1/27/2005+7:29:38+AM&action=nitish&tby=nitish&status=active&pdc=3/22/2005+12:00:00+AM. Error Message:Object reference not set to an instance of an object.
+__________________________

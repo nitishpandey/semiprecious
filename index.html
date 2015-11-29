@@ -1,0 +1,104 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<title>Reverse Geocoding</title> 
+<style>
+
+#iframe1 {position:absolute; top:0; left:0; display: block; width:100%; height:100%; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript"> 
+
+  /*
+  
+  */
+  var geocoder;
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, viaIp);
+} 
+//Get the latitude and the longitude;
+function successFunction(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    codeLatLng(lat, lng);
+}
+
+	function viaIp(){
+		console.log("viaIp");
+		sourcename = location.hostname.replace("www.", "").replace("test.","");
+		$.get("http://ipinfo.io", function(response) {
+			cityFound(response.city, response.region, sourcename);
+		}, "jsonp");
+	}
+
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+  }
+  
+  function cityFound(city, region, source)
+  {
+  var urlcity = "http://geonetry.com/getURL.php?city=" + city + "&state=" + region + "&source=" + source;
+  console.log(urlcity);
+	$.get(urlcity, function(data){
+		console.log(data.trim());
+		var url = data.trim();
+		if (url=="not found") {
+		url = "http://" + source + "/index.cfm";
+		console.log(url);
+		location.replace(url);
+		}
+		if(url.indexOf("http")==-1) url ="http://"+url;
+		$("#iframe1").attr("src", url);
+	});
+  }
+
+  function codeLatLng(lat, lng) {
+	var found = false;
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+	  var cityname, regionname;
+		[].forEach.call(results[0].address_components, function(dataPieceCity){
+			var subCity = dataPieceCity.types;
+			//var subRegion = dataPieceRegion.types;
+			if(subCity.indexOf("locality")!=-1 && subCity.indexOf("political")!=-1)
+			{
+				found=true;
+				//cityFound(dataPieceCity.long_name, dataPieceRegion.long_name);
+				cityname = dataPieceCity.long_name;
+			}
+		});
+		
+		[].forEach.call(results[0].address_components, function(dataPieceRegion){
+			//var subCity = dataPieceCity.types;
+			var subRegion = dataPieceRegion.types;
+			if(subRegion.indexOf("political")!=-1 && subRegion.indexOf("administrative_area_level_1")!=-1)
+			{
+				found=true;
+				//cityFound(dataPieceCity.long_name, dataPieceRegion.long_name);
+				regionname = dataPieceRegion.long_name;
+			}
+		});
+		
+		sourcename = location.hostname.replace("www.", "").replace("test.","");
+		
+		cityFound(cityname, regionname, sourcename);
+		
+		if(!found)
+			viaIp();
+			
+      } else {
+        viaIp();
+      }
+    });
+  }
+</script> 
+</head> 
+<body onload="initialize()"> 
+	<iframe id="iframe1"  frameborder="0" src=""></iframe>
+</body> 
+</html> 

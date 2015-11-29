@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <defaultDocument>
+            <files>
+                <clear />
+                <add value="index.cfm" />
+                <add value="Index.aspx" />
+                <add value="index.php" />
+                <add value="Default.htm" />
+                <add value="Default.asp" />
+                <add value="index.htm" />
+                <add value="index.html" />
+                <add value="iisstart.htm" />
+                <add value="default.aspx" />
+            </files>
+        </defaultDocument>
+        <tracing>
+            <traceFailedRequests>
+                <remove path="*.cfm" />
+                <add path="*.cfm">
+                    <traceAreas>
+                        <add provider="ASPNET" areas="Infrastructure,Module,Page,AppServices" verbosity="Verbose" />
+                        <add provider="ISAPI Extension" verbosity="Verbose" />
+                        <add provider="WWW Server" areas="Authentication,Security,Filter,StaticFile,CGI,Compression,Cache,RequestNotifications,Module,FastCGI" verbosity="CriticalError" />
+                    </traceAreas>
+                    <failureDefinitions timeTaken="00:00:00" statusCodes="500,404" verbosity="Error" />
+                </add>
+                <add path="*">
+                    <traceAreas>
+                        <add provider="ASP" verbosity="Verbose" />
+                        <add provider="ASPNET" areas="Infrastructure,Module,Page,AppServices" verbosity="Verbose" />
+                        <add provider="ISAPI Extension" verbosity="Verbose" />
+                        <add provider="WWW Server" areas="Authentication,Security,Filter,StaticFile,CGI,Compression,Cache,RequestNotifications,Module,FastCGI" verbosity="Verbose" />
+                    </traceAreas>
+                    <failureDefinitions statusCodes="500" />
+                </add>
+            </traceFailedRequests>
+        </tracing>
+        <caching>
+            <profiles>
+                <add extension=".gif" policy="DontCache" kernelCachePolicy="CacheUntilChange" duration="00:00:30" />
+                <add extension=".jpg" policy="DontCache" kernelCachePolicy="CacheUntilChange" duration="05:00:30" />
+            </profiles>
+        </caching>
+        <staticContent>
+            <mimeMap fileExtension=".cfm" mimeType="text/html" />
+            <clientCache cacheControlMode="DisableCache" />
+        </staticContent>
+        <httpErrors errorMode="Detailed">
+            <remove statusCode="404" subStatusCode="-1" />
+        </httpErrors>
+        <rewrite>
+            <rules>
+                <rule name="cart.cfm to https" enabled="false" patternSyntax="Wildcard" stopProcessing="true">
+                    <match url="cart.cfm*" />
+										<action type="Redirect" url="https://www.semiprecious.com/cart.cfm{R:1}" appendQueryString="true" redirectType="Permanent" />
+                    <conditions>
+                        <add input="{HTTPS}" pattern="off" />
+                    </conditions>
+
+                </rule>
+            </rules>
+        </rewrite>
+        <httpRedirect enabled="false" destination="http://72.8.190.49/" exactDestination="true" />
+        <security>
+            <requestFiltering>
+                <requestLimits maxAllowedContentLength="300000" />
+            </requestFiltering>
+        </security>
+
+	
+    </system.webServer>
+
+  <appSettings>
+    <!--<add key="smtpUsername" value=""/>
+      <add key="smtpPassword" value=""/>-->
+    
+    <add key="adminMailID" value="cs@semiprecious.com" />
+    <!--<add key="tosendmessage" value="rampravesh.goswami@gmail.com"/>-->
+  </appSettings>
+<!--
+	<connectionStrings>
+
+		<add connectionString="server=sqlb29.webcontrolcenter.com;uid=anup;pwd=nitish" name="SQLConnectionString" providerName="System.Data.Odbc" />
+        <add connectionString="server=sqlb29.webcontrolcenter.com;database=gemstones;uid=anup;pwd=nitish" name="ConnectionString" />
+        <add connectionString="dsn=dedg21;UID=SQLprecious;pwd=precious" name="ODBCConnectionString" />
+        <add connectionString="dsn=Mysqldsn" name="mysql" />
+	</connectionStrings>-->
+
+	<system.web>
+    <compilation debug="true" defaultLanguage="c#" />
+<customErrors mode="RemoteOnly" defaultRedirect="/myproject/GenericErrorPage.aspx"> 
+       <error statusCode="403" redirect="NoAccess.aspx" />
+       <error statusCode="404" redirect="FileNotFound.aspx" />
+     </customErrors>
+		<customErrors mode="ON" />
+        <trust level="Full" />
+   </system.web>
+</configuration>

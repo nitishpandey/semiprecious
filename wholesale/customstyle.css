@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'OswaldBold';
+    src: url('fonts/Oswald-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'OswaldLight';
+    src: url('fonts/Oswald-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'OswaldRegular';
+    src: url('fonts/Oswald-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PTSansWebBold';
+    src: url('fonts/PT_Sans-Web-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PTSansWebBoldItalic';
+    src: url('fonts/PT_Sans-Web-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PTSansWebItalic';
+    src: url('fonts/PT_Sans-Web-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PTSansWebRegular';
+    src: url('fonts/PT_Sans-Web-Regular.ttf') format('truetype');
+}

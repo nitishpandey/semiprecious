@@ -1,0 +1,26 @@
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:d:\inetpub\semiprecious\myproject\MOO\CancelMOO.aspx.cs(122): error CS0126: An object of a type convertible to 'int' is required
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:Value cannot be null.
+Parameter name: String
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:Value cannot be null.
+Parameter name: String
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:Error in: http://www.semiprecious.in/myproject/MOO/CancelMOO.aspx?itemid=12089&cartid=100686&quantity=1&date=2011-01-19 18:55:00.0. Error Message:d:\inetpub\semiprecious\myproject\MOO\CancelMOO.aspx.cs(29): error CS0029: Cannot implicitly convert type 'string' to 'int'
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/properties.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/properties.aspx. Error Message:Keyword not supported: 'dsn'.
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/properties.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/properties.aspx. Error Message:Keyword not supported: 'dsn'.
+__________________________

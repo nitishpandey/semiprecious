@@ -1,0 +1,180 @@
+﻿body {
+}
+.htmmlcontent
+{
+ vertical-align:top;
+ margin-left:10%;
+ margin-right:10%;
+ margin-bottom:10%
+}
+.tablestructure
+{
+ background-color:White;
+ border-color:Silver;
+ height:auto;
+ width:auto;
+}
+.tablerow
+{
+ height:30px;
+ 	
+}
+.tablerowaddtask
+{
+	height:30px;
+	}
+.tabletask
+{
+height:100px;	
+	}
+.columnwidth
+{
+ width:10%;	
+}
+.Button
+{
+	width:90px; 
+	height:34px;
+	background-color:#53A9FF;
+	border-color:White;
+	border-style:Outset;
+    font-weight:bold;
+    font-family:Tahoma;
+    
+}
+
+.error_label
+{
+	color:Red;
+	font-size:medium;
+	font-weight:bold;
+   display:inline;
+}
+/* cascading style for response task */
+.col_width
+{
+}
+.col_width2
+{
+}
+.col_width3
+{
+width:10%;	
+}
+.txtdetails
+{
+ Height:58px; 
+ Width:536px;
+ font-family:Tahoma;
+ font-size:small;
+ background-color:#F9F9F9;
+ border-color:#C1E0FF;
+ border-style:Solid;
+ 
+}
+.drplAddresponse
+{
+ height:25px;
+ width:150px;
+ font-family:Tahoma;
+ font-size:small;
+ background-color:#F9F9F9;
+ border-color:#C1E0FF;
+ border-style:Solid;
+}
+.modifypdc
+{width:145px;
+ font-family:Tahoma;
+ font-size:small;
+ background-color:#F9F9F9;
+ border-color:#C1E0FF;
+ border-style:Solid;
+	
+	}
+/* cascading style for Task for Me */
+
+/* cascading style for Add Task */
+.lableHeading
+{
+ font-family:Tahoma;
+ font-size:larger;
+ color:Black;
+ 
+}
+.lable
+{
+	font-family:Tahoma;
+	font-size:medium;
+	color:Black;
+	font-variant:normal;
+	
+}
+
+.textbox
+{
+	font-family:Tahoma;
+	font-size:small;
+    background-color:#F9F9F9;
+    border-color:#C1E0FF;
+    border-style:Solid;
+   
+	
+	
+}
+.dropdownllst
+{
+	height:20px;
+	width:100px;
+	}
+	
+.listbox
+{
+	font-family:Tahoma;
+	font-size:small;
+    background-color:#F9F9F9;
+    border-color:#C1E0FF;
+    border-style:Solid;
+    width:146px;
+}
+/* cascading style for Task By ME */
+
+.fontstyle
+{
+font-family:Arial;
+color:#5F5F5F;	
+}
+
+
+/* Item information css */
+
+.htmmlItemInfo
+{
+ vertical-align:top;
+ margin-left:10%;
+ margin-right:10%;
+ margin-bottom:10%
+}
+
+.tableItemInfo
+{
+ background-color:White;
+ border-color:Silver;
+ height:auto;
+ width:835px;
+}
+
+/**********************END OF ITEM INFORMATION CSS*************************/
+
+/**********************Supplier Information*************************/
+
+.LabelReuiredField
+{
+ color:Orange;
+ font-size:medium;
+ font-weight:bold;	
+	
+}
+.Supplier_Height
+{
+	height:40px;	
+}

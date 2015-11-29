@@ -1,0 +1,24 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx?CFID=27735292&CFTOKEN=25867808. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx?CFID=27735292&CFTOKEN=25867808. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(84): error CS0029: Cannot implicitly convert type 'void' to 'string'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(85): error CS0023: Operator '+' cannot be applied to operand of type 'string'
+__________________________

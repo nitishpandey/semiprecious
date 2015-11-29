@@ -1,0 +1,1 @@
+<cfinclude template="admintools/supplierrestock.cfm" />

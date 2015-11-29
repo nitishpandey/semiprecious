@@ -1,0 +1,15 @@
+<html>
+<head>
+
+<title>Inquiry Submission</title>
+</head>
+
+Please send email to anup@semiprecious.com or call Anup at 512 589 9009.
+
+thank you,
+
+Anup
+<body>
+
+</body>
+</html>

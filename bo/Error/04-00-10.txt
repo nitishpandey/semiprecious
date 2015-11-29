@@ -1,0 +1,16 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/4/2010+10:59:29+AM&tby=rpgoswami. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/4/2010+10:59:29+AM&tby=rpgoswami. Error Message:The DataSourceID of 'Repeater1' must be the ID of a control of type IDataSource.  A control with ID 'SqlDataSource2' could not be found.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/4/2010+10:59:29+AM&tby=rpgoswami. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/4/2010+10:59:29+AM&tby=rpgoswami. Error Message:The DataSourceID of 'Repeater1' must be the ID of a control of type IDataSource.  A control with ID 'SqlDataSource2' could not be found.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/4/2010+10:59:29+AM&tby=rpgoswami. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=12/4/2010+10:59:29+AM&tby=rpgoswami. Error Message:Cannot create an object of type 'System.TypeCode' from its string representation '"DateTime' for the 'Type' property.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/Taskbyme.aspx. Error Message:d:\ASPProjects\myproject\Tasks\Taskbyme.aspx.cs(26): error CS0103: The name 'setcfidcftoken' does not exist in the current context
+__________________________

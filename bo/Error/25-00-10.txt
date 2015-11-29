@@ -1,0 +1,68 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(101): error CS1501: No overload for method 'Replace' takes '1' arguments
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(101): error CS0019: Operator '&' cannot be applied to operands of type 'string' and 'string'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:d:\ASPProjects\myproject\checking odbc.aspx.cs(42): error CS0103: The name 'indiaemailid' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+ERROR [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. The user is not associated with a trusted SQL Server connection.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:d:\ASPProjects\myproject\checking odbc.aspx.cs(67): error CS0103: The name 'PName' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:d:\ASPProjects\myproject\checking odbc.aspx.cs(70): error CS0103: The name 'PName' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:d:\ASPProjects\myproject\checking odbc.aspx.cs(23): error CS0201: Only assignment, call, increment, decrement, and new object expressions can be used as a statement
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:The file '/myproject/checking odbc.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:The file '/myproject/checking odbc.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:The file '/myproject/checking odbc.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:Error in: http://localhost:1776/myproject/checking odbc.aspx. Error Message:The file '/myproject/checking odbc.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/imageupload.aspx. Error Message:Error in: http://localhost:1776/myproject/imageupload.aspx. Error Message:The file '/myproject/imageupload.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/imageupload.aspx. Error Message:Error in: http://localhost:1776/myproject/imageupload.aspx. Error Message:The file '/myproject/imageupload.aspx' does not exist.
+__________________________

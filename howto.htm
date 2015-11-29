@@ -1,0 +1,45 @@
+The first time around ALL these steps have to be done .
+
+Only One Time Steps
+1. Remove/Disable call to newsletter.cfm
+2. Open newsletter.cfm 
+3. Comment out the top most query that reinitializes the nlstatus to 0
+4. Comment out hard coded test email id assignment to mailto variable.
+5. Comment in the dynamic assignment of q.email to mailto variable.
+6. Close newsletter.cfm
+7. Remove nl1.htm
+8. Comment out any outputs. Or use <cfsilent> tags around call to newsletter.
+8. Enable call to newsletter.cfm
+
+Once in a while Steps for header
+1. Remove/Disable call to newsletter.cfm
+2. Open nlheader.htm
+3. Edit the content using HTML formatting. This should start with <HTML><HEAD></HEAD><BODY><P>
+4. End the editing with </P>
+5. Close nlheader.htm
+6. Enable call to newsletter.htm
+
+ Once in a while Steps for footer
+1. Remove/Disable call to newsletter.cfm
+2. Open nlfooter.htm
+3. Edit the content using HTML formatting. This should start with <P>
+4. End the editing with </P></BODY></HTML>
+5. Close nlfooter.htm
+6. Enable call to newsletter.htm
+
+ Once in while Steps for email subject
+ 1. Open subject.htm
+ 2. Edit contents to reflect the email subject (need not change with every newsletter)
+ 3. Close subject.htm
+ 
+Steps for every new letter
+1. Open nl0.htm
+2. Edit content using HTML formatting. But should not have HEAD or even BODY tags.
+3. close nl0.htm
+4. View nlviewerwithurlid.cfm in browser.
+5. Repeat above steps till satisfied with what you see in step 4.
+6. Copy nl0.htm to nlx.htm . Where x is the next newsletter number.
+
+
+Note: Make sure the footer content includes the steps for unsubscribing. Basically an email from 
+the subscriber to anup@semiprecious.com using the subscribed email id.                 

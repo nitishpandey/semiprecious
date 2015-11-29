@@ -1,0 +1,7 @@
+RewriteEngine On 
+
+RewriteRule ^(silver-chain)/(.*/)*([^/\.]+)\.html(&.*)?/?$ silver_chain.php?stone=$1/$2$3.html [L]
+RewriteRule ^(silver-earrings)/(.*/)*([^/\.]+)\.html(&.*)?/?$ silver_earrings.php?stone=$1/$2$3.html [L]
+RewriteRule ^(silver-pendants)/(.*/)*([^/\.]+)\.html(&.*)?/?$ silver_pendants.php?stone=$1/$2$3.html [L]
+
+RewriteRule ^([^/.]+)/(.*/)*([^/\.]+)\.html(&.*)?/?$ silver_gemstone_rings.php?stone=$1/$2$3.html

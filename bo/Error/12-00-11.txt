@@ -1,0 +1,20 @@
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:d:\inetpub\semiprecious\myproject\Default3.aspx.cs(20): error CS0118: 'System.Data.SqlClient.SqlConnection' is a 'type' but is used like a 'variable'
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:d:\inetpub\semiprecious\myproject\Default3.aspx.cs(19): error CS0118: 'System.Data.SqlClient.SqlConnection' is a 'type' but is used like a 'variable'
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:Keyword not supported: 'dsn'.
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:Keyword not supported: 'dsn'.
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/Default3.aspx. Error Message:The control with ID 'Seadragon1' requires a ScriptManager on the page. The ScriptManager must appear before any controls that need it.
+__________________________

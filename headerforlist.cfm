@@ -1,0 +1,1 @@
+<cfinclude template="headerforgemstone_jewelry_gallery.cfm" />

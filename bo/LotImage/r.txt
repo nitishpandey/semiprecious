@@ -1,0 +1,42 @@
+ if (Drplsuppliercode.SelectedItem.Text != "Select Supplier Code")
+        {
+           
+            cmd.CommandText = "update buyingrecord set cartid=@cartid,itemid=@itemid,optionid=@optionid,makeondemandnote=@makeondemandnote,inventoryatsale=-1 where cartid=@cartid and itemid=@itemid and optionid=@optionid and qty > 0 ";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@itemid", TxtItemId.Text.Trim());
+            cmd.Parameters.AddWithValue("@optionid", TxtOptionID.Text.Trim());
+            cmd.Parameters.AddWithValue("@makeondemandnote", Drplsuppliercode.SelectedItem.Text);
+
+            try
+            {
+                cmd.Connection.Open();
+                int result = cmd.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    LblUpdateError.Text = "Update Successfully";
+                }
+                else
+                {
+                    LblUpdateError.Text = "Updation is failed.";
+                }
+
+            }
+            catch (SqlException ee)
+            {
+                LblUpdateError.Text = "Errors :" + ee.Message;
+            }
+            catch (Exception ex)
+            {
+                LblUpdateError.Text = "Errors :" + ex.Message;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+        }
+        else
+        {   
+           
+            LblUpdateError.Text = "Please select supplier code.";
+        
+        }

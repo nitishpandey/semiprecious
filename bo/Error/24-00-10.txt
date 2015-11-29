@@ -1,0 +1,192 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/UploadImages.aspx. Error Message:Error in: http://localhost:1776/myproject/UploadImages.aspx. Error Message:Maximum request length exceeded.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/UploadImages.aspx. Error Message:Error in: http://localhost:1776/myproject/UploadImages.aspx. Error Message:Maximum request length exceeded.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(79): error CS0103: The name 'txtHtmlSrc' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:Error in: http://localhost:1776/myproject/fileupload.aspx. Error Message:d:\ASPProjects\myproject\fileupload.aspx.cs(55): error CS0103: The name 'Lblstatus' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/UploadImages.aspx. Error Message:Error in: http://localhost:1776/myproject/UploadImages.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Properties.aspx. Error Message:Error in: http://localhost:1776/myproject/Properties.aspx. Error Message:d:\ASPProjects\myproject\Properties.aspx.cs(51): error CS0246: The type or namespace name 'SqlException' could not be found (are you missing a using directive or an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(20): error CS0103: The name 'FilePath' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(55): error CS0103: The name 'FilePath' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(69): error CS1955: Non-invocable member 'System.Web.UI.WebControls.ListControl.Items' cannot be used like a method.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(87): error CS1519: Invalid token 'foreach' in class, struct, or interface member declaration
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(87): error CS1519: Invalid token 'foreach' in class, struct, or interface member declaration
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(88): error CS1519: Invalid token 'foreach' in class, struct, or interface member declaration
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(79): error CS1519: Invalid token 'foreach' in class, struct, or interface member declaration
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(79): error CS1519: Invalid token 'foreach' in class, struct, or interface member declaration
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(79): error CS1519: Invalid token 'foreach' in class, struct, or interface member declaration
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:'D:/ASPProjects/myproject/centergraphics/' is not a valid virtual path.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(62): error CS0030: Cannot convert type 'System.IO.DirectoryInfo' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(92): error CS0030: Cannot convert type 'System.IO.DirectoryInfo' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(92): error CS0030: Cannot convert type 'System.IO.DirectoryInfo' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(92): error CS0103: The name 'dir' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(92): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'System.IO.FileInfo' to 'System.IO.DirectoryInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS1061: 'System.IO.FileInfo' does not contain a definition for 'GetFiles' and no extension method 'GetFiles' accepting a first argument of type 'System.IO.FileInfo' could be found (are you missing a using directive or an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS1061: 'System.IO.FileInfo' does not contain a definition for 'GetFiles' and no extension method 'GetFiles' accepting a first argument of type 'System.IO.FileInfo' could be found (are you missing a using directive or an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS1061: 'System.IO.FileInfo' does not contain a definition for 'GetFiles' and no extension method 'GetFiles' accepting a first argument of type 'System.IO.FileInfo' could be found (are you missing a using directive or an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS1061: 'System.IO.FileInfo' does not contain a definition for 'GetFiles' and no extension method 'GetFiles' accepting a first argument of type 'System.IO.FileInfo' could be found (are you missing a using directive or an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS1955: Non-invocable member 'System.IO.FileSystemInfo.Name' cannot be used like a method.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(93): error CS0030: Cannot convert type 'char' to 'System.IO.FileInfo'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Input string was not in a correct format.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Input string was not in a correct format.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Type of value has a mismatch with column type
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Type of value has a mismatch with column type
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Type of value has a mismatch with column type
+__________________________

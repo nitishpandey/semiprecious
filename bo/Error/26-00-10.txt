@@ -1,0 +1,264 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(125): error CS1026: ) expected
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramnature.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:Error in: http://localhost:1776/myproject/centergraphics/Ramth_sunset11.jpg. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Could not find a part of the path 'D:\ASPProjects\myproject\centergraphics\select subfolder'.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx?file=nature.jpg&folder=Animals. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx?file=nature.jpg&folder=Animals. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(146): error CS0201: Only assignment, call, increment, decrement, and new object expressions can be used as a statement
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx?file=nature.jpg&SubfolderAnimals. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx?file=nature.jpg&SubfolderAnimals. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(146): error CS1955: Non-invocable member 'System.Uri.Query' cannot be used like a method.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx?file=nature.jpg&SubfolderAnimals. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx?file=nature.jpg&SubfolderAnimals. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(146): error CS0201: Only assignment, call, increment, decrement, and new object expressions can be used as a statement
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx?action=delete&file=nature.jpg&folder=Nature. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx?action=delete&file=nature.jpg&folder=Nature. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(140): error CS0103: The name 'foldername' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx?action=delete&file=nature.jpg&folder=Nature. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx?action=delete&file=nature.jpg&folder=Nature. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(140): error CS0103: The name 'foldername' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx?action=delete&file=th_sunset11.jpg&folder=Ram. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx?action=delete&file=th_sunset11.jpg&folder=Ram. Error Message:d:\ASPProjects\myproject\createfolder.aspx.cs(132): error CS0136: A local variable named 'SubFolderName' cannot be declared in this scope because it would give a different meaning to 'SubFolderName', which is already used in a 'parent or current' scope to denote something else
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Error in: http://localhost:1776/myproject/createfolder.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/css/index.css. Error Message:Error in: http://localhost:1776/myproject/css/index.css. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Scripts/AC_RunActiveContent.js. Error Message:Error in: http://localhost:1776/myproject/Scripts/AC_RunActiveContent.js. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/logo.gif. Error Message:Error in: http://localhost:1776/myproject/images/logo.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/home.gif. Error Message:Error in: http://localhost:1776/myproject/images/home.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/css/index_f.css. Error Message:Error in: http://localhost:1776/myproject/css/index_f.css. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/flowchart_product.gif. Error Message:Error in: http://localhost:1776/myproject/images/flowchart_product.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-1.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-1.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-2.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-2.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-3.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-3.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-4.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-4.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/freedownload.gif. Error Message:Error in: http://localhost:1776/myproject/images/freedownload.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/discount.gif. Error Message:Error in: http://localhost:1776/myproject/images/discount.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/go.gif. Error Message:Error in: http://localhost:1776/myproject/images/go.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/css/index.css. Error Message:Error in: http://localhost:1776/myproject/css/index.css. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Scripts/AC_RunActiveContent.js. Error Message:Error in: http://localhost:1776/myproject/Scripts/AC_RunActiveContent.js. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/logo.gif. Error Message:Error in: http://localhost:1776/myproject/images/logo.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/home.gif. Error Message:Error in: http://localhost:1776/myproject/images/home.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/flowchart_product.gif. Error Message:Error in: http://localhost:1776/myproject/images/flowchart_product.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/css/index_f.css. Error Message:Error in: http://localhost:1776/myproject/css/index_f.css. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-1.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-1.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-2.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-2.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-3.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-3.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-4.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-4.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/freedownload.gif. Error Message:Error in: http://localhost:1776/myproject/images/freedownload.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/discount.gif. Error Message:Error in: http://localhost:1776/myproject/images/discount.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/go.gif. Error Message:Error in: http://localhost:1776/myproject/images/go.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/EDrawMax.php. Error Message:Error in: http://localhost:1776/myproject/EDrawMax.php. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/css/index.css. Error Message:Error in: http://localhost:1776/myproject/css/index.css. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Scripts/AC_RunActiveContent.js. Error Message:Error in: http://localhost:1776/myproject/Scripts/AC_RunActiveContent.js. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:Error in: http://localhost:1776/myproject/js/flash_detect.js. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/logo.gif. Error Message:Error in: http://localhost:1776/myproject/images/logo.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/home.gif. Error Message:Error in: http://localhost:1776/myproject/images/home.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/css/index_f.css. Error Message:Error in: http://localhost:1776/myproject/css/index_f.css. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/flowchart_product.gif. Error Message:Error in: http://localhost:1776/myproject/images/flowchart_product.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-1.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-1.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-2.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-2.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-3.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-3.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-4.gif. Error Message:Error in: http://localhost:1776/myproject/images/examples/basic-flowchart-symbols-4.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/freedownload.gif. Error Message:Error in: http://localhost:1776/myproject/images/freedownload.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/discount.gif. Error Message:Error in: http://localhost:1776/myproject/images/discount.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/images/go.gif. Error Message:Error in: http://localhost:1776/myproject/images/go.gif. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/cd_catalog.xml. Error Message:Error in: http://localhost:1776/myproject/cd_catalog.xml. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/cd_catalog.xml. Error Message:Error in: http://localhost:1776/myproject/cd_catalog.xml. Error Message:File does not exist.
+__________________________
