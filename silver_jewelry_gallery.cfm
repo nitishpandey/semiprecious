@@ -1,5 +1,6 @@
  <cfcache  action="cache" timespan="#createtimespan(0,3,0,0)#" useQueryString="true">
  <cfif not isdefined("url.notmvc")><!--- specify this in url to skip using the V and M seperated files --->
+
 	<cfinclude template="silver_jewelry_gallery_slow.cfm" />
 <cfelse>
 <cftry>
@@ -1698,7 +1699,7 @@ if ( screensize is "small"){
                 </tr>
                 <div align="center" id="cart_summary" style="z-index:6;">
            </div>
-         
+
            <tr>
              <td>
                 <table id="container2"  cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 147px" align="center">
@@ -2578,7 +2579,7 @@ if ( screensize is "small"){
                 </tr>
                 <div align="center" id="cart_summary" style="z-index:6;">
            </div>
-         
+
            <tr>
              <td>
                 <table id="container2"  cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 147px" align="center">
@@ -3458,7 +3459,7 @@ if ( screensize is "small"){
                 </tr>
                 <div align="center" id="cart_summary" style="z-index:6;">
            </div>
-         
+
            <tr>
              <td>
                 <table id="container2"  cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 147px" align="center">
@@ -4338,7 +4339,7 @@ if ( screensize is "small"){
                 </tr>
                 <div align="center" id="cart_summary" style="z-index:6;">
            </div>
-         
+
            <tr>
              <td>
                 <table id="container2"  cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 147px" align="center">
