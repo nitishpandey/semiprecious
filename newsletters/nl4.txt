@@ -1,0 +1,11 @@
+
+read this newsletter carefully, here and by opening up nl4.txt on the site.
+then you can start writing out your nl4.txt (note txt) the 3rd newsletter. similarly you will 
+have to edit the nlheader.txt and nlfooter.txt. nlheader is required if you want to say something before you say hello brian,
+.If you want to start off directly with hello brian then nlheader is also not required. just keep it blank. similarly you can keep 
+nlfooter.txt (note txt extn) blank.
+Start this (nl4.txt) with a "return' or newline. and end with a return
+1. THis is item 1
+2.and this item 2 with a link <a href="http://www.semiprecious.com/topselling.cfm">best selling</a> jewelry.
+	- Thanks (here i gave a return on the keyboard)
+	

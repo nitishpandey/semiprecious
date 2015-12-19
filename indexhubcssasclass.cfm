@@ -364,4 +364,17 @@ category
 		</div>
 
 		
+	</div>> </a>
+						</div>
+&nbsp; 		
+								<a href="beaded_jewelry.cfm">	 <img src="http://www.semiprecious.com/images/earrings/thumb/13623.jpg" alt="custom silver jewellery">
+								 </a>
+							    		
+			<div> <font color="#606060">Beaded jewelry is as old as the human race. We borrow ideas from the ancient and the modern.</font>
+		    		</div>
+				</div>
+			</div>
+		</div>
+
+		
 	</div>

@@ -1,0 +1,1 @@
+<cfset subcat ='iolite' >  <cfinclude  template='stoneshub.cfm' > 

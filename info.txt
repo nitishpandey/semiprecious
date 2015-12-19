@@ -1,0 +1,15 @@
+
+# Contact info submission
+
+url: semiprecious.com/
+site_owner: Dynamic Web
+address1: 1215 Dexford dr
+address2: 
+city: Austin
+state: TX
+country: US
+postal_code: 78753
+phone_number: 5129897622
+display_email: anup@semiprecious.com
+site_name: Semiprecious.com
+site_description: Sells semiprecious stone jewelry items, including necklaces, earrings, and bracelets.

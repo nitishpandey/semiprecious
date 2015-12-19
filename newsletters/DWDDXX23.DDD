@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<cfquery datasource="semiprecious" name="q">
+select max(nlstatus) as nl from memberinfo 
+</cfquery>
+<cfoutput query="q">..#q.nl#..</cfoutput>
+</body>
+</html>

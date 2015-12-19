@@ -24,7 +24,7 @@
 				<tr valign=top >
 					<td align=left width=360>
 						<a href=http://www.semiprecious.com/jewelry-sale.cfm>
-							<img src="/images/center_pics/gemstone-jewelry.jpg" width="360" height="162" border="0" alt='gemstone sterling silver jewelry' />
+							<img src="/images/center_pics/scarlet.jpg" width="400" height="340" border="0" alt='gemstone sterling silver jewelry' />
 						</a>
 					</td>
 					<td  align=left Class="bradley_big">
@@ -34,7 +34,7 @@
 									Authentic gemstone jewelry in sterling silver
 								</li>
 								<li>
-									Over 18000 designs of silver jewelry and over
+									Over 4000 designs of silver jewelry and over
 									<br>
 									80 types of gemstone beads
 								</li>
