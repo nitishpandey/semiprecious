@@ -1,0 +1,145 @@
+/* CSS Document */
+.row1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	vertical-align: bottom;
+	horizontal-align:center;
+	position: relative;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-right-color: #CCCCFF;
+	border-bottom-color: #CCCCFF;
+	border-left-color: #CCCCFF;
+	border-top-color: #CCCCFF;
+	text-align: center;
+}
+.row2b {
+	font: normal 14px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+        color: #000000;
+background-color: #D3D3AA;
+	border-top-width: 0px;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-color: #C3C3A3;
+	border-bottom-color: #D3D3AA;
+	border-left-color: #C3C3A3;
+	border-top-color: #D3D3AA;
+	text-align: justify;
+	vertical-align: top;
+         padding-top: 0px;
+	padding-right: 3px;
+	padding-bottom: 0px;
+	padding-left: 3px;
+}
+.row2 {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+        color: #000000;
+background-color: #CCCCCC;
+	border-top-width: 0px;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-color: #CCCCFF;
+	border-bottom-color: #CCCCFF;
+	border-left-color: #CCCCFF;
+	border-top-color: #CCCCFF;
+	text-align: justify;
+	vertical-align: top;
+         padding-top: 0px;
+	padding-right: 3px;
+	padding-bottom: 0px;
+	padding-left: 3px;
+}
+.row2s {
+	font: normal 10px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+        color: #000000;
+background-color: #D3D3AA;
+	border-top-width: 0px;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-color: #C3C3A3;
+	border-bottom-color: #D3D3AA;
+	border-left-color: #C3C3A3;
+	border-top-color: #D3D3AA;
+	text-align: justify;
+	vertical-align: top;
+         padding-top: 0px;
+	padding-right: 3px;
+	padding-bottom: 0px;
+	padding-left: 3px;
+}
+.row3 {
+	font: italic normal 12px Arial, Helvetica, sans-serif;
+	text-transform: none;
+	color: #FFFFFF;
+	background-color: #CCCCCC;
+	border-top-width: 0px;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-right-color: #CCCCFF;
+	border-bottom-color: #CCCCFF;
+	border-left-color: #CCCCFF;
+	text-align: center;
+	vertical-align: top;
+	background-position: center top;
+	letter-spacing: normal;
+	word-spacing: normal;
+	white-space: normal;
+	height: 12px;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	border-top-color: #CCCCFF;
+
+}
+.row12 {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	background-color: #FFFFFF;
+	padding: 1px 1px 1px 3px;
+	border-right-width: thin;
+	border-left-width: thin;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #CDCD9A;
+	border-right-color: #CDCD9A;
+	border-bottom-color: #FF0000;
+	border-left-color: #CDCD9A;
+	border-top-width: thin;
+	border-bottom-width: thin;
+	text-align: center;
+	vertical-align: middle;
+
+
+}

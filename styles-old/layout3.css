@@ -1,0 +1,196 @@
+body {
+	color: #006666;
+	background-color:white;
+	margin:2px 2px;
+	padding:0px;
+	font:11px verdana, arial, helvetica, sans-serif;
+	}
+h1 {
+	margin:0px 0px 15px 0px;
+	padding:0px;
+	font-size:28px;
+	font-weight:900;
+	color:#ccc;
+	}
+h2 {
+	font:bold 12px/14px verdana, arial, helvetica, sans-serif;
+	margin:0px 0px 5px 0px;
+	padding:0px;
+	}
+p {
+	font:11px/20px verdana, arial, helvetica, sans-serif;
+	margin:0px 0px 2px 0px;
+	padding:0px;
+	}
+.Content>p {margin:0px;}
+.Content>p+p {text-indent:10px;}
+a {
+	color: #006666;
+	font-size:11px;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-weight:400;
+	text-decoration:none;
+	}
+a:link {color: #006666}
+a:visited {color:#666600;}
+a:hover {	text-decoration:underline;
+color:#000;}
+  
+
+/* All the content boxes belong to the content class. */
+.contenttop>a:link{color:#FFF;}
+.content {
+	position:relative; /* Position is declared "relative" to gain control of stacking order (z-index). */
+	width:300;
+		margin: 80px 132px; /* only two values means top+bottom, left+right */
+	border:1px none #666600;
+	background-color:white;
+	padding:4px;
+	z-index:3; /* This allows the content to overlap the right menu in narrow windows in good browsers. */
+	}
+.thumb {
+	position:relative;
+	margin: 1px;
+	vertical-align: middle;
+	display: block;
+	z-index: auto;
+	width: auto;
+	height: 122px;
+	overflow: auto;
+	padding-top: 1px;
+	padding-right: 2px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	text-align: center;
+	
+
+
+	}
+
+.toplogo {
+	position:absolute; /* Position is declared "relative" to gain control of stacking order (z-index). */
+	width:100;
+	top:2px;
+	left:2px;
+	margin: 2px 2px; /* only two values means top+bottom, left+right */
+	border:1px none #666600;
+	background-color:white;
+	padding:2px; /* this with margin effects position */
+	z-index:3; /* This allows the content to overlap the right menu in narrow windows in good browsers. */
+	}
+.contenttop {
+	position:absolute;
+	width:800;
+	top:2px;
+	right:10px;
+	margin: 2px 2px;
+	border:2px thick #006666;
+	background-color:#EFEFFF;
+	padding:2px;
+	
+	font: 12px/normal Arial, Helvetica, sans-serif;
+	
+	}
+	.stoneslist {
+	position:absolute;
+	visibility:hidden;
+	background-color:#EFEFFF;
+	left:10px;
+	top:19px;
+	width:700px;
+	z-index:4;
+	border-top: none;
+	border-right: medium ridge #003366;
+	border-bottom: medium ridge #003366;
+ border-left: medium ridge #003366; 
+	text-align: justify;
+
+	}
+	.categories {
+	position:absolute;
+	width:900;
+	top:48px;
+	left:2px;
+	margin: 2px 2px;
+	border:2px thick #006666;
+	background-color:#EFEFFF;
+	padding:2px 20px 2px 20px;
+	font: 12px/normal Arial, Helvetica, sans-serif;
+z-index:4;
+	text-align: center;
+	}
+
+#navAlpha {
+	position:absolute;
+	width:100px;
+	top:80px;
+	left:2px;
+	padding:1px 1px 4px 1p;
+	border:2px thick #006666;
+	background-color:#EFEFFF;
+	color: #006666;
+/* Here is the ugly brilliant hack that protects IE5/Win from its own stupidity. 
+Thanks to Tantek Celik for the hack and to Eric Costello for publicizing it. 
+IE5/Win incorrectly parses the "\"}"" value, prematurely closing the style 
+declaration. The incorrect IE5/Win value is above, while the correct value is 
+below. See http://glish.com/css/hacks.asp for details. */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width:125px;
+	}
+/* I've heard this called the "be nice to Opera 5" rule. Basically, it feeds correct 
+length values to user agents that exhibit the parsing error exploited above yet get 
+the CSS box model right and understand the CSS2 parent-child selector. ALWAYS include
+a "be nice to Opera 5" rule every time you use the Tantek Celik hack (above). */
+body>#navAlpha {width:125px;}
+		
+#navBeta {
+	position:absolute;
+	width:125px;
+	top:80px;
+	right:1px;
+font: 12px/normal Arial, Helvetica, sans-serif;
+	border:2px thick #006666;
+	background-color:#EFEFFF;
+	color: #006666;
+	padding:2px;
+	/* Again, the ugly brilliant hack. */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width:125px;
+	}
+/* Again, "be nice to Opera 5". */
+body>#navBeta {width:125px;}
+
+
+#Header {
+  position:absolute;
+  left: 16px;
+  top:3px;
+/*	margin:2px 0px 2px 0px; */
+	padding:2px 0px 6px 2px;
+	/* For IE5/Win's benefit height = [correct height] + [top padding] + [top and bottom border widths] */
+	height:80px; /* 14px + 17px + 2px = 33px */
+	border-style:solid;
+	border-color:black;
+	border-width:1px 1px; /* top and bottom borders: 1px; left and right borders: 0px */
+	line-height:11px;
+	background-color:#efeff;
+
+/* Here is the ugly brilliant hack that protects IE5/Win from its own stupidity. 
+Thanks to Tantek Celik for the hack and to Eric Costello for publicizing it. 
+IE5/Win incorrectly parses the "\"}"" value, prematurely closing the style 
+declaration. The incorrect IE5/Win value is above, while the correct value is 
+below. See http://glish.com/css/hacks.asp for details. */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	height:80px; /* the correct height */
+
+	}
+.thumb>img { padding: 2px ; border: 2px medium #66CCCC;
+}
+/* I've heard this called the "be nice to Opera 5" rule. Basically, it feeds correct 
+length values to user agents that exhibit the parsing error exploited above yet get 
+the CSS box model right and understand the CSS2 parent-child selector. ALWAYS include
+a "be nice to Opera 5" rule every time you use the Tantek Celik hack (above). */
+body>#Header {height: 80px;}

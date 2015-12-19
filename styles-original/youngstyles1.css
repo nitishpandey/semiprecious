@@ -1,0 +1,549 @@
+h3 {
+margin-top:4px;
+margin-left:10px;
+margin-bottom:4px;
+display:inline;
+font-color:#666666;
+color:#666666;
+font-size:14px;
+font-weight: normal;
+}
+h4 {
+margin-top:4px;
+font-weight: normal;
+margin-left:6px;
+margin-bottom:4px;
+display:inline;
+font-color:#666666;
+color:#666666;
+text-transform:none;
+}
+#jumpstart {
+
+
+	padding:2px;
+		
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #000066;
+	background-color: #AAAAFF;
+	text-decoration:none;
+	border: ridge #000066;
+	width: 250px;
+	
+}
+#jumpstartblinder {
+	position: absolute;
+	left: 279px;
+	padding:2px;
+	z-index:3;
+	top: 121px;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #000066;
+	background-color: #FFFFFF;
+	text-decoration:none;
+	width: 282px;
+	}
+/*  will be made visisble by mousedown on More sentence */
+/* it should be above the necklaces stones list layer etc. */
+.stoneslist {
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #666600;
+	background-color: #F2F2C2;
+	text-decoration:none;
+	position: absolute;
+	z-index: 3;
+	left: 280px;
+	padding:2px;
+	top: 80px;
+	text-align: justify;
+	border: ridge #000066;
+	width: 450px;
+	
+	visibility:hidden;
+	text-transform:capitalize;
+	
+}
+#ourcollection {
+	position:absolute;
+	top:900px;
+	padding-right:130px;
+	padding-left:120px;
+	background-image: url(images/semipreciousmat.jpg);
+	left: 20;
+
+
+
+}
+tr.title {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #339999;
+	background-color: #CCCCCC;
+	line-height: 18px;
+	word-spacing: 6em;
+	text-align: justify;
+
+
+
+}
+.whiteonred {
+color:#FF0000 ;
+	background-color: #FFFFFF;
+	border: none ;
+	text-transform: capitalize;
+}
+.category {
+	font: bold 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color: #000000;
+	
+}
+.whiteonred:hover {
+	font: bold 12px Arial, Helvetica, sans-serif, capitalize;
+	text-transform: capitalize;
+	color: #FFFFFF;
+	background-color: #CC3300;
+	border: thin outset #CC3333;
+	
+}
+.cart {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFCC00;
+	font-weight: bold;
+	text-decoration: underline;
+
+
+	
+}
+.cart:hover {
+color: #FFFF00;
+}
+a {
+color:white;
+	font-family: Arial, Helvetica, sans-serif;
+		filter: Glow(Color=#FF0000, Strength=1);
+			/*	text-decoration:underline; */
+}
+a:hover {
+	color: yellow;text-decoration:none;
+
+}
+.banner {
+	font-size: 18px;
+	color: #FFFF00;
+	cursor: crosshair;
+	filter: Gray;
+	font-family: "Times New Roman", Times, serif;
+	letter-spacing: normal;
+	text-align: justify;
+	word-spacing: normal;
+
+
+
+
+}
+.imgdiv1 {
+	position: static;
+	visibility: hidden;
+	z-index: 1;
+	overflow: auto;
+	left: auto;
+	top: auto;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #333399;
+	border-top-style: none;
+	border-right-style: inset;
+	border-bottom-style: inset;
+	border-left-style: none;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #FFFFFF;
+
+
+
+}
+.tdcenter {
+	background-color: #FFFFFF;
+	vertical-align: baseline;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #000000;
+
+}
+table {
+	font: normal 14px "Times New Roman", Times, serif;
+	color: #333333;
+	word-spacing: normal;
+	letter-spacing: normal;
+	border: thin none #666600;
+
+
+}
+.error1 {
+	font: bold 16px "Times New Roman", Times, serif;
+	color: #FF0000;
+	text-decoration: underline;
+	border-top: thin none #FFFFFF;
+	border-right: thin none #FFFFFF;
+	border-bottom: thin none #FFFFFF;
+	border-left: thin none #FFFFFF;
+
+}
+tr.title:hover {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #227777;
+	background-color: #33CCCC;
+	filter: Gray;
+
+}
+.details {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #336666;
+	font-size: 12px;
+
+}
+.unnamed1 {
+	font: 14px  Arial, Helvetica, sans-serif;
+	color: #000000;
+		
+}
+.greenbutton {
+		font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	background-color: #003366;
+	cursor: hand;
+}
+
+input[type=button] {
+	font:  12px Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	text-translation: capitalize;
+	background-color: #003366;
+}
+#home {
+	background-color: white;
+	color:black;
+	border:1px black;
+}
+#necklaces{
+	color:white;
+	background-color: #003366;
+
+}
+#bracelets {
+color:white;
+}
+#earrings {
+color:white;
+}
+#pendants {
+color:white;
+}
+#contactus {
+color:white;
+}
+#spacer {
+color:white;
+}
+#products {
+color:Yellow;
+font-wieght: bold;
+}
+.youngbutton {
+		font-family: Arial, Helvetica, sans-serif;
+	color: yellow;
+	background-color: #225588;
+	cursor: hand;
+}
+.headerfont {
+
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+.headerfontsmall {
+
+
+	font: 10px "Times New Roman", Times, serif;
+	color: #000000;
+}
+
+.leftstonelist {
+	font: 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	text-indent:1px;
+	color: #000000;
+	background-color: #003366;
+	vertical-align: middle;
+	border-top-style: none;
+	border-right:1px ridge #666666;
+	border-bottom: 1px groove #EEEEEE;
+	/* border-left: thin groove #000066; */
+	padding-top: 1px;
+	padding-bottom:1px;
+	padding-left:1px;
+	text-decoration:none;
+
+}
+.leftstonelist  a {
+text-decoration : none;
+}
+.topnavigator {
+	font: 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	text-indent:1px;
+	color: #000000;
+	background-color: #003366;
+	vertical-align: middle;
+	border-right: thin none #000066;
+	border-bottom: thin none #000066;
+	border-top: thin none #000066;
+	border-left: thin none #000066;
+	padding-top: 1px;
+	padding-bottom:1px;
+
+}
+.leftstonelist:hover {
+	color: #000066;
+	background-color: #FFFFFF;
+	}
+.inputtext {
+	border: thin groove #006666;	font-family: Arial, Helvetica, sans-serif;
+		background-color: #003366;
+color: #ffffff;
+	cursor: hand;
+}
+.categoryanchor {
+	text-transform: capitalize;
+	color: #FFFFFF;
+	font-family: "Calisto MT", Elephant;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	/* display: none; */
+
+
+}
+.categoryanchor:hover {
+	text-decoration: none;
+}
+
+.stonelist>a { 	text-decoration:none;text-transform:capitalize;
+}
+.stoneslist:hover {
+	color: #cccc99;
+	text-decoration:underline;
+	background-color: #FFCC33;
+
+}
+.softbluebg {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color: #333366;
+}
+/* CSS Document */
+.row1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	vertical-align: bottom;
+	horizontal-align:center;
+	position: relative;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-right-color: #003366;
+	border-bottom-color: #003366;
+	border-left-color: #003366;
+	border-top-color: #003366;
+	text-align: center;
+	left: 0px;
+	top: 0px;
+
+
+}
+.row2b {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color: #000000;
+	background-color: #003366;
+	text-align: left;
+	vertical-align: top;
+	text-decoration: none;
+	border: thin solid #666600;
+	padding: 1px;
+
+
+}
+.row2 {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+    background-color: #003366;
+    color: #FFFFFF;
+	border-top-color: black;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: ridge;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	text-align: justify;
+	vertical-align: top;
+         padding-top: 2px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+}
+.row2s {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	text-transform: none;
+	color: #000000;
+	background-color: #FFFFFF;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-color: #003366;
+	vertical-align: middle;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-right-color: #003366;
+
+}
+.row3 {
+	font: italic normal 12px Arial, Helvetica, sans-serif;
+	text-transform: none;
+	color: #FFFFFF;
+	border-top-width: 0px;
+	border-right-width: thin;
+	border-bottom-width: 0px;
+	border-bottom-style: ridge;
+	border-bottom-color: #E3E3BA;
+	border-left-width: 0px; /*
+	 background-color: #DADABA;*/
+	border-top-style: none;
+	border-right-style: solid;
+	
+	border-left-style: none;
+	border-right-color: #FFFFFF;
+	
+    color: #000000;
+	border-left-color: #FFFFFF;
+	text-align: center;
+	vertical-align: top;
+	background-position: center top;
+	letter-spacing: normal;
+	word-spacing: normal;
+	white-space: normal;
+height: 12px;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+
+	background-image: url(../images/bggreen2.gif);
+	background-repeat: repeat-x;
+
+}
+.row12 {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	background-color: #FFFFFF;
+	padding: 1px 1px 1px 3px;
+	text-align: justify;
+	vertical-align: middle;
+	border: medium groove #CDCD9A;
+	color: #666666;
+
+
+
+
+}
+.row3upside {
+	font: italic normal 12px Arial, Helvetica, sans-serif;
+	text-transform: none;
+	color: #FFFFFF;
+	text-align: center;
+	vertical-align: top;
+	background-position: center bottom;
+	letter-spacing: normal;
+	word-spacing: normal;
+	white-space: normal;
+	height: 12px;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	background-image: url(../images/bggreen1.gif);
+	background-repeat: repeat-x;
+	border: 0px none #FFFFFF;
+}
+.row2l {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color: #000000;
+	background-color: #FFFFFF;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	text-align: center;
+	vertical-align: bottom;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-right-color: #003366;
+}
+.row3t {
+	text-transform: capitalize;
+	color: #000000;
+	border-top-width: 0px;
+	border-right-width: thin;
+	border-bottom-width: 0px;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #003366;
+	border-left-color: #FFFFFF;
+	text-align: left;
+	vertical-align: top;
+	background-position: center top;
+	letter-spacing: normal;
+	word-spacing: normal;
+	white-space: normal;
+	height: 12px;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	background-image: url(../images/bggreen2.gif);
+	background-repeat: repeat-x;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+
+}
