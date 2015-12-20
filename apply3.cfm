@@ -1,11 +1,11 @@
 ﻿<cftry>
-<cfparam default="" name="url.email">	
+<cfparam default="" name="url.email">
 <cfparam default="#urldecode(url.email)#" name="form.email" />
 
 <cfparam default="0" name="form.noofvisits">
 
 <cfset title="Registered For Newsletters and Cash Back" />
-<CFINCLUDE TEMPLATE="/header#session.country#.cfm">  
+<CFINCLUDE TEMPLATE="/header#session.country#.cfm">
 <div id="container2" style="margin-top:30px">
 <table   cellspacing="0" cellpadding="0" border="0" >
   <tr  align="center">
@@ -17,39 +17,39 @@
 
 <cfset form.email = trim(form.email)>
 <CFQUERY DATASOURCE="gemssql" NAME="login">
-    SELECT 
+    SELECT
     phonenumber,nlstatus
-    FROM memberinfo WHERE email='#form.email#' 
+    FROM memberinfo WHERE email='#form.email#'
     </CFQUERY>
 
 <CFQUERY  DATASOURCE="gemssql" NAME="login2">
-    SELECT email 
-    FROM bulkbuyers WHERE email='#form.email#' 
+    SELECT email
+    FROM bulkbuyers WHERE email='#form.email#'
     </CFQUERY>
 
 <!--- Account already exists --->
 <CFIF login.recordcount  or login2.recordcount >
-<div class="error">  
+<div class="error">
             <p>
-                An account already exists in the system for (<cfoutput>#form.email#</cfoutput>). Either 
-                you have already signed up with us or you need to check the email address. 
+                An account already exists in the system for (<cfoutput>#form.email#</cfoutput>). Either
+                you have already signed up with us or you need to check the email address.
         </p>
-      <a href="apply.cfm"  >Click here to try again</a>  
+      <a href="apply.cfm"  >Click here to try again</a>
   </div>
   <!--- New account --->
-  <CFELSE> 
+  <CFELSE>
                       <cfset country_name= "na" />
 				<cfif isdefined("form.country") >
   						<cfinvoke component="countryresolver" method="get_country_name" returnvariable="country_name" >
   							<cfinvokeargument name="code" value="#form.country#">
-  						</cfinvoke>  
+  						</cfinvoke>
 				  </cfif>
 				  <cfset form.country = lcase(country_name) />
 				<cfif form.country is "india" and session.country is "india">
 				    <cfset initial_credit = 200/value_convert(1) />
 				<cfelse>
 				    <cfset initial_credit = 10 />
-				
+
 				</cfif>
 <!--- got an error when trying to sign up people when got input from paypal. Seems form.zip was missing in our invocation page --->
 <cfparam name="form.zip" default="paypal miss" />
@@ -76,13 +76,13 @@
 <cfif signedup>
 	<CFQUERY DATASOURCE="gemssql">
 		update memberinfo set moa = '#form.moa#', mob = '#form.mob#', doa = #form.doa#, dob = #form.dob# where memberinfo.email = '#form.email#'
-	</CFQUERY> 
-    
+	</CFQUERY>
+
 	   <cfif len(form.friend1) and find('@',form.friend1)>
 	  <cfinvoke component="invitationandcredit" method="invite" returnvariable="f" >
 		<cfinvokeargument name="byemail" value="#form.email#"  >
 		<cfinvokeargument name="email" value="#form.friend1#"  >
-		<cfinvokeargument name="creditpart" value="#Application.friendcredit#"   >
+		<cfinvokeargument name="creditpart" value="#Application.friend_credit#"   >
 		<cfinvokeargument name="sendmail" value="1"  >
 		</cfinvoke>
 	</cfif>
@@ -90,21 +90,21 @@
 	  <cfinvoke component="invitationandcredit" method="invite" returnvariable="f" >
 		    <cfinvokeargument name="byemail" value="#form.email#"  >
 		<cfinvokeargument name="email" value="#form.friend2#"  >
-		<cfinvokeargument name="creditpart" value="#Application.friendcredit#"   >
+		<cfinvokeargument name="creditpart" value="#Application.friend_credit#"   >
 		<cfinvokeargument name="sendmail" value="1"  >
 	</cfinvoke>
     </cfif>
 
-  
+
 <br>
-<div  align="center">  <h2>Congratulations! Your sign up completed. 
+<div  align="center">  <h2>Congratulations! Your sign up completed.
   </h2><br><br>
-     </div> 
+     </div>
   <cfelse>
   <div  align="center">  <h2>Some Error in recording information. Please write to us and we will fix it.</h2><br><br>
-     </div> 
- 
-   
+     </div>
+
+
    </cfif>
 
 
@@ -114,20 +114,20 @@
   <cftry>
     <cfinclude template="newsletters/cfmailnewsletters.cfm">
     <cfcatch type="any">
-      Newsletter could not be mailed immediately....will be mailed a while later. 
+      Newsletter could not be mailed immediately....will be mailed a while later.
     </cfcatch>
   </cftry>
 </cfsilent>--->
 <!---   <cfinclude template="newsletters/newsletters.cfm"> --->
 
 </CFIF>
-		
+
 </div>
 <div style="width:420px" class=" _box">
 					  <div class="grayplacard" style="margin-bottom: 20px; text-align: left;font-weight: bold">Signin </div>
 		    <form onsubmit="return _CF_checkCFForm_1(this)" method="POST" action="/login.cfm" id="form1">
-					<div class="form_label">  Email Id: <input type="text" class="form_input" size="30"   id="email" name="email"></div> 
-		 <input type="submit" value="Login" class="action_button" name="submit"> 
+					<div class="form_label">  Email Id: <input type="text" class="form_input" size="30"   id="email" name="email"></div>
+		 <input type="submit" value="Login" class="action_button" name="submit">
 		    </form>
 
 		</div>
@@ -142,10 +142,10 @@
 </div>
 	<cfif len(form.email)>
 <script language="javascript" type="text/javascript">
-	<!-- 
-	
+	<!--
+
 	document.getElementById('form1').submit();
-		
+
 	// -->
 		</script>
 </cfif>
@@ -157,7 +157,7 @@
 <div class="component_box"><a class="login_link" href="/simpleloginform.cfm">You are signed up now! Click here to login</a>
 </div>
          <cfmail cc="nitish@semiprecious.com" to="anup@semiprecious.com"  subject="Error at confirmation" from="cs@semiprecious.com"> --->
- not completed login.   
+ not completed login.
 <cfdump var="#cfcatch.TagContext#"><cfoutput>       #cfcatch.Detail#, #cfcatch.Type#,,#cfcatch.Message# [#form.email#]</cfoutput>
  </cfmail>
 </cfcatch>

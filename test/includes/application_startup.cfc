@@ -17,7 +17,7 @@
 		<cfscript>
 			application.paymode_stage1 = 'pp,auth.net,ccavenu,arb1,AUTH.NET,ichck,goog,chck,authphone,ebs';
 			application.paymode_shipped = 'paypal,wellscc,ccav,ichk,google,check,wellsphone,eebeess';
-			application.friendcredit = 7.5; // this needs to be stored in the db with the user sign on
+			application.friend_credit = 7.5; // this needs to be stored in the db with the user sign on
 			application.cat_list = "gems,rings,earrings,pendants,brooches,necklaces,bracelets,anklets,beads,chains,healing,cufflinks";
 			application.category_list = application.cat_list;
 			application.friend_credit = 7.5;
@@ -43,7 +43,7 @@
 
 
 
-			application.wholesale_guest = 'guest@wholesale.com';
+		  application.wholesale_guest = 'guest@wholesale.com';
 
 			application.retail_free_shipping = 50;
 			application.variety_count = 9272;
@@ -53,7 +53,7 @@
 			application.bg_image = "/images/header_bg.jpg";
 			application.live_support = 0;
 			application.color_list = "black,blue,brown,green,gray,multi-color,orange,pink,purple,red,white,yellow";
-			application.admin_email = "acematnari@vsnl.com";
+			application.admin_email = "anupstacy@gmail.com";
 			application.exch["india"] = 27.5;
 			application.exch["row"] = application.exchangerate;
 		 Application.nlerrorcount = 5 ;

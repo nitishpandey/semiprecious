@@ -1,10 +1,10 @@
 <cftry>
 <CFAPPLICATION name="semiprecious" clientmanagement="no" sessionManagement="yes" setclientcookies="yes"  sessionTimeOut="#CreateTimeSpan(0,6,0,0)#"   />
 <cferror exception="any"  type="exception" template="exceptionerrorhandler.cfm">
-<cferror  type="request" template="requesterrorhandler.cfm"> 
+<cferror  type="request" template="requesterrorhandler.cfm">
 <cfparam default="0911125919043" name="application.indiaphone" type="numeric" />
 <cfscript>
-application.friendcredit = 7.5 ;
+application.friend_credit = 7.5 ;
 Application.jandjcontact = '512 355 1095 (USA)';
 Application.jngcontact = '512 355 1095 (USA)';
  application.tollfree = '1866-8197692'  ;
@@ -242,7 +242,7 @@ Select distinct stone as  subcat from CatSubCatInStock where ( cat = 'Anklets') 
 
 
 <!--- the list of silverstones is hardcoded, hence may need revsion from time to time. run getsilverstones.cfm for seeing the list --->
-<cfset application.silverstones ="amethyst,garnet,goldstone,peridot,bead,smokey topaz,aventurine,jade,blue topaz,moonstone,carnelian,chain-,chalcedony,citrine,mixed stones,iolite,sandstone,zirconia,labrodite,lapis lazuli,malachite,aquamarine,onyx,moss agate,pearl,rose quartz,amber,tiger eye,turquoise,tourmaline"> 
+<cfset application.silverstones ="amethyst,garnet,goldstone,peridot,bead,smokey topaz,aventurine,jade,blue topaz,moonstone,carnelian,chain-,chalcedony,citrine,mixed stones,iolite,sandstone,zirconia,labrodite,lapis lazuli,malachite,aquamarine,onyx,moss agate,pearl,rose quartz,amber,tiger eye,turquoise,tourmaline">
 <cfset application.active = 1>
 </cfif>
 
@@ -266,13 +266,13 @@ Select distinct stone as  subcat from CatSubCatInStock where ( cat = 'Anklets') 
 <cfset session.comingfom = "Notknown" >
 		</CFIF>
 <cfif isdefined("cgi.QUERY_STRING")>
-		
+
 		<cfset session.thispage = mid(getbasetemplatepath(),25,25) &  "?" & urldecode(CGI.QUERY_STRING) & urldecode(CGI.pathinfo)>
 		<cfelse>
 				<cfset session.thispage = mid(getbasetemplatepath(),25,25) &  "?"  & urldecode(CGI.pathinfo)>
 	</cfif>
-</cfif> 
-		
+</cfif>
+
 <CFIF not isDefined("session.edit")>
 	<CFSET session.edit="">
 
@@ -286,7 +286,7 @@ Select distinct stone as  subcat from CatSubCatInStock where ( cat = 'Anklets') 
 
 <CFIF not isDefined("session.priceless")>
 	<CFSET session.priceless="">
-	
+
 </CFIF>
 
 
@@ -337,4 +337,4 @@ Hmmm #cfcatch.Detail# #cfcatch.Message# #cfcatch.Type#
 
 </cfcatch>
 </cftry>
- 
+
