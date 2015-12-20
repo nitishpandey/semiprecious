@@ -697,7 +697,8 @@
 
 						  <cfcatch type="any">
 							         <cfdump var="#cfcatch#" />
-                                    <cflocation url="/OnNoImage.cfm?newitem=#newitem#" statuscode="302" />
+							         <cfabort />
+                                    <cflocation url="/OnNoImage.cfm?line=1&amp;newitem=#newitem#" statuscode="302" />
                                 </cfcatch>
                             </cftry>
                             <cfif wd.height GT 350 >
@@ -728,6 +729,8 @@
                                                             <cfimage source="#application.rootfolder#/images/#folder#/#imagename#" action="info" structname="og" />
                                                         </cfif>
                                                     <cfcatch type="any">
+														 <cfdump var="#cfcatch#" />
+							         <cfabort />
                                                             <cflocation url="/OnNoImage.cfm?newitem=#newitem#" statuscode="302"  />
                                                         </cfcatch>
                                                     </cftry>
