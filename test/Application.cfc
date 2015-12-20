@@ -11,12 +11,11 @@
 <cfcomponent displayname="Application" output="false" hint="Handle the application.">
 
 	<!--- Set up the application. --->
-<CFIF cgi.server_name contains 'www.'>
-	<cfset THIS.Name = "wwwsemiprecious" />
-<cfelse>
-	<cfset THIS.Name = "semiprecious" />
-</cfif>
-
+	<CFIF cgi.server_name contains 'www.'>
+		<cfset THIS.Name = "wwwsemiprecious" />
+	<cfelse>
+		<cfset THIS.Name = "semiprecious" />
+	</cfif>
 	<cfset THIS.ApplicationTimeout = CreateTimeSpan( 1, 0, 0, 0 ) />
 	<cfset THIS.SessionManagement = true />
 	<cfset THIS.Sessiontimeout= CreateTimeSpan( 0, 1, 30, 0 ) />
@@ -32,16 +31,14 @@
 		hint="Fires when the application is first created.">
 		<!--- Return out. --->
 		<cfset application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath()) />
-		<cfinclude template="/includes/application_startup.cfm" />
-		<cfset application.tollfree = '<font color="purple">512-666-GEMS(4367)</font>' />
-
+		<cfobject component="includes.application_startup" name="application_startup"   />
+		<cfset var k = application_startup.init() />
 		<cfreturn true />
 	</cffunction>
 
 	<cffunction name="OnSessionStart"	access="public" returntype="void"
 		output="false"
 		hint="Fires when the session is first created.">
-
 		<!--- TODO: 01 Nov 2014 geoip component not found
 			<cfif Not IsDefined('session.getCountry')>
 			<cfinvoke component="geoip" method="ip2country" returnvariable="qCountry">
@@ -59,36 +56,33 @@
 			<cfset session.sale_factor = 1 />
 			<cfset session.getCountry = 'US' />
 		</cfif>
-	</cfif>
-	--->
-	<cfset session.currency = '$'>
-	<cfset session.country=''>
-	<cfset session.sale_factor = 1 />
-	<cfset session.getCountry = 'US' />
+		</cfif> --->
+		<cfset var k = abort_if_translator() />
+
 		<cftry>
-			<cfinclude template="/includes/session_start.cfm" />
+			<cfobject component="includes.session_start" name="session_start"   />
+			<cfset var k = session_start.init() />
 			<cfif not isdefined("session.mail")>
 				<cfset session.mail = "" />
 			</cfif>
 			<cfcatch type="any">
 				<!--- we were getting error because of upcountry asps being removed. Swallowing the error for now
-				<cfdump var="#cfcatch#" />---->
+					<cfdump var="#cfcatch#" />---->
 				<cfif not isdefined("session.mail")>
 					<cfset session.mail = "" />
 				</cfif>
 			</cfcatch>
 		</cftry>
 		<cfif not cgi.QUERY_STRING contains 'asd123' >
-	<cfif len(session.bulkbuyer.id)>
-		<cfset session.tld = 'semipreciouswholesale.com' />
-		<!---<cfelseif session.country is 'india'>
-			<cfset session.tld = 'semiprecious.in' />--->
-	<cfelse>
-		<cfset session.tld = 'semiprecious.com' />
-	</cfif>
-</cfif>
+			<cfif len(session.bulkbuyer.id)>
+				<cfset session.tld = 'semipreciouswholesale.com' />
+				<!---<cfelseif session.country is 'india'>
+					<cfset session.tld = 'semiprecious.in' />--->
+			<cfelse>
+				<cfset session.tld = 'semiprecious.com' />
+			</cfif>
+		</cfif>
 		<!--- Return out. --->
-
 		<cfreturn />
 	</cffunction>
 
@@ -113,6 +107,7 @@
 			when the message should be sent and put that in a messages to be sent table.
 			Another cron job can process this queue every 5 minutes.
 			--->
+		<cfset var k = abort_if_translator() />
 		<cfparam name='cfh' default="" />
 		<cfparam name='display' default="900" />
 		<cfparam name="nextshipdate" default="" />
@@ -131,17 +126,19 @@
 		<cfreturn true />
 	</cffunction>
 
-<!--- 	<cffunction	name="OnRequest" access="public"
+	<!---
+ 	<cffunction	name="OnRequest" access="public"
 		returntype="void"
 		output="true"
 		hint="Fires after pre page processing is complete.">
 		<!--- Define arguments. --->
-		<cfargument name="TargetPage"
-			type="string"
-			required="false"
-			/>
-		<cfreturn />
-	</cffunction> --->
+	<cfargument name="TargetPage"
+		type="string"
+		required="false"
+		/>
+	<cfreturn />
+	</cffunction>
+ --->
 
 	<cffunction name="OnRequestEnd"		access="public"
 		returntype="void"
@@ -210,7 +207,11 @@
 		<cfreturn />
 	</cffunction>
 
-
+	<cffunction returntype="void" access="private" description="checks rogue bots from eating up bandwidth and stealing content" displayname="stop_if_translator" name="abort_if_translator">
+		<cfif cgi.HTTP_USER_AGENT contains 'translate'>
+			<cfabort />
+		</cfif>
+	</cffunction>
 
 	<cffunction name="DateTimeFormat"
 		access="public"

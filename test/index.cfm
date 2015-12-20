@@ -223,5 +223,5 @@
 	<div style="position:absolute;background-image:url(/images/horizontalgrad.gif);top:0px;left:800px;height:900px;width=#balance#px;">&nbsp;</div>
 	</cfoutput> --->
 	<cfcatch type="any">
-	<cfdump var="#cfcatch#"></cfdump></cfcatch>
+	<cfdump var="#cfcatch#"></cfcatch>
 </cftry>

@@ -8,11 +8,12 @@
 							<!--- cannot put the country  name except india  because it is being used to form file names--->
 
         <cfif  not(cgi.server_name contains 'handmade') and not(cgi.server_name contains 'forcesofindia') >
-						    <cfhttp url="http://www.semiprecious.com/myproject/countryIP.aspx?ipaddress=#cgi.REMOTE_ADDR#"  />
+						  <!---  <cfhttp url="http://www.semiprecious.com/myproject/countryIP.aspx?ipaddress=#cgi.REMOTE_ADDR#"  />--->
 		                        <cfif cgi.server_name contains 'india' or cgi.server_name contains ".in">
 							    <!--- needs to be out of session start code and surely before session start code to cater for visitor moving to .in site during an ongoing session. Being before session start code ensures that in an ongoing session if  a person goes to .com he does not switch to country = '' but vice versa is not true --->
-								     <cfif cfhttp.FileContent contains "india" or isdefined("url.eddie") or isdefined("url.web") or isdefined("url.acematrix")>
-										    	<cfset session.country = 'india' />
+								    <!--- <cfif cfhttp.FileContent contains "india" or isdefined("url.eddie") or isdefined("url.web") or isdefined("url.acematrix")>--->
+										 <cfif 1 eq 2>   	
+											<cfset session.country = 'india' />
 										    	<cfset session.currency = 'Rs' />
 							 				    <cfset  session.sale_factor = 1.1 />
 							 		<cfelse>
@@ -20,12 +21,16 @@
 							 		</cfif>
 			  
 									<cfelseif not isdefined("url.acemat")>
-								     <cfif cfhttp.FileContent contains "india" >
-	                                        <cflocation url="http://www.semiprecious.in#CGI.Path_info#?#cgi.QUERY_STRING#" addtoken="false" />
-									</cfif>								
+								               <!---
+                                                                             removing india resolution <cfif cfhttp.FileContent contains "india" > 
+  
+	                                                                            <cflocation url="http://www.semiprecious.in#CGI.Path_info#?#cgi.QUERY_STRING#" addtoken="false" />
+									</cfif>			----> 					
 							</cfif>
 
 		</cfif>
+
+
 							<cfinclude template="/includes/udf#session.country#.cfm" />
 	 				<cfscript>
 							 session.address.phone = '' ;
@@ -225,4 +230,3 @@
      	  <!--- we cannot set session.country to "row" because a lot of code depends on session.country being blank where it is rest of the world, hence
 	  whereever application.exch[session.country] is used we will have to to a switch based on len(session.country). if session.country has a finite lengthg
 	  we will have to use appplication.exchangerate or application.exch["row"]. application.exch[] is not allowed syntactaly --->
-
