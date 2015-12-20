@@ -3,8 +3,10 @@
 function _getCurrentTemplatePath() {
     return getPageContext().getPage().getCurrentTemplatePath();
 }
-	function titleCase(string)  {
-string =rtrim(string);	
+
+function titleCase(string)  {
+
+string =rtrim(string);
 if (len(string) gt 1)
 	{
 		string = lcase(string);
@@ -83,7 +85,7 @@ if (disc LT 10)
  disc = 10 ;
 else if (disc GT 35 )
  disc = 35 ;
- 
+
 
 return disc;
 }

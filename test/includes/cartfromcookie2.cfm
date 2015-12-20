@@ -1,18 +1,18 @@
 <!--- this code does not generate a new cartid. that is the responsibility of the calling code. it also does not add items into db with the new cartid
-since we know that a visit to cart table will do that and visit to cart page is inevitable. finally the new cart id 's entry in cartstatus table is made by the 
+since we know that a visit to cart table will do that and visit to cart page is inevitable. finally the new cart id 's entry in cartstatus table is made by the
 code in cartmonitor --->
 <cfset goahead = false />
     <cfif isDefined('session._cartid') >
     <cfif session._cartid neq 0>
-    <cfset goahead = true />
+   	 <cfset goahead = true />
     </cfif>
-    </cfif>
+  </cfif>
       <cfif goahead>
     	<cfset session.desc_flag = 0 />
 	    <cfset session.check1 =  session._cartid />
 	     <cfquery datasource="gemssql" name="currentcart">
 	           SELECT * FROM buyingrecord WHERE buyingrecord.cartid = #session._cartid#
-          </cfquery>		
+          </cfquery>
 		<cfset recover_cart = false />
   	   	<cfset do_login = false />
 		  <cfif currentcart.recordcount >
@@ -31,7 +31,7 @@ code in cartmonitor --->
 		  	   								<cfelse>
 			  	   								<cfset session.check4 =  1 />
 			  	   								<cfquery datasource="sptm" name="ws_member"><!--- is he a logged out wholesale member? --->
-												   SELECT email  FROM bulkbuyers WHERE email = '#currentcart.email#' 
+												   SELECT email  FROM bulkbuyers WHERE email = '#currentcart.email#'
 												</cfquery>
 													<cfif ws_member.recordcount is 0 >
 														<cfset recover_cart = true />
@@ -51,7 +51,7 @@ code in cartmonitor --->
 		  	   								<cfelse>
 		  	   								<cfset session.check8 =  1 />
 			  	   								<cfquery datasource="gemssql" name="ret_member"><!--- is he a wholesale member? --->
-												   SELECT email  FROM memberinfo WHERE email = '#currentcart.email#' 
+												   SELECT email  FROM memberinfo WHERE email = '#currentcart.email#'
 												</cfquery>
 												<cfif ret_member.recordcount is 0 >
 													<cfset session.check9 =  1 />
@@ -64,7 +64,7 @@ code in cartmonitor --->
 						<cfelse>
 						   <cfset recover_cart = true />
 			  	   	    </cfif>
-	  	<cfif recover_cart>											        
+	  	<cfif recover_cart>
 		<cfset session.check5 =  1 />
 				<cfquery datasource="gemssql" name="notpaid">
 	             		  SELECT cartid,cost, status, paymode, buyer FROM cartstatus WHERE  cartid = '#session._cartid#' AND paymode='null' and paymode is not null
@@ -101,7 +101,7 @@ code in cartmonitor --->
 						            <cfset session.cartitem[currentrow][2] =catcheck.cat>
 						            <cfset session.cartitem[currentrow][4] =currentcart.quantity>
 						     		<cfset session.cartitem[currentrow][5] =currentcart.optionid>
-	
+
 						        		<cfif len(session.bulkbuyer.id)>
 											   <cfquery datasource="gemssql" name="pricecheck">
 										   			  select wholesaleprice,price from items where newitem = #currentcart.itemid#
@@ -121,10 +121,10 @@ code in cartmonitor --->
 													<cfset session.cartitem[currentrow][3] =pricecheck.price />
 												</cfif>
 										</cfif>
-										
+
 										<cfif currentcart.optionid >
 										<cftry>    	<cfquery datasource="gemssql" name="opts">
-		               								 select valueadd from options where itemid = #currentcart.itemid#   and optionid = #currentcart.optionid# 
+		               								 select valueadd from options where itemid = #currentcart.itemid#   and optionid = #currentcart.optionid#
 		                						</cfquery>
 						                    	<cfif session.bulkbuyer.id neq "">
 						                  	    	<cfset valueadd = opts.valueadd/2>
@@ -137,7 +137,7 @@ code in cartmonitor --->
 						                      	</cfcatch>
 						                    </cftry>
 								<!---		</cfif>
-					 	   		
+
 						   		<cfset added = currentrow />
 										<cfif discountedprice>
 										      <cfquery datasource="gemssql" >
@@ -146,29 +146,27 @@ code in cartmonitor --->
 					            			</cfquery>
 										</cfif> --->
 				          </cfloop>
-						     
+
 		        </cfif><!--- recover cart if not paid for --->
-			</cfif><!--- recover cart as per cookie/member/loggedin status --->		
+			</cfif><!--- recover cart as per cookie/member/loggedin status --->
 	<cfif session.cartitem[1][1]>
 	  <cfloop from="1" to="#arraylen(session.cartitem)#" index="counter" >
 		<cfset session.grandtotal = session.grandtotal + session.cartitem[counter][3]*session.cartitem[counter][4] />
         <cfset session.totalqty = 	session.totalqty + session.cartitem[counter][4] />
 	</cfloop>
-	</cfif>	
+	</cfif>
 		<cfif do_login and currentcart.email neq application.wholesale_guest and ( (session.mail eq application.wholesale_guest) or (len(session.mail) is 0)) ><!--- not len session mail helps ensure stop infinite loop since this is also called upon log in --->
 									<cfsilent >
 													<cfset form.email = currentcart.email />
-															<Cfinclude template="/login.cfm" /> 																	  
+															<Cfinclude template="/login.cfm" />
 																</cfsilent>
 													</cfif>
-											
+
 			</cfif><!--- if cookie caught --->
 </cfif>
 <!--- cookie caught? --->
 
 	<cftry>
-	  <cfset session.grandtotal = 0 />
-	  <cfset session.totalqty = 0 />
 
 	<cfif session.cartitem[1][1]>
 	  <cfloop from="1" to="#arraylen(session.cartitem)#" index="counter" >
@@ -177,10 +175,10 @@ code in cartmonitor --->
 	</cfloop>
 	</cfif><!---
 	<cfquery datasource="gemssql" name="cartstatusadd">
-		          INSERT INTO cartstatus (cartid, status, paymode, cost, indate, buyer) 
+		          INSERT INTO cartstatus (cartid, status, paymode, cost, indate, buyer)
 		          VALUES ('#session.cartid#', 'new', 'null', '0', #now()#, '#session.mail#')
 		      </cfquery>
-			--->  
+			--->
 <cfcatch type="any">
      <cfmail to="nitish@semiprecious.com" from="cs@semiprecious.com" subject="Could not reverse " server="mail23@webcontrolcenter.com" type="html">
 				  #cfcatch.detail#, #cfcatch.message# for #session.mail#
@@ -188,4 +186,4 @@ code in cartmonitor --->
 </cfcatch>
 </cftry>
 
-			
+

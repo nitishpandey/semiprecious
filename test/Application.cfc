@@ -21,6 +21,11 @@
 	<cfset THIS.Sessiontimeout= CreateTimeSpan( 0, 1, 30, 0 ) />
 	<cfset THIS.SetClientCookies = true />
 	<cfset this.enablerobustexception = true />
+	<cfset this.rootDir = getDirectoryFromPath(getCurrentTemplatePath()) />
+
+	<cfset this.mappings["/includes"] = "#this.rootDir#includes"  >
+
+
 	<!--- Define the page request properties. --->
 	<cfsetting requesttimeout="20" showdebugoutput="true" enablecfoutputonly="false" />
 
@@ -30,8 +35,8 @@
 		output="false"
 		hint="Fires when the application is first created.">
 		<!--- Return out. --->
-		<cfset application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath()) />
-		<cfobject component="includes.application_startup" name="application_startup"   />
+		<cfset application.rootfolder = this.rootDir />
+		<cfobject component="includes.application_startup" name="application_startup"    />
 		<cfset var k = application_startup.init() />
 		<cfreturn true />
 	</cffunction>
@@ -67,7 +72,9 @@
 			</cfif>
 			<cfcatch type="any">
 				<!--- we were getting error because of upcountry asps being removed. Swallowing the error for now
-					<cfdump var="#cfcatch#" />---->
+				---->
+				<cfdump var="#cfcatch#" />
+				<cfabort />
 				<cfif not isdefined("session.mail")>
 					<cfset session.mail = "" />
 				</cfif>

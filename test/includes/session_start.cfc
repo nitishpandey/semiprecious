@@ -1,53 +1,36 @@
 <cfcomponent  displayname="session_start" >
-
-
-	<cffunction name="init" access="public" hint="to be called from onsessionstart method of application.cfc only">
-		<cfscript>
+<cffunction name="init" access="public" hint="to be called from onsessionstart method of application.cfc only">
+	<cfscript>
 			setup_country_configurations();
 			setup_address_defaults();
-			determine_country();
-			variables.wholesale_setup = false;
-			protect_and_setup_wholesale();
-           if (not variables.wholesale_setup)
-           		 setup_retail();
+           if (not protect_or_setup_wholesale())
+                 {
+                   promote_wholesale();
+                   session.bulkbuyer.id = "";
+           		  }
+	     	 setup_session();
+	      	setup_cart();
+	</cfscript>
+</cffunction>
+<cffunction name="setup_session" access="private" description="if user searched for sp.com, send him there else setup bulk buying session">
 
-		</cfscript>
-
-
-		<cfif len(session.bulkbuyer.id)>
+	<cfif len(session.bulkbuyer.id)>
 			<cfset session.tld = 'semipreciouswholesale.com' />
 		<cfelseif session.country is 'india'>
 			<cfset session.tld = 'semiprecious.in' />
 		<cfelse>
 			<cfset session.tld = 'semiprecious.com' />
-		</cfif>
-
-
-
-
-
-</cffunction>
-<!--- private functions --->
-<cffunction name="setup_retail" access="private" description="if user searched for sp.com, send him there else setup bulk buying session">
+	</cfif>
 <cfscript>
-				session.bulkbuyer.id = "";
-				if (isdefined("cgi.HTTP_REFERER")) {
-					if (not isdefined("url.discount_code_applied")) {
-						bulk_keywords = 'exporter,export,lots,manufacturing,manufacturer,distributor,wholesale, wholesaler, wholeseller,business,bulk, jaipur';
-						j = 1;
-						ref = replaceNoCase(cgi.http_referer, 'semipreciouswholesale', "x");
-						do {
-							if (findNoCase(listgetat(bulk_keywords, j), ref)) {
-								cflocation('http://www.semipreciouswholesale.com#CGI.SCRIPT_NAME#?manvijay=v1.01&#replace(CGI.Query_string,'semipre',' sp ','all')#&discount_code_applied&kw=' & listgetat(bulk_keywords, j)); /* interesting to note that we are relocating the person before defining the session.mail .hence the session will be set up afresh there. */ break;
-							}
-							j = j + 1;
-						} while (j <= listlen(bulk_keywords));
-					}
+
+		if (isdefined("cgi.HTTP_REFERER")) {
+
 					session.comingfrom = session.start & ':' & replacenocase(replacenocase(replacenocase(replacenocase(cgi.HTTP_REFERER, 'search', ''), '.com', ''), 'http://', ''), 'www.', '');
 				}
 				else {
 					session.comingfom = session.start & "?";
 				}
+
 
 			/*session.agentfolder = 'jamesbond';
 			 session.agentid = '78741';
@@ -81,7 +64,7 @@
 
 </cffunction>
 
-<cffunction name="protect_and_setup_wholesale" access="private" description="if user searched for sp.com, send him there else setup bulk buying session">
+<cffunction returntype="boolean" name="protect_or_setup_wholesale" access="private" description="if user searched for sp.com, send him there else setup bulk buying session">
 <cfscript>
 if (cgi.SERVER_NAME contains 'wholesale') {
 				//keep away those who searched for semiprecious.com and found this sw.com link
@@ -99,35 +82,57 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 				session.bulkbuyer.minamt = application.bulkbuyer.minamt;
 				session.bulkbuyer.arb_minamt = application.bulkbuyer.arb_minamt;
 				session.quick_add = 1;
-				if (isdefined("cgi.HTTP_REFERER")) {
-					session.comingfrom = session.start & ':' & replacenocase(replacenocase(replacenocase(replacenocase(cgi.HTTP_REFERER, 'search', ''), '.com', ''), 'http://', ''), 'www.', '');
-				}
-				else {
-					session.comingfom = session.start & "?";
-				}
-		variables.wholesale_setup = true;
+
+			return true;
 		}
+		return false;
 </cfscript>
 </cffunction>
+<cffunction name="initialize_cart" description="sets up empty array;should actually use cart.cfc or cart monitor">
+	<cfif not isdefined("session.cartitem")>
+			<CFSET session.cartitem=ArrayNew(2) />
+			<Cfset session.cartitem[1][1] = 0 />
+			<cfset session.checke = 2 />
+	</cfif>
+
+<cfreturn />
+</cffunction>
+
 
 <cffunction  name="setup_cart" access="private" description="setups cart or recovers from cookie ensuring possibly paid cart is not overrwritten">
 	<!--- called after session.mail is defined, otherwise a recursive loop of session_start is set up by application.cfm that is called before cfc method . get a new cartid into session and into cartstatus table --->
 		<!--- <cfif isdefined("cookie.cartid") or isdefined("url.cartid") or isdefined("client.cfcartid") >
 			--->
-			<cfif not isdefined("session.cartitem")>
-			<CFSET session.cartitem=ArrayNew(2)>
-			<Cfset session.cartitem[1][1] = 0 />
-			<cfset session.checke = 2 />
-		</cfif>
+			<cfscript>
+			initialize_cart();
+			</cfscript>
+			<cfif len(trim(resolve_cartid())) >
+				<!--- we have seen empty cartid cookie being set and on return causing havoc. so ignore them --->
+				<cfinclude template="cartfromcookie2.cfm" />
+				<!---              cartid is allocated inside cookie recovery because setting new cartid before and hence the cookies corrupts usage of incoming cookies. funny but realit --->
+			</cfif>
 
+<!--- if all failed --->
+	<cfif not isdefined("session.cartid")>
+			<cfset session.cartid = 0 />
+			<cfset session.check = 1 />
+	</cfif>
+</cffunction>
+
+
+<cffunction returntype="String" name="resolve_cartid" access="private" description="tries to recover cartid from cookie or client.cookie or url">
+<cfset _cartid = '' />
+
+<cftry>
 		<cfif isdefined("cookie.cartid") or (isdefined("url.cartid") and (not isdefined("url.web_store_id"))) or isdefined("client.cfcartid") >
 			<cfset session.checke = 4 />
-			<cfset x = GetHttpRequestData()>
-			<cfset c = 0 />
-			<cfset gotcartid = 0 />
-			<cfset b = 0 />
+			<cfset x = GetHttpRequestData() />
 			<cfset a = 0 />
+
+			<cfset b = 0 />
+			<cfset c = 0 />
 			<cfset catchid = 0 />
+
 			<cfif isdefined("x.headers.cookie")>
 				<cfloop list="#x.headers.cookie#" delimiters=";= " index="p">
 					<cfif p is 'cartid'>
@@ -138,45 +143,39 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 							<cfif p GT c and p LT 99999>
 								<cfset c = p>
 							</cfif>
+							<cfelse>
+								<cfset c = trim(p) />
+
 						</cfif>
 					</cfif>
 				</cfloop>
 			</cfif>
 			<cfif  isdefined("client.cfcartid")>
-				<cfset b = client.cfcartid />
+				<cfset b = trim(client.cfcartid) />
 			</cfif>
 			<cfif isdefined("url.cartid")>
-				<cfset a = url.cartid />
+				<cfset a = trim(urldecode(url.cartid)) />
 			</cfif>
 			<cfif c GT b>
 				<cfif c gt a>
 					<cfset _cartid = c >
-					<cfset gotcartid = 1 />
 				<cfelse>
 					<cfset _cartid = a >
-					<cfset gotcartid = 1 />
 				</cfif>
 			<cfelseif a gt b >
 				<cfset _cartid = a >
-				<cfset gotcartid = 1 />
 			<cfelse>
 				<cfset _cartid = b />
-				<cfset gotcartid = 1 />
 			</cfif>
-			<cfif len(trim(_cartid)) and gotcartid and isnumeric(_cartid) and (_cartid neq 0 )>
-				<!--- we have seen empty cartid cookie being set and on return causing havoc. so ignore them --->
-				<cfset session.check34 = c />
-				<cfset session._cartid = _cartid />
-				<cfinclude template="cartfromcookie2.cfm" />
-				<!---              cartid is allocated inside cookie recovery because setting new cartid before and hence the cookies corrupts usage of incoming cookies. funny but realit --->
 			</cfif>
-		</cfif>
 
-<!--- if all failed --->
-	<cfif not isdefined("session.cartid")>
-			<cfset session.cartid = 0 />
-			<cfset session.check = 1 />
-	</cfif>
+			<cfcatch type="any">
+<!--- ignore --->
+			</cfcatch>
+
+</cftry>
+	<cfset session._cartid = _cartid />
+	<cfreturn _cartid />
 </cffunction>
 
 <cffunction access="private" name="determine_country" description="depends on CGI scope. updates into IP_COUNTRY">
@@ -204,7 +203,10 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 			we will have to use appplication.exchangerate or application.exch["row"]. application.exch[] is not allowed syntactaly --->
 	</cffunction>
 
-	<cffunction name="setup_country_configurations" access="private" returntype="void">
+<cffunction name="setup_country_configurations" access="private" returntype="void">
+        <cfscript>
+		determine_country();
+		</cfscript>
 
 		<cfset session.currency = '$'>
 		<cfset session.country=''>
@@ -228,10 +230,9 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 
 			</cfif>
 		</cfif>
-		<cfinclude template="includes/udf#session.country#.cfm" />
 	</cffunction>
 
-	<cffunction name="setup_address_defaults" access="private">
+<cffunction name="setup_address_defaults" access="private">
 		<cfscript>
 			session.address.address1 = '';
 			session.address.phone = '';
@@ -244,5 +245,22 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 			session.start = dateformat(now(), 'd|m|') & timeformat(now(), 'HH:mm');
 		</cfscript>
 	</cffunction>
+
+<cffunction name="promote_wholesale" access="private" description="if user was searching for bulk buying keywords and has landed on retail site send him to wholesale site" >
+	<cfscript>
+	if (not isdefined("url.discount_code_applied")) {
+		bulk_keywords = 'exporter,export,lots,manufacturing,manufacturer,distributor,wholesale, wholesaler, wholeseller,business,bulk, jaipur';
+			j = 1;
+	    	ref = replaceNoCase(cgi.http_referer, 'semipreciouswholesale', "x");
+			do {
+				if (findNoCase(listgetat(bulk_keywords, j), ref)) {
+					cflocation('http://www.semipreciouswholesale.com#CGI.SCRIPT_NAME#?manvijay=v1.01&#replace(CGI.Query_string,'semipre',' sp ','all')#&discount_code_applied=true&keyword=' & listgetat(bulk_keywords, j)); /* interesting to note that we are relocating the person before defining the session.mail .hence the session will be set up afresh there. */
+					break;
+					}
+					j = j + 1;
+				} while (j <= listlen(bulk_keywords));
+			}
+		</cfscript>
+</cffunction>
 
 </cfcomponent>

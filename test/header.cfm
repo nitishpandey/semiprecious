@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+		<cfinclude template="/includes/udf#session.country#.cfm" />
 <html>
 <head>
 <cfparam name="inheader" default="" />
@@ -13,7 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; utf-8">
 
 
-    <script src="https://www.google.com/jsapi"></script><script>google.load("mootools", "1.2.1");</script>
+    <script src="https://www.google.com/jsapi"></script>
+	<script>google.load("mootools", "1.2.1");</script>
 
 
 

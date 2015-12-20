@@ -2,15 +2,16 @@
 
 	<cffunction name="init" access="public" hint="to be called from onapplicationstart method of application.cfc only">
 		<cfscript>
+
 			set_business_properties();
-			update_cart_id();
+			setup_cart_id();
 			set_collection_properties();
 		</cfscript>
-		<cfset application.active = 1 />
 		<!--- end of application start up process --->
+		<cfset application.active = 1 />
 	</cffunction>
 
-	<!--- uniq cartid --->
+	<!--- private functions --->
 
 	<cffunction name="set_business_properties" access="private" hint="used here in application_startup.cfc" description="sets a whole host of string and numeric properties that can come from DB,code or properties file" returntype="void" >
 		<cfscript>
@@ -63,7 +64,7 @@ application.exchangerate = 45;
 		<cfparam name="application.silver.beadstones" default="" />
 	</cffunction>
 
-	<cffunction name="update_cart_id" access="private" description="sets up application scope cart id which is used to discover next cart id for every visitor">
+	<cffunction name="setup_cart_id" access="private" description="sets up application scope cart id which is used to discover next cart id for every visitor">
 		<cftry>
 			<cfquery datasource="gemssql" name="q_cartid">
 					select TOP 1 cartid , indate from cartstatus order by cartid desc
