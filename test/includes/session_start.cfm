@@ -149,7 +149,7 @@
 				
 				<!--- <cfif isdefined("cookie.cartid") or isdefined("url.cartid") or isdefined("client.cfcartid") >
 				--->
-								<cfif isdefined("cookie.cartid") or (isdefined("url.cartid") and (not isdefined("url.web_store_id"))) or isdefined("client.cfcartid") >
+				<cfif isdefined("cookie.cartid") or (isdefined("url.cartid") and (not isdefined("url.web_store_id"))) or isdefined("client.cfcartid") >
 
  						<cfset session.checke = 4 />	
 							<cfset x = GetHttpRequestData()>
