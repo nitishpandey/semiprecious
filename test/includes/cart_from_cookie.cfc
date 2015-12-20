@@ -43,7 +43,7 @@
 					<cfif ret_loggedin.recordcount or isdefined("url.cartid")>
 						<cfset session.check7 =  1 />
 						<cfset recover_cart = true />
-						<cfset do_login = true>
+						<cfset do_login = true />
 					<cfelse>
 						<cfset session.check8 =  1 />
 						<cfquery datasource="gemssql" name="ret_member"><!--- is he a wholesale member? --->
@@ -150,18 +150,15 @@
 				<!--- recover cart if not paid for --->
 			</cfif>
 			<!--- recover cart as per cookie/member/loggedin status --->
-			<cfif session.cartitem[1][1]>
-				<cfloop from="1" to="#arraylen(session.cartitem)#" index="counter" >
-					<cfset session.grandtotal = session.grandtotal + session.cartitem[counter][3]*session.cartitem[counter][4] />
-					<cfset session.totalqty = 	session.totalqty + session.cartitem[counter][4] />
-				</cfloop>
-			</cfif>
-			<cfif do_login and currentcart.email neq application.wholesale_guest and ( (session.mail eq application.wholesale_guest) or (len(session.mail) is 0)) >
-				<!--- not len session mail helps ensure stop infinite loop since this is also called upon log in --->
-				<cfsilent >
-					<cfset form.email = currentcart.email />
-					<Cfinclude template="/login.cfm" />
-				</cfsilent>
+			<cfinvoke method="setup_summary" />
+			<cfif do_login>
+				<cfif currentcart.email neq application.wholesale_guest and ( (session.mail eq application.wholesale_guest) or (len(session.mail) is 0)) >
+					<!--- not len session mail helps ensure stop infinite loop since this is also called upon log in --->
+					<cfsilent >
+						<cfset form.email = currentcart.email />
+						<Cfinclude template="/login.cfm" />
+					</cfsilent>
+				</cfif>
 			</cfif>
 		</cfif>
 		<!--- if cookie caught --->

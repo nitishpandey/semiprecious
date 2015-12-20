@@ -31,24 +31,15 @@
  			application.mail_server = 'mail23.webcontrolcenter.com';
 			application.exchangerate = 45;
 			application.bulkbuyer.fivehundreddiscount = 5;
-
 			application.bulkbuyer.thousanddiscount = 10;
-
 			application.bulkbuyer.twothousanddiscount = 15;
-
 			application.bulkbuyer.minamt = 200;
-
 			application.bulkbuyer.arb_minamt = 300;
-		application.tollfree = '<font color="purple">512-666-GEMS(4367)</font>' ;
-
-
-
-		  application.wholesale_guest = 'guest@wholesale.com';
-
+			application.tollfree = '<font color="purple">512-666-GEMS(4367)</font>' ;
+			  application.wholesale_guest = 'guest@wholesale.com';
 			application.retail_free_shipping = 50;
 			application.variety_count = 9272;
-
-				application.in_store = 8.12;
+			application.in_store = 8.12;
 			application.india_log0 = "/india/images/semiprecious_logo.jpg";
 			application.bg_image = "/images/header_bg.jpg";
 			application.live_support = 0;
@@ -60,8 +51,8 @@
 		 application.silver.ornamentstones = "" ;
 		 application.ornamentstones = "" ;
 		 application.ringstones = "silver";
+		 application.silver.beadstones = "" ;
 		 </cfscript>
-		<cfparam name="application.silver.beadstones" default="" />
 	</cffunction>
 
 	<cffunction name="setup_cart_id" access="private" description="sets up application scope cart id which is used to discover next cart id for every visitor">

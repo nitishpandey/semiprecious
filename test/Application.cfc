@@ -37,7 +37,7 @@
 		<!--- Return out. --->
 		<cfset application.rootfolder = this.rootDir />
 		<cfobject component="includes.application_startup" name="application_startup"    />
-	<cftry>
+		<cftry>
 
 			<cfset var k = application_startup.init() />
 			<cfcatch type="any">

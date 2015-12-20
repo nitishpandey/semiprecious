@@ -84,15 +84,15 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 				session.quick_add = 1;
 
 			return true;
-		}
+		} else {
 		return false;
+	}
 </cfscript>
 </cffunction>
 <cffunction name="initialize_cart" description="sets up empty array;should actually use cart.cfc or cart monitor">
 	<cfif not isdefined("session.cartitem")>
 			<CFSET session.cartitem=ArrayNew(2) />
 			<Cfset session.cartitem[1][1] = 0 />
-			<cfset session.checke = 2 />
 	</cfif>
 
 <cfreturn />
@@ -105,22 +105,24 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 			--->
 			<cfscript>
 			initialize_cart();
+			var cfc = cartid_from_cookie();
 			</cfscript>
-			<cfif len(trim(resolve_cartid())) >
+			<cfif len(cfc) >
 				<!--- we have seen empty cartid cookie being set and on return causing havoc. so ignore them --->
-				<cfinclude template="cartfromcookie2.cfm" />
+				<cfobject name="cart_from_cookie" component="cart_from_cookie" />
+				<cfset var k = cart_from_cookie.init(cfc) />
 				<!---              cartid is allocated inside cookie recovery because setting new cartid before and hence the cookies corrupts usage of incoming cookies. funny but realit --->
 			</cfif>
 
 <!--- if all failed --->
 	<cfif not isdefined("session.cartid")>
 			<cfset session.cartid = 0 />
-			<cfset session.check = 1 />
 	</cfif>
 </cffunction>
 
 
-<cffunction returntype="String" name="resolve_cartid" access="private" description="tries to recover cartid from cookie or client.cookie or url">
+<cffunction returntype="String" name="cartid_from_cookie" access="private" description="tries to recover cartid from cookie or client.cookie or url">
+
 <cfset _cartid = '' />
 
 <cftry>
@@ -174,7 +176,7 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 			</cfcatch>
 
 </cftry>
-	<cfset session._cartid = _cartid />
+
 	<cfreturn _cartid />
 </cffunction>
 

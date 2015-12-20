@@ -25,11 +25,11 @@
 				application.india_log0 = "/india/images/semiprecious_logo.jpg";
 			    application.bg_image = "/images/header_bg.jpg" ;
 			    application.live_support = 0 ;
-
-			    application.color_list="black,blue,brown,green,gray,multi-color,orange,pink,purple,red,white,yellow" ;
-			   	   application.admin_email = "acematnari@vsnl.com";
-			 		application.exch["india"] = 27.5 ;
-					application.exch["row"] = application.exchangerate;
+				application.color_list="black,blue,brown,green,gray,multi-color,orange,pink,purple,red,white,yellow" ;
+			   	application.admin_email = "acematnari@vsnl.com";
+			 	application.exch["india"] = 27.5 ;
+			 	//rest of the world
+				application.exch["row"] = application.exchangerate;
 	   </cfscript>
 			<!--- uniq cartid --->
 
