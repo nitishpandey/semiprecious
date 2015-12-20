@@ -12,9 +12,9 @@
 
 	<!--- Set up the application. --->
 	<CFIF cgi.server_name contains 'www.'>
-		<cfset THIS.Name = "wwwsemiprecious" />
+		<cfset THIS.Name = "wwwsemiprecioustest" />
 	<cfelse>
-		<cfset THIS.Name = "semiprecious" />
+		<cfset THIS.Name = "semiprecioustest" />
 	</cfif>
 	<cfset THIS.ApplicationTimeout = CreateTimeSpan( 1, 0, 0, 0 ) />
 	<cfset THIS.SessionManagement = true />

@@ -4,7 +4,7 @@
       <cflocation url="/wholesale_register.cfm?affil=share" addtoken="no" />
   </cfif>
 </cfif>--->
-
+<cfset application.rootfolder ="D:\home\semiprecious.com\wwwroot\" />
 <cfparam name="metatitle" default="">
 <cfparam name="metadescription" default="">
 <cfparam name="metakeywords" default="">
@@ -36,11 +36,11 @@
 <cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#">
 </cfif>
 <cfheader statuscode="301" statustext="Moved permanently">
-<cfheader name="Location" value="#newurl#"> 
+<cfheader name="Location" value="#newurl#">
 </cfif>
 
 
- 
+
   <cfquery name="contentbypage" datasource="gemssql" cachedwithin="#createTimespan(0,0,0,10)#">
 	Select * from contentbypage where pagename='index.cfm' and domain= '#cgi.server_name#'
 	</cfquery>
@@ -51,7 +51,7 @@
     <cfset pagedescription="Wholesale #contentbypage.description#">
     <!---<cfelseif cgi.server_name contains "semiprecious.in">--->
     <cfelseif session.country is "india">
-	
+
 	<cfset metatitle="Indian Jewellery #contentbypage.title#">
     <cfset metadescription="Buy gemstone jewelry from any where in the world, also now shipping jewellery in India online. #contentbypage.metadescription#">
     <cfset metakeywords="India, jewellery,#contentbypage.keywords#">
@@ -61,12 +61,12 @@
     <cfset metadescription="#contentbypage.metadescription#">
     <cfset metakeywords="#contentbypage.keywords#">
     <cfset pagedescription="#contentbypage.description#">
- 
+
   </cfif>
   <HTML>
-  <HEAD><cfif cgi.server_name contains 'gem-stones.com'><meta name="robots" content="noindex, nofollow"></cfif> 
+  <HEAD><cfif cgi.server_name contains 'gem-stones.com'><meta name="robots" content="noindex, nofollow"></cfif>
 	<meta name="msvalidate.01" content="72165707DA86E7960F0E8C24EFAA92DC" />
-	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
 <!-- Update your html tag to include the itemscope and itemtype attributes -->
 <html itemscope itemtype="http://schema.org/Product">
@@ -82,7 +82,7 @@
     <TITLE><cfoutput>#metatitle#</cfoutput></TITLE>
  <cfelse>
     <TITLE><cfoutput>#metatitle#</cfoutput></TITLE>
-    
+
   </cfif>
 
 <meta name="alexaVerifyID" content="n4icRGpw5P_G60waxjp54QUu-_w" />
@@ -146,15 +146,15 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
-//--> 
+//-->
 </script>
 
   </HEAD>
   <BODY  style="margin-top:0;font-size:12px;z-index:0;" >
 	   <div align="center" >
-<div style="padding-left:0px;width:930px;margin-top:0;position:relative;z-index:0;" id="container1" >  
+<div style="padding-left:0px;width:930px;margin-top:0;position:relative;z-index:0;" id="container1" >
     <!---<CFINCLUDE template="js/hoverstonemenu.cfm">
-style="border-top:1px groove #000066;border-right:1px groove #000066;" 
+style="border-top:1px groove #000066;border-right:1px groove #000066;"
 --->
  <div id="h" style="position: absolut; top: 0px; left: 0px; padding: 0pt; margin: 0pt;display:block;">
 <cfif not isdefined("session.country")>
@@ -183,20 +183,20 @@ style="border-top:1px groove #000066;border-right:1px groove #000066;"
 </cfif>
 
 	  <div style="width:830px;" align = "left">
-    
-         
+
+
  		<!--- BEGIN LEFT SIDE STUF	F --->
 			<cfset leftgemstonedisplay="inline" />
-		
-	
-		
-	
-		<cfif cgi.server_name contains "wholesale">   
+
+
+
+
+		<cfif cgi.server_name contains "wholesale">
 			 <div style=" display:block;float: right; width:80%; ">
-				
+
 				 <div id="wholesalecenter" style="position:relative;left:-100px;top:-59px;z-index:6">
 				 <cfinclude template="/includes/indexcenterwholesale.cfm" />
-				
+
 				</div>
         	<cfelse>
 					<!---<div style=" margin-right:2px;float: right; width:772px;background:white; z-index:0; ">--->
@@ -204,11 +204,11 @@ style="border-top:1px groove #000066;border-right:1px groove #000066;"
 <!---<div style="color:white;background:#666666;font-size:16; VERDANA,arial;line-height:2;width:350;text-align:center;font-weight:bold">
 LABOR DAY SALE <span style="padding:10;background:black">30% off all items!</span></div>--->
 
- 						<div style="position:relative;top:150px;">						
-										 		 
+ 						<div style="position:relative;top:150px;">
+
 						  <cfinclude template="indexcentercontent.cfm" />
 					</div>
-					
+
 			<div style="position:relative;top:-130px;top:-30px;left:150px;width:800px">
 <div style="position:relative;left:150px"><a href=/german-silver-jewelry.cfm><img src=/homepage/germansilverclearance.jpg border=0></a></div><br>
 Welcome to the spectacular world of semiprecious gemstone and sterling silver jewelry, over 4000 items with prices ranging from less $10 to over $200. Our jewelry is made from hundreds of gemstones sourced from the world over and handmade into gorgeous jewelry pieces by skilled artisans. Buy one to pamper yourself or as a gift for one you love. Serving you since 1990, with high customer satisfaction.
@@ -218,8 +218,8 @@ We ship FPO, APO, internationally and accept no-questions asked returns up to 30
 </div>
 					<!---</div>--->
 	       		</cfif>
-			</div>  	
-	   </div>          
+			</div>
+	   </div>
 	   <div style="position:relative;<cfif CGI.HTTP_USER_AGENT contains "MSIE">top:100px<cfelse>top:20px</cfif>;">
 		 								    			<cfinclude template="mainfooter.cfm"></div>
 			   <cfif isdefined("url.msg")>
@@ -227,7 +227,7 @@ We ship FPO, APO, internationally and accept no-questions asked returns up to 30
 					     <div style="position:absolute;width:60%;left:20%;border:4px orange solid;top:200px;padding:10px;font-weight:bold;background:white;z-index:4">
 						 Your Payment Has Been Recieved At Paypal.<br />
 						  Please check your mail box for updates from Paypal and our store. Make sure you check your
-						 spam box and add our email address cs@semiprecious.com to your address list. <br />Thank you for shopping with us. 
+						 spam box and add our email address cs@semiprecious.com to your address list. <br />Thank you for shopping with us.
 						 </div>
 					 </cfif>
 				 </cfif>
@@ -235,10 +235,10 @@ We ship FPO, APO, internationally and accept no-questions asked returns up to 30
  <!--- End all footer stuff --->
 
   </div><!--- width 930--->
- 
-      
+
+
  </div><!--- align center --->
-<!--- 
+<!---
 <cfif findnocase('MSIE',CGI.HTTP_USER_AGENT)>
 <script language=JavaScript1.2 type=text/javascript >
 <!--
@@ -249,7 +249,7 @@ myElement.style.zIndex = "1999";
 var dElement = document.getElementById("h");
 dElement.style.position = "relative";
 dElement.style.zIndex = "9299";
-    			
+
 
  myElement = document.getElementById("lm");
 myElement.style.position = "absolute";

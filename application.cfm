@@ -30,6 +30,8 @@
 	<CFAPPLICATION name="semiprecious" setdomaincookies="no"   clientmanagement="yes"  sessionManagement="yes" setclientcookies="yes" clientstorage="cookie" sessiontimeout=#CreateTimeSpan(0,2,0,0)# />
 </cfif>
 <cftry>
+	<cfset application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath()) />
+
 	<cfif not cgi.QUERY_STRING contains 'asd123' >
 		<!---
 			<cferror  type="request" template="/requesterrorhandler.cfm">
@@ -62,14 +64,15 @@
 	<cfif not  isdefined("Application.active") or isdefined("url.resettheapplication")>
 		<!--- application start process --->
 		<cfset application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath()) />
-		<cfinclude template="/includes/application_startup.cfm" />
+		<cfinclude template="includes/application_startup.cfm" />
+
 		<cfset application.tollfree = '<font color="purple">512-666-GEMS(4367)</font>' />
 	</cfif>
 
-	<CFIF (not isDefined("session.mail") ) or (not isdefined("session.cartid")) or (not isdefined("session.cartitem"))>
+	<CFIF (not isDefined("session.mail")) or (not isdefined("session.cartid")) or (not isdefined("session.cartitem"))>
 		<!--- => session start. make sure session.start is not initiali---->
 		<cftry>
-			<cfinclude template="/includes/session_start.cfm" />
+			<cfinclude template="includes/session_start.cfm" />
 			<cfif not isdefined("session.mail")>
 				<cfset session.mail = "" />
 			</cfif>
