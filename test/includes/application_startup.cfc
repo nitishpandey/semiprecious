@@ -27,9 +27,9 @@
 			application.signup_credit = 5;
 			application.indiaphone = '09910815132 (9AM to 5PM Mon to Sat)';
 			application.tollfree = '1-888-879-9461';
-			  application.arb_amount = 100;
-
-application.exchangerate = 45;
+			application.arb_amount = 100;
+ 			application.mail_server = 'mail23.webcontrolcenter.com';
+			application.exchangerate = 45;
 			application.bulkbuyer.fivehundreddiscount = 5;
 
 			application.bulkbuyer.thousanddiscount = 10;

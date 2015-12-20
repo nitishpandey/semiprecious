@@ -451,7 +451,7 @@ And storage <> 'Angela'</cfif>
 
 <!---
 <cfcatch type="database">
-<cfmail to="anup@semiprecious.com" server="mail23" subject="error in list query1" from="service@semiprecious.com"
+<cfmail to="anup@semiprecious.com" server="#application.mail_server#" subject="error in list query1" from="service@semiprecious.com"
  type="html" >
  #cgi.HTTP_REFERER# : #cgi.REMOTE_HOST# #cgi.REMOTE_HOST#
  #subcat#,#category#,#url.sortorder#,#session.mail#,#advancedsearch#,#salestatus#,#color#,#advancedsearch1#,#advancedsearch2#
@@ -714,7 +714,7 @@ And storage <> 'Angela'</cfif>
 							<cfif isdefined("url.relocated")>
 								 <!--- To see and order any out of stock items please click here <a href="gemstone_jewelry_gallery.cfm?invstatus=-3&color=#color#&category=#category#&subcat=#subcat#&priceless=#priceless#&#sj#">SEE
 							      OUT OF STOCK DESIGNS</a>. Shipping of out of stock items will be confirmed      to you via email and can take upto 3 weeks.  --->
-								<cfmail from="service@semiprecious.com" to="anup@semiprecious.com"  server="mail23.webcontrolcenter.com" subject="#session.mail# - silver:#sj#,#category#,#subcat#,#color#," type="html" >
+								<cfmail from="service@semiprecious.com" to="anup@semiprecious.com"  server="#application.mail_server#.webcontrolcenter.com" subject="#session.mail# - silver:#sj#,#category#,#subcat#,#color#," type="html" >
 									for #session.mail#.
 									#cgi.QUERY_STRING# .
 								</cfmail>
@@ -728,7 +728,7 @@ And storage <> 'Angela'</cfif>
 								<input type="submit" value='Search' class="greenbutton" Onclick="submit(this.form)">
 							</FORM>
 						</div>
-						<!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="mail23" subject="a criteria that is out of stock" type="html" >
+						<!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="#application.mail_server#" subject="a criteria that is out of stock" type="html" >
 						#session.mail#,#cgi.QUERY_STRING# .
 						</cfmail>
 						--->

@@ -614,7 +614,7 @@ if ( screensize is "small"){
 						buylink ,  orderprice from getlist
 						</cfquery>---> <!---
 						<cfcatch type="database">
-						<cfmail to="anup@semiprecious.com" server="mail23" subject="error in list query1" from="service@semiprecious.com"
+						<cfmail to="anup@semiprecious.com" server="#application.mail_server#" subject="error in list query1" from="service@semiprecious.com"
 						type="html" >
 						#cgi.HTTP_REFERER# : #cgi.REMOTE_HOST# #cgi.REMOTE_HOST#
 						#subcat#,#category#,#url.sortorder#,#session.mail#,#advancedsearch#,#salestatus#,#color#,#advancedsearch1#,#advancedsearch2#

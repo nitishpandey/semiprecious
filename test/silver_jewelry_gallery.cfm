@@ -638,7 +638,7 @@ if ( screensize is "small"){
 						buylink ,  orderprice from getlist
 						</cfquery>---> <!---
 						<cfcatch type="database">
-						<cfmail to="anup@semiprecious.com" server="mail23" subject="error in list query1" from="service@semiprecious.com"
+						<cfmail to="anup@semiprecious.com" server="#application.mail_server#" subject="error in list query1" from="service@semiprecious.com"
 						type="html" >
 						#cgi.HTTP_REFERER# : #cgi.REMOTE_HOST# #cgi.REMOTE_HOST#
 						#subcat#,#category#,#url.sortorder#,#session.mail#,#advancedsearch#,#salestatus#,#color#,#advancedsearch1#,#advancedsearch2#
@@ -709,7 +709,7 @@ if ( screensize is "small"){
       </cfmail> <cfelse> <!---  <cflocation url="gemstone_jewelry_gallery.cfm?&relocated=1&invstatus=-3&color=#color#&category=#category#&subcat=#subcat#&priceless=#priceless#"  addtoken="no" />
 		--->
             </cfif>
-            </div> <!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="mail23" subject="a criteria that is out of stock" type="html" >
+            </div> <!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="#application.mail_server#" subject="a criteria that is out of stock" type="html" >
 		#session.mail#,#cgi.QUERY_STRING# .
 		</cfmail>
 		--->

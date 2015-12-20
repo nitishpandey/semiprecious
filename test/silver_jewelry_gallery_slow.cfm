@@ -49,7 +49,7 @@
       <!---  <cflocation url="gemstone_jewelry_gallery.cfm?&relocated=1&invstatus=-3&color=#color#&category=#category#&subcat=#subcat#&priceless=#priceless#"  addtoken="no" />
 		--->
             </cfif>
-            </div> <!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="mail23" subject="a criteria that is out of stock" type="html" >
+            </div> <!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="#application.mail_server#" subject="a criteria that is out of stock" type="html" >
 		#session.mail#,#cgi.QUERY_STRING# .
 		</cfmail>
 		---> <br />

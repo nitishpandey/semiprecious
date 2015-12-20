@@ -180,7 +180,7 @@ code in cartmonitor --->
 		      </cfquery>
 			--->
 <cfcatch type="any">
-     <cfmail to="nitish@semiprecious.com" from="cs@semiprecious.com" subject="Could not reverse " server="mail23@webcontrolcenter.com" type="html">
+     <cfmail to="nitish@semiprecious.com" from="cs@semiprecious.com" subject="Could not reverse " server="#application.mail_server#@webcontrolcenter.com" type="html">
 				  #cfcatch.detail#, #cfcatch.message# for #session.mail#
 				  </cfmail>
 </cfcatch>

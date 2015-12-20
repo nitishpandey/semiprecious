@@ -9,7 +9,7 @@
             <cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#">
     </cfif>
     <cfheader statuscode="301" statustext="Moved permanently">
-    <cfheader name="Location" value="#newurl#"> 
+    <cfheader name="Location" value="#newurl#">
     </cfif>
 <cfif #cgi.server_name# contains "semiprecious.in">
 <cfif cgi.query_string neq "">
@@ -18,7 +18,7 @@
 <cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#">
 </cfif>
 <cfheader statuscode="301" statustext="Moved permanently">
-<cfheader name="Location" value="#newurl#"> 
+<cfheader name="Location" value="#newurl#">
 </cfif>
 <cfparam name="inventory" default="">
 <cfparam name="metatitle" default="">
@@ -56,18 +56,18 @@
 
 <cftry>
 <cfquery datasource="gemssql" name="itemsinmemory" cachedwithin="#createTimespan(0,0,15,0)#">
-select disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest, 
+select disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
 inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
    buylink from items with (nolock) where (status=0 or status=3)
 	 </cfquery>
-	
+
 	 <cfcatch type="any">
 	 Error in itemsinmemory</cfcatch>
 	 </cftry>
 <cfif isdefined("url.clusterid")>
 <cftry>
   <CFQUERY DATASOURCE="gemssql" NAME="Getitemid">
-            select itemid , cat from styles where styleid = #url.clusterid# 
+            select itemid , cat from styles where styleid = #url.clusterid#
 </cfquery>
 <cfcatch type="any">
 Error in gemstone.cfm
@@ -100,7 +100,7 @@ Error in link 53 gemstone.cfm
   <cfloop query="styleids" >
 	<cftry>
     <cfquery datasource="gemssql" name="getitemid">
-select itemid , cat from styles where styleid = #styleidlist# 
+select itemid , cat from styles where styleid = #styleidlist#
 </cfquery>
 <cfcatch type="any">
 Error in line 65 in gemstone.cfm
@@ -118,19 +118,19 @@ Error in line 65 in gemstone.cfm
 <table  border="0" cellspacing="0" cellpadding="0" class="component_box green">
         <tr><Td class="form_heading">Design  you were seeing</Td></tr>
 		<tr>
-          <td align="center" bgcolor="#FFFFFF"> 
+          <td align="center" bgcolor="#FFFFFF">
      <cfoutput>      <img src="/images/#whatcat.cat#/thumb/#url.itemid#.jpg" vspace="0" hspace="0" border="0" align="absmiddle">
        </cfoutput>   </td>
-          
+
         </tr>
         <tr>
           <td align="right">&nbsp;  <a href="#" onClick="MM_showHideLayers('referenceitem','','hide');return false;" class="headerfontsmall"><font size="-2">Close</font></a> </td>
         </tr>
       </table>
-	
-</div> 
-</div> 
-</div> 
+
+</div>
+</div>
+</div>
 </cfsavecontent>
 <cfelse>
 <cfset top = "" />
@@ -152,7 +152,7 @@ Error in line 65 in gemstone.cfm
 		<cfelse>
 			<cfset cluster_derived = 1 />
 	</cfif>
-	</cfif>	
+	</cfif>
 	<cftry>
   <cfquery datasource="gemssql" name="notpaidcart">
         update items set clustercount = #cluster_derived# where newitem = #url.itemid#
@@ -175,28 +175,28 @@ Error in gemstones.cfm, sorry
 </cfcatch>
 </cftry>
         <cfelse>
-      <cfmail from="service@semiprecious.com" to="nitish@semiprecious.com"  server="mail23.webcontrolcenter.com" subject="CLUSTER VACUUM" type="html" >
+      <cfmail from="service@semiprecious.com" to="nitish@semiprecious.com"  server="#application.mail_server#" subject="CLUSTER VACUUM" type="html" >
  #cgi.QUERY_STRING# .
       </cfmail>
 	<cfset getlist.recordcount = 0 />
 
     </cfif>
- 
- 
+
+
 <cfoutput>
 	<cfsavecontent variable="saved_title" >
 		<cfif metatitle neq "" >
-	    #titlecase(metatitle)# 
+	    #titlecase(metatitle)#
     <cfelse>
-    
+
 	<cfif cgi.server_name contains 'wholesale'>
-		Wholesale 
+		Wholesale
 	</cfif>
  Gemstone #titlecase(category)#
   </cfif>
-  
+
 	</cfsavecontent>
-	
+
 	<cfsavecontent variable="saved_metakeywords">
 		<cfif cgi.server_name contains 'wholesale'> Wholesale</cfif>Affordable #color# #subcat#, Gemstone, #category#, Austin
 	</cfsavecontent>
@@ -204,8 +204,8 @@ Error in gemstones.cfm, sorry
     <!-- (c) 2009, by Deluxe-Menu.com -->
 
 <!--- the above code is run every time a gallery page is invoked. A more sensible thing
-would be to set the above flag either in login page or cart page where we can detect that 
-person is shopping --->	
+would be to set the above flag either in login page or cart page where we can detect that
+person is shopping --->
 
 <!--- <cfcache action="clientcache"  protocol="http://" timespan="#createtimespan(0,1,0,0)#"> --->
 <!---<cfif cgi.server_name contains "wholesale-gemstone-jewelry.com">
@@ -266,7 +266,7 @@ person is shopping --->
 <!--- <CFIF url.sortorder is 'price'>
 <CFSET url.sortorder='orderprice'>
  </cfif>
-<CFPARAM NAME="PicWidth" DEFAULT= "120"> 
+<CFPARAM NAME="PicWidth" DEFAULT= "120">
 <cfoutput>url.sortorder is #url.sortorder#</cfoutput>
 need to figure out from where sort order is coming as datetakendesc --->
 <cfif url.sortorder eq 'datetakendesc' or url.sortorder eq 'newitemdesc' or url.sortorder eq 'datetaken'>
@@ -291,17 +291,17 @@ if (session.bulkbuyer.id neq "" )
 {
 cgiqstring= replace(cgi.QUERY_STRING,'sortorder=price','sortorder=wholesaleprice') ;
 // unable to do the following within cfscript, but possible in cfset so do outside
-// cgi.QUERY_STRING = cgiqstring; 
- } 
+// cgi.QUERY_STRING = cgiqstring;
+ }
 
-  session.gallery = 'gemstone.cfm' ;  // used to determine on cart page whether the buyer should be routed to gemstone_jewelry_gallery.cfm or gemstone.cfm when he clicks on continue shopping 
+  session.gallery = 'gemstone.cfm' ;  // used to determine on cart page whether the buyer should be routed to gemstone_jewelry_gallery.cfm or gemstone.cfm when he clicks on continue shopping
    display=21;
    displaycolumns = 4;
 if ( screensize is "small"){
  displaycolumns = 4;
 }
 </cfscript>
-	
+
 <HTML>
 <HEAD>
 <meta name="robots" content="noindex,nofollow">
@@ -323,11 +323,11 @@ making ajax on this page for all ---><link href="/styles/hub_ws.css" rel="styles
 <cfoutput>
 	<style media="screen"   type="text/css" >
 <!--
-##ajax_context 
+##ajax_context
 {
 	display:none;
 }
-<cfloop  index="jc" from="1" to="#ArrayLen(session.cartitem)#">	    
+<cfloop  index="jc" from="1" to="#ArrayLen(session.cartitem)#">
       			 <cfif session.cartitem[jc][1] > .a#session.cartitem[jc][1]#_in_cart,</cfif>
 		</cfloop>
 		.comma_ender
@@ -337,7 +337,7 @@ height:12px;
 width:12px;
 }
 
- <cfloop  index="jc" from="1" to="#ArrayLen(session.cartitem)#">	    
+ <cfloop  index="jc" from="1" to="#ArrayLen(session.cartitem)#">
       			 <cfif session.cartitem[jc][1] > .a#session.cartitem[jc][1]#_in_cart1,</cfif>
 		</cfloop> .comma_ender1
 {
@@ -345,14 +345,14 @@ background-color:##DFE;
 }
 -->
 </style>
-</cfoutput> 
- 
+</cfoutput>
+
 <link rel="shortcut icon" href="/favicon.ico" >
 
 <CFIF GETLIST.RECORDCOUNT>  <TITLE >
 
   Matching Sets for Semiprecious and Gemstones Jewelry and <cfoutput>#getitemid.cat#</cfoutput></TITLE></CFIF>
-	
+
   <meta name="keywords" content="#saved_metakeywords#" >
   <meta name="author" content="Anup Pandey" >
 <cfif cgi.server_name contains "semiprecious.in">
@@ -372,9 +372,9 @@ background-color:##DFE;
 <!--- speed up things  --->
 
 <cfoutput>
-	  <meta name="description" content= <cfif metadescription neq "">"#metadescription#"<cfelse>'<cfif cgi.server_name contains 'wholesale'> Wholesale</cfif>#subcat# #style# #category# gem stone jewelry, retail and wholesale. 
+	  <meta name="description" content= <cfif metadescription neq "">"#metadescription#"<cfelse>'<cfif cgi.server_name contains 'wholesale'> Wholesale</cfif>#subcat# #style# #category# gem stone jewelry, retail and wholesale.
   <cfif getlist.recordcount GT 0>
-  <CFLOOP QUERY="Getlist" startrow="#start#" endrow="#evaluate(start+5)#">#getlist.description#. 
+  <CFLOOP QUERY="Getlist" startrow="#start#" endrow="#evaluate(start+5)#">#getlist.description#.
   Shipped from Austin, TX. </cfloop></cfif>'</cfif>>
 </cfoutput>
        <style media="all" type="text/css">
@@ -390,8 +390,8 @@ background-color:##DFE;
   <div style="width:100%;position:absolute;top:0;left:0;z-index:3" align="Center">
 	<div style="width:930px;position:relative;top:0;left:0;">
 <div   id="zw_0" style="position:absolute;margin-top:-20px;;top:30px;left:60px;background-color:white;padding:0px;z-index:2;">
-</div> 
-</div> 
+</div>
+</div>
 </div><div align="center" id="container">
   <!--- set up for ajax add to cart --->
  <form><input type="hidden" id="ajax_context" value=gallery /></form>
@@ -419,10 +419,10 @@ background-color:##DFE;
             	</div>
 	</div>
 
-    <CFSET enddisplay= start + display -1 >        
+    <CFSET enddisplay= start + display -1 >
     </div>
 
- 
+
 <cfelse>
 <CFSET numpages=round(GetList.RecordCount/display)>
 <CFSET enddisplay= start + display -1>
@@ -435,8 +435,8 @@ background-color:##DFE;
 
 
 <!---<cfinclude template="includes/themes.cfm">--->
- 
-    
+
+
 
 <cfoutput>
   <cfif getlist.recordcount LT 13>
@@ -455,11 +455,11 @@ background-color:##DFE;
 <CFSET currentrow= start>
 <table id="container1" width="930px" cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 2px">
   <tr >
-  
+
   <!---<cfif cgi.server_name does not contain "wholesale-gemstone-jewelry.com">--->
   <td valign="top"  align="left" width="930px;" ><!--- BEGIN LEFT SIDE STUFF --->
    <!--- END LEFT SIDE STUFF --->
-  
+
       <Div  class="grayplacard" style="width:920px;">See Variety of Sets & Designs <img src="/images/arrow_right.gif" style="display:inline;" border="0" hspace="0" vspace="0" align="absmiddle"  title="jewelry gemstone selection" width="15" height="15" /> <a href="showsets.cfm"  id="all_" class="setinline" title="see designs range and sets suggestions in bracelets">&nbsp;Put Together a Set&nbsp;</a>&nbsp;&nbsp;&nbsp;<a href="showearrings.cfm"  id="earrings_" title="see designs range and sets suggestions in earrings">&nbsp;Earrings&nbsp;</a>&nbsp;&nbsp;&nbsp;<a href="showpendants.cfm" id="pendants_">&nbsp;Pendants&nbsp;</a>&nbsp;&nbsp;&nbsp;<a href="shownecklaces.cfm"   id="necklaces_">&nbsp;Necklaces&nbsp;</a>&nbsp;&nbsp;&nbsp;<a href="showbracelets.cfm"  id="bracelets_" title="see designs range and sets suggestions in bracelets">&nbsp;Bracelets&nbsp;</a>
    </div>
     <cfif subcat neq "bulk lots" and (cgi.server_name contains "wholesale-gemstone-jewelry.com" or session.bulkbuyer.id neq "")>
@@ -473,31 +473,31 @@ background-color:##DFE;
 </cfif>--->
   <!--- not working. takes you to the ring hub thats all. Date 29 Mar 2010. Nitish
 		<cfif category eq "rings">
-			
+
            					<div style="padding:2px;background-color:#EEE"><strong>RINGS BY SIZE:</strong> <a href="/rings.cfm?ringsize=4">Size 4</a> | <a href="/rings.cfm?ringsize=5">Size 5</a> | <a href="/rings.cfm?ringsize=6">Size 6</a> | <a href="/rings.cfm?ringsize=7">Size 7</a> | <a href="/rings.cfm?ringsize=8">Size 8</a> |  <a href="/rings.cfm?ringsize=9">Size 9</a> | <a href="/rings.cfm?ringsize=10">Size 10</a></div>
 
                     		</cfif>
-							
+
 							--->
 <!---<cfif salestatus is 3>
 <p>
 <h2>SORRY THE BLACK FRIDAY SALE AT COST HAS ENDED. HOWEVER, COME BACK FOR CYBER MONDAY WHEN 2500 DESIGNS WILL BE AT 35% OFF SALE. 35% off our real regular prices. We do not show a false price and then show 35% off.<br> TO BE REMINDED BY EMAIL, <a href=/apply.cfm>SIGN UP</a></h2>
 <CFABORT>
-</cfif>---> 
+</cfif>--->
   <!--- Paging links --->
 <!---  <CFINCLUDE TEMPLATE="gallerypaging.cfm">--->
   <!--- End Paging links --->
-  
+
   <!--- No items found --->
   <CFIF getList.recordcount is 0>
     <cfoutput>
       <div style="margin-top:10px;margin-left:150px;border : 1px solid ##ECCCC;	width:607px;text-align:justify;font-size:12px;color:maroon;">
-      
-      Sorry no matches found for your criteria &rarr;#category# #subcat# #advancedsearch# #color# #priceless#.  Please try with some other selectors given in left panel and top panel. 
+
+      Sorry no matches found for your criteria &rarr;#category# #subcat# #advancedsearch# #color# #priceless#.  Please try with some other selectors given in left panel and top panel.
     </cfoutput>
     <cfset silver = "">
     <cfif isdefined("url.relocated")>
-      <!--- To see and order any out of stock items please click here <a href="gemstone_jewelry_gallery.cfm?invstatus=-3&color=#color#&category=#category#&subcat=#subcat#&priceless=#priceless#">SEE 
+      <!--- To see and order any out of stock items please click here <a href="gemstone_jewelry_gallery.cfm?invstatus=-3&color=#color#&category=#category#&subcat=#subcat#&priceless=#priceless#">SEE
 							      OUT OF STOCK DESIGNS</a>. Shipping of out of stock items will be confirmed      to you via email and can take upto 3 weeks.  --->
       <cfmail from="service@semiprecious.com" to="anup@semiprecious.com"  subject="#session.mail# - silver:#sj#,#category#,#subcat#,#color#," type="html" >
         for #session.mail#. #cgi.QUERY_STRING# .
@@ -514,8 +514,8 @@ background-color:##DFE;
       <input type="submit" value='Search' class="greenbutton" Onclick="submit(this.form)">
     </FORM>
     </div>
-    
-    <!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="mail23" subject="a criteria that is out of stock" type="html" >
+
+    <!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="#application.mail_server#" subject="a criteria that is out of stock" type="html" >
 						#session.mail#,#cgi.QUERY_STRING# .
 						</cfmail>
 						--->
@@ -525,15 +525,15 @@ background-color:##DFE;
   <cfset itemlist = 0>
 
 		<cfset price_color_filter = "" />
-		
+
 
  <div id="semiprecious_gallery" style="float:right;margin-right:6px;;overflow:visible;position:relative;" >
 
   <cfif start is 1>
       <cfif session.desc_flag or 1>
-  <div id="infotable"   align="justify" > 
+  <div id="infotable"   align="justify" >
       <cfif category is 'ornaments'>
-    	<b><font color=green size="-1">Christmas Ornaments handmade with paper mache and hand  painted intricately in the Indian state of Jammu and Kashmir.</font></b> 
+    	<b><font color=green size="-1">Christmas Ornaments handmade with paper mache and hand  painted intricately in the Indian state of Jammu and Kashmir.</font></b>
         <cfelseif subcat is 'pearl'>
 <b><font color=gray size="-1">Our Pearls are good quality Freshwater Cultured Pearls, come with a 100% money back guarantee.</font></b><br>
       </cfif>
@@ -546,7 +546,7 @@ background-color:##DFE;
               <a href="http://#cgi.server_name#/admintools/contentadder.cfm?pagename=#right(currentfile, len(currentfile)-1)#">Content Edit</a>
             </cfif>
 			</cfoutput>
-				
+
         </Div>   </cfif>
       </cfif>
 	<cfset quick_add = 1 />
@@ -554,7 +554,7 @@ background-color:##DFE;
 	the zoom windows within gallery engine. due to a necessary IE hack we have to make a absolute positioned div outside the container of this engine. hence  a zw_0 id window outside is necessary and should not be missed. to use embedded zooms, go to quick_add and remove forced value of zoom window to zw_0 --->
 	  <div align="center" style="margin-top:30px;">
 	  <!--- Paging links --->
-		<!--- 
+		<!---
     		<CFINCLUDE TEMPLATE="/includes/gallerypaging.cfm">
 		 --->
 		<!---  <div style="text-align:center;margin-bottom:2px;">
@@ -566,9 +566,9 @@ background-color:##DFE;
 	</div>
 	<div align="center" id="cart_summary" style="z-index:6;">
 	</div>
-						
+
   <!--- End Matt Bayuk - SGM --->
-<!--- 
+<!---
   <cfinclude  template="statsrecord.cfm">
  --->
 </div>
@@ -584,17 +584,17 @@ background-color:##DFE;
 					</cfif> removed because now we ave a color bar above gallery--->
 			<cfoutput query="styleids" >
 This Collection's Id is #styleidlist#
-</cfoutput>		
+</cfoutput>
   <CFINCLUDE TEMPLATE="leftmenus.cfm">
   </div>   </td>
   </tr>
   <!--- <tr> <td>
-    
+
    <a href="/topselling.cfm" >Best Selling!</a> <a href="/howtonavigate.cfm" >How to Find?</a>
   </td>
-  
+
   </tr>--->
-  
+
     <tr>
       <td align="center"><!--- Footer --->
   <cfoutput>
@@ -612,7 +612,7 @@ This Collection's Id is #styleidlist#
     </tr>
 
     </table >
-    
+
      </cfoutput>
 
 <cftry>

@@ -37,7 +37,17 @@
 		<!--- Return out. --->
 		<cfset application.rootfolder = this.rootDir />
 		<cfobject component="includes.application_startup" name="application_startup"    />
-		<cfset var k = application_startup.init() />
+	<cftry>
+
+			<cfset var k = application_startup.init() />
+			<cfcatch type="any">
+				<!--- we were getting error because of upcountry asps being removed. Swallowing the error for now
+				---->
+				<cfdump var="#cfcatch#" />
+				<cfabort />
+
+			</cfcatch>
+		</cftry>
 		<cfreturn true />
 	</cffunction>
 
@@ -67,17 +77,13 @@
 		<cftry>
 			<cfobject component="includes.session_start" name="session_start"   />
 			<cfset var k = session_start.init() />
-			<cfif not isdefined("session.mail")>
-				<cfset session.mail = "" />
-			</cfif>
+
 			<cfcatch type="any">
 				<!--- we were getting error because of upcountry asps being removed. Swallowing the error for now
 				---->
 				<cfdump var="#cfcatch#" />
 				<cfabort />
-				<cfif not isdefined("session.mail")>
-					<cfset session.mail = "" />
-				</cfif>
+
 			</cfcatch>
 		</cftry>
 		<cfif not cgi.QUERY_STRING contains 'asd123' >
