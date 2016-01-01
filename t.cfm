@@ -9,7 +9,7 @@
 	Select * from items where newitem =-1
 	</cfquery>
 	<cfdump var="#u#" />
-	
+	<cfdump var="#cgi#">
 </body>
 </html>
 <cfabort />

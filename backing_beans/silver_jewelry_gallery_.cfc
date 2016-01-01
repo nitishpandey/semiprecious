@@ -136,12 +136,19 @@ string = Replace(string," In "," in ","ALL");
 	<cfparam name="pricegreater" DEFAULT="0" />
 	<cfparam name="imagepath" DEFAULT="http://www.semiprecious.com/images/" />
 	<cfparam name="masterpath" DEFAULT="http://www.semiprecious.com/" />
-         <cfset leftgemstonedisplay="block" /> <cfif color neq "" > <cfset leftcolordisplay="block" /></cfif>
-
-				<cfquery name="contentbypage" datasource="gemssql">
+         <cfset leftgemstonedisplay="block" />
+		<cfif color neq "" >
+			<cfset leftcolordisplay="block" /></cfif>
+					<cfquery name="contentbypage" datasource="gemssql">
 	                      Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#arguments.page_name#'
 	              </cfquery>
-			<cfif contentbypage.recordcount GT 0>
+
+		  <cfif category is "" or category is "All">
+                              <cfset title_cat = "semiprecious jewelry" />
+                          <cfelse>
+                              <cfset title_cat = category />
+                          </cfif>
+				<cfif contentbypage.recordcount GT 0>
 				<cfif cgi.server_name contains 'wholesale'>
 					<cfset metatitle="#contentbypage.title# Handmade">
 					<cfset metadescription="#contentbypage.metadescription# Handmade">
@@ -158,13 +165,8 @@ string = Replace(string," In "," in ","ALL");
 					<cfset metakeywords="#contentbypage.keywords#">
 					<cfset pagedescription="#contentbypage.description#">
 				</cfif>
-                          <cfelse>
-                          <cfif category is "" or category is "All">
-                              <cfset title_cat = "semiprecious jewelry" />
-                          <cfelse>
-                              <cfset title_cat = category />
-                          </cfif>
-                          	<cfset metatitle="Collection of #title_cat# ">
+               <cfelse>
+					 	<cfset metatitle="Collection of #title_cat# " />
                           <cfif salestatus  is 3>
                           <cfset metatitle="On Sales #category# ">
                           </cfif>
@@ -761,7 +763,7 @@ if ( screensize is "small"){
 
 	<cfelse>
 
-		<cfquery datasource="gemssql" name="itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
+		<cfquery datasource="gemssql" name="application.itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
 	select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
 	inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
     buylink from items with (nolock) where (status=0 or status=3) and (inventory>0 or orderonrequest=1)

@@ -191,7 +191,7 @@ function fnSelCountry(country){
     FROM	ltbshipping
 </cfquery>
 <cfcatch type="any">
-Coutnry not found
+Country not found
 </cfcatch>
 </cftry>
 
@@ -204,9 +204,9 @@ Coutnry not found
 		<cfoutput>
             <article class="wrapper">
                 <header class="header">
-                   <h2 class="logo"><a href="/">SemiPrecious</a>
+                   <h2 class="logo"><a href="/">SemiPrecious</a></h2>
                    <h4>Shipped Worldwide<br>Free US Shipping Over $70</h4>
-				</h2>
+
 				<!---<span style="position:absolute;top:0;left:40%;float:left;"><a href="/jewelry-sale.cfm"><img src="/holidays/xmassale.jpg" height="70px" border="0"></a></span>--->
 
 
@@ -294,13 +294,14 @@ Coutnry not found
                      <div style="z-index:12">  <cfinclude template ='/wholesale-jewellery/wholesalemenu.html'></div>
 
                     <cfelse>
-										<cfcache   timespan="#createtimespan(1,0,0,0)#">
+										<cfcache   timespan="#createtimespan(0,0,0,0)#">
                      								   <cfinclude template ='/topmenu.cfm' />
 										</cfcache>
 					</cfif>
                 </cfif>
                 </div>
 				<p>&nbsp;<p>
+				</header>
                 </article>
 			</cfoutput>
         </cfif>

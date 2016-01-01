@@ -1,4 +1,3 @@
- <cfcache action="cache" timespan="#createtimespan(1,0,0,0)#">
  <cftry>
  <cfparam name="metatitle" default="">
   <cfparam name="display" default="20" />
@@ -11,8 +10,6 @@
 <cfparam name="pendantsdone" default="no">
 <cfparam name="earringsdone" default="no">
 <cfparam name="braceletsdone" default="no">
-
-
 <cfparam name="pagedescription" default="">
 <cfparam name="screensize" default="big">
 <cfparam name="style" default="">
@@ -92,7 +89,7 @@
 <!--- <CFIF url.sortorder is 'price'>
 <CFSET url.sortorder='orderprice'>
  </cfif>
-<CFPARAM NAME="PicWidth" DEFAULT= "120"> 
+<CFPARAM NAME="PicWidth" DEFAULT= "120">
 <cfoutput>url.sortorder is #url.sortorder#</cfoutput>
 need to figure out from where sort order is coming as datetakendesc --->
 <cfif url.sortorder eq 'datetakendesc' or url.sortorder eq 'newitemdesc' or url.sortorder eq 'datetaken'>
@@ -135,10 +132,10 @@ if (session.bulkbuyer.id neq "" )
  url.sortorder = replace(url.sortorder,'wholesalewholesale','wholesale') ;
 cgiqstring= replace(cgi.QUERY_STRING,'sortorder=price','sortorder=wholesaleprice') ;
 // unable to do the following within cfscript, but possible in cfset so do outside
-// cgi.QUERY_STRING = cgiqstring; 
- } 
+// cgi.QUERY_STRING = cgiqstring;
+ }
 
-  session.gallery = 'list' ;  // used to determine on cart page whether the buyer should be routed to gemstone_jewelry_gallery.cfm or gemstone.cfm when he clicks on continue shopping 
+  session.gallery = 'list' ;  // used to determine on cart page whether the buyer should be routed to gemstone_jewelry_gallery.cfm or gemstone.cfm when he clicks on continue shopping
 IF (advancedsearch is not "") {
  category ="" ;
  subcat = "";
@@ -156,7 +153,7 @@ IF (advancedsearch is not "") {
 if ( find("$",advancedsearch) or find("dollar",advancedsearch)) {
  remark = '(You can select price range at bottom)'; }
 else {
- remark =''; 
+ remark ='';
 }
  advancedsearch=replacenocase(advancedsearch,"jewellery"," ");
  advancedsearch=replacenocase(advancedsearch," or "," ");
@@ -216,26 +213,26 @@ if ( screensize is "small"){
     <cfset metakeywords="#contentbypage.keywords#">
     <cfset pagedescription="#contentbypage.description#">
   </cfif>
-</cfif> 
-<!--- end meta tags for groups ----> 
+</cfif>
+<!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'#application.rootfolder#',''),'\','/')#'>
-<cfset currentfile='#Trim(CGI.path_info)#'>
+<cfset currentfile='#Trim(CGI.script_name)#'>
 <!--- speed up things  --->
 <cftry>
  <cfif category neq "ALL">
-  <cfquery DATASOURCE="gemssql"  name="getlist"> 
-	select  distinct stone as subcat2, sum(inventory)+10  as inventory from CatSubCatInStock  where cat='#category#' and inventory>0 and stone <>'bulk lots'  and stone <>'fabric' and stone<>'silk thread'  group by stone  order by <cfif sortby eq 'stone'> stone<cfelse> inventory desc</cfif>  
+  <cfquery DATASOURCE="gemssql"  name="getlist">
+	select  distinct stone as subcat2, sum(inventory)+10  as inventory from CatSubCatInStock  where cat='#category#' and inventory>0 and stone <>'bulk lots'  and stone <>'fabric' and stone<>'silk thread'  group by stone  order by <cfif sortby eq 'stone'> stone<cfelse> inventory desc</cfif>
 	</cfquery>
 <cfelse>
   <cfquery DATASOURCE="gemssql"  name="getlist">
 Select distinct stone as subcat2, sum(inventory)+10 as inventory from catsubcatinstock where inventory>0
-and  cat <> 'ornaments' and cat <>'bags'  and cat <>'beads' and cat <>'healing' and cat <>'gems' and stone <>'bulk lots'  and stone <>'fabric' and stone<>'silk thread' group by stone order by <cfif sortby eq 'stone'> stone<cfelse> inventory desc</cfif> 
+and  cat <> 'ornaments' and cat <>'bags'  and cat <>'beads' and cat <>'healing' and cat <>'gems' and stone <>'bulk lots'  and stone <>'fabric' and stone<>'silk thread' group by stone order by <cfif sortby eq 'stone'> stone<cfelse> inventory desc</cfif>
 	</cfquery>
     </cfif>
-    
-    <!---	
+
+    <!---
 	 and stone not in (
-	 
+
 	Select subcat2 from (Select top 25 sum([inventory]) as stock, stone as subcat2 from (select * from catsubcatinstock  where  cat <> 'ornaments' and cat <>'bags' and cat <>'beads') x group by stone, inventory order by stock desc
 	) x) 	Select 'Blue Topaz' as subcat2
 	Union
@@ -266,7 +263,7 @@ and  cat <> 'ornaments' and cat <>'bags'  and cat <>'beads' and cat <>'healing' 
 
 <cfsavecontent variable="title_" >
 <CFOUTPUT>
- 
+
   <cfif metatitle neq "">
 #metatitle#
     <cfelse>
@@ -275,7 +272,7 @@ Wholesale
     </cfif>
     #titleCase(color)# #titleCase(subcat)# #style# #titlecase(p)# gem stone catalogue
   </cfif>
-  
+
   </cfoutput>
   </cfsavecontent>
   <Cfset title = title_ />
@@ -285,7 +282,7 @@ Wholesale
   <meta name="author" content="Anup Pandey" />
   <meta name="description" content= <cfif metadescription neq "">"#metadescription#"</cfif>>
 </cfoutput>
-<META content="60 days" name=revisit-after>
+<META content="60 days" name="revisit-after" />
   <noscript></noscript>
     <style>
 	td.stoneslisting a {
@@ -301,7 +298,14 @@ ht:bold ;
 	</style>
 </HEAD>
 </cfsavecontent>
-  <CFINCLUDE TEMPLATE="/header#session.country#.cfm">
+
+<CFINCLUDE TEMPLATE="/header#session.country#.cfm">
+<cfcatch type="any">
+<cfdump var="#cfcatch#" />
+</cfcatch>
+</cftry>
+<cftry>
+ <cfcache action="cache" timespan="#createtimespan(1,0,0,0)#">
 <div id="container2">
 <table id="container3" width="930px" cellspacing="0" cellpadding="0" border="0" style="padding:0 5px 0 5px" >
 <tr style="width:904px;" align="left">
@@ -315,7 +319,7 @@ ht:bold ;
 <CFSET enddisplay= start + display-1>
 <CFSET currentrow= start>
 <table id="container1" cellspacing="0" cellpadding="0" border="0">
-  
+
     <cfset rowsdisplayed = 0>
     <cfset itemCount = 0>
     <cfset itemlist = 0>
@@ -323,21 +327,21 @@ ht:bold ;
     <cfset itemCount = itemCount + 1>
     <CFIF COLUMNS eq 1>
       <tr >
-      
+
     </CFIF>
 <cfoutput>
     <td width="5%" align="center">
     	<img src=/images/stones/gemstone-thumbs/#replace(lcase(subcat2)," ","",'all')#-n.jpg width=20 height=20<!--- alt="#subcat2# gemstone thumbnail" --->>
     </td>
-    
+
     <td width="20%">
     	<a href='/#replace(lcase(subcat2)," ","",'all')#<cfif category neq "ALL">_#category#</cfif>.cfm' style="font-family:Arial,size:10; Helvetica, sans-serif;color:##333333">
         	#ucase(subcat2)#
 			<cfif category is "ALL">COLLECTION<cfelse>#ucase(category)#</cfif>
         </a>
-        (#inventory#)  
+        (#inventory#)
     </td>
-    
+
     </cfoutput>
     <cfif columns EQ displaycolumns>
       <cfset rowsdisplayed = rowsdisplayed + 1>
@@ -347,7 +351,7 @@ ht:bold ;
         	&nbsp;
         </td>
       </tr>
-      <CFSET columns=1> 
+      <CFSET columns=1>
       <cfelse>
       <CFSET columns=columns + 1>
     </cfif>
@@ -365,24 +369,24 @@ ht:bold ;
       </cfloop>
       <cfset rowsdisplayed = rowsdisplayed + 1>
       </tr>
-      
+
       <cfelse>
       <tr>
         <td height=1 colspan="<cfoutput>#displaycolumns#"><a href='gemstone-jewelry.cfm?subcat=#subcat#'><b>all #subcat# jewelry together</b></a></td>
       </tr>
       </cfoutput>
-      
+
     </cfif>
     <tr>
       <td height=10 colspan="<cfoutput>#displaycolumns#</cfoutput>" bgcolor=black></td>
     </tr>--->
-    
-<cfoutput>  
+
+<cfoutput>
 	<cfif pagedescription neq "" or session.mail is application.admin_email>
     <Tr valign="middle">
       <td valign="middle" style="color:##666600;" class="rowb" colspan=#displaycolumns#><b><font color=gray size="-2"><i>#pagedescription#</i></font></b><br>
         <cfif session.mail is application.admin_email>
-          <a href="http://www.semiprecious.com/admintools/contentadder.cfm?pagename=#right(currentfile, len(currentfile)-1)#">Content Edit</a>
+          <a href="http://www.semiprecious.com/admintools/contentadder.cfm?pagename=#replace(currentfile,'/','')#">Content Edit</a>
         </cfif>
       </td>
     </tr>
@@ -390,16 +394,16 @@ ht:bold ;
 <tr>
 <td colspan="#displaycolumns#">
   <cfinclude template="../includes/linkexchangebystone.cfm">
-    
-  
+
+
   <!--- <cfset balance = session.screenwidth - 800>
 	<div style="position:absolute;background-image:url(/images/horizontalgrad.gif);top:0px;left:800px;height:900px;width=#balance#px;">&nbsp;</div>
  --->
   <!---  <cfif isdefined("session.bulkbuyer.id")>
     <script type="text/javascript" language="JavaScript1.1">
- 	<!-- 
+ 	<!--
 	document.getElementById("wholesale").style.color = "maroon";
-	 	
+
   document.getElementById("wholesale").style.textDecoration = "none" ;
 	//-->
 	</script>
@@ -414,19 +418,20 @@ ht:bold ;
     </Cfif>
     <cfcatch type="application">
     </cfcatch>
-  </cftry>    
+  </cftry>
   <!--- Footer --->
   <!--- End footer --->
    </td>
   </tr>
-</cfoutput>  
+</cfoutput>
 </table>
 </tr></td></table>
  </div>
- <cfinclude template="/mainfooter.cfm">
  </div>
-</BODY>
-</HTML>
+<cfinclude template="/mainfooter.cfm">
+
+
+</cfcache>
 <cfcatch type="any">
 <cfdump var="#cfcatch#" />
 </cfcatch>
