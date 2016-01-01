@@ -310,7 +310,7 @@
     </cfif>
         <cfif details.recordcount is 0>
 
-    <BODY >
+ 
               <cfinclude template="/header#session.country#.cfm" >
                 <h3>Sorry, nothing found, that was the last record for the selection Please go back.</h3>
                 </div>

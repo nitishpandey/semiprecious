@@ -306,16 +306,16 @@ union
                 <cfif cgi.server_name contains 'wholesale'>
                     Wholesale
                   </cfif>
-                 #subcategory#
-                  <cfif details.subcat2 neq "" >
-                      & #details.subcat2#
+                 #variables.subcategory#
+                  <cfif variables.details.subcat2 neq "" >
+                      & #variables.details.subcat2#
                  </cfif>
           </cfoutput>
     	<cfoutput query="getgroups" >
             #groupname#
           </cfoutput>
               <cfoutput>
-                  #details.color# gem stone <cfif details.style is 'silver setting'>Sterling Silver</cfif> #category# #itemnumber#
+                  #variables.details.color# gem stone <cfif details.style is 'silver setting'>Sterling Silver</cfif> #category# #itemnumber#
             </cfoutput>
         </cfsavecontent>
 	</cffunction>

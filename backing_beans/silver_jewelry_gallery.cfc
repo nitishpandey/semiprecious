@@ -118,9 +118,10 @@
 		<cfif color neq "" >
 			<cfset leftcolordisplay="block" />
 		</cfif>
+		<cfset somecont =          '#cgi.server_name#' & '#replace(Trim(CGI.path_info),"/","")#'  />
 		<cfquery name="contentbypage" datasource="gemssql">
-	                            Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
-	                </cfquery>
+	            Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
+	     </cfquery>
 		<cfif contentbypage.recordcount GT 0>
 			<cfif cgi.server_name contains 'wholesale'>
 				<cfset metatitle="#contentbypage.title# Handmade">

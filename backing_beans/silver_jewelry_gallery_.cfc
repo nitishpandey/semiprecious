@@ -12,15 +12,8 @@
 <cfargument name="text" required="false" default="" />
 
 <cfscript>
-/*
- * function - titleCase()
- * accepts and returns string data
- * this function is similar to LCase or UCase,
- * it was designed for the college database which was provided
- * in ALLCAPS.
- * questions? http://artlung.com/feedback/
- * 2003/04/22
-*/
+
+
 var string = arguments.text;
 
 	if (len(string) gt 1)
@@ -49,6 +42,7 @@ ucase(right(string, 1));
 	string = ucase(string);
 
 	}
+
 /* post fixes */
 /* Recall that "Replace()" is case sensitive */
 string = Replace(string," Of "," of ","ALL");
@@ -62,6 +56,7 @@ string = Replace(string," Y "," y ","ALL");
 string = Replace(string," In "," in ","ALL");
 
 </cfscript>
+
 <cfreturn string />
 </cffunction>
 
@@ -74,12 +69,13 @@ string = Replace(string," In "," in ","ALL");
 
 <cffunction  name="cfparam" returntype="any" access="public" >
 
-<cfargument name="text" required="true"  />
+<cfargument name="caller_params" required="true"   />
+<cfargument name="page_name" required="true" />
 
    <cfset ____init = 1 />
    <!--- let's get in the variables from the calling view template in case it has set any defaults ---->
 	<cfscript>
-	structAppend(Variables,arguments.text) ;
+	structAppend(Variables,arguments.caller_params) ;
     </cfscript>
 
     <!---- set default variables that can be used both by head content creation process or by the key content generation engine --->
@@ -143,8 +139,8 @@ string = Replace(string," In "," in ","ALL");
          <cfset leftgemstonedisplay="block" /> <cfif color neq "" > <cfset leftcolordisplay="block" /></cfif>
 
 				<cfquery name="contentbypage" datasource="gemssql">
-	                            Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
-	                </cfquery>
+	                      Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#arguments.page_name#'
+	              </cfquery>
 			<cfif contentbypage.recordcount GT 0>
 				<cfif cgi.server_name contains 'wholesale'>
 					<cfset metatitle="#contentbypage.title# Handmade">
@@ -580,8 +576,8 @@ if ( screensize is "small"){
 									<cfdump var="#sq#" />
 									--->
 								<cfquery datasource="gemssql" name="getlist">
-		                                                            <cfinclude template="/includes/getrecordsitemidsSearch.cfm" />
-	                                                    	</cfquery>
+		                                     <cfinclude template="/includes/getrecordsitemidsSearch.cfm" />
+	                                </cfquery>
 							</cfcase>
 							<cfdefaultcase>
 									<cfquery datasource="gemssql" name="getlist">
@@ -757,21 +753,24 @@ if ( screensize is "small"){
 
 	<cfif occasion is 'oos'>
 
-		<cfquery datasource="gemssql" name="itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
-select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
-inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
-   buylink from items with (nolock) where (status=0 or status=3)
+		<cfquery datasource="gemssql" name="application.itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
+	select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
+	inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
+   	buylink from items with (nolock) where (status=0 or status=3)
 	 </cfquery>
+
 	<cfelse>
+
 		<cfquery datasource="gemssql" name="itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
-select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
-inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
-   buylink from items with (nolock) where (status=0 or status=3) and (inventory>0 or orderonrequest=1)
+	select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
+	inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
+    buylink from items with (nolock) where (status=0 or status=3) and (inventory>0 or orderonrequest=1)
 	 </cfquery>
+
 	</cfif>
 	<!--- question is what all scope get checked when i check for a variable's value or existence (even when using cfparam) without a scope prefix --->
 
- <cfreturn itemsinmemory />
+ <cfreturn application.itemsinmemory />
 
 </cffunction>
   <cffunction name="set_p" output="false" access="public"      displayname="initialise variable p"  returntype="string"  >

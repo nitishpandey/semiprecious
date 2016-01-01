@@ -1,9 +1,11 @@
- <cfcache  action="cache" timespan="#createtimespan(0,3,0,0)#" useQueryString="true">
+	<cfinclude template="/header#session.country#.cfm" />
+	 <cfcache  action="cache" timespan="#createtimespan(0,3,0,0)#" useQueryString="true">
 
 
-<cfif isdefined("Url.debug")>
-	<CFSET _start=GetTickCount()>
+<cfif isdefined("Url.debug") >
+	<CFSET _start = GetTickCount() />
 </cfif>
+
 <cftry>
 	<cfsilent>
 		<!--- adding this because jewelry fails in the query --->
@@ -15,7 +17,7 @@
 			//create a bean or component to hold all data that is needed by the cfm view
 			backing_bean = CreateObject("component", "backing_beans.silver_jewelry_gallery_");
 			// move the variables scope (global) data to the backing bean Variables scope; lot of variables are being created before this template is invoked.
-			structAppend(Variables, backing_bean.cfparam(Variables));
+			structAppend(Variables, backing_bean.cfparam(caller_params:Variables,page_name:replace(Trim(CGI.path_info),"/",""));
 			//As per legacy code there is an itemsinmemory query that is to be created. Create it
 			itemsinmemory = backing_bean.get_inmemory_resultset();
 			//meta data, css and java scripts that go into the header
@@ -30,7 +32,6 @@
 		</cfif>
 		<!--- header may still have computes that will have to be fixed but before fixing them, put the compute engine as and where it is used --->
 	</cfsilent>
-	<cfinclude template="/header#session.country#.cfm" />
 	<div style="width:100%;position:absolute;top:120;left:0;z-index:1003" align="Center">
 		<div style="width:960px;position:relative;top:-10pt;left:0;">
 			<div   id="zw_0" style="position:absolute;margin-top:-20px;;top:30px;left:60px;background-color:white;padding:0px;">
@@ -330,12 +331,23 @@
 									<div style="background:#EEE;width:100%;padding-left:1px;">
 									<cfinclude template="/includes/searchdropdowns.cfm" />
 																		</div>---> 									<!---<cfif category is 'rings'><cfinclude template='/includes/ringsbysize.cfm'></cfif>---> 									<cfif start is 1>
-																		<cfif session.cartitem[1][1] is 0> 									<div style="position:absolute;left:20px;top:4px;z-index:1003;" class="welcome_shipping"  id="zw_1"> 									</div>
-																		<h2 id="infotable"  style="margin-left:20px;"  align="justify" > 									<cfif subcat is 'pearl'> 									<font color=gray size="-1">
-									Our Pearls are good quality Freshwater Cultured Pearls, come with a 100% money back guarantee. 									</font> 									</cfif> <!---#pagedescription#
+																		<cfif session.cartitem[1][1] is 0>
+																		<div style="position:absolute;left:20px;top:4px;z-index:1003;" class="welcome_shipping"  id="zw_1"> 									</div>
+																		<h2 id="infotable"  style="margin-left:20px;"  align="justify" >
+																							<cfif subcat is 'pearl'> 									<font color=gray size="-1">
+									Our Pearls are good quality Freshwater Cultured Pearls, come with a 100% money back guarantee. 									</font>
+																							<cfelse>
+																							#pagedescription# #somecont#
+																							</cfif>
+									<!---
 									<cfif color neq "">
 									Showing #category# with #color# color. --- <CFINCLUDE TEMPLATE="colorinfo.inc">
-																		</cfif>---> 									</h2> 									</cfif> 									</cfif> 									<cfif session.mail eq application.admin_email> 									<!--- place to put display code --->
+																		</cfif>--->
+															</h2>
+												</cfif>
+		 									</cfif>
+
+		 								<cfif session.mail eq application.admin_email> 									<!--- place to put display code --->
 									 									<cfoutput> 									<cfif occasion is 'oos'> OUT OF STOCK ITEMS, REQUEST REMAKING FROM ZOOM PAGE 									</cfif> 									</cfoutput> 									</cfif>
 																		<cfset quick_add = session.quick_add /> 									<!--- The gallery engine takes the data and lays out the main gallery area --->
 																		<div style="margin-top:14px;margin-left:20px;float:left;">
@@ -353,7 +365,7 @@
 				</tr>
 								<tr> 				<td> 				<div align="center" id="cart_summary" style="z-index:6;"> 				</div>
 								<table id="container5"  cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 147px" align="center"> 				<tr> 				<td>
-								<div align="center" style="margin-top:30px;"> 				<!--- Paging links ---> 				
+								<div align="center" style="margin-top:30px;"> 				<!--- Paging links --->
 											<CFINCLUDE TEMPLATE="/includes/gallerypaging.cfm" />
 											</div> 				</td> 				</tr> 				</table> 				<!--- container 5 ends ---> 				</td> 				</tr> 				<tr> 				<td align=center> 				<br /> 				<cfoutput>
 								<cfinclude template="/includes/linkexchangebystone.cfm" /> 				<cfif subcat neq ""> 				<cfinclude template="/marketing/stonelinks.cfm" /> 				</cfif> 				</cfoutput> 				</td>
