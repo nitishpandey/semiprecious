@@ -26,9 +26,11 @@
 </cfoutput>
 <meta http-equiv="Content-Type" content="text/html; utf-8" />
 
-
+<meta name="description" content="#metadescription#" />
     <script src="https://www.google.com/jsapi"></script>
-	<script>google.load("mootools", "1.2.1");</script>
+	<!---
+<script>google.load("mootools", "1.2.1");</script>
+ --->
 
 <!--[if gte IE 6]>
             	<link href="/css/dcverticalmegamenu - ie.css" rel="stylesheet" media="screen" charset="utf-8"/>

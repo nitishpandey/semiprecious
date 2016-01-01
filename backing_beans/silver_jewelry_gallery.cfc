@@ -727,17 +727,17 @@
 
 	<cffunction name="get_inmemory_resultset" output="false" access="public"   returntype="query"    displayname="initialise" >
 		<cfif occasion is 'oos'>
-			<cfquery datasource="gemssql" name="Application.itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
-select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
-inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
-   buylink from items with (nolock) where (status=0 or status=3)
-	 </cfquery>
+						<cfquery datasource="gemssql" name="Application.itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
+				select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
+				inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
+				   buylink from items with (nolock) where (status=0 or status=3)
+				 </cfquery>
 		<cfelse>
 			<cfquery datasource="gemssql" name="Application.itemsinmemory" cachedwithin="#createTimespan(0,0,30,0)#">
-select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
-inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
-   buylink from items with (nolock) where (status=0 or status=3) and (inventory>0 or orderonrequest=1)
-	 </cfquery>
+			select restockdate, disporder,  weight, size,  lower(cat) as cat, totalqtysold, itemnumber as optcount, grouping, lower(color) as color, orderonrequest,
+			inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameID,  price, basecost, saleprice, status, wholesaleprice, left(Description,20) as description, inventory, storage, thumblink, imagelink,
+			   buylink from items with (nolock) where (status=0 or status=3) and (inventory>0 or orderonrequest=1)
+				 </cfquery>
 		</cfif>
 		<!--- question is what all scope get checked when i check for a variable's value or existence (even when using cfparam) without a scope prefix --->
 		<cfreturn Application.itemsinmemory />

@@ -51,8 +51,7 @@
 		<cfreturn true />
 	</cffunction>
 
-	<cffunction name="OnSessionStart"	access="public" returntype="void"
-		output="false"
+	<cffunction name="OnSessionStart"	access="public" returntype="void" output="false"
 		hint="Fires when the session is first created.">
 		<!--- TODO: 01 Nov 2014 geoip component not found
 			<cfif Not IsDefined('session.getCountry')>
