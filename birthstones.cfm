@@ -1,11 +1,6 @@
-<cfset this.enablerobustexception = true />
+<!--- <cfset this.enablerobustexception = true /> --->
 <cftry>
 <cftry>
- <cfif cgi.server_name does not contain "www." and cgi.server_name does not contain "ale.">
-   <cfset newurl= "http://www.#CGI.SERVER_NAME##lcase(CGI.SCRIPT_NAME)#">
-  <cfheader statuscode="301" statustext="Moved permanently">
-  <cfheader name="Location" value="#newurl#">
-</cfif> 
 <CFPARAM NAME="sortorder" DEFAULT="" >
 <CFPARAM NAME="start" DEFAULT= "">
 <CFPARAM NAME="category" DEFAULT="">
@@ -26,7 +21,7 @@
 
 <cfif start neq "" or category neq "" or sortorder neq "">
 <cfheader statuscode='301' statustext='Moved permanently'>
-<cfheader name='Location' value='http://www.semiprecious.com/#lcase(subcat)#.cfm'> 
+<cfheader name='Location' value='http://www.semiprecious.com/#lcase(subcat)#.cfm'>
 <cfabort>
 </cfif>
 <cfset start=1>
@@ -50,12 +45,12 @@
  <cfelse>
  <cfparam name="displayrows" default="5">
  </cfif>
- 
+
 <CFPARAM NAME="displaycolumns" DEFAULT="4">
 
-<CFPARAM NAME="numpages" DEFAULT="0"> 
+<CFPARAM NAME="numpages" DEFAULT="0">
  <cfparam name="jewelrysize" default="">
- 
+
 <cfparam default="106" name="stonelistht" >
  <CFPARAM NAME="category2" DEFAULT="ALL" >
 <CFIF CATEGORY  EQ "">
@@ -70,7 +65,7 @@
 	<cfif priceless is "">
 		<cfif subcat is "" and category neq "beads">
 			<cfset priceless = "">
-		</cfif>	
+		</cfif>
 	</cfif>
 <cfset price_array  = arraynew(1)>
 <cfset status_array  = arraynew(1)>
@@ -85,7 +80,7 @@
  		<cfif cgi.server_name contains "wholesale">
 			<CFPARAM NAME="url.sortorder" DEFAULT="lastbought" >
 		<cfelse>
-			<cfif dateformat(now(),"dddd") eq "Sunday"> 
+			<cfif dateformat(now(),"dddd") eq "Sunday">
 				<CFPARAM NAME="url.sortorder" DEFAULT="lastbought">
 				<cfelseif dateformat(now(),"dddd") eq "Monday" >
 				<CFPARAM NAME="url.sortorder" DEFAULT="datetaken" >
@@ -107,7 +102,7 @@
 <!--- <CFIF url.sortorder is 'price'>
 <CFSET url.sortorder='orderprice'>
  </cfif>
-<CFPARAM NAME="PicWidth" DEFAULT= "120"> 
+<CFPARAM NAME="PicWidth" DEFAULT= "120">
 <cfoutput>url.sortorder is #url.sortorder#</cfoutput>
 need to figure out from where sort order is coming as datetakendesc --->
 
@@ -128,16 +123,16 @@ need to figure out from where sort order is coming as datetakendesc --->
 <cfparam name="url.category" default=category />
 <CFPARAM NAME="advancedsearch" DEFAULT= "">
  <CFPARAM NAME="advancedsearch1" DEFAULT= "">
-<CFPARAM NAME="advancedsearch2" DEFAULT= ""> 
+<CFPARAM NAME="advancedsearch2" DEFAULT= "">
 <CFPARAM NAME="advancedsearch3" DEFAULT= "">
 <CFPARAM NAME="color" DEFAULT= "">
  <CFPARAM NAME="Bcolor" DEFAULT= "white">
 <CFPARAM NAME="salestatus" DEFAULT="">
  <CFPARAM NAME="newcart" DEFAULT="">
-<CFPARAM NAME="invent" DEFAULT=""> 
+<CFPARAM NAME="invent" DEFAULT="">
 <CFPARAM NAME="j" DEFAULT="">
  <CFPARAM NAME="pricegreater" DEFAULT="">
-<CFPARAM NAME="imagepath" DEFAULT="http://www.semiprecious.com/images/"> 
+<CFPARAM NAME="imagepath" DEFAULT="http://www.semiprecious.com/images/">
 <CFPARAM NAME="masterpath" DEFAULT="http://www.semiprecious.com/">
 
 <cfif isnumeric(advancedsearch)> <cflocation url="jewelry_item.cfm?newitem=#advancedsearch#"></cfif>
@@ -151,10 +146,10 @@ if (session.bulkbuyer.id neq "" )
  url.sortorder = replace(sortorder,'wholesalewholesale','wholesale') ;
 cgiqstring= replace(cgi.QUERY_STRING,'sortorder=price','sortorder=wholesaleprice') ;
 // unable to do the following within cfscript, but possible in cfset so do outside
-// cgi.QUERY_STRING = cgiqstring; 
- } 
+// cgi.QUERY_STRING = cgiqstring;
+ }
 
-  session.gallery = 'birthstones.cfm' ;  // used to determine on cart page whether the buyer should be routed to gemstone_jewelry_gallery.cfm or gemstone.cfm when he clicks on continue shopping 
+  session.gallery = 'birthstones.cfm' ;  // used to determine on cart page whether the buyer should be routed to gemstone_jewelry_gallery.cfm or gemstone.cfm when he clicks on continue shopping
 IF (advancedsearch is not "") {
  category ="" ;
  subcat = "";
@@ -172,7 +167,7 @@ IF (advancedsearch is not "") {
 if ( find("$",advancedsearch) or find("dollar",advancedsearch)) {
  remark = '(You can select price range at bottom)'; }
 else {
- remark =''; 
+ remark ='';
 }
  advancedsearch=replacenocase(advancedsearch,"jewellery"," ");
  advancedsearch=replacenocase(advancedsearch," or "," ");
@@ -212,15 +207,15 @@ if ( screensize is "small"){
 
 
 	<cfquery name="contentbypage" datasource="gemssql">
-	        Select * from contentbypage where pagename='#REPLACE(replace(Trim(CGI.path_info),"/",""),"TEST","")#'
+	        Select * from contentbypage where pagename='#REPLACE(replace(Trim(cgi.script_name),"/",""),"TEST","")#'
 	</cfquery>
 	<cfif contentbypage.recordcount GT 0>
-		<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'> 
+		<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'>
 			<cfset metatitle="Wholesale #subcat# #categ#">
 			<cfset metadescription="Wholesale #contentbypage.metadescription#">
 			<cfset metakeywords="Wholesale #contentbypage.keywords#">
 			<cfset pagedescription="Wholesale #contentbypage.description#">
-			
+
        <cfelseif session.country is "india">
 			<cfset metatitle="Jewellery For India #replace(contentbypage.title, 'jewelry', 'jewellery')#">
 			<cfset metadescription="Now in India. #replace(contentbypage.metadescription, 'jewelry','jewellery')#">
@@ -238,7 +233,7 @@ if ( screensize is "small"){
 
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
-<cfset currentfile='#Trim(CGI.path_info)#'>
+<cfset currentfile='#Trim(cgi.script_name)#'>
 
 <cfcatch type="any">
 <cfoutput>#cfcatch.detail#, #cfcatch.message#</cfoutput>
@@ -254,10 +249,10 @@ if ( screensize is "small"){
 </cfcatch>
 </cftry>
 
-  
+
  <cfcache action="servercache"  protocol="http://" timespan="#createtimespan(0,1,0,0)#">
 <cfif getlist.recordcount is 0>
-<CFINCLUDE TEMPLATE="/header#session.country#.cfm"> 
+<CFINCLUDE TEMPLATE="/header#session.country#.cfm">
 			<br>
 			<span class="error">No  item found. PLEASE TRY AGAIN.</span>
 			<cfif subcat is 'amber'>
@@ -275,26 +270,26 @@ if ( screensize is "small"){
 			<cfset p = "Jewelry">
 		<cfelse>
 			<cfset p = category>
-		</cfif> 
+		</cfif>
 	<TITLE style="text-transform:capitalize;">
 	<cfif metatitle neq "">#metatitle#<cfelse><cfif cgi.server_name contains 'wholesale'> Wholesale</cfif>
 			#color# #subcat# #style#  #p# gem stone  </cfif>
 	</TITLE>
-	
+
 	<meta name="author" content="Anup Pandey" />
 	<cfsavecontent variable="md"  >
-	<cfif metadescription neq "">"#metadescription#"<cfelse>'<cfif cgi.server_name contains 'wholesale'> Wholesale</cfif> #subcat# #style# #p# gem stone jewelry, retail and wholesale. 
+	<cfif metadescription neq "">"#metadescription#"<cfelse>'<cfif cgi.server_name contains 'wholesale'> Wholesale</cfif> #subcat# #style# #p# gem stone jewelry, retail and wholesale.
 	<CFLOOP QUERY="Getlist" startrow="#start#"
 		endrow="#evaluate(start+5)#">#description#. </cfloop>' </cfif>
 		</cfsavecontent>
-	<cfsavecontent variable="md2"   > 
+	<cfsavecontent variable="md2"   >
         <cfif metakeywords neq "">"#metakeywords#"<cfelse>"
 	<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'> Wholesale</cfif>
 	Affordable #color# #subcat#, Gem stone,  #p#"</cfif>
 	</cfsavecontent>
 	<cfsavecontent variable="inheader"   >
         <meta name="description" content=#md# >
-	
+
 	<meta name="keywords" content=#md2# />
 	<META content="20 days" name=revisit-after>
    	</cfsavecontent>
@@ -305,11 +300,11 @@ if ( screensize is "small"){
 
 
 
-<CFINCLUDE TEMPLATE="/header#session.country#.cfm"> 
+<CFINCLUDE TEMPLATE="/header#session.country#.cfm">
 <cfoutput>
-    
 
-	
+
+
 	<cfset display = displaycolumns*displayrows>
 	<CFIF GetList.cat is not "">
 		<input type='hidden' name='category' value='#GetList.cat#'>
@@ -317,12 +312,12 @@ if ( screensize is "small"){
 		<input type='hidden' name='category' value='#category#'>
 	</cfif>
 	<input type='hidden' name='url.sortorder' value='#url.sortorder#'>
-	
-	
-</cfoutput>	
 
-<CFSET columns=1> 
-<CFSET rows=1> 
+
+</cfoutput>
+
+<CFSET columns=1>
+<CFSET rows=1>
 <CFSET enddisplay= start + display-1>
 <CFSET currentrow= start>
 
@@ -330,7 +325,7 @@ if ( screensize is "small"){
                                  <div style="width:760px;height:20px;" class=" reg_price <cfoutput>#replace(subcat," ","_")#</cfoutput>_header">
                  <span class="reg_price"> <cfoutput>#metatitle#</cfoutput> </span>
                             </div>
-     </cfif> 
+     </cfif>
 	<div style="width:960px" id="container2">
 		<div style="width:180px;float:left" align="left">
 		<!--- BEGIN LEFT SIDE STUFF --->
@@ -338,13 +333,13 @@ if ( screensize is "small"){
 
 			<CFINCLUDE TEMPLATE="leftmenus.cfm">
           <!--- END LEFT SIDE STUFF --->
-				
+
 
 			</div>
 			<div style="background:white;padding-left:10px;border:1px ##DDDDDD ridge;">
 			<cfset rowsdisplayed = 0>
-			
-   
+
+
 					<cfset itemlist = 0 />
 <div id="wrapper">
 <div ID="bottomTiles">
@@ -375,17 +370,17 @@ if ( screensize is "small"){
            <div class="sub-content">
             	<div CLASS="bottomBarTitle" >
        					<a href='#replace(subcat," ","")#_#cat#.cfm<cfif style neq "">?style=#getlist.Style#</cfif>'><img src=images/#cat#/thumb/#getfirstitem.newitem#.jpg border=0 <cfif cat is "beads" or cat is "necklaces" or cat is "bracelets">width=120</cfif>></a>
-    					
+
 						<br> <a CLASS="SIDE_LINK" href='#replace(subcat," ","")#_#cat#.cfm<cfif style neq ""><cfif style contains "silver">?style=silver<cfelse>?style=#getlist.Style#</cfif></cfif>'><cfif cat neq "beads" and cat neq "healing"> <cfif getlist.style is 'beaded'>#subcat# beaded #cat#<cfelseif getlist.style is "">#subcat# #cat#<cfelse>#subcat# #cat# in sterling silver</cfif><cfelse>#subcat# #cat#</cfif></a> <br>
 
    					</cfoutput>
 		            </div>
           </div>
-         <div class="subBottom"><span></span></div> 
+         <div class="subBottom"><span></span></div>
 	</div>
 
-						
-					</cfif>						
+
+					</cfif>
 					</CFLOOP>
  </div>
  </div>
@@ -396,17 +391,17 @@ if ( screensize is "small"){
 <a class="reg_link" href='#birthstone#-birthstone-information.cfm'>#birthstone# birthstone information</a>
                     </cfif>
 					</div>
-	
+
 						</cfoutput>
-	    
+
 	<cfquery datasource="gemssql" name="getdesigner">
 	Select top 6 newitem, cat from items where supplier='Angela' and inventory>0 and subcat='#subcat#' order by lastbought
 	</cfquery>
 <cftry>
 		<cfif getdesigner.recordcount GT 0>
-<CFOUTPUT>		
+<CFOUTPUT>
 	<div style="clear:both;float:none;" CLASS="FORM_HEADING">Designer #subcat# jewelry</div>
-			
+
 			<table border=1 bordercolor="##66CCCC"><tr>
 			<cfloop query="getdesigner">
 			<td valign="top" align="center">
@@ -414,8 +409,8 @@ if ( screensize is "small"){
 			</td>
 			</cfloop>
 		</cfoutput>	</tr></table>
-		
-		
+
+
 		</cfif>
 <cfcatch type="any">
 <cfoutput>#cfcatch.detail#, #cfcatch.message#</cfoutput>
@@ -423,10 +418,10 @@ if ( screensize is "small"){
 </cftry>
 </div>
 <cfif pagedescription neq "" or session.mail is application.admin_email>
-							<div style="clear:both;color:#666600;width:94%;" class="rowb" > 
+							<div style="clear:both;color:#666600;width:94%;" class="rowb" >
 									<b><font color=gray size="-2"><i><cfoutput>#pagedescription#</cfoutput></i></font></b><br>
 								<cfif session.mail is application.admin_email>	<a href="http://www.semiprecious.com/admintools/contentadder.cfm?pagename=<cfoutput>#right(currentfile, len(currentfile)-1)#</cfoutput>">Content Edit</a></cfif>
-					</div>			 
+					</div>
 							</cfif>
 
 		<cfset subcat3 = replace(trim(subcat),"_","")>
@@ -443,9 +438,9 @@ if ( screensize is "small"){
 				   <a href=http://www.handmadelaptopcase.com><img src=http://www.handmadelaptopcase.com/laptopbags/ads/400x80bags.jpg></a>
 				     <cfinclude template="googleadsforlist.htm"></div>
 
-</cfoutput> 
+</cfoutput>
 </div>
-    
+
 <div align="center" style="clear:left">
 <cfif subcat neq ""> <cfinclude template="marketing/stonelinks.cfm"></cfif>
          <!--- Footer --->
@@ -453,37 +448,37 @@ if ( screensize is "small"){
          <!--- End footer --->
 </div>
 
-                 
+
 
 <cfoutput>
 	<script language="JavaScript1.1">
 		function showDetails(itemNum) {
-			hideAll(); 
+			hideAll();
 			document.getElementById('div' + itemNum).style.display = 'block';
 		}
 		function displayZoom(zoomImg,imageWidth) {
 			$.blockUI.defaults.css = {};
 			$.blockUI( {
 				message: "<<<<<<<<<<<<<input type='button' id='closeZoom' value='Close' /><br><img src='" + zoomImg + "' />",
-				css: {  
+				css: {
 					width:			imageWidth + 'px',
 					padding:        0,
 					margin:         0,
-					top:  (jQuery(window).height() - 500) /2 + 'px', 
-					left: (jQuery(window).width() - imageWidth) /2 + 'px', 
-					textAlign:      'center', 
-					color:          '##000', 
+					top:  (jQuery(window).height() - 500) /2 + 'px',
+					left: (jQuery(window).width() - imageWidth) /2 + 'px',
+					textAlign:      'center',
+					color:          '##000',
 					border:         '3px solid ##aaa',
-					backgroundColor:'##fff'			
-				}  
-			});      
+					backgroundColor:'##fff'
+				}
+			});
 
-			$('##closeZoom').click(function() { 
-				$.unblockUI(); 
-			}); 
- //		    setTimeout(jQuery.unblockUI, 2000); 			
+			$('##closeZoom').click(function() {
+				$.unblockUI();
+			});
+ //		    setTimeout(jQuery.unblockUI, 2000);
 		}
-		
+
 		function zoomImage(zoomImg) {
 
 			imgZoom = new Image();
@@ -498,7 +493,7 @@ if ( screensize is "small"){
 				}
 			}
 		}
-	
+
 
 		function hidex() {
 			divx.style.display='none';
@@ -509,8 +504,8 @@ ShowHide('jumpstart');
 ShowHide('jumpstartblinder');
 
 */
-</cfif>			
-	</script>		</cfoutput> 
+</cfif>
+	</script>		</cfoutput>
 	<!--- <cfset balance = session.screenwidth - 760>
 	<div style="position:absolute;background-image:url(/images/horizontalgrad.gif);top:0px;left:760px;height:900px;width=#balance#px;">&nbsp;</div>
  --->
@@ -521,7 +516,7 @@ ShowHide('jumpstartblinder');
 <cfset session.filter="subcat=#subcat#&category=#category#&advancedsearch=#urlencodedformat(urldecode(advancedsearch))#&birthstone=#birthstone#" >
 </Cfif>
 
-<cfcatch type="application"> 
+<cfcatch type="application">
 <CFOUTPUT>#CFCATCH.DETAIL#, #CFCATcH.MESSAGe#</CFOUTPUT>
 </cfcatch>
 </cftry>
@@ -535,7 +530,7 @@ ShowHide('jumpstartblinder');
 
 </div>
 <CFCACHE TIMEOUT="#DateAdd("h", "-24", Now() )#">
-<cfcatch type="any"> 
+<cfcatch type="any">ï¿½
 <CFOUTPUT>#CFCATCH.DETAIL#, #CFCATcH.MESSAGe#</CFOUTPUT>
 </cfcatch>
 </cftry>

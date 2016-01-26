@@ -254,7 +254,7 @@ margin-left:11px;
                                     </p>
                                 </div>
                             </cfif>
-                            <cfif not cgi.PATH_INFO contains "cart.cfm">
+                            <cfif not cgi.script_name contains "cart.cfm">
                                 <cfoutput>
                                     <cfset vQty = 0>
                                     <cftry>

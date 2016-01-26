@@ -1,4 +1,4 @@
-<cfset this.enablerobustexception = true />
+<!--- <cfset this.enablerobustexception = true /> --->
 <!---<cfif cgi.server_name is "www.semipreciouswholesale.com">
 	<cfheader statuscode='301' statustext='Moved permanently'>
 	<cfheader name='Location' value="http://www.semiprecious.com/wholesale/">
@@ -24,6 +24,12 @@
 	<CFHEADER statuscode="301" statustext="Moved Permanently">
 	<CFHEADER name="Location"  value="#newurl#">
 	<cfabort />--->
+
+
+<cfif cgi.SERVER_NAME does not contain("localhost")>
+<cfinclude template="includes/process_non_www.cfm" />
+</cfif>
+
 <CFIF cgi.server_name contains 'www.'>
 	<CFAPPLICATION name="wwwsemiprecious" setdomaincookies="no"   clientmanagement="yes"  sessionManagement="yes" setclientcookies="yes" clientstorage="cookie" sessiontimeout=#CreateTimeSpan(0,2,0,0)#/>
 <cfelse>
@@ -57,15 +63,14 @@
 		</cfif>
 	</cfif>
 	--->
-	<cfset session.currency = '$'>
-	<cfset session.country=''>
-	<cfset session.sale_factor = 1 />
-	<cfset session.getCountry = 'US' />
-	<cfif not  isdefined("Application.active") or isdefined("url.resettheapplication")>
+		<cfset session.currency = '$'>
+		<cfset session.country=''>
+		<cfset session.sale_factor = 1 />
+		<cfset session.getCountry = 'US' />
+		<cfif not  isdefined("Application.active") or isdefined("url.resettheapplication")>
 		<!--- application start process --->
 		<cfset application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath()) />
 		<cfinclude template="includes/application_startup.cfm" />
-
 		<cfset application.tollfree = '<font color="purple">512-666-GEMS(4367)</font>' />
 	</cfif>
 
@@ -140,4 +145,10 @@
 	<cfelse>
 		<cfset session.tld = 'semiprecious.com' />
 	</cfif>
+</cfif>
+
+<!--- handling some requests that are for older SEO friendly URLs and start with /jewelry/#category#/#subcat# --->
+<cfif find("jewelry/",cgi.REQUEST_URI)>
+	<cfset k = 1 />
+	<!--- todo: look at webmaster warnings and missing pages --->
 </cfif>

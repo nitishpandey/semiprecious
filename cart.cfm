@@ -13,7 +13,6 @@
     <cfset tryingtodelete =  true />
 <Cfelse>
 <cfset tryingtodelete =  false />
-
 </cfif>
  <cfif  checkout is "yes">
         <cfset showheaderjs = 1 />
@@ -33,9 +32,8 @@
 <!--- return variable not really required because the component works directly on session variables --->
 	<cfif comingfromconfirmpage()>
 	      <cfinvoke component="cartcontrol.cartmonitor" method="new_cartid" returnvariable="_new_cartid" >
-              </cfinvoke>
-
-        </cfif>
+          </cfinvoke>
+      </cfif>
 
 
 <!--- end cart not empty check --->
@@ -119,6 +117,7 @@
 <CFPARAM NAME="Price" DEFAULT= "0" />
 <CFPARAM NAME="category" DEFAULT= "" />
 <CFPARAM NAME="newitem" DEFAULT= "" />
+<cfparam name="metadescription" default="" />
 <CFPARAM NAME="cart" DEFAULT= "" />
 <cfparam name="volumediscount" default="1" />
 <CFPARAM NAME="bought" DEFAULT="" />
@@ -753,8 +752,8 @@ self.document.cartform.submit();
 	*/
 	}
 	if(inString=='indianfranchisee'){
-self.document.cartform.action="indianfranchisee.cfm";
-	self.document.cartform.submit();
+		self.document.cartform.action="indianfranchisee.cfm";
+		self.document.cartform.submit();
 	return;
 	}
 }
@@ -771,8 +770,7 @@ self.document.cartform.action="indianfranchisee.cfm";
     </div><cfinclude template="mainfooter.cfm" />
     </div>
 
-</body>
-</html>
+
 <cfabort />
 </cfif>
 </cfif>
@@ -1609,7 +1607,7 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
  <img src="/images/moreshopping.gif" style="margin-top:2px;border:2px gray ridge;width:120px;cursor:pointer" onClick="javascript:goProcess('buy more')" > &nbsp;
 				<font color="##799ea3" size=+1><b>OR CONTINUE CHECKOUT BELOW</b></font>
 				</TD></tr>
-				<tr><td colspan="2" bgcolor="##799ea3" style="color:##FFFFFF" height="24px"><strong>Please Fill In Your Shipping Address <cfif IsDefined('session.mail') AND session.mail neq ''>(Same As Registered? <input type="checkbox" name="sameas" id="sameas" onClick="fnFillForm(this);" style="background-color:##603082;border-color:##603082">)</cfif></strong>
+				<tr><td colspan="2" bgcolor="##799ea3" style="color:##FFFFFF" height="24px"><strong> Your Shipping Address <cfif IsDefined('session.mail') AND session.mail neq ''>(Same As Registered <input type="checkbox" name="sameas" id="sameas" onClick="fnFillForm(this);" style="background-color:##603082;border-color:##603082">)</cfif></strong>
 </td></tr>
 
 				   <tr>
@@ -1767,9 +1765,7 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
                             <option value="NEW ZEALAND">NEW ZEALAND</option>
                             <option value="NETHERLANDS">NETHERLANDS</option>
                             <option value="NORWAY">NORWAY</option>
-
                             <option value="SOUTH KOREA">SOUTH  KOREA</option>
-
                             <option value="POLAND">POLAND</option>
                             <option value="PORTUGAL">PORTUGAL</option>
                             <option value="ROMANIA">ROMANIA</option>
@@ -1963,8 +1959,6 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
 		 		</div>
 		 	</div>
 		</div>
-
-
 				 </cfoutput></font></td>
 				 </tr>
 

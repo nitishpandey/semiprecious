@@ -110,7 +110,7 @@ union
 			variables.item_id = '';
 			variables.header = "";
 			structAppend(Variables,arguments.template_variables) ;
-			var pattern = cgi.PATH_INFO;
+			var pattern = cgi.script_name;
    		 </cfscript>
 
 	  <cfset variables.newitem = set_item_id(pattern) />

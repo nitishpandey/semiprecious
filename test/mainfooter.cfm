@@ -87,7 +87,7 @@ cv = "CFCARTID="+<cfoutput>#session.cartid#</cfoutput>+"#";
   </div>
 
 <!---<div align="center">		
-											<cfif CGI.path_info does not contain 'cart' and CGI.path_info does not contain 'confirmation'>
+											<cfif cgi.script_name does not contain 'cart' and cgi.script_name does not contain 'confirmation'>
 							      <cfinclude template="/googleadsforlist.htm">
 										</cfif>
 </div>--->

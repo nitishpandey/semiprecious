@@ -38,7 +38,7 @@
    <cfreturn 0>
    </cffunction>
 
-<cfset pattern = #cgi.PATH_INFO#>
+<cfset pattern = #cgi.script_name#>
 <!---   <cfoutput>#Pattern#</cfoutput> 
  --->
  <cfif not isdefined("url.itemnumber")>

@@ -61,7 +61,7 @@ the web environment --->
 
 
 
-<cfset pattern = #cgi.PATH_INFO#>
+<cfset pattern = #cgi.script_name#>
 <cfif not isdefined("url.itemnumber")>
   <cfif Find('/', pattern) gt 0>
     <cftry>

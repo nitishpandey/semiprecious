@@ -3,7 +3,7 @@
 <cfparam name="category" default="all" />
 <cfparam name="url.folder" default="necklaces" />
 <cfquery name="contentbypage" datasource="gemssql">
-	Select * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
+	Select * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(cgi.script_name),"/","")#'
 	</cfquery>
 	<cfoutput>
 <cfif contentbypage.recordcount GT 0>

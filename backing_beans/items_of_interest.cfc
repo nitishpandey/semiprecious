@@ -9,12 +9,12 @@
 
 
 	<cffunction name="get_i_o_i" access="public" output="false" returntype="string">
-		<cftry> 
+		<cftry>
                 <cfif isdefined("cookie.i_o_i")>
                     <cfset itemslist = cookie.i_o_i />
                 	<cfreturn itemslist />
                 </cfif>
-		<cfreturn "9044,13159,14915,13588" />
+		<cfreturn "16007,13159,14915,14603" />
         <cfcatch>
         <cfrethrow />
         </cfcatch>
@@ -23,8 +23,8 @@
 
 	<cffunction name="add_i_o_i" access="public" output="false" returntype="void">
 		<cfargument name="design_id" type="string" required="true" />
-		
-		<cfset var i_o_i = get_i_o_i() />    
+
+		<cfset var i_o_i = get_i_o_i() />
 		<cfif not listfind(i_o_i,arguments.design_id) >
 		    <cfset i_o_i = listprepend(i_o_i,arguments.design_id) />
                     <cfif listlen(i_o_i) GT 20>

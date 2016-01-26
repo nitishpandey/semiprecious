@@ -1,4 +1,5 @@
 
        <cfset category='chains'>
     <cfset groupname='Bead-Bar'>
-    <cfinclude template='/gemstone_jewelry_gallery.cfm'>
+	<cfinclude  template='/silver_jewelry_gallery_slow.cfm' />
+

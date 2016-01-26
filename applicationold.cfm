@@ -3,7 +3,7 @@
 
 <cfif  cgi.server_name does not contain "www." and find(".", cgi.server_name, find(".", cgi.server_name)+1) eq 0>
 		<cfset newurl= "http://www."& replace(cgi.server_name,'http://',"") >
-		<cfset pattern = cgi.PATH_INFO>
+		<cfset pattern = cgi.script_name>
 			<cfif len(pattern)>
 				<cfif not isdefined("url.itemnumber")>
                   <cfif Find('/', pattern) gt 0>

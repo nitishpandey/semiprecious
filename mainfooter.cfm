@@ -6,12 +6,12 @@
 <br />
 <cfif cgi.server_name contains 'wholesale'>
 	<cfif session.tld is '.semiprecious.in'>
-		~</div>
+		</div>
 	</cfif>
 	<cfif (session.cartid) and session.cartid neq "" and session.cartid GT 0>
 		<cfif not isdefined("client.cfcartid")>
 
-			<script language="javasrtip1.2">
+			<script language="javascript1.2">
 				try {
 					cv = "CFCARTID=" + < cfoutput > #session.cartid# < /cfoutput>+"#";
 					writeCookie("CFCLIENT_WWWSEMIPRECIOUS",cv,1000);
@@ -119,7 +119,7 @@
 		</div>
 	</div>
 	<!---<div align="center">
-		<cfif CGI.path_info does not contain 'cart' and CGI.path_info does not contain 'confirmation'>
+		<cfif cgi.script_name does not contain 'cart' and cgi.script_name does not contain 'confirmation'>
 		<cfinclude template="/googleadsforlist.htm">
 		</cfif>
 		</div>--->

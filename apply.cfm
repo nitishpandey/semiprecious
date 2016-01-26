@@ -6,7 +6,6 @@ select max(nlstatus) as maxnlstatus from memberinfo
 <cfset title="Semiprecious.com Pendants, Rings and Silver Jewelry Online Store"/>
 
 <cfsavecontent variable="inheader">
-<link href="styles/style_semiprecious.css" rel="stylesheet" type="text/css" />
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/CFIDE/scripts/cfform.js"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/js/global.js"></SCRIPT>
     <script src="headhunting/js/jquery-1.5.min.js"></script>
@@ -189,7 +188,5 @@ Date: <select name="doa"><option value="0">0</option><option value="1">1</option
 </table>
 </div>
 </div>
-<cfinclude template="mainfooter.cfm" />
 </div>
-</body>
-</html>
+<cfinclude template="mainfooter.cfm" />

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<cfinclude  template="/includes/prefix_www.cfm" />
 <cfparam name="metatitle" default="">
 <cfparam name="metadescription" default="">
 <cfparam name="metakeywords" default="">
@@ -21,7 +20,7 @@
 	  <cfif cgi.server_name IS "handmadelaptopcase.com" or cgi.server_name is "www.handmadelaptopcase.com">
 	    <cflocation url="http://www.handmadelaptopcase.com/laptopbags" addtoken="no">
 	  </cfif>
-  
+
   <cfquery name="contentbypage" datasource="gemssql">
 	Select * from contentbypage where pagename='index.cfm' and domain ='#cgi.server_name#'
 	</cfquery>
@@ -31,7 +30,7 @@
     <cfset metakeywords="Wholesale #contentbypage.keywords#">
     <cfset pagedescription="Wholesale #contentbypage.description#">
     <cfelseif cgi.server_name contains "semiprecious.in">
-	
+
 	<cfset metatitle="Indian Jewellery #contentbypage.title#">
     <cfset metadescription="Buy jewellery in India online. #contentbypage.metadescription#">
     <cfset metakeywords="India, jewellery,#contentbypage.keywords#">
@@ -41,7 +40,7 @@
     <cfset metadescription="#contentbypage.metadescription#">
     <cfset metakeywords="#contentbypage.keywords#">
     <cfset pagedescription="#contentbypage.description#">
- 
+
   </cfif>
   <HTML>
   <HEAD>
@@ -52,7 +51,7 @@
     <TITLE><cfoutput>#metatitle#</cfoutput></TITLE>
  <cfelse>
     <TITLE><cfoutput>#metatitle#</cfoutput></TITLE>
-    
+
   </cfif>
   <META NAME="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8" />
   <META name="CONTENT-LANGUAGE" content="HI" />
@@ -110,16 +109,16 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
-//--> 
+//-->
 </script>
   <script language="JavaScript" src="js/imageswap.js"></script>
 
   </HEAD>
   <BODY  style="margin-top:0;font-size:12px;z-index:0;" onLoad="javascript:runSlideShow();">
 	   <div align="center" >
-<div style="padding-left:0px;width:930px;margin-top:0;position:relativ;z-index:0;" id="container1" >  
+<div style="padding-left:0px;width:930px;margin-top:0;position:relativ;z-index:0;" id="container1" >
     <!---<CFINCLUDE template="js/hoverstonemenu.cfm">
-style="border-top:1px groove #000066;border-right:1px groove #000066;" 
+style="border-top:1px groove #000066;border-right:1px groove #000066;"
 --->
  <div id="h" style="position: absolut; top: 0px; left: 0px; padding: 0pt; margin: 0pt;display:block;">
       <cfinclude template="/header#session.country#.cfm">
@@ -137,8 +136,8 @@ style="border-top:1px groove #000066;border-right:1px groove #000066;"
 
                     <cfinclude template="includes/right_menu.cfm" />
 			</div>
-			<cfelseif cgi.server_name contains "wholesale">   
-			 
+			<cfelseif cgi.server_name contains "wholesale">
+
 				<script language="javascript">
 					<!--
  function runSlideShow(){return;}
@@ -154,7 +153,7 @@ style="border-top:1px groove #000066;border-right:1px groove #000066;"
                     <cfinclude template="includes/right_menu.cfm" />
 			</div>
            		</cfif>
-			
+
 
   	 <div style="clear:both" id="mainfooter">
              <cfinclude template="mainfooter.cfm">
@@ -162,10 +161,10 @@ style="border-top:1px groove #000066;border-right:1px groove #000066;"
    </div><!--- End all footer stuff --->
 
   </div><!--- width 906--->
- 
-      
+
+
  </div><!--- align center --->
-<!--- 
+<!---
 <cfif findnocase('MSIE',CGI.HTTP_USER_AGENT)>
 <script language=JavaScript1.2 type=text/javascript >
 <!--
@@ -176,7 +175,7 @@ myElement.style.zIndex = "1999";
 var dElement = document.getElementById("h");
 dElement.style.position = "relative";
 dElement.style.zIndex = "9299";
-    			
+
 
  myElement = document.getElementById("lm");
 myElement.style.position = "absolute";

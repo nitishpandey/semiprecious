@@ -94,7 +94,7 @@ Select distinct stone as subcat2 from  stonelistpopular<cfif category neq 'beads
             <cfset subcat4 = subcat3>
             <cfset subcat3 = replace(trim(subcat3)," ","")>
     		<!--- If we are on the hubs page, display 'stone+category' otherwise, just the stone --->
-			<cfif CGI.script_path contains "gem-stone-">
+			<cfif cgi.script_name contains "gem-stone-">
                 <cfif category eq "" or category eq "ALL">
                     <cfif style neq "">
                     <li><a href='/#subcat3#_#categ#.cfm?style=#style#' id="#subcat2#" >
@@ -143,7 +143,7 @@ Select distinct stone as subcat2 from  stonelistpopular<cfif category neq 'beads
             <cfset subcat4 = subcat3>
             <cfset subcat3 = replace(trim(subcat3)," ","")>
     		<!--- If we are on the hubs page, display 'stone+category' otherwise, just the stone --->
-			<cfif CGI.PATH_INFO contains "gem-stone-">
+			<cfif cgi.script_name contains "gem-stone-">
                 <cfif category eq "" or category eq "ALL">
                     <cfif style neq "">
                     <li><a href='/#subcat3#_#categ#.cfm?style=#style#' id="#subcat2#" >
@@ -186,7 +186,7 @@ Select distinct stone as subcat2 from  stonelistpopular<cfif category neq 'beads
             <cfset subcat4 = subcat3>
             <cfset subcat3 = replace(trim(subcat3)," ","")>
     		<!--- If we are on the hubs page, display 'stone+category' otherwise, just the stone --->
-			<cfif CGI.PATH_INFO contains "gem-stone-">
+			<cfif cgi.script_name contains "gem-stone-">
                 <cfif category eq "" or category eq "ALL">
                     <cfif style neq "">
                     <li><a href='/#subcat3#_#categ#.cfm?style=#style#' id="#subcat2#" >

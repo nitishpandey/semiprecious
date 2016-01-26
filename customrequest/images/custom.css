@@ -1,0 +1,125 @@
+    .newstone2 {
+            opacity:0.05;
+			    			width: 1px;
+			height: 1px;
+			overflow: hidden;
+           position:absolute;
+    
+	}
+    .newstone1 {
+            opacity:0.05;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+           position:absolute;
+        
+	}
+    .newstone3 {
+ 
+			background-repeat: no-repeat;
+            opacity:0.05;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+           position:absolute;
+        
+	}
+	
+		.stone_pixel1 {
+			overflow: hidden;
+           position:absolute;
+		z-index:7;
+		background-color:red;
+		opacity:0;
+		
+		}
+		
+		.stone_pixel2 {
+			overflow: hidden;
+           position:absolute;
+		z-index:7;
+		background-color:yellow;
+		opacity:0;
+		
+		}
+		.stone_pixel3 {
+			overflow: hidden;
+           position:absolute;
+		z-index:7;
+		background-color:green;
+		opacity:0;
+		}
+
+		.stone_pixel4 {
+			overflow: hidden;
+           position:absolute;
+		z-index:7;
+		background-color:white;
+		opacity:0;
+   		}
+		
+		.texture_pixel1 {
+			overflow: hidden;
+           position:absolute;
+		z-index:5;
+		background-color:red;
+		}
+		
+		.texture_pixel2 {
+			overflow: hidden;
+           position:absolute;
+		z-index:5;
+		background-color:yellow;
+		}
+		.texture_pixel3 {
+			overflow: hidden;
+           position:absolute;
+		z-index:5;
+				background-color:green;
+
+		
+		}
+
+		.texture_pixel4 {
+			overflow: hidden;
+           position:absolute;
+		z-index:5;
+				background-color:white;
+
+		
+		}
+		
+
+	.pixel {
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+	        background-color:white;
+	        position:absolute;
+			z-index:2;
+		}
+
+		#nativeimage {
+		/*	position: absolute;
+			*/left: 10px;
+			top: 112px;
+		}
+		#image {
+			position: absolute;
+			left: 10px;
+			top: 40px;
+		}
+		#largeimage {
+			position: absolute;
+			border: 1px solid #000;
+			top: 40px;
+			left: 200px;
+		}
+			#largeimage .pixel {
+				width: 3px;
+				height: 3px;
+			}
+	 #place {
+	 position:relative;
+	 z-index:2;
+	 }

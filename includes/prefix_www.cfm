@@ -3,7 +3,7 @@
 <cfset k = structdelete(session, 'mail', "false") />
 <cfset k = structdelete(session, 'cartid', "false") />
 
-  <CFHEADER statuscode="301" statustext="Moved Permanently">
-<CFHEADER name="Location"  value="#newurl#"> 
+  <CFHEADER statuscode="301" statustext="Moved Permanently"/>
+<CFHEADER name="Location"  value="#newurl#" />
 <cfabort />
 </cfif>

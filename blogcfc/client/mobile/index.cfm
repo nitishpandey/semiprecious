@@ -13,7 +13,7 @@
 </cfif>
 
 
-<cfset urlVars=reReplaceNoCase(trim(cgi.path_info), '.+\.cfm/? *', '')>
+<cfset urlVars=reReplaceNoCase(trim(cgi.script_name), '.+\.cfm/? *', '')>
 <cfif listlen(urlVars, '/') GT 1>
 	<!---attempt to load directly into a post--->
 	<cfmodule template="../tags/getmode.cfm" r_params="chkparams"/>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:name;datatype:,name:id;datatype:" />
+	<infoitem key="UD_variants" value="name:description;datatype:,name:carat_factor;datatype:,name:id;datatype:" />
+	<infoitem key="UD_shapes" value="name:description;datatype:,name:id;datatype:" />
+	<infoitem key="UD_sizes" value="name:size;datatype:,name:id;datatype:" />
+	<infoitem key="UD_stone_name_variants" value="name:name;datatype:,name:description;datatype:" />
+	<infoitem key="UD_stone_ranges" value="name:description;datatype:,name:rate_per_carat;datatype:,name:name;datatype:,name:size;datatype:,name:variant;datatype:" />
+</info>

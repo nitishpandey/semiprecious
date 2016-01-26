@@ -135,7 +135,7 @@ and
 	<cfset subcat3 = replace(trim(subcat3)," ","")>
     
     <!--- If we are on the hubs page, display 'stone+category' otherwise, just the stone --->
-    <cfif CGI.PATH_INFO contains "gem-stone-">
+    <cfif cgi.script_name contains "gem-stone-">
 		<tr>
 		<td >
 		<cfif category eq "" or category eq "ALL">

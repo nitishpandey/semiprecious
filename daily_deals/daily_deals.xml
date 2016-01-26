@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<daily_deals date="7">
+ 	<metadata days_not_sold="250" gallery_size="27" wholesale_factor="1.15"/> 
+	<data>
+		
+		<earrings count="1">
+			7191
+			</earrings>
+			
+		<pendants count="1">
+			1328
+			</pendants>
+			
+		<necklaces count="1">
+			11504
+			</necklaces>
+			
+<all_items count="3">
+7191,11504,1328
+</all_items>
+		</data>
+	</daily_deals>

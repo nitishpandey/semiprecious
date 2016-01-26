@@ -91,7 +91,7 @@ function showIt() {
 <!---<a href=/thanksgivingsale.cfm><img src=/images/cybermondaysale.jpg width=600 height=92 border=0></a>--->
 </td><td align="right" width="450px">
 <cfoutput><span style="color:##345;margin-right:10px;"><cfif session.bulkbuyer.id contains '@'>wholesale mode on<br></cfif>#session.mail#</span></cfoutput>
-                <cfif not cgi.PATH_INFO contains "cart.cfm">
+                <cfif not cgi.script_name contains "cart.cfm">
               <div align="right" style="padding-right:30px;color:#89F"> <a href=https://www.semiprecious.com/cart.cfm style="text-decoration:none;color:black;"><img src="/images/add_to_cart_icon.jpg" border=0 align="absmiddle" width="26" height="25" />&nbsp;
 
                 
@@ -121,7 +121,7 @@ function showIt() {
 			  
                           and a list of <b>new items</b>.</li>                   <li>We maintain email privacy and do not spam</li> </ul>
 						 <span onMouseOver="javascript:document.getElementById('auth').innerHTML = ' <font size=\'4\' face=\'Bradley Hand ITC\'> <ul>    <li>Over 6000 designs of silver jewelry and gemstone beads</li>    <li>Authentic gemstone jewelry in sterling silver</li><li>30 days flexible return policy</li>    <li>Pay in easy monthly installments interest free</li>    <li>Rings in all sizes from US (size 4 to 12)</li>  </ul></font>';" style="display:inline;float:right;color:gray">[X]</span> </span>
-<cfif cgi.https is "on" and cgi.path_info does not contain "cart" and cgi.path_info does not contain "confirmation.cfm" >
+<cfif cgi.https is "on" and cgi.script_name does not contain "cart" and cgi.script_name does not contain "confirmation.cfm" >
   <cflocation
 url="http://#cgi.server_name##cgi.script_name#?#QUERY_STRING#" addtoken=yes>
 </cfif>

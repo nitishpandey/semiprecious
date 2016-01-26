@@ -1,4 +1,4 @@
+<cfset groupname='Flower'>
+ <cfinclude  template='/silver_jewelry_gallery_slow.cfm' />
 
-   <cfset groupname='Flower'>
-   <cfinclude template='/gemstone_jewelry_gallery.cfm'>
-   
+

@@ -44,7 +44,7 @@ that next items  quantity is placed for the item initially intended to be edited
    <cfreturn 0>
    </cffunction>
 
-<cfset pattern = #cgi.PATH_INFO#>
+<cfset pattern = #cgi.script_name#>
 <!---   <cfoutput>#Pattern#</cfoutput> 
  --->
  <cfif not isdefined("url.itemnumber")>

@@ -74,6 +74,9 @@
         <CFPARAM NAME="category" DEFAULT= "" >
         <CFPARAM NAME="subcategory" DEFAULT= "" >
         <CFPARAM NAME="stonename" DEFAULT= "" >
+		<cfparam name="metatitle" default="">
+	<cfparam name="metadescription" default="">
+	<cfparam name="metakeywords" default="">
 
     <cfparam name="itemnumber" default="0"  />
     <cfparam name="session.screenwidth" default="833" type="numeric" />
@@ -117,17 +120,17 @@
         </cfquery>--->
 
 	                         <cftry>
-                                             <cfquery name='video' datasource='gemssql'>
-					        	select videocode from items_video where itemidvideo=#newitem#
-	         				</cfquery>
-        		                <cfcatch type="database">
-                                                      <cfset video = querynew('videocode') />
-                                         </cfcatch>
+                                    <cfquery name='video' datasource='gemssql'>
+					        			select videocode from items_video where itemidvideo=#newitem#
+	         						</cfquery>
+        		              	  <cfcatch type="database">
+                                           <cfset video = querynew('videocode') />
+                                   </cfcatch>
                                           <cfcatch type="any">
                                                stopped in jewelry_item.cfm for videocode
                                                    <cfabort />
-                                                  <cfset video = querynew('videocode') />
-                                           </cfcatch>
+                                                <cfset video = querynew('videocode') />
+                                         </cfcatch>
                                 </cftry>
 
     <cfif testing is "yes">
@@ -136,7 +139,7 @@
         <Cfset cts = createTimespan(0,0,5,0) />
     </cfif>
 
-      <CFQUERY datasource="gemssql" name="detailsinmemory" 	cachedwithin="#cts#">
+     <CFQUERY  datasource="gemssql" name="detailsinmemory"  	cachedwithin="#cts#">
               Select   'stone' as material, grouping, itemnumber, size, weight,supplier, style, color, storage, '0' as storageindia, imagelink, inventory,
                  orderonrequest, price, status, saleprice,clustercount,basecost, wholesaleprice, newitem, itemnumber as optcount,description,
                   NameID, newitem, subcat, subcat2, cat, morepics from
@@ -275,7 +278,7 @@
      </a>
      </cfoutput>
     </cfsavecontent>
-        <cftry>
+    <cftry>
         <cfset what_happened = added.response.newitem.qtyadded.XmlText  />
         <cfcatch type="any">
         <cfdump var="#added#">
@@ -297,7 +300,8 @@
             , .a#form.newitem#_#added.response.newitem.optionid.XmlText#
             </cfoutput>
             </cfsavecontent>
-         <cflocation url="/#session.cart#?country=#session.address.country_code#&amp;secure=true&cartid=#session.cartid#" />
+
+	  <cflocation url="/#session.cart#?country=#session.address.country_code#&amp;secure=true&cartid=#session.cartid#" />
             <cfset cart_msg= what_happened & " of " & t & " added to cart" />
             <cfif trim(added.response.newitem.optionid.XmlText) neq '0'>
                 <cfset cart_msg= cart_msg & " [Option "&  added.response.newitem.optionid.XmlText & "]" />
@@ -305,14 +309,14 @@
         </cfif>
 
     </cfif>
-    <HTML>
-    <HEAD>
-    <cfoutput>
 
 
-		<cftry>
-      <link rel="canonical" href="http://www.semiprecious.com/gem_stone_#LCASE(details.cat)#.cfm/#LCASE(details.newitem)#_#LCASE(details.cat)#_#LCASE(replace(trim(details.subcat)," ",""))#<cfif details.grouping neq "">_#LCASE(listfirst(details.grouping))#</cfif>.htm">
-   <cfcatch type="any">
+
+<cfsavecontent variable="inheader">
+	<cftry>
+     <cfoutput>
+		 <link rel="canonical" href="http://www.semiprecious.com/gem_stone_#LCASE(details.cat)#.cfm/#LCASE(details.newitem)#_#LCASE(details.cat)#_#LCASE(replace(trim(details.subcat)," ",""))#<cfif details.grouping neq "">_#LCASE(listfirst(details.grouping))#</cfif>.htm">
+   	</cfoutput><cfcatch type="any">
 
 		<html>
 		<head>
@@ -321,11 +325,12 @@
 		<body>
 		</BODY>
 		</html>
-		<cfabort>
+		<cfabort />
 
 	 </cfcatch>
 	 </cftry>
-			<TITLE>#titlecase(title)#</TITLE>
+
+
     <script language="JavaScript" src="/js/global.js?ver=1.2"></script>
     <!---
     <script language="JavaScript" src="/js/mag.js"></script>--->
@@ -374,9 +379,9 @@
        </cfif>
       -->
       <script language="JavaScript" >
-    vCurrentInventory = #invent#;
+    vCurrentInventory = <cfoutput>#invent#</cfoutput>;
 
-                            function swapMainImage(pImage)
+                      function swapMainImage(pImage)
                             {
                                 document.getElementById('mainimage').src = pImage;
                                 var newImg = new Image();
@@ -414,9 +419,9 @@
      <cfif cgi.server_name contains "wholesale">
     <script language=JAVASCRIPT src="/javascript/wholesalezoom.js" type="text/javascript" ></script>
     <cfelse>
-    <script language=JAVASCRIPT src="/javascript/#session.country#zoom.js" type="text/javascript" ></script>
+    <script language=JAVASCRIPT src="/javascript/zoom.js" type="text/javascript" ></script>
     </cfif>
-     </cfoutput>
+
     <cfif session.mail neq application.admin_email >
       <SCRIPT LANGUAGE="JavaScript1.1" >
     <!-- Original:  Martin Webb (martin@irt.org) -->
@@ -536,9 +541,13 @@
     </script>
 
     </cfif>
-        <cfif details.recordcount is 0>
 
-    <BODY >
+ </cfsavecontent>
+
+
+ <cfif details.recordcount is 0>
+
+
               <cfinclude template="/header#session.country#.cfm" >
                 <h3>Sorry, nothing found, that was the last record for the selection Please go back.</h3>
                 </div>
@@ -553,8 +562,11 @@
         <a href="/showpendants.cfm" >pendants</a> </p> </div>
       </body>
                 </html>
-                <cfabort />
-        <CFelseIF (category is "")>
+             <cfabort />
+	 </cfif>
+
+
+	<CFIF (category is "")>
           <cfinclude template="/header#session.country#.cfm" >
 
     <br />
@@ -577,29 +589,40 @@
           <a href="/showpendants.cfm" >pendants</a> </p> </div>
     </div>
 			<cfif cgi.server_name does not contain 'wholesale'>
-    <cfinclude template="/mainfooter.cfm" ></cfif>
-
-    </body>
-    </html>
-    <CFABORT>
-    <cfelse>
+   			 <cfinclude template="/mainfooter.cfm" >
+		</cfif>
 
 
-    <meta name="description" content="<cfif cgi.server_name contains 'wholesale'>Wholesale </cfif><cfoutput>#subcategory#</cfoutput><cfloop query="getgroups" >
-    <cfoutput> #groupname# </cfoutput></cfloop> <cfoutput>#category#: #details.description#</cfoutput>. We are in Austin TX and India" >
+    <CFABORT />
+   </cfif>
+
+	<CFIF (category neq "")>
+
+    <cfsavecontent variable="metadescription">
+
+	<cfif cgi.server_name contains 'wholesale'>
+		Wholesale </cfif><cfoutput>#subcategory#</cfoutput>
+	<cfloop query="getgroups" >
+    <cfoutput> #groupname# </cfoutput>
+	</cfloop>
+	<cfoutput>#category#: #details.description#</cfoutput>. We are in Austin, Texas and India</cfsavecontent>
+<cfset pre_inheader = inheader />
+<cfsavecontent variable="inheader">
+	<cfoutput>#pre_inheader#</cfoutput>
+
     <meta name="keywords" content="<cfif cgi.server_name contains 'wholesale'>Wholesale </cfif><cfoutput>#subcategory# #category#,</cfoutput><cfloop query="getgroups" ><cfoutput> #groupname# #subcategory#  #category#,</cfoutput></cfloop><cfoutput> <cfif details.color contains "," >multicolor<cfelse>#details.color#</cfif> stone #category#</cfoutput>" >
-    </CFIF>
-
     <!---
     <script language="JavaScript" src="/js/imageswap.js" ></script>
      --->
     <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-    </HEAD>
-    <BODY  style="margin-top:0" >
-    <div align="center" >
 
-    <div align="center" style="position:relative">
-        <cfinclude template="/header#session.country#.cfm" >
+
+
+</cfsavecontent>
+
+    </CFIF>
+     <cfinclude template="/header#session.country#.cfm" >
+		<div align="center" style="position:relative">
         <!--- No category --->
         <!--- End no category --->
         <table width="930px" id="container1" cellpadding="0"  cellspacing="0" >
@@ -617,10 +640,10 @@
                             <td   valign="top" align="Center" >
                                 <CFSET folder = LCASE(category) />
                                 <cfif not isnumeric(newitem)>
-                                <cfset newitem = 3300>
+                                <cfset newitem = 3300 />
                                 </cfif>
-                                <cfset prevpos = newitem - 1>
-                                <cfset nextpos = newitem + 1>
+                                <cfset prevpos = newitem - 1 />
+                                <cfset nextpos = newitem + 1 />
                                 <cfoutput>
                                 <input type="hidden" name="ajaxcheck" value="0"  id="ajaxcheck"/>
                                 </cfoutput>
@@ -630,10 +653,8 @@
                                     <!--- Main image --->
                                         <td width="560px" height=450px align="center" style="border:0 opx  height:450px  #CFFCCF solid;padding-top:2px;" >
                                             <cfoutput>
-
                                               <cfset imagename= newitem & ".jpg" >
-
-                                            <table border="0" cellpadding="0" cellspacing="0" style="padding:1px" >
+	                                            <table border="0" cellpadding="0" cellspacing="0" style="padding:1px" >
                                                 <tr valign="middle" >
                                                     <td valign="middle" align="center">
                                                         <div style="display:block;border: 0px ##EDD solid;;position:relative;z-index:1;" id="zoomarea"   align="center" >
@@ -648,10 +669,24 @@
 
                             <h1   class="form_heading" style="color:black; text-align:left">
                             <cfif cgi.server_name contains 'wholesale'>Wholesale </cfif>
-														<cfif details.nameid is not "">#titlecase(nameid)#<cfelse>#titlecase(details.subcat)# #titlecase(details.grouping)#
-                            <cfif details.subcat2 neq ""> #titlecase(details.subcat2)#</cfif>
-                            <cfif details.style is 'silver setting'>92.5 Sterling Silver<cfelse>#titlecase(details.style)#</cfif>
-                            <cfif details.cat neq 'healing'>#titlecase(left(details.cat, len(details.cat)-1))#</cfif></cfif>
+							      <cfif details.subcat neq 'wood'>
+                                  #ucase(subcategory)# #ucase(details.subcat2)#
+                              <cfloop query="getgroups" >
+                                #Ucase(groupname)#
+                              </cfloop>
+                              <cfif category neq 'healing'>
+                                #ucase(left(category,len(category)-1))#
+                                <cfelse>
+                                #ucase(category)#
+                              </cfif>
+
+                            </cfif>
+														<cfif details.nameid is not "">[#titlecase(nameid)#]
+														<cfelse>
+														[#titlecase(details.subcat)# #titlecase(details.grouping)#]
+
+														</cfif>
+														           <cfif details.style is 'silver setting'>&nbsp;in 92.5 Sterling Silver<cfelse>#titlecase(details.style)#</cfif>
 
                                 </h1></cfif><table style="margin-top:1px;width:100%" cellpadding="1px;"><tr><td width="40%" valign="top" align="center">
                             <cfif len(cart_msg)>
@@ -817,7 +852,8 @@
                             </cfoutput>
                     </td></tr></table> -->
                 </cfif>
-    </div></Div>
+    </div>
+</Div>
 
     </cfoutput>
                        <!---  <br style="clear:both" >--->
@@ -857,25 +893,14 @@
                         </td>
                         </tr> <tr>
 
-                        <td valign=top>
+                        <td valign="top">
                 <!---   show thumb removed   <cfif details.morepics eq 0 or details.morepics eq "" >
                           <img style="float:left;margin-left:4px;margin-right:10px" src="/images/#category#/thumb/#newitem#.jpg" />
                           </cfif> --->
                             <div align="left" style="padding-left:2px"  >
 
                                 <font color="black" face="Verdana, Arial, Helvetica, sans-serif" >
-                                  <cfif details.subcat neq 'wood'>
-                                  #ucase(subcategory)# #ucase(details.subcat2)#
-                              <cfloop query="getgroups" >
-                                #Ucase(groupname)#
-                              </cfloop>
-                              <cfif category neq 'healing'>
-                                #ucase(left(Category,len(category)-1))#
-                                <cfelse>
-                                #ucase(category)#
-                              </cfif>
-                              :
-                            </cfif>
+
                             <h3>#description#</h3>&nbsp;<br/><cfif details.size neq "">
                                 <b>Size:</b>
                                                         </cfif>
@@ -906,7 +931,7 @@
 
                                                                             </cfif>
                                     <cfelse>
-                                        #Round(evaluate(details.size/25.4))#inches
+                                        #Round(evaluate(details.size/25.4))# inches
                                     </cfif>
                                 </cfif>
                             </cfif>
@@ -1145,8 +1170,8 @@ union
 
                               <CFIF (invent LTE 0) and not details.orderonrequest >
                                     Sold Out
-                                    <cfoutput>  <br><a href="/contactus.cfm?newitem=#newitem#&folder=#folder#" >Back Order</a>
-                    </cfoutput>
+                                      <br><a href="/contactus.cfm?newitem=#newitem#&folder=#folder#" >Back Order</a>
+
                                 <cfelse>
                                 <cfif invent LT 4>
                                    <cfif  invent LTE 0 >
@@ -1479,20 +1504,8 @@ union
   </table>
  </td>
 </tr>
-<tr>
-    <td align="center" colspan="2" >
-                <!--- Footer --->
-	<cfif cgi.server_name does not contain 'wholesale'>
-                     <cfinclude template="/mainfooter.cfm" >
-       </cfif>
-                 <!--- End footer --->
-
-      </td>
- </tr>
-
-              <!-- cgi -->
- </TABLE>
-       <cfoutput>
+</table>
+	     <cfoutput>
               <script language="javascript" >
                 /*
             on 15 Mar 2010 Nitish: Did not find use of the id of any element
@@ -1536,15 +1549,26 @@ union
 var merchant_id = "3724";
 //-->
 </script>
-<script src="http://reporting.singlefeed.com/z/track.js?v=1.1" type="text/javascript"></script>
-            </BODY>
+<script src="http://reporting.singlefeed.com/z/track.js?v=1.1" type="text/javascript">
+</script>
+
         <footer>
         <script type="text/javascript">
          <!---     <cfoutput>MojoMagnify.makeMagnifiable(document.getElementById("mainimage"),"http://www.semiprecious.com/images/#folder#/#newitem#.jpg");</cfoutput>--->
             </script>
 
         </footer>
-            </HTML>
+
+                <!--- Footer --->
+	<cfif cgi.server_name does not contain 'wholesale'>
+                     <cfinclude template="/mainfooter.cfm" >
+       </cfif>
+                 <!--- End footer --->
+
+
+              <!-- cgi -->
+
+
      <!---   <cfcatch type="any">
         <cfoutput>#cfcatch.message# #cfcatch.detail#</cfoutput>
         </cfcatch>
@@ -1552,8 +1576,7 @@ var merchant_id = "3724";
         --->
         </cfif>
              <cfcatch type="any" >
-
                <cfdump var="#cfcatch#" />
-           <cfabort />
+         	  <cfabort />
           </cfcatch>
         </cftry>

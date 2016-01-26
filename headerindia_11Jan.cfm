@@ -204,7 +204,7 @@ margin-left:11px;
                                 <table width="98%" border="0" cellspacing="0" cellpadding="0">
                                     <tr valign="bottom">
                                         <td align="right">
-                                            <cfif not cgi.PATH_INFO contains "cart.cfm">
+                                            <cfif not cgi.script_name contains "cart.cfm">
                                             	<img src="https://#session.tld#/images/dots1.gif" style="display:inline;" />
                                                 <a href="https://#cgi.SERVER_NAME#/#session.cart#">
                                                     <img src="https://#session.tld#/images/add_to_cart_icon.jpg" border=0 

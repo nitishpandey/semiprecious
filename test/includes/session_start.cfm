@@ -17,14 +17,14 @@
 										    	<cfset session.currency = 'Rs' />
 							 				    <cfset  session.sale_factor = 1.1 />
 							 		<cfelse>
-							 			  <cflocation url="http://www.semiprecious.com#CGI.Path_info#?#cgi.QUERY_STRING#" addtoken="false" />
+							 			  <cflocation url="http://www.semiprecious.com#cgi.script_name#?#cgi.QUERY_STRING#" addtoken="false" />
 							 		</cfif>
 			  
 									<cfelseif not isdefined("url.acemat")>
 								               <!---
                                                                              removing india resolution <cfif cfhttp.FileContent contains "india" > 
   
-	                                                                            <cflocation url="http://www.semiprecious.in#CGI.Path_info#?#cgi.QUERY_STRING#" addtoken="false" />
+	                                                                            <cflocation url="http://www.semiprecious.in#cgi.script_name#?#cgi.QUERY_STRING#" addtoken="false" />
 									</cfif>			----> 					
 							</cfif>
 

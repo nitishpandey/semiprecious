@@ -368,7 +368,7 @@ background-color:##DFE;
 
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
-<cfset currentfile='#Trim(CGI.path_info)#'>
+<cfset currentfile='#Trim(cgi.script_name)#'>
 <!--- speed up things  --->
 
 <cfoutput>

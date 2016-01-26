@@ -4,7 +4,7 @@
 <cfheader name="Location" value="#newurl#"> 
 </cfif>
     
-    <cfset pattern = #cgi.PATH_INFO#>
+    <cfset pattern = #cgi.script_name#>
     <cfif not isdefined("url.itemnumber")  and not isdefined("url.newitem")>
       <cfif Find('/', pattern) gt 0>
         <cftry>

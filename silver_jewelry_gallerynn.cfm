@@ -127,7 +127,7 @@ background-color:##DFE;
 
 
 <cfquery name="contentbypage" datasource="gemssql">
-	Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
+	Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(cgi.script_name),"/","")#'
 	</cfquery>
 <cfif contentbypage.recordcount GT 0>
   <cfif cgi.server_name contains 'wholesale'>
@@ -427,7 +427,7 @@ if ( screensize is "small"){
 
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
-<cfset currentfile='#Trim(CGI.path_info)#'>
+<cfset currentfile='#Trim(cgi.script_name)#'>
 <!--- speed up things - this removed to reduce hits to the database  
 <CFIF start EQ 1 and advancedsearch neq "">
   <cftry>
@@ -523,7 +523,7 @@ Sorry, an error has occured, please email us at cs@semiprecious.com
  <cfif isdefined("cfcatch.sql")>
  #cfcatch.sql#, 
  </cfif>
-#cgi.path_info#
+#cgi.script_name#
 #cfcatch.message#
 </cfmail>
 </cfcatch>

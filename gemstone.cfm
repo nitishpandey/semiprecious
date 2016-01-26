@@ -366,7 +366,7 @@ background-color:##DFE;
 
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
-<cfset currentfile='#Trim(CGI.path_info)#'>
+<cfset currentfile='#Trim(cgi.script_name)#'>
 <!--- speed up things  --->
 
 <cfoutput>
@@ -527,9 +527,9 @@ background-color:##DFE;
 
  <div id="semiprecious_gallery" style="float:right;margin-right:6px;;overflow:visible;position:relative;" >
 <div id="lllmmm" style="width:160px;float:left;display:inline;">
-  <cfset leftgemstonedisplay="inline" />
+ï¿½ <cfset leftgemstonedisplay="inline" />
 				<cfif color neq "" >
-  					<cfset leftcolordisplay="inline" />
+ï¿½ 					<cfset leftcolordisplay="inline" />
 					</cfif>
 				<!---	<cfif pricegreater neq 0 or priceless neq "">
 						<cfset leftpricedisplay = "inline" />
@@ -538,8 +538,8 @@ background-color:##DFE;
 			<cfoutput query="styleids" >
 This Collection's Id is #styleidlist#
 </cfoutput>		
-  <CFINCLUDE TEMPLATE="leftmenus.cfm">
-  </div> 
+ï¿½ <CFINCLUDE TEMPLATE="leftmenus.cfm">
+ï¿½ </div>ï¿½
   <cfif start is 1>
       <cfif session.desc_flag or 1>
   <div id="infotable"   align="justify" > 

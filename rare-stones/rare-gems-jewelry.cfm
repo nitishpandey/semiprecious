@@ -1,24 +1,24 @@
  <cftry>
  <cfparam name="metatitle" default="">
   <cfparam name="display" default="20" />
-<cfparam name="sortby" default="stone">
-<cfparam name="metadescription" default="">
-<cfparam name="url.ringsize" default="">
-<cfparam name="metakeywords" default="">
-<cfparam name="session.bulkbuyer.id" default="">
-<cfparam name="LatesStartingBackMonths" default="1">
-<cfparam name="pendantsdone" default="no">
-<cfparam name="earringsdone" default="no">
-<cfparam name="braceletsdone" default="no">
-<cfparam name="pagedescription" default="">
-<cfparam name="screensize" default="big">
-<cfparam name="style" default="">
-<cfparam name="url.style" default="">
+	<cfparam name="sortby" default="stone" />
+<cfparam name="metadescription" default="" />
+<cfparam name="url.ringsize" default="" />
+<cfparam name="metakeywords" default="" />
+<cfparam name="session.bulkbuyer.id" default="" />
+<cfparam name="LatesStartingBackMonths" default="1" />
+<cfparam name="pendantsdone" default="no" />
+<cfparam name="earringsdone" default="no" />
+<cfparam name="braceletsdone" default="no" />
+<cfparam name="pagedescription" default="" />
+<cfparam name="screensize" default="big" />
+<cfparam name="style" default="" />
+<cfparam name="url.style" default="" />
 <cfif style neq "" and url.style eq "">
   <cfset url.style=style>
 </cfif>
 <cfparam name="silverjewelry" default="">
-<cfset sj = "">
+
 <cfparam name="invstatus" default=-3	>
 <cfif session.mail eq application.admin_email>
   <cfset url.edit =  'mamamia'>
@@ -123,7 +123,7 @@ need to figure out from where sort order is coming as datetakendesc --->
 <cfif isnumeric(advancedsearch)>
   <cflocation url="detail.cfm?newitem=#advancedsearch#">
 </cfif>
-<cfinclude template="/checkinjection.cfm">
+
 <cfscript>
 cgiqstring = CGI.QUERY_STRING ;
 if (session.bulkbuyer.id neq "" )
@@ -193,38 +193,40 @@ if ( screensize is "small"){
 </cfif>
 <!--- meta tags addition for groups--->
 <cfparam name="groupname" default="">
-<cfquery name="contentbypage" datasource="gemssql">
+<cfquery name="contentbypage" datasource="gemssql" cachedwithin="#createtimespan(1,0,0,0)#">
 	Select * from contentbypage where pagename='nothing'
 	</cfquery>
 <cfif contentbypage.recordcount GT 0>
-  <cfif cgi.server_name contains 'wholesale'>
-    <cfset metatitle="Wholesale #subcat# #categ#">
-    <cfset metadescription="Wholesale #contentbypage.metadescription#">
-    <cfset metakeywords="Wholesale #contentbypage.keywords#">
-    <cfset pagedescription="Wholesale #contentbypage.description#">
-    <cfelseif cgi.server_name contains "semiprecious.in">
-    <cfset metatitle="Jewellery For India #replace(contentbypage.title, 'jewelry', 'jewellery')#">
-    <cfset metadescription="Now in India. #replace(contentbypage.metadescription, 'jewelry','jewellery')#">
-    <cfset metakeywords="Indian Jewellery, Gifting Jewellery in India, #replace(contentbypage.keywords, 'jewelry', 'jewellery')#">
-    <cfset pagedescription="Jewellery for Indian consumer or gifting jewellery within India. #replace(contentbypage.description, 'jewelry', 'jewellery')#">
-    <cfelse>
-    <cfset metatitle="#contentbypage.title#">
-    <cfset metadescription="#contentbypage.metadescription#">
-    <cfset metakeywords="#contentbypage.keywords#">
-    <cfset pagedescription="#contentbypage.description#">
-  </cfif>
+	  <cfif cgi.server_name contains 'wholesale'>
+	    <cfset metatitle="Wholesale #subcat# #categ#">
+	    <cfset metadescription="Wholesale #contentbypage.metadescription#">
+	    <cfset metakeywords="Wholesale #contentbypage.keywords#">
+	    <cfset pagedescription="Wholesale #contentbypage.description#">
+	   <cfelseif cgi.server_name contains "semiprecious.in">
+	    <cfset metatitle="Jewellery For India #replace(contentbypage.title, 'jewelry', 'jewellery')#">
+	    <cfset metadescription="Now in India. #replace(contentbypage.metadescription, 'jewelry','jewellery')#">
+	    <cfset metakeywords="Indian Jewellery, Gifting Jewellery in India, #replace(contentbypage.keywords, 'jewelry', 'jewellery')#">
+	    <cfset pagedescription="Jewellery for Indian consumer or gifting jewellery within India. #replace(contentbypage.description, 'jewelry', 'jewellery')#">
+	   <cfelse>
+	    <cfset metatitle="#contentbypage.title#">
+	    <cfset metadescription="#contentbypage.metadescription#">
+	    <cfset metakeywords="#contentbypage.keywords#">
+	    <cfset pagedescription="#contentbypage.description#">
+	  </cfif>
 </cfif>
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'#application.rootfolder#',''),'\','/')#'>
 <cfset currentfile='#Trim(CGI.script_name)#'>
 <!--- speed up things  --->
 <cftry>
- <cfif category neq "ALL">
-  <cfquery DATASOURCE="gemssql"  name="getlist">
-	select  distinct stone as subcat2, sum(inventory)+10  as inventory from CatSubCatInStock  where cat='#category#' and inventory>0 and stone <>'bulk lots'  and stone <>'fabric' and stone<>'silk thread'  group by stone  order by <cfif sortby eq 'stone'> stone<cfelse> inventory desc</cfif>
+ <cfif (category neq "ALL") and (category neq "")>
+ <cfset p = category>
+  	<cfquery DATASOURCE="gemssql"  name="getlist" cachedwithin="#createtimespan(1,0,0,0)#">
+		select  distinct stone as subcat2, sum(inventory)+10  as inventory from CatSubCatInStock  where cat='#category#' and inventory>0 and stone <>'bulk lots'  and stone <>'fabric' and stone<>'silk thread'  group by stone  order by <cfif sortby eq 'stone'> stone<cfelse> inventory desc</cfif>
 	</cfquery>
 <cfelse>
-  <cfquery DATASOURCE="gemssql"  name="getlist">
+<cfset p = "Jewelry">
+  <cfquery DATASOURCE="gemssql"  name="getlist" cachedwithin="#createtimespan(1,0,0,0)#">
 Select distinct stone as subcat2, sum(inventory)+10 as inventory from catsubcatinstock where inventory>0
 and  cat <> 'ornaments' and cat <>'bags'  and cat <>'beads' and cat <>'healing' and cat <>'gems' and stone <>'bulk lots'  and stone <>'fabric' and stone<>'silk thread' group by stone order by <cfif sortby eq 'stone'> stone<cfelse> inventory desc</cfif>
 	</cfquery>
@@ -256,12 +258,12 @@ and  cat <> 'ornaments' and cat <>'bags'  and cat <>'beads' and cat <>'healing' 
 <CFSET numpages=round(GetList.RecordCount/display)>
 <CFSET enddisplay= start + display -1>
 <cfif category is "ALL" or category is "">
-  <cfset p = "Jewelry">
+
   <cfelse>
-  <cfset p = category>
+
 </cfif>
 
-<cfsavecontent variable="title_" >
+<cfsavecontent variable="title" >
 <CFOUTPUT>
 
   <cfif metatitle neq "">
@@ -275,12 +277,12 @@ Wholesale
 
   </cfoutput>
   </cfsavecontent>
-  <Cfset title = title_ />
+
   <cfsavecontent variable="inheader" >
   <cfoutput>
   <meta name="keywords" content=<cfif metakeywords neq "">"#metakeywords#"<cfelse>"<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'> Wholesale</cfif>Affordable #color# #subcat#, Gem stone,  #p#"</cfif>>
   <meta name="author" content="Anup Pandey" />
-  <meta name="description" content= <cfif metadescription neq "">"#metadescription#"</cfif>>
+
 </cfoutput>
 <META content="60 days" name="revisit-after" />
   <noscript></noscript>
@@ -296,7 +298,7 @@ ht:bold ;
 	padding: 3px;
 	}
 	</style>
-</HEAD>
+
 </cfsavecontent>
 
 <CFINCLUDE TEMPLATE="/header#session.country#.cfm">
@@ -306,28 +308,27 @@ ht:bold ;
 </cftry>
 <cftry>
  <cfcache action="cache" timespan="#createtimespan(1,0,0,0)#">
-<div id="container2">
-<table id="container3" width="930px" cellspacing="0" cellpadding="0" border="0" style="padding:0 5px 0 5px" >
-<tr style="width:904px;" align="left">
-  <td valign="top" style="padding-left:10px" width:"830px">
+<div id="container1">
+<table id="container2" width="900px" cellspacing="0" cellpadding="0" border="0" style="padding:0 5px 0 5px" >
+<tr style="width:900px;" align="left">
+  <td valign="top" style="padding-left:5px" width:"830px">
     <h1 align="center" class="found_header">SELECT A GEMSTONE FROM OUR VAST RANGE FOR <cfoutput>#ucase(P)#</cfoutput></h1>
-    <hr />
-  <cfset display = displaycolumns*displayrows>
-  <cfset tw =  606>
-<CFSET columns=1>
-<CFSET rows=1>
+
+  <cfset display = displaycolumns*displayrows />
+  <cfset tw =  606 />
+  <CFSET columns=1>
+  <CFSET rows=1>
 <CFSET enddisplay= start + display-1>
 <CFSET currentrow= start>
-<table id="container1" cellspacing="0" cellpadding="0" border="0">
+<table id="container3" cellspacing="0" cellpadding="0" border="0">
 
-    <cfset rowsdisplayed = 0>
-    <cfset itemCount = 0>
+    <cfset rowsdisplayed = 0 />
+    <cfset itemCount = 0 />
     <cfset itemlist = 0>
   <CFLOOP QUERY="Getlist">
     <cfset itemCount = itemCount + 1>
     <CFIF COLUMNS eq 1>
       <tr >
-
     </CFIF>
 <cfoutput>
     <td width="5%" align="center">
@@ -344,16 +345,16 @@ ht:bold ;
 
     </cfoutput>
     <cfif columns EQ displaycolumns>
-      <cfset rowsdisplayed = rowsdisplayed + 1>
+      <cfset rowsdisplayed = rowsdisplayed + 1 />
       </tr>
-			<tr>
-      	<td colspan="8">
+		<tr>
+      		<td colspan="8">
         	&nbsp;
-        </td>
+        	</td>
       </tr>
-      <CFSET columns=1>
+      <CFSET columns=1 />
       <cfelse>
-      <CFSET columns=columns + 1>
+      <CFSET columns=columns + 1 />
     </cfif>
   </CFLOOP>
    <cfif columns neq 1><cfoutput>
@@ -425,7 +426,7 @@ ht:bold ;
   </tr>
 </cfoutput>
 </table>
-</tr></td></table>
+</tr></table>
  </div>
  </div>
 <cfinclude template="/mainfooter.cfm">

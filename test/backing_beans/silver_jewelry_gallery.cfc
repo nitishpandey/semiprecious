@@ -135,7 +135,7 @@ string = Replace(string," In "," in ","ALL");
          <cfset leftgemstonedisplay="block" /> <cfif color neq "" > <cfset leftcolordisplay="block" /></cfif>
 
 				<cfquery name="contentbypage" datasource="gemssql">
-	                            Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
+	                            Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(cgi.script_name),"/","")#'
 	                </cfquery>
 			<cfif contentbypage.recordcount GT 0>
 				<cfif cgi.server_name contains 'wholesale'>
@@ -500,7 +500,7 @@ if ( screensize is "small"){
 					</cftry>
 					</CFIF>
 					--->
-				<cfset currentfile='#Trim(CGI.path_info)#'>
+				<cfset currentfile='#Trim(cgi.script_name)#'>
 				<cfif isdefined("url.quick_add")>
 					<cfset session.quick_add = url.quick_add />
 				</cfif>

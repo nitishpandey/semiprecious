@@ -227,7 +227,7 @@ if (cgi.SERVER_NAME contains 'wholesale') {
 					<cfset session.currency = 'Rs' />
 					<cfset  session.sale_factor = 1.1 />
 				<cfelse>
-					<cflocation url="http://www.semiprecious.com#CGI.Path_info#?#cgi.QUERY_STRING#" addtoken="false" />
+					<cflocation url="http://www.semiprecious.com#cgi.script_name#?#cgi.QUERY_STRING#" addtoken="false" />
 				</cfif>
 
 			</cfif>

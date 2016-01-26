@@ -80,7 +80,7 @@ the web environment --->
   <cfreturn 0>
 </cffunction>
 
-<cfset pattern = #cgi.PATH_INFO#>
+<cfset pattern = #cgi.script_name#>
 <cfif not isdefined("url.itemnumber")>
   <cfif Find('/', pattern) gt 0>
     <cftry>
@@ -229,7 +229,7 @@ Wholesale
 <cfoutput>
   <TITLE>#title#</TITLE>
 <script language="JavaScript" src="/js/global.js"></script>
-	 <cfif cgi.server_name contains "wholesale" or cgi.path_info contains "wholesale" or session.bulkbuyer.id contains "@">
+	 <cfif cgi.server_name contains "wholesale" or cgi.script_name contains "wholesale" or session.bulkbuyer.id contains "@">
 
 	  <script type="text/javascript" src="/wholesalemenu.files/dmenu.js">
    </script>

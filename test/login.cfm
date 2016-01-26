@@ -39,7 +39,7 @@
 	         <cfelse> <!--- either not a retail member or could be a retail member on ws site. this way he can keep  both memberships --->
 				  
 			<cfif validws.recordcount>
-				<cflocation addtoken="false" url="http://www.semipreciouswholesale.com/whole_login.cfm?email=#trim(form.email)#&next_url=#cgi.path_info#&qry=#urlencodedformat(cgi.query_string)#" />
+				<cflocation addtoken="false" url="http://www.semipreciouswholesale.com/whole_login.cfm?email=#trim(form.email)#&next_url=#cgi.script_name#&qry=#urlencodedformat(cgi.query_string)#" />
 				<cfelse>
                 <cfif form.email neq application.wholesale_guest >
 					<cflocation addtoken="false" url="/simpleloginform.cfm?msg=retry&email=#trim(form.email)#" /><!--- 

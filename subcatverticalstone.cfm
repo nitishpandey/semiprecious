@@ -25,7 +25,7 @@
             <cfset subcat4 = subcat3>
             <cfset subcat3 = replace(trim(subcat3)," ","")>
     		<!--- If we are on the hubs page, display 'stone+category' otherwise, just the stone --->
-			<cfif CGI.PATH_INFO contains "gem-stone-">
+			<cfif cgi.script_name contains "gem-stone-">
                <div id="stoneimage" style="position:absolute;left:50px"><img src=/images/stones/gemstone-thumbs/#replace(lcase(subcat3)," ","",'all')#-n.jpg alt="#subcat2# gemstone thumbnail" width=20 height=20></div>
 							 <cfif style neq "">
                     <cfif category eq "" or category eq "ALL">

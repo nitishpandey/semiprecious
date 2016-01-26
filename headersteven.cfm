@@ -52,7 +52,7 @@ MM_reloadPage(true);
                 <tr valign="bottom">
                   <td align="right"><a href=/cart.cfm><img src="http://www.semiprecious.com/images/add_to_cart_icon.jpg" border=0 align="absmiddle" width="26" height="25" /></a>Shopping Cart</td>
                 </tr>
-                <cfif not cgi.PATH_INFO contains "cart.cfm">
+                <cfif not cgi.script_name contains "cart.cfm">
                   <tr>
                     <td align="right" id="headerqty"><cfset vQty = 0>
                       <cfloop index="vCount" from="1" to="#ArrayLen(session.cartitem)#">

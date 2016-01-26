@@ -33,7 +33,7 @@
 		<cfabort />
 	</cfcatch>
 </cftry>
-<cfcache  action="cache" timespan="#createtimespan(0,3,0,0)#" useQueryString="true">
+<cfcache  action="cache" timespan="#createtimespan(0,12,0,0)#" useQueryString="true">
 	<cftry>
 		<div style="width:100%;position:absolute;top:120;left:0;z-index:1003" align="Center">
 			<div style="width:960px;position:relative;top:-10pt;left:0;">

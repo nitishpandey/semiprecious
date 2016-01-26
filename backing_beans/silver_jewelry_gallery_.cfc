@@ -172,7 +172,7 @@ string = Replace(string," In "," in ","ALL");
                           </cfif>
 
 			</cfif>
-			<cfsavecontent variable="temp">
+			<cfsavecontent variable="title">
                  <cfif findnocase( "latest",cgi.script_name)>
                   New Arrivals  for
                  <Cfelseif findnocase("cheap",cgi.script_name)>
@@ -201,38 +201,11 @@ string = Replace(string," In "," in ","ALL");
 					</cfoutput>
 				</cfsavecontent>
 
-				<cfset title = temp />
 
 				<cfif cgi.https is "on">
-					<cflocation url="http://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
+					<cflocation statuscode="301"  url="http://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
 				</cfif>
-				<cfif cgi.server_name does not contain "www." and find(".", cgi.server_name, find(".", cgi.server_name)+1) eq 0>
-					<cfif cgi.query_string neq "">
-						<cfset newurl= "http://www.#CGI.SERVER_NAME##lcase(CGI.SCRIPT_NAME)#?#CGI.QUERY_STRING#">
-					<cfelse>
-						<cfset newurl= "http://www.#CGI.SERVER_NAME##lcase(CGI.SCRIPT_NAME)#">
-					</cfif>
-					<cfheader statuscode="301" statustext="Moved permanently">
-					<cfheader name="Location" value="#newurl#">
-				</cfif>
-				<cfif #cgi.server_name# contains "forcesofindia">
-					<cfif cgi.query_string neq "">
-						<cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#?#CGI.QUERY_STRING#">
-					<cfelse>
-						<cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#">
-					</cfif>
-					<cfheader statuscode="301" statustext="Moved permanently">
-					<cfheader name="Location" value="#newurl#">
-				</cfif>
-				<cfif #cgi.server_name# contains "semiprecious.in">
-					<cfif cgi.query_string neq "">
-						<cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#?#CGI.QUERY_STRING#">
-					<cfelse>
-						<cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#">
-					</cfif>
-					<cfheader statuscode="301" statustext="Moved permanently">
-					<cfheader name="Location" value="#newurl#">
-				</cfif>
+
 				<!--- the above code is run every time a gallery page is invoked. A more sensible thing
 					would be to set the above flag either in login page or cart page where we can detect that
 					person is shopping --->
@@ -506,9 +479,10 @@ if ( screensize is "small"){
 					</cftry>
 					</CFIF>
 					--->
-				<cfset currentfile='#Trim(CGI.path_info)#'>
+				<cfset currentfile='#Trim(cgi.script_name)#'>
 				<cfif isdefined("url.quick_add")>
 					<cfset session.quick_add = url.quick_add />
+
 				</cfif>
 
 				<cfif not isdefined("form.submit5")>
@@ -732,7 +706,6 @@ if ( screensize is "small"){
 				<link href="/styles/hub.css" rel="stylesheet" type="text/css" >
 			</cfif>
 
-			<link href="/styles/style_semiprecious.css" rel="stylesheet" type="text/css" >
 			<link rel="shortcut icon" href="/favicon.ico" >
 				<cfif session.quick_add or 1>
 					<!--- we need the js for retail for info on make for me. --->

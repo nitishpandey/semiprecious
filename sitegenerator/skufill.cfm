@@ -13,7 +13,7 @@ where oldpage = '#stones.oldpage#'
 </cfloop>
 --->
 
-<cfset searchterm=replace(CGI.PATH_INFO,"/","")>
+<cfset searchterm=replace(cgi.script_name,"/","")>
 
 <cfset SKU2=left(searchterm,findnocase('_',searchterm)-1)>
 <cfif IsNumeric(sku2)>
@@ -33,5 +33,5 @@ Select top 1  newpages, sku as newsku from magentonew where sku='#sku2#' and old
 
 
 
-<cfoutput>#cgi.path_info#</cfoutput>
+<cfoutput>#cgi.script_name#</cfoutput>
 

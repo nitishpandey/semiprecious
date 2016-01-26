@@ -115,7 +115,7 @@ background-color:##DFE;
 <link rel="shortcut icon" href="/favicon.ico" >
 
 <cfquery name="contentbypage" datasource="gemssql">
-	Select * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
+	Select * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(cgi.script_name),"/","")#'
 	</cfquery>
 <cfif contentbypage.recordcount GT 0>
   <cfif cgi.server_name contains 'wholesale'>
@@ -404,7 +404,7 @@ if ( screensize is "small"){
 
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
-<cfset currentfile='#Trim(CGI.path_info)#'>
+<cfset currentfile='#Trim(cgi.script_name)#'>
 <!--- speed up things  --->
 <CFIF start EQ 1 and advancedsearch neq "">
   <cftry>

@@ -236,7 +236,7 @@ if ( screensize is "small"){
 <!--- meta tags addition for groups--->
 <cfparam name="groupname" default="">
 <cfquery name="contentbypage" datasource="gemssql">
-	Select * from contentbypage where domain='#cgi.server_name#' and  pagename='#replace(Trim(CGI.script_path),"/","")#'
+	Select * from contentbypage where domain='#cgi.server_name#' and  pagename='#replace(Trim(cgi.script_name),"/","")#'
 	</cfquery>
 <cfif contentbypage.recordcount GT 0>
   <cfif cgi.server_name contains 'semipreciouswholesale.com'>
@@ -259,7 +259,7 @@ if ( screensize is "small"){
 </cfif>
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
-<cfset currentfile='#Trim(CGI.path_info)#'>
+<cfset currentfile='#Trim(cgi.script_name)#'>
 <!--- speed up things  --->
 <cftry>
   <cfquery DATASOURCE="gemssql"  name="getlist">

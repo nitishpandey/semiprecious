@@ -10,7 +10,7 @@
 	Purpose		 : Slide Show
 --->
 
-<cfset slideshowdir = listLast(cgi.path_info, "/")>
+<cfset slideshowdir = listLast(cgi.script_name, "/")>
 
 <cfif not len(slideshowdir)>
 	<cflocation url="#application.rooturl#/index.cfm" addToken="false">

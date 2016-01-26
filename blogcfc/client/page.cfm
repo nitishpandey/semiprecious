@@ -9,7 +9,7 @@
 	Purpose		 : Page render
 --->
 
-<cfset pageAlias = listLast(cgi.path_info, "/")>
+<cfset pageAlias = listLast(cgi.script_name, "/")>
 
 <cfif not len(pageAlias)>
 	<cflocation url="#application.rooturl#/index.cfm" addToken="false">

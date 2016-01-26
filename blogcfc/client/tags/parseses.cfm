@@ -20,7 +20,7 @@
  */ 
 function parseMySES() {
 	//line below from Mike D.
-	var urlVars=reReplaceNoCase(trim(cgi.path_info), '.+\.cfm/? *', '');
+	var urlVars=reReplaceNoCase(trim(cgi.script_name), '.+\.cfm/? *', '');
 	var r = structNew();
 	var theLen = listLen(urlVars,"/");
 

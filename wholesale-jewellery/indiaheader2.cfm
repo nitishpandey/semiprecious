@@ -29,7 +29,7 @@ Shipping worldwide since 1998</font><br />
 				  
                  
                 </tr>
-                <cfif not cgi.PATH_INFO contains "cart.cfm">
+                <cfif not cgi.script_name contains "cart.cfm">
                 <tr><td align="right" id="headerqty"><b><font color=purple>SHOPPING CART</font></b> <div align="right" style="padding-right:4px;color:#89F"> 
 <span align="right" id="headerqty">
 			    <cfset header_cartid_url = "">

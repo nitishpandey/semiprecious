@@ -1,4 +1,3 @@
-<cfmodule template="/includes/prefix_www.cfm" />
 <cfparam name="metatitle" default="">
 <cfparam name="metadescription" default="">
 <cfparam name="metakeywords" default="">
@@ -21,7 +20,7 @@
   <cfif cgi.server_name IS "handmadelaptopcase.com" or cgi.server_name is "www.handmadelaptopcase.com">
     <cflocation url="http://www.handmadelaptopcase.com/laptopbags" addtoken="no">
   </cfif>
-  
+
   <cfquery name="contentbypage" datasource="gemssql">
 	Select * from contentbypage where pagename='index.cfm' and domain ='#cgi.server_name#'
 	</cfquery>
@@ -40,7 +39,7 @@
     <cfset metadescription="#contentbypage.metadescription#">
     <cfset metakeywords="#contentbypage.keywords#">
     <cfset pagedescription="#contentbypage.description#">
- 
+
   </cfif>
   </cfsilent>
   <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -112,25 +111,25 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
-//--> 
+//-->
 </script>
   <script language="JavaScript" src="js/imageswap.js"></script>
 
   </HEAD>
   <BODY  style="margin-top:0;font-size:12px;background:" onLoad="javascript:runSlideShow();">
 	   <div align=center style="position:relative;">
-	
-<div style="padding-left:0px;width:930px;margin-top:1px;position:relative;" id="container1" >  
- 
+
+<div style="padding-left:0px;width:930px;margin-top:1px;position:relative;" id="container1" >
+
     <!---<CFINCLUDE template="js/hoverstonemenu.cfm">
-style="border-top:1px groove #000066;border-right:1px groove #000066;" 
+style="border-top:1px groove #000066;border-right:1px groove #000066;"
 --->
 <div style="margin-left: 142px; float: left; width: 610px; padding-top: 100px;">
     			<cfif session.mail is application.admin_email>
 		  <cfinclude template="includes/wow.cfm" />
 	<cfelse>
                     <cfinclude template="includes/index_center_new.cfm" />
-           </cfif>     
+           </cfif>
 
     			</div>
 <div style="width: 160px; z-index: 2; float: right; display: inline; margin-top: 100px;">
@@ -141,8 +140,8 @@ style="border-top:1px groove #000066;border-right:1px groove #000066;"
  		<!--- BEGIN LEFT SIDE STUF	F --->
 		<cfset leftgemstonedisplay="inline" />
 		<CFINCLUDE TEMPLATE="leftmenus.cfm">
-	</div>		
-		
+	</div>
+
 
 <div style="z-index: 5; position: absolute; top: 0px; left: 0px; padding: 0pt; margin: 0pt;">
       <cfinclude template="#session.country#/header.cfm">
@@ -153,8 +152,8 @@ style="border-top:1px groove #000066;border-right:1px groove #000066;"
    </div><!--- End all footer stuff --->
 
   </div><!--- width 906--->
- 
-      
+
+
  </div><!--- align center --->
   </BODY>
   </HTML>

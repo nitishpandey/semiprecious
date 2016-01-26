@@ -38,7 +38,7 @@
    <cfreturn 0>
    </cffunction>
 
-<cfset pattern = #cgi.PATH_INFO#>
+<cfset pattern = #cgi.script_name#>
 <!---   <cfoutput>#Pattern#</cfoutput> 
  --->
  <cfif not isdefined("url.itemnumber")>
@@ -549,7 +549,7 @@ update items set clustercount =  0  where newitem = #details.newitem#
 		</TD>
       </tr>
 	  <tr><td><font style="font-size=9pt"  color='gray'>
-Copyright © 2004-2008 Dynamic Web/Anup Pandey/Angela Daczko. All Rights Reserved. Copying designs WILL cost you</td></tr>
+Copyright ï¿½ 2004-2008 Dynamic Web/Anup Pandey/Angela Daczko. All Rights Reserved. Copying designs WILL cost you</td></tr>
 		<cfif cgi.server_name neq "63.135.126.234" and cgi.SERVER_NAME neq "www.ornamentscollect.com">
 	  	<tr><td  align="Left"><cfif stonename NEQ ""><a href='/<cfoutput>#stonename#</cfoutput>.htm'><i>Learn more about this and other semi precious stones</i></a></cfif>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  style="color:maroon;font-size:11px;">
 		

@@ -264,7 +264,7 @@ function fnSelCountry(country){
                             </p>
                         </div>
                     </cfif>
-                    <cfif not cgi.script_path contains "cart.cfm">
+                    <cfif not cgi.script_name contains "cart.cfm">
                         <cfoutput>
                             <cfset vQty = 0>
                             <cftry>

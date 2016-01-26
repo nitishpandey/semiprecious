@@ -1,0 +1,75 @@
+   	
+		.stone_pixel1 {
+	       position:absolute;
+		z-index:1;
+		}
+		
+		.stone_pixel2 {
+			
+           position:absolute;
+		   z-index:1;
+		   background-color:yellow;
+	       opacity:0.5;
+	  }
+		.stone_pixel3 {
+			
+           position:absolute;
+		z-index:1;
+		background-color:green;
+	opacity:0.5;
+		}
+
+		.stone_pixel4 {
+			
+           position:absolute;
+		z-index:1;
+		background-color:white;
+	opacity:0.5;
+		
+   		}
+		
+		.texture_pixel1 {
+			
+           position:absolute;
+		z-index:5;
+		background-color:red;
+	opacity:0.5;
+		}
+		
+		.texture_pixel2 {
+			
+           position:absolute;
+		z-index:5;
+		background-color:yellow;
+	opacity:0.5;
+		}
+		.texture_pixel3 {
+			
+           position:absolute;
+		z-index:5;
+				background-color:green;
+opacity:0;
+		
+		}
+
+		.texture_pixel4 {
+			
+           position:absolute;
+		z-index:5;
+				background-color:white;
+opacity:0.5;
+		
+		
+		}
+		
+
+	.pixel {
+			width: 1px;
+			height: 1px;
+			
+	        background-color:white;
+	        position:absolute;
+			z-index:2;
+		}
+
+		

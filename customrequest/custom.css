@@ -1,0 +1,57 @@
+   	
+		.stone_pixel1 {
+			overflow: hidden;
+           position:absolute;
+		z-index:1;
+		background-color:red;
+		
+		}
+		
+		.stone_pixel2 {
+			overflow: hidden;
+           position:absolute;
+		z-index:1;
+		background-color:yellow;
+		}
+		.stone_pixel3 {
+			overflow: hidden;
+           position:absolute;
+		z-index:1;
+		background-color:green;
+		}
+
+		.stone_pixel4 {
+			overflow: hidden;
+           position:absolute;
+		z-index:1;
+		background-color:white;
+		
+   		}
+		.texture_pixel1,.texture_pixel2,.texture_pixel3, .texture_pixel4,.texture_pixel5,.texture_pixel6{
+				overflow: hidden;
+			
+           position:absolute;
+		z-index:5;
+		height:1px;
+		}
+	
+	.pixel {
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+	        background-color:white;
+	        position:absolute;
+			z-index:2;
+		}
+
+		#nativeimage {
+		/*	position: absolute;
+			*/left: 10px;
+			top: 112px;
+		}
+		#image {
+			position: absolute;
+			left: 10px;
+			top: 40px;
+		}
+	

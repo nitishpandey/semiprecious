@@ -271,7 +271,7 @@ popular view
 	<cfif (url.startRow gt 1) or (articleData.totalEntries gte url.startRow + application.maxEntries)>
 	
 		<!--- get path if not /index.cfm --->
-		<cfset path = rereplace(cgi.path_info, "(.*?)/index.cfm", "")>
+		<cfset path = rereplace(cgi.script_name, "(.*?)/index.cfm", "")>
 		
 		<!--- clean out startrow from query string --->
 		<cfset qs = cgi.query_string>

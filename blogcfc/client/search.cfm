@@ -11,8 +11,8 @@
 --->
 
 <!--- allow for /xxx shortcut --->
-<cfif cgi.path_info is not "/search.cfm">
-	<cfset searchAlias = listLast(cgi.path_info, "/")>
+<cfif cgi.script_name is not "/search.cfm">
+	<cfset searchAlias = listLast(cgi.script_name, "/")>
 <cfelse>
 	<cfset searchAlias = "">
 </cfif>

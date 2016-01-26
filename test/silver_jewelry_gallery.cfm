@@ -141,7 +141,7 @@ inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameI
 			</cfif>
 			<script type="text/javascript" src="/js/global.js?ver=2.1"></script>
 			<cfquery name="contentbypage" datasource="gemssql">
-	Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
+	Select  * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(cgi.script_name),"/","")#'
 	</cfquery>
 			<cfif contentbypage.recordcount GT 0>
 				<cfif cgi.server_name contains 'wholesale'>
@@ -486,7 +486,7 @@ if ( screensize is "small"){
 				</cfif>
 				<!--- end meta tags for groups ---->
 				<cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
-				<cfset currentfile='#Trim(CGI.path_info)#'>
+				<cfset currentfile='#Trim(cgi.script_name)#'>
 				<!--- speed up things - this removed to reduce hits to the database
 					<CFIF start EQ 1 and advancedsearch neq "">
 					<cftry>
@@ -595,7 +595,7 @@ if ( screensize is "small"){
 											<cfif isdefined("cfcatch.sql")>
 											#cfcatch.sql#,
 											</cfif>
-											#cgi.path_info#
+											#cgi.script_name#
 											#cfcatch.message#
 											</cfmail>--->
 										Following query gave no result: #category# #subcat# #cfcatch.message# #cfcatch.detail#
