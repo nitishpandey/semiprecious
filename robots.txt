@@ -1,0 +1,11 @@
+User-agent: *
+Crawl-delay: 10
+
+Disallow: /includes/
+Disallow: /tm-tm/
+Disallow: /admintools/
+Disallow: /bo/
+Disallow: /css/
+Disallow: /myproject/
+Disallow: /profiles/
+Disallow: /headhunting/
