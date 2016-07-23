@@ -1,0 +1,612 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: BMMRbfjoDCv85vEF1FB8mGyGGZ/g96dDRWzlBE670wsXDLXWc/pOZGs5l6aLyZCMWzwnu9RGiBYc9G1l/AZrXlZZ4cOJtLavMN1ZJ8mTR4Um959DO/Awr02UTt69TUQmj8dKo2EI4bEbeSs2oT45pw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: BMMRbfjoDCv85vEF1FB8mGyGGZ/g96dDRWzlBE670wsXDLXWc/pOZGs5l6aLyZCMWzwnu9RGiBYc9G1l/AZrXlZZ4cOJtLavMN1ZJ8mTR4Um959DO/Awr02UTt69TUQmj8dKo2EI4bEbeSs2oT45pw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: BMMRbfjoDCv85vEF1FB8mGyGGZ/g96dDRWzlBE670wsXDLXWc/pOZGs5l6aLyZCMWzwnu9RGiBYc9G1l/AZrXlZZ4cOJtLavMN1ZJ8mTR4Um959DO/Awr02UTt69TUQmj8dKo2EI4bEbeSs2oT45pw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: BMMRbfjoDCv85vEF1FB8mGyGGZ/g96dDRWzlBE670wsXDLXWc/pOZGs5l6aLyZCMWzwnu9RGiBYc9G1l/AZrXlZZ4cOJtLavMN1ZJ8mTR4Um959DO/Awr02UTt69TUQmj8dKo2EI4bEbeSs2oT45pw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: BMMRbfjoDCv85vEF1FB8mGyGGZ/g96dDRWzlBE670wsXDLXWc/pOZGs5l6aLyZCMWzwnu9RGiBYc9G1l/AZrXlZZ4cOJtLavMN1ZJ8mTR4Um959DO/Awr02UTt69TUQmj8dKo2EI4bEbeSs2oT45pw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: BMMRbfjoDCv85vEF1FB8mGyGGZ/g96dDRWzlBE670wsXDLXWc/pOZGs5l6aLyZCMWzwnu9RGiBYc9G1l/AZrXlZZ4cOJtLavMN1ZJ8mTR4Um959DO/Awr02UTt69TUQmj8dKo2EI4bEbeSs2oT45pw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: BMMRbfjoDCv85vEF1FB8mGyGGZ/g96dDRWzlBE670wsXDLXWc/pOZGs5l6aLyZCMWzwnu9RGiBYc9G1l/AZrXlZZ4cOJtLavMN1ZJ8mTR4Um959DO/Awr02UTt69TUQmj8dKo2EI4bEbeSs2oT45pw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: kkWZ2aXtZQNEN14Lk769AFbkwWNCg//RTWxFhUntlLzvumQjacEDm+s8DntEyaH2kxCR5cEVdlf2XogwzfxYwYVqrvZzLJPwvtvShcN7O7C7t1n4H00yC8BT9EseYd0T3Y+l17NvHen8yOmMqQ/JCw==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: 3rXAuYk67/GeMagJl+Pr6aR1HBRASztRc3xl3v86OMxS0DxrQWJik2MYcW+e5ny4sjBtTJWYxPqcWNm5U59MX2nSN2juI4n2qmzgoZnhMn4a5MbSbJMLfzTWj7m/52va6zq6aufWvm1KA1gtFhvXMQ==
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: /wEWDQLDt5KjDAK7zr7wBgLBhJnFCwLii9zeAwKtkuWiCgKG7L+ZAgLCjYx3Aobsu5kCAsKN4JoIAobsh5kCAsKNpK0CAobsg5kCAsKNuNALDsSLtcrikhpg8m+wOQnU0+cg6jo=
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: /wEWDQLDt5KjDAK7zr7wBgLBhJnFCwLii9zeAwKtkuWiCgKG7L+ZAgLCjYx3Aobsu5kCAsKN4JoIAobsh5kCAsKNpK0CAobsg5kCAsKNuNALDsSLtcrikhpg8m+wOQnU0+cg6jo=
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: /wEWDQLDt5KjDAK7zr7wBgLBhJnFCwLii9zeAwKtkuWiCgKG7L+ZAgLCjYx3Aobsu5kCAsKN4JoIAobsh5kCAsKNpK0CAobsg5kCAsKNuNALDsSLtcrikhpg8m+wOQnU0+cg6jo=
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: /wEWDQLV1fzDCQK7zr7wBgLBhJnFCwLii9zeAwKtkuWiCgKG7L+ZAgLCjYx3Aobsu5kCAsKN4JoIAobsh5kCAsKNpK0CAobsg5kCAsKNuNAL/gn01EKxHKzncpEfavJxc0puEB8=
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: /wEWDQLV1fzDCQK7zr7wBgLBhJnFCwLii9zeAwKtkuWiCgKG7L+ZAgLCjYx3Aobsu5kCAsKN4JoIAobsh5kCAsKNpK0CAobsg5kCAsKNuNAL/gn01EKxHKzncpEfavJxc0puEB8=
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:d:\ASPProjects\myproject\properties.aspx.cs(20): error CS0201: Only assignment, call, increment, decrement, and new object expressions can be used as a statement
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:d:\ASPProjects\myproject\properties.aspx.cs(20): error CS0201: Only assignment, call, increment, decrement, and new object expressions can be used as a statement
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Only one instance of a ScriptManager can be added to the page.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Invalid viewstate. 
+	Client IP: 127.0.0.1
+	Port: 
+	User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2
+	ViewState: o1wvVEAuBo6uSIP6OdfgNgKdyVZgia+BiCCkYrHkdWAu89xqRs2hqNl659cFOuEAKx4kvgdvu749E+crnnsJKosbuNKNCpRHckCEUWlGiMKX9zMYxVPMNBfHUGqUnBkG
+	Referer: http://localhost:1776/myproject/properties.aspx
+	Path: /myproject/properties.aspx
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:ERROR [42S02] [Microsoft][ODBC SQL Server Driver][SQL Server]Invalid object name 'task'.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:d:\ASPProjects\myproject\properties.aspx.cs(20): error CS1501: No overload for method 'LoadViewState' takes '0' arguments
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:You have specified that your update command compares all values on SqlDataSource 'SqlDataSource1', but the dictionary passed in for oldValues is empty.  Pass in a valid dictionary for update or change your mode to OverwriteChanges.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:The DataSourceID of 'GridView1' must be the ID of a control of type IDataSource.  A control with ID 'SqlDataSource1' could not be found.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:The DataSourceID of 'GridView1' must be the ID of a control of type IDataSource.  A control with ID 'SqlDataSource1' could not be found.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/TaskForMe.aspx. Error Message:The DataSourceID of 'GridView1' must be the ID of a control of type IDataSource.  A control with ID 'SqlDataSource1' could not be found.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:d:\ASPProjects\myproject\properties.aspx.cs(22): error CS0023: Operator '!' cannot be applied to operand of type 'int'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:d:\ASPProjects\myproject\properties.aspx(62): error CS0407: 'int checking_odbc.CustomValidator1_ServerValidate(object, System.Web.UI.WebControls.ServerValidateEventArgs)' has the wrong return type
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/properties.aspx. Error Message:Error in: http://localhost:1776/myproject/properties.aspx. Error Message:d:\ASPProjects\myproject\properties.aspx.cs(72): error CS1519: Invalid token '(' in class, struct, or interface member declaration
+__________________________

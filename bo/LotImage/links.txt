@@ -1,0 +1,7 @@
+for sql server 2005 tutorial
+
+http://www.w3schools.com/sql/sql_alter.asp
+
+ /******************* for listbox ****************/
+ 
+http://www.c-sharpcorner.com/uploadfile/sd_patel/dropdownlistbox11222005064123am/dropdownlistbox.aspx

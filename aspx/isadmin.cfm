@@ -1,0 +1,1 @@
+<cfif session.mail is application.admin_email >1<cfelse>0</cfif>

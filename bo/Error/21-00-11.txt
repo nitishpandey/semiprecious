@@ -1,0 +1,4 @@
+
+Log Entry : 
+Error in: http://www.semiprecious.in/myproject/packetinformation/UpdateBuyingRecord.aspx. Error Message:Error in: http://www.semiprecious.in/myproject/packetinformation/UpdateBuyingRecord.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________

@@ -15,8 +15,13 @@
 	<cfset welcome_msg = "<span style='color:red'>No account found for this email id. If you are signed up please see that you have entered the correct email id</span>. Click here to <a href='#signup_url#'>sign up</a> for discounts." />
 </cfcase>
 
+<<<<<<< HEAD
 <cfdefaultcase>o
 	<cfset welcome_msg = "Sign in to use and earn semiprecious.com cash for discounts (As per T&amp;C)" />
+=======
+<cfdefaultcase>
+	<cfset welcome_msg = "Sign in to earn and use semiprecious.com cash for loyalty discounts right now (As per T&amp;C)" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 </cfdefaultcase>
 </cfswitch>
 
@@ -54,7 +59,11 @@
    
 <div style="height:540px;padding-top:10px;margin-bottom:10px;margin-left:2px;background:white;" align="center"> 
    
+<<<<<<< HEAD
   <div id="banner" style="margin-top:30px;">
+=======
+  <div id="banner" class="found_header" style="margin-top:30px;">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <cfoutput>#welcome_msg#</cfoutput></div>
   
   

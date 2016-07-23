@@ -1,0 +1,21 @@
+
+Thanks for choosing FreeFind!
+
+Now you are just a few steps away from adding a search
+engine to your web site.
+
+To get started, just login to the FreeFind control center at:
+
+http://www.freefind.com/control.html   
+
+Enter your account information (see below), press the Login
+button and select the type of account you want.
+
+Here's your account information:
+
+       Site URL: http://www.semiprecious.com/
+       E-mail  : pandey@aol.com
+       Password: 848538641
+       Site ID : 26825833
+
+

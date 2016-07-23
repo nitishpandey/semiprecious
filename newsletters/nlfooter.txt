@@ -1,0 +1,3 @@
+
+This is the omnipresent foter for newsletters. This can be changed once in a while. 
+There must be a return at the begining of the begining.

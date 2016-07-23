@@ -1,0 +1,44 @@
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/Emailformat.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/Emailformat.aspx. Error Message:Unknown server tag 'cc1:Editor'.
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/Emailformat.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/Emailformat.aspx. Error Message:Unknown server tag 'cc1:Editor'.
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/EmailTools/TextEmail.aspx. Error Message:d:\inetpub\semiprecious\myproject\EmailTools\TextEmail.aspx(3): error CS0234: The type or namespace name 'HTMLEditor' does not exist in the namespace 'AjaxControlToolkit' (are you missing an assembly reference?)
+__________________________

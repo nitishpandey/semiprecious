@@ -367,9 +367,14 @@
     div.mojomagnify_zoom a {
         cursor : crosshair;
     }
+<<<<<<< HEAD
         -->
 	</style>
 
+=======
+        --> </style>
+        <link href="/styles/style_semiprecious.css" rel="stylesheet" type="text/css" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
     <!--
          <cfif len(session.bulkbuyer.id) >
 
@@ -623,11 +628,28 @@
 
     </CFIF>
      <cfinclude template="/header#session.country#.cfm" >
+<<<<<<< HEAD
 	    <!--- No category --->
         <!--- End no category --->
 			<div align="center"  <cfif not mobile> style="position:relative;width:930px"</cfif> id="container2"  >
 
                     <table border="0" cellspacing="0"  bgcolor=white  <cfif not mobile>width="99%"</cfif> cellpadding="0"  align="left">
+=======
+		<div align="center" style="position:relative">
+        <!--- No category --->
+        <!--- End no category --->
+        <table width="930px" id="container1" cellpadding="0"  cellspacing="0" >
+            <tr valign=top>
+                <!---<td CELLPADDING="0" width="142px" >
+                <!--- BEGIN LEFT SIDE STUFF --->
+                    <cfset leftgemstonedisplay="inline" />
+                        <CFINCLUDE TEMPLATE="/leftmenus.cfm" >
+                <!--removed as per Ravi's instructions on 10 May-->
+                <!--- END LEFT SIDE STUFF --->
+                </td>--->
+                <td valign=top align="center" >
+                    <table border="0" cellspacing="0"  bgcolor=white width="928px" cellpadding="0" style="margin-top:40px;" align="left">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                         <tr  valign="top" >
                             <td   valign="top" align="Center" >
                                 <CFSET folder = LCASE(category) />
@@ -643,7 +665,11 @@
                                     <!--DWLayoutTable-->
                                     <tr valign="top" >
                                     <!--- Main image --->
+<<<<<<< HEAD
                                         <td  <cfif not mobile>width="560px"</cfif> height=450px align="center" style="border:0 opx  height:450px  #CFFCCF solid;padding-top:2px;" >
+=======
+                                        <td width="560px" height=450px align="center" style="border:0 opx  height:450px  #CFFCCF solid;padding-top:2px;" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                                             <cfoutput>
                                               <cfset imagename= newitem & ".jpg" >
 	                                            <table border="0" cellpadding="0" cellspacing="0" style="padding:1px" >
@@ -673,7 +699,11 @@
                               </cfif>
 
                             </cfif>
+<<<<<<< HEAD
 														<br /><cfif details.nameid is not "">[SKU ID #titlecase(nameid)#]
+=======
+														<cfif details.nameid is not "">[#titlecase(nameid)#]
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 														<cfelse>
 														[#titlecase(details.subcat)# #titlecase(details.grouping)#]
 
@@ -683,7 +713,11 @@
                                 </h1></cfif><table style="margin-top:1px;width:100%" cellpadding="1px;"><tr><td width="40%" valign="top" align="center">
                             <cfif len(cart_msg)>
                                     <Div id="cart_summary" style=";margin-top:2px;border:2px solid red;padding:2px 1px 1px 1px;">
+<<<<<<< HEAD
                                         <span style=" <cfif not mobile>width:460px;</cfif>display:inline;background-color:##FDFDFD;;padding:2px;color:black;font-size:1.2em;font-weight:bold;">#cart_msg#&nbsp; </span>&nbsp;
+=======
+                                        <span style="width:460px;display:inline;background-color:##FDFDFD;;padding:2px;color:black;font-size:1.2em;font-weight:bold;">#cart_msg#&nbsp; </span>&nbsp;
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                                         </div>
                         <cftry>#summary#<cfcatch type="any"><cfset width = "" />
                         <img   id="mainimage" style="display:inline;" src ='/images/#folder#/#width#/#imagename#'   alt="unique #subcategory# #category# Jewelry"  border="0" />
@@ -707,7 +741,11 @@
 
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">OR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="greenbutton"
+<<<<<<< HEAD
                     style="border-bottom: purple 2px outset; border-left: purple 2px outset; background-colo: whit;  <cfif not mobile>width: 200px;</cfif> height: 28px; border-top: black 2px outset;  font-weight: 800; border-right: purple 2px outset; padding-top: 4px; left: 2px; positio: absolute;"
+=======
+                    style="border-bottom: purple 2px outset; border-left: purple 2px outset; background-colo: whit; width: 200px; height: 28px; border-top: black 2px outset;  font-weight: 800; border-right: purple 2px outset; padding-top: 4px; left: 2px; positio: absolute;"
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                     onClick="document.getElementById('cart_form').innerHTML=document.getElementById('easy_form').innerHTML;"  onClik="goProcess('cart summary');return;">&nbsp;<a title="Check Cart and start checkout" href="/#session.cart#?country=#urlencodedformat(session.address.country_code)#&amp;php=1.2210&amp;cartid=#session.cartid#" >Start Checkout &rarr;</a>&nbsp;
                               </span>
                               <cfelse>&nbsp;
@@ -723,8 +761,13 @@
 						        <cfimage source="#application.rootfolder#\images\#folder#\#width#\#imagename#" action="info" structname="wd" />
 
 						  <cfcatch type="any">
+<<<<<<< HEAD
 							        <cfoutput>#application.rootfolder#</cfoutput><cfabort>
 
+=======
+							         <cfdump var="#cfcatch#" />
+							         <cfabort />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                                     <cflocation url="/OnNoImage.cfm?line=1&amp;newitem=#newitem#" statuscode="302" />
                                 </cfcatch>
                             </cftry>
@@ -809,7 +852,11 @@
 
 
                             <cfset frameHeight = #frameHeight# + 10>
+<<<<<<< HEAD
                             <table style=" <cfif not mobile>width:460px;</cfif> height:#frameHeight#px; margin-top:1%" cellpadding="1px" style="table-layout:fixed">
+=======
+                            <table style="width:460px; height:#frameHeight#px; margin-top:1%" cellpadding="1px" style="table-layout:fixed">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                                                         <tr>
                                                             <td width="40%" align="center">
                            <div>  <!--- <img  src="/images/spacer_.gif" height="240px;" style="float:left;height:200px;width:1px;display:inline;" /> --->
@@ -923,7 +970,11 @@
 
                                                                             </cfif>
                                     <cfelse>
+<<<<<<< HEAD
                                         #Round(evaluate(details.size/25.4))#inches
+=======
+                                        #Round(evaluate(details.size/25.4))# inches
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                                     </cfif>
                                 </cfif>
                             </cfif>
@@ -1049,6 +1100,7 @@ union
             </cfif>--->
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           </td></tr></table>
                       <!--- End Item Description --->
+<<<<<<< HEAD
                       <!--- End main image --->
 
 					  <!--- MOBILE --->
@@ -1065,6 +1117,13 @@ union
                     <td valign="top" align="center" width="140px">
                     </cfif>
 
+=======
+                      <!--- End main image ---></td>
+                       <!--- Right side start --->
+                       <cfif not len(width)>
+                    <cfoutput>
+                    <td valign="top" align="center" width="140px" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                     <CFFORM ACTION="/#session.cart#?country=#session.address.country_code#&amp;secure=true&cartid=#session.cartid#" METHOD="POST" NAME="wishbuy"  style="display:inline;" >
 
                       <cfif session.mail is application.admin_email>
@@ -1107,9 +1166,15 @@ union
                       </cfif>
                       <!--- End next/edit button --->
 
+<<<<<<< HEAD
                       <div align="center" style="padding-top:80px">
                               <cfif IsDefined('newitem')>
                             Design Id #newitem#<br />
+=======
+                      <div align="center">
+                              <cfif IsDefined('newitem')>
+                            Design Id: #newitem#<br />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                         </cfif>
                         <CFIF price eq 0 and cgi.server_name does not contain 'wholesale'>
                             Not for retail sale
@@ -1143,7 +1208,11 @@ union
                                           <b>
                                           <font color="red">
                                            <cfif details.wholesaleprice eq details.saleprice>
+<<<<<<< HEAD
                                                   wholesale!
+=======
+                                                  CLEARANCE!
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                                               <cfelse>
                                                   Sale!
                                               </cfif>
@@ -1290,7 +1359,11 @@ union
     <cfif  category is 'rings' and cgi.server_name does not contain 'wholesale'>
         <br /><a href="http://en.wikipedia.org/wiki/Ring_size">Sizing Guide</a>
     </cfif>
+<<<<<<< HEAD
                                 <input style=" <cfif not mobile>width:101px;</cfif>margin-top:6px;" class="action_button" type=submit value="Add To Cart" name="Add To Cart">
+=======
+                                <input style="width:101px;margin-top:6px;" class="ContactUsBtn" type=submit value="Add To Cart" name="Add To Cart">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
         <!---                        <img src=/images/addtocart.gif d="a2cb"  onClick="javascript:goProcess('add')" >   --->
                                 <input type="button" class="hidden" id="a2cw" value="Wait..." >
            <font color=gray><br /><br />Need more
@@ -1298,7 +1371,11 @@ union
                               </cfif>
                               <!--- Angela --->
                              <cfif not len(width)>
+<<<<<<< HEAD
                                <INPUT TYPE="button" id="a2w1" style="color:black; <cfif not mobile>width:100px;</cfif>margin-top:12px;border:1px gray solid;"  onClick="javascript:goProcess('Add to Wish List')" VALUE="Add To Wishlist" >
+=======
+                               <INPUT TYPE="button" id="a2w1" style="color:black;width:100px;margin-top:12px;border:1px gray solid;"  onClick="javascript:goProcess('Add to Wish List')" VALUE="Add To Wishlist" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
                              <!--  <a style="display:block;margin-top:14px;width:100px;height:20px;border:1px purple solid ;text-decoration:none;" class="greenbutton" accesskey="Z" href="/wish.cfm"  >See Wishlist</a>
                               --> </cfif>
@@ -1380,6 +1457,7 @@ union
 
            <!-- change this to darkgreen when putting image back -->
          <!--- End wholesalers next image --->
+<<<<<<< HEAD
 
 			  <!--- MOBILE --->
 			  <cfif not mobile>
@@ -1387,10 +1465,15 @@ union
               </cfif>
 
               </cfif>
+=======
+              </td>
+              </cfif>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                <!--- if width variable set by cfinvoke add is set to thumb then next column --->
                  <!--- End right side? --->
                   <!--- 4th column --->
 
+<<<<<<< HEAD
 			  		<!--- MOBILE --->
 			  		<cfif not mobile>
                      <td align="center" >
@@ -1405,6 +1488,19 @@ union
 					<cfif video.recordcount is 1>
 								 <div id="videodiv" style="position:absolute;top:200px;left:330px;z-index:2;display:none;">
                                                                                 <iframe id="videofram"  <cfif not mobile>width="480px"</cfif> height="360px" style="display:none" src="http://www.youtube.com/embed/<cfoutput query=video>#videocode#</cfoutput>?rel=0" frameborder="2" allowfullscreen></iframe>
+=======
+                     <td align="center" >
+                                                <span class="reg_price">
+                                                      Matching Designs &amp; Accessories
+                                                </span>
+
+
+                         <div id="video" style="border-top:1px solid #799ea3;padding-top:10px;padding-left:2px">
+                                <div style="width:90px;display:inline;float:left">
+					<cfif video.recordcount is 1>
+								 <div id="videodiv" style="position:absolute;top:200px;left:330px;z-index:2;display:none;">
+                                                                                <iframe id="videofram" width="480px" height="360px" style="display:none" src="http://www.youtube.com/embed/<cfoutput query=video>#videocode#</cfoutput>?rel=0" frameborder="2" allowfullscreen></iframe>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 									                <div  style="background-color:black;font-color:red;font-weight:bold;font-face:arial;size:14;"  onclick="hidevideo()">
                                                                                             <div style="color:red;">
                                                                                                  CLICK TO CLOSE VIDEO SCREEN
@@ -1467,7 +1563,11 @@ union
                  <div style="display:inline;float:right">
                           <cfif getcluster.recordcount gt 0 >
                                 <div>
+<<<<<<< HEAD
                                     <div id="zoom_like_these" style="position:absolute;top:0px;<cfif not mobile>left:363px;width:250px;</cfif>text-align:center;padding:2px;">
+=======
+                                    <div id="zoom_like_these" style="position:absolute;top:0px;left:363px;width:250px;text-align:center;padding:2px;">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                                     </div>
                                         <div id="easy_string" style="display:none;">
                                             <div style="width:inherit;text-align:center;cursor:pointer" class="grayplacard" onClick="document.getElementById('zoom_like_these').innerHTML='';">
@@ -1504,9 +1604,24 @@ union
          </div>
               <!--- End 4th column 1:52 PM--->
      </td>
+<<<<<<< HEAD
 
     </tr>
   </table>
+=======
+                    <td align="right">
+
+            <!---- start of 5th column --->
+            &nbsp;
+
+            <!---- end of 5th column --->
+     </TD>
+    </tr>
+  </table>
+ </td>
+</tr>
+</table>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	     <cfoutput>
               <script language="javascript" >
                 /*
@@ -1524,7 +1639,11 @@ union
 
         </script>
             </cfoutput>
+<<<<<<< HEAD
             <div  id="howto" style="padding:2px;border:4px gray solid;visibility:hidden;position:absolute;top:130px;left:220px;color:#666600;background-color:white;z-index:2; <cfif not mobile>width:300px;</cfif>" >
+=======
+            <div  id="howto" style="padding:2px;border:4px gray solid;visibility:hidden;position:absolute;top:130px;left:220px;color:#666600;background-color:white;z-index:2;width:300px;" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
               <div class="noticebox" >This page helps you to add an item to your cart. Select the number of  pieces (1 or more) you wish to buy  from the drop down box above the 'Add to Cart' button and click on the 'Add to Cart' button.
                 Your cart will be filled by the selected number of this design. It does not matter if the item is already there in your cart.
                 The quantity in cart will be  the number you select now. <br />Clicking 'Add To Cart' will take you to the cart summary page.

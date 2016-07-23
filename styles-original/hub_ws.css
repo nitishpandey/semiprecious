@@ -1,0 +1,112 @@
+div.Silver_bottomTiles {
+/* clear:both; */
+color:#393939;
+font-family:"Trebuchet MS";
+font-size:11px;
+margin-left:20px;
+margin-top:20px;
+position:inherit;
+text-align:center;
+}
+.Silver_sub1WS {
+
+/* background:url("/images/leftside.gif") repeat-y scroll left top #FFFFFF; */
+font-size:1em;
+float:left;
+margin-left:1px	;
+margin-top:24px;
+position:relative;
+top:1px;
+height:290px; /*important to cater for odd short images.*/
+width:182px;
+z-index:1;
+}
+silver_sub1WS img {
+width:132px;
+}
+
+.Silver_sub1 {
+
+/* background:url("/images/leftside.gif") repeat-y scroll left top #FFFFFF; */
+font-size:1em;
+float:left;
+margin-left:1px	;
+margin-top:10px;
+position:relative;
+top:1px;
+height:270px; /*important to cater for odd short images.*/
+width:182px;
+z-index:1;
+}
+silver_sub1 img {
+width:132px;
+}
+.Silver_subTop {
+/* background:url("/images/top.gif") no-repeat scroll left top transparent;*/
+	display:none;
+height:0px;
+width:100%;
+}
+.Silver_subTop span {
+/* background:url("/images/top-right.gif") no-repeat scroll right top transparent; */
+display:block;
+height:20px;
+position:relative;
+}
+
+.Silver_subBottom {
+/* background:url("/images/bottom.gif") no-repeat scroll left bottom transparent; */
+height:1px;
+z-index:-3;
+}
+.thumbnail_box {
+	height:120px;
+	overflow:hidden;
+	position:relative;
+	width:120px;
+	margin-top:6px;
+}
+.thumbnail_box img {
+	/* bottom:-120px; */		
+margin-bottom:2px;
+	}
+.text_box {
+	height:64px;
+	overflow:hidden;
+	
+	position:relative;
+	padding-top:2px;
+	margin-top:-18px;
+}
+
+.ship_box {
+	z-index:2;
+	
+	/* width:138px;*/
+	display:block;
+	height:118px;
+margin-top:-2px;
+overflow:hidden;
+padding-top:0px;
+padding-left:2px;
+margin-left:4px;
+position:relative;}
+
+.shipping_box {
+		color: #503040;
+		background-color:#FAFAFA ;
+		font-weight:bold;
+		/* position: absolute; top: 68px; left: 30px; */
+		border:0px #929391 solid;
+		padding:1px 2px;
+}
+
+.Silver_subBottom span {
+/* background:url("/images/bottom-right.gif") no-repeat scroll right top transparent; */
+display:block;
+height:36px;
+position:relative;
+}
+.silver_bottomBarTitle {
+	 overflow:hidden;
+}

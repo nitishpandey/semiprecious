@@ -6,7 +6,10 @@ select max(nlstatus) as maxnlstatus from memberinfo
 <cfset title="Semiprecious.com Pendants, Rings and Silver Jewelry Online Store"/>
 
 <cfsavecontent variable="inheader">
+<<<<<<< HEAD
 <link href="styles/style_semiprecious.css" rel="stylesheet" type="text/css" />
+=======
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/CFIDE/scripts/cfform.js"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/js/global.js"></SCRIPT>
     <script src="headhunting/js/jquery-1.5.min.js"></script>
@@ -36,10 +39,17 @@ return false;
 
 	if  (document.getElementById('country_dropdown').selectedIndex == 0 )
 	{
+<<<<<<< HEAD
 	
 					alert("Please Select Your Country");
 					return false;
 		
+=======
+
+					alert("Please Select Your Country");
+					return false;
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	}
 
 
@@ -55,13 +65,18 @@ return false;
 <div id="container2">
 <table id="container3" cellspacing="0" cellpadding="0" border="0" style="padding:0 4px 0 4px">
   <tr  align="center">
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
   <!---<td valign="top"  align="center" ><!--- BEGIN LEFT SIDE STUFF --->
     <CFINCLUDE TEMPLATE="leftmenus.cfm">
     <!--- END LEFT SIDE STUFF --->
   </td>--->
   <td align="center" valign="top" style="padding:2px;">
 
+<<<<<<< HEAD
 <cfoutput> 
       <CFIF login IS NOT "">
         <b><font color='red'>Sorry, we did not find any account under the email 
@@ -75,6 +90,21 @@ return false;
 
    <tr> 
         <td width="300px" align="left" valign="top" style="padding:8px;"> 
+=======
+<cfoutput>
+      <CFIF login IS NOT "">
+        <b><font color='red'>Sorry, we did not find any account under the email
+        address of #login#. Please sign up first. </font></b>
+      </CFIF>
+    </cfoutput>
+  <div class="grayplacard" style="float:left;width:80%;text-align:left;padding-left:2px;font-weight:bold;">Sign Up </div>
+
+    <FORM NAME="CFForm_1" ACTION="apply2.cfm" METHOD="POST" style="display:inline;" onSubmit="return _CF_checkCFForm_1(this)">
+<table border="0" cellpadding="0" cellspacing="0" style="margin-top:20px; padding:1px;background:white;">
+
+   <tr>
+        <td width="300px" align="left" valign="top" style="padding:8px;">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
         <cfoutput>
      <font color="red">*</font>Email Id<br /><INPUT TYPE="text" NAME="email" value="#url.emailid#" title="Your email id will be sign up name and contact for shipments etc." CLASS="inputtext" size="40" /><br />
           <font color="red">*</font>Name<br />
@@ -86,8 +116,13 @@ return false;
 		   <cfinclude template="includes/countries_drop_down.htm" />
 		   </cfif>
 		   <!-- <INPUT TYPE="text" NAME="country" CLASS="rings" size="40"> -->
+<<<<<<< HEAD
 		   <br /><span style="color:red;margin-top:20px;"><a  class="link" href="##" onClick="javascript:flipDisplay('optional_apply_info')">Fill in optional information</a> <br /></span> 
 		  <div style="display:none;" id="optional_apply_info"> 
+=======
+		   <br /><span style="color:red;margin-top:20px;"><a  class="link" href="##" onClick="javascript:flipDisplay('optional_apply_info')">Fill in optional information</a> <br /></span>
+		  <div style="display:none;" id="optional_apply_info">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
      <br /><span style="color:gray;">  Phone Number:</span></cfoutput>
 	  <br /> <INPUT TYPE="text" NAME="phonenumber" CLASS="rings" size="40"/><br />
 <div style="position:relative;margin-top:20px;margin-bottom:20px;padding:10px;padding-top:14px;width:220px;" class="component_box">
@@ -98,6 +133,7 @@ Date: <select name="doa"><option value="0">0</option><option value="1">1</option
   </div>
 	    <span  >      Address Line 1:</span><br />
             <input class="rings" TYPE="text" NAME="address1"	 size="40" /><br />
+<<<<<<< HEAD
        
            <span  >   Address Line 2:</span><br />
             <input class="rings" type="text" name="address2" size="40" /><br />
@@ -113,6 +149,23 @@ Date: <select name="doa"><option value="0">0</option><option value="1">1</option
          </div>
           </p>
           <!-- discontinued due to referral program. to minimise change form variables added as hidden variables 
+=======
+
+           <span  >   Address Line 2:</span><br />
+            <input class="rings" type="text" name="address2" size="40" /><br />
+
+            <span  >  City:</span><br />
+            <INPUT TYPE="text" NAME="city" CLASS="rings" size="40" /><br />
+
+            <span  >  ZIP Code:</span><br />
+            <INPUT TYPE="text" NAME="zip" CLASS="rings" size="40" /><br />
+
+
+      <span  >  State/Province:</span><br /> <INPUT TYPE="text" NAME="state" CLASS="rings" size="40"><br />
+         </div>
+          </p>
+          <!-- discontinued due to referral program. to minimise change form variables added as hidden variables
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <span class="detail"> <strong>ONE TIME OFFER! Invite friends </strong>right now
            to get <cfoutput>#format(5)# points for each friend invited (This is for helping us advertise). <strong>That makes it #format(10)#</cfoutput></strong> in your account!<br></span>
           Email of Friend 1: <br />
@@ -125,12 +178,17 @@ Date: <select name="doa"><option value="0">0</option><option value="1">1</option
               <INPUT TYPE="hidden" NAME="friend2" CLASS="rings" value="" />
           <br /><div align="center">
           <INPUT name="submit" TYPE="submit" VALUE=" &nbsp;Sign Up  &nbsp; " class="ContactUsBtn"  /></div>
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
       <INPUT name="nlstatus" TYPE="hidden" VALUE="#q.maxnlstatus#" /> <br />
 
           </td>
     <td align="center" valign="top" style="padding:10px;">
     <table  border="0"  style="margin-left:4px;"cellspacing="0" cellpadding="0">
+<<<<<<< HEAD
         <tr> 
           <td align="center" bgcolor="#FFFFFF">
 <table border="0" bordercolor="#663300" bgcolor="#FFFFFF">
@@ -155,6 +213,32 @@ Date: <select name="doa"><option value="0">0</option><option value="1">1</option
                         <li>Monthly emails will announce items on <b>sale</b> 
                           and a list of <b>new items</b>.</li>
                         
+=======
+        <tr>
+          <td align="center" bgcolor="#FFFFFF">
+<table border="0" bordercolor="#663300" bgcolor="#FFFFFF">
+              <tr>
+                    <td width="392" align="center"
+					 class="notice_box_title"> Signed in advantages
+					</td></tr><tr><td>
+                     <cfoutput>  <ul>
+                      <!---  <li><span style="color:red">Get <cfif session.country is 'india'> #format(200/application.exch['india'])# <cfelse>#format(5)#</cfif> loyalty points </span> right now in your account <EM>for signing
+                          up </EM></li>
+                        <li> Use loyalty points for cash discounts: #application.own_credit#% for most items and #application.own_credit/2#% of the price of sale items</li>
+
+                         <li> You get #application.own_credit#% of value of purchases (sales items, beads, designer items not included)
+
+                          as loyalty points to get a discount in next purchase</li>
+
+                        <li><strong>Invite friends now to  get additional  discount </strong> for the very first
+                          purchase</li>
+                        <li>The benefits add up when you tell a friend about us - Invited friends help you <span style="background-color: white">you
+                           </span>get #application.friend_credit#% of their purchase value added to your discount points.
+						   </li>--->
+                        <li>Monthly emails will announce items on <b>sale</b>
+                          and a list of <b>new items</b>.</li>
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                       </ul></cfoutput>
 </td></tr>
 <tr><td align="center" class="notice_box_title">
@@ -162,18 +246,31 @@ Date: <select name="doa"><option value="0">0</option><option value="1">1</option
 				  </td></tr><tr><td>
 				  <span class="title"> <b>No Spams.</b> We only use your communication information to send you discount mailers, shipments, issues, refunds etc.
                         </span>
+<<<<<<< HEAD
                   <p>Unsubscribe any  time by visiting http://www.semiprecious.com/unsubscribe.cfm  
+=======
+                  <p>Unsubscribe any  time by visiting http://www.semiprecious.com/unsubscribe.cfm
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                    </p></td>
               </tr>
             </table>
             <!---
        <p style="text-align:center"  class="notice_box_title">How does the discount system work?</p>
+<<<<<<< HEAD
 			
 			
 			   
           <p class="itemdetailsboxgreen" style="width:100%;margin-top:2px;"><span style="color:white;margin-top:2px;">Our system automatically adds  credit to your account from every purchase made by you or your  friends. 
 		  This credit in your account  is  then used  to reduce your billing amount up to 20% in every later purchase. As long as you have credits in your account, you can get 20% off regular prices and 10% off the sale prices.
 		  </span>  
+=======
+
+
+
+          <p class="itemdetailsboxgreen" style="width:100%;margin-top:2px;"><span style="color:white;margin-top:2px;">Our system automatically adds  credit to your account from every purchase made by you or your  friends.
+		  This credit in your account  is  then used  to reduce your billing amount up to 20% in every later purchase. As long as you have credits in your account, you can get 20% off regular prices and 10% off the sale prices.
+		  </span>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 		  </p>
 		  ---><p>
 		  <!-- <a class="login_link" href="/wholesale_register.cfm">For buying in bulk or for retail business selling register here</a> --></p></td></tr>
@@ -182,14 +279,23 @@ Date: <select name="doa"><option value="0">0</option><option value="1">1</option
   </tr>
    </table>
 </FORM>
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 </td>
 </tr>
 
 </table>
 </div>
 </div>
+<<<<<<< HEAD
 <cfinclude template="mainfooter.cfm" />
 </div>
 </body>
 </html>
+=======
+</div>
+<cfinclude template="mainfooter.cfm" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c

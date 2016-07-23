@@ -1,0 +1,72 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:31+PM&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:31+PM&tby=nitish. Error Message:d:\ASPProjects\myproject\Tasks\AddResponse.aspx.cs(23): error CS0029: Cannot implicitly convert type 'string' to 'System.DateTime'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:31+PM&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:31+PM&tby=nitish. Error Message:ERROR [HY000] [MySQL][ODBC 5.1 Driver][mysqld-5.1.48-community]Column 'tdtoi' in where clause is ambiguous
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:52+PM&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:52+PM&tby=nitish. Error Message:d:\ASPProjects\myproject\Tasks\AddResponse.aspx.cs(24): error CS0029: Cannot implicitly convert type 'System.DateTime' to 'string'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:52+PM&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:52+PM&tby=nitish. Error Message:ERROR [HY000] [MySQL][ODBC 5.1 Driver][mysqld-5.1.48-community]Column 'tdtoi' in where clause is ambiguous
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM&tby=nitish. Error Message:d:\ASPProjects\myproject\Tasks\AddResponse.aspx.cs(23): error CS0131: The left-hand side of an assignment must be a variable, property or indexer
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:52+PM&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:52+PM&tby=nitish. Error Message:ERROR [HY000] [MySQL][ODBC 5.1 Driver][mysqld-5.1.48-community]Column 'tdtoi' in where clause is ambiguous
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/17/2010+9:55:00+PM&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/17/2010+9:55:00+PM&tby=nitish. Error Message:ERROR [HY000] [MySQL][ODBC 5.1 Driver][mysqld-5.1.48-community]Column 'tdtoi' in where clause is ambiguous
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(38): error CS0103: The name 'DrplInitiate' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(114): error CS0103: The name 'connection' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Thanks.aspx. Error Message:Error in: http://localhost:1776/myproject/Thanks.aspx. Error Message:The file '/myproject/Thanks.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:31+PM&action=rpgoswami&tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddResponse.aspx?tdtoi=11/10/2010+8:36:31+PM&action=rpgoswami&tby=nitish. Error Message:A ScriptManager is required on the page to use ASP.NET AJAX Script Components.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(43): error CS0103: The name 'dt2' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(43): error CS0103: The name 'dt2' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(22): error CS0029: Cannot implicitly convert type 'string' to 'System.DateTime'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(22): error CS0029: Cannot implicitly convert type 'string' to 'System.DateTime'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(22): error CS1955: Non-invocable member 'System.DateTime.Now' cannot be used like a method.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(23): error CS0029: Cannot implicitly convert type 'System.DateTime' to 'string'
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:Error in: http://localhost:1776/myproject/Tasks/AddTask.aspx. Error Message:d:\ASPProjects\myproject\Tasks\AddTask.aspx.cs(23): error CS0029: Cannot implicitly convert type 'System.DateTime' to 'string'
+__________________________

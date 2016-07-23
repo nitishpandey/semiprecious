@@ -1,0 +1,12 @@
+semiprecious
+Version=3
+C:\semiprecious
+http://
+
+
+19-05-2012
+NO
+NO
+NO
+YES
+*.html;*.htm;*.vtm;*.vtml;*.asp;*.css;*.shtml;*.phtml;*.php;*.php3;*.xml;*.xsl;*.cfm;*.cfml;*.txt;*.pl;*.cgi;*.snp;*.js;*.vb;*.vbs;*.bas*.mid;*.wav;*.au;*.ra;*.ram;*.bmp;*.gif;*.jpg;*.jpeg;*.png;*.exe;

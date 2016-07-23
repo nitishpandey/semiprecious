@@ -1,0 +1,1 @@
+<CFSET color="black"><cfinclude template="silver_jewelry_gallery.cfm">

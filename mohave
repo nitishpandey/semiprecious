@@ -1,0 +1,4 @@
+cfset category='CAT'>
+cfset subcat='STONE'>
+cfset groupname='THEME'>
+cfinclude template='/gemstone_jewelry_gallery.cfm'>

@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Contact Semiprecious.com</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+<link href="styles/npstyles1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body >
+ <cfinclude template="header.htm">
+
+<!--- <CFINCLUDE template="js/hoverstonemenu.cfm"> --->
+ <!--- <script language="JavaScript" src="js/menu_com.js" type="text/JavaScript"></script>--->
+ 
+<cfif isdefined("form.message")>
+<cfflush interval="10">
+<cfset mailcontent=form.name & ', '&form.contact &', ' & form.message>
+<cfset sendsave = 0>
+<cfset mailto = "anup.pandey@corporate.ge.com">
+<cfset ccto = "nitishpandey@rediffmail.com">
+
+<cfif form.contact is 'test'>
+<cfset mailto = "nitishpandey@rediffmail.com">
+
+</cfif>
+
+<cfset subject = form.name & "'s Message">
+<cfset mailerror = 1> <!--- 1 = >  error --->
+<cfsilent>
+<cfmodule template="customtags/mailsemipreciouscom.cfm" mailto="#Variables.mailto#" ccto="#Variables.ccto#"  subject="#form.name#'s Query" mailcontent="#variables.mailcontent#" />
+<!--- <cfinclude template="newsletters/mailer.cfm"> --->
+</cfsilent>
+<cfif mailerror>
+There was an error in recording your message. Sorry for the inconvenience. You can contact us by sending us 
+
+mail at anup@semiprecious.com or call us on .... any time. 
+
+<cfelse>
+<br>
+<br>
+
+   <div align="center" class="details">  Thankyou.  You can also contact us for any kind of query any time on email: anup@semiprecious.com, phone: 512 589 9009. 
+or      Mailing Address: Stacy Pandey, 1216 Dexford Drive, Austin, TX, 78753.<br>
+<cfoutput> <a href="list.cfm?#session.filter#">Click Here to Continue 
+      Shopping</cfoutput> </a></div><script language="JavaScript">
+alert("Thankyou for your Query. We  will get in touch with you.");
+
+</script>
+</cfif>
+<cfelse>
+
+   <div  align="center"> 
+      <p class="details">Write your message/query/concern in the form below. You 
+        could use it for ordering a custom jewelry, a wholesale purchase, query 
+        on stones or even if you have something to say about the web site. Please 
+        give us 24 hrs to respond. Thankyou. </p>
+      <cfform action="contactus.cfm" method="post" enctype="multipart/form-data" name="a" target="_parent">      
+        <table width="100%" border="1" class="tdcenter">
+          <tr> 
+            <td width="44%" bgcolor="#CCCC99">Your Name</td>
+            <td width="56%" bgcolor="#FFFFFF">: 
+              <cfinput name="name" type="text" size="40" required="yes" id="name"></td>
+          </tr>
+          <tr>
+            <td bgcolor="#CCCC99">Contact Details (Phone/Postal/ Email/Fax) </td>
+            <td bgcolor="#FFFFFF">: 
+              <cfinput name="contact" type="text" size="40" required="yes" id="contact"></td>
+          </tr>
+          <tr> 
+            <td bgcolor="#CCCC99">Your Message</td>
+            <td bgcolor="#FFFFFF">: 
+              <textarea name="message" cols="36" id="message"><cfif isdefined("url.newitem")>Please write your enquiry here about item id <cfoutput>#url.newitem#</cfoutput> and others</cfif></textarea></td>
+          </tr>
+          <tr bgcolor="#669966"> 
+            <td align="center">&nbsp;<input type="reset" name="Reset" value="Reset" class="greenbutton"> </td>
+            <td align="center"> 
+              <input type="submit" name="Submit" value="Submit" class="greenbutton"></td>
+          </tr>
+        </table>
+      </cfform>
+	
+      You can also contact us on email: anup@semiprecious.com, call: 512 589 9009. 
+      Mailing Address: Stacy Pandey, 1216 Dexford Drive, Austin, TX, 78753.<br></div>  
+<cfoutput> <a href="list.cfm?#session.filter#">Continue 
+      Shopping</cfoutput> </a>  <script>	        document.forms[0].name.focus();
+	 </script>
+<br>
+<br>
+      <span class="unnamed1">The Content, Designs,  Jewelry, 
+      and Functionality of this website are the property of Semiprecious.com &copy; and are
+      protected by Copyright and Trademark Law. </span>
+
+</cfif>     
+  
+    </body>
+</html>
+

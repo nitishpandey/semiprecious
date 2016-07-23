@@ -1,0 +1,22 @@
+body {
+	background-color: #F3FFF3;
+	margin-top:0px;
+}
+
+a {
+	color: #4638e2;
+	
+}
+
+form {
+	background-color: #CCCCCC;
+}
+.ack {
+		background-color: #DCDCCC;
+}
+.close {
+		background-color: #4CCC4C;
+}
+.open {
+		background-color: #DCaC4C;
+}

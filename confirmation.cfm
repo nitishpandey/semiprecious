@@ -5,6 +5,57 @@
 <cfparam name=session.address.country_code default="#form.x_ship_to_country#">
 <cfparam name="testingpp" default="">
 
+<<<<<<< HEAD
+=======
+<cfset THIS.mappings["/cfpayment"]="cfpayment">
+
+<!---
+<cfdump var="#form#" />
+--->
+
+<cfscript>
+
+if (isdefined('form.stripeToken')) { //&& StructKeyExists(form, 'fieldnames') && len(form.fieldnames)
+
+	// initialize gateway
+	cfg = { path = "stripe.stripe", TestSecretKey = "sk_test_4pgLGlAau7eiMw1FtwoXurEm" };
+	svc = createObject("component", "cfpayment.api.core").init(cfg);
+	gw = svc.getGateway();
+
+	token = svc.createToken().setID(form.stripeToken);
+	amount = svc.createMoney(fix(session.amount*100));
+
+	// charge the one-time token from stripejs by converting it to a cfpayment token and passing to purchase as the account
+	//response = gw.purchase(money = amount, account = token);
+
+	// charge the customer instead by converting the customer token (cus_*) into a cfpayment token and passing to purchase
+	customer = gw.store(token);writeDump(customer.getTransactionId());
+	customer_token = svc.createToken().setID(customer.getTransactionId());
+	response = gw.purchase(money = amount, options = {customer: customer_token});
+
+	writeDump(form);
+	writeOutput(response.getMessage());
+	writeOutput(response.getResult());
+	writeDump(response.getRequestData());
+	writeDump(response);
+
+	// did we succeed?
+	if (response.getSuccess()) {
+	  // yay!  look at response.getResult() or response.getParsedResult()
+	  // verify response.isValidAVS() or response.isValidCVV()
+	} else {
+	  // check response.getStatus(), output response.getMessage()
+	}
+	// writeOutput('test');
+
+	exit;
+}
+</cfscript>
+
+<!---
+<cfexit>
+--->
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
 <!---
 <CFQUERY DATASOURCE="GEMSSQL" NAME="COUNTRYCODE">
@@ -74,7 +125,14 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
         </cfinvoke>
 				--->
         <cfcatch type="Any">
+<<<<<<< HEAD
       	<cfmail from="service@semiprecious.com" timeout="30" server="MailA40" to="anup@semiprecious.com"  subject="Shipping Address Confirmation" type="HTML" >
+=======
+      	<cfmail  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  from="service@semiprecious.com" timeout="30" to="anup@semiprecious.com"  subject="Shipping Address Confirmation" type="HTML" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
          	<cfdump var="#cfcatch#" />
        	</cfmail>
 
@@ -341,7 +399,14 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
 
 	</cfinvoke>
     <cfcatch type="Any">
+<<<<<<< HEAD
   <cfmail from="service@semiprecious.com" timeout="30" to="stacyanup@gmail.com" server="MailA40" subject="Shipping Address Confirmation" type="HTML" >
+=======
+  <cfmail  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  to="semiprecioushelp@gmail.com" from="service@semiprecious.com"  subject="Shipping Address Confirmation" type="HTML" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
    On relay back from payment, code line 319  <cfdump var="#cfcatch#" />
    </cfmail>
 
@@ -376,7 +441,14 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
 </cfif>
 
         <cfcatch type="any">
+<<<<<<< HEAD
             <cfmail  to="nitish@semiprecious.com,anup@semiprecious.com" from="cs@semiprecious.com" server="maila40" subject="sign up on confirmation" >
+=======
+            <cfmail  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  from="service@semiprecious.com"  to="nitishpandey@gmail.com,anup@semiprecious.com" subject="sign up on confirmation" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
         #cfcatch.detail#,#cfcatch.message#
         </cfmail>
 
@@ -447,7 +519,10 @@ var google_conversion_label = "purchase";
 <img height=1 width=1 border=0 src="http://www.googleadservices.com/pagead/conversion/1072681239/imp.gif?value=1&label=purchase&script=0">
 </noscript>
 
+<<<<<<< HEAD
  <img src="https://shareasale.com/sale.cfm?amount=<cfoutput>#form.x_amount#&tracking=#form.x_invoice_num#</cfoutput>&transtype=TYPEOFTRANSACTION&merchantID=24548" width="1" height="1">
+=======
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
 </cfoutput>
 </cfsavecontent>
@@ -462,7 +537,14 @@ var google_conversion_label = "purchase";
 
 <!--- Code Added  By Ankur [2/5/2012]  [START] --->
 <cfset err_mess =responseStruct.L_LONGMESSAGE0>
+<<<<<<< HEAD
 <cfmail to="anup@semiprecious.com" from="cs@semiprecious.com"  server="MailA40" subject=" #form.x_invoice_num# Paypal Direct Payment"  type="html">
+=======
+<cfmail  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  from="service@semiprecious.com" to="nitishpandey@gmail.com,semiprecioushelp@gmail.com" subject=" #form.x_invoice_num# Paypal Direct Payment"  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 #err_mess#,<cfdump var='#form#' />
 </cfmail>
   <!--- Code Added  By Ankur [2/5/2012]  [END] --->
@@ -693,6 +775,10 @@ var google_conversion_label = "purchase";
   <cfset title="Select Secure Checkout to buy Jewelry" />
 <cfsavecontent variable="inheader">
 	<script>
+<<<<<<< HEAD
+=======
+		try {
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	 $(document).ready(function(){
 	  $("div#err_box").hide();
 	 $("select#x_country" ).change(
@@ -771,6 +857,7 @@ var google_conversion_label = "purchase";
 	 );
 	 }
 	 );
+<<<<<<< HEAD
 	 </script>
 </cfsavecontent>
 
@@ -783,6 +870,23 @@ var google_conversion_label = "purchase";
 	<cflock    timeout = "0"   scope = "Session"       throwOnTimeout = "no"   type = "exclusive">
   
       
+=======
+			}
+	catch(err){
+
+	}
+	 </script>
+</cfsavecontent>
+
+  <CFINCLUDE TEMPLATE="/header_checkout#Session.country#.cfm">
+<div id="container2">
+	<div class="grayplacard" style="text-align:left;font-size:12px;width:80%;font-weight:bold;float:lft;padding-left:2px">
+              Check Your Final Total and Select A Secure Payment Method</div>
+  <cfset timestamp = Now() />
+  <cfset couponcode = trim(couponcode) />
+
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
           <cfif  session.cartid GT 0 and cgi.HTTP_REFERER contains 'cart.cfm' >
 			    <cfquery datasource="gemssql" name="confirmedstatuscheck">
 						<!--- neq 'null' because in manual updates of status often cost is 0.00 and paymode moves to chck or pp --->
@@ -793,13 +897,21 @@ var google_conversion_label = "purchase";
                             <cfset session.cartid = 0 />
                            <cflocation url="#session.cart#?country=#session.address.country_code#&cartid=#session.confirmed_cartid#&reloadmsg=reloaded1##checkout" addtoken="no" />--->
                   </cfif>
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
         <cfelseif not isdefined("form.x_invoice_num")>
               	    <cfset c  = "" />
                 <cfif isdefined("url.cartid")>
               	          <cfset c = url.cartid>
               	      <cfelseif isdefined("session.confirmed_cartid")>
+<<<<<<< HEAD
               	          <cfset c = session.confirmed_cartid>      
+=======
+              	          <cfset c = session.confirmed_cartid>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
               	    </cfif>
                 <cflocation url="#session.cart#?country=#session.address.country_code#&cartid=#c#&reloadmsg=reloaded##checkout" addtoken="no" />
 	<cfelse>
@@ -810,7 +922,11 @@ var google_conversion_label = "purchase";
                               <td bgcolor="#FFFFFF" valign=top align="right" style="width:440px">
                                  <cfinclude template="/authorizenet/simtoembed.cfm" />
                                 <cfset session.confirmed_cartid = session.cartid />
+<<<<<<< HEAD
                         
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                          <cfset session.cartid = 0 />
                          </td><td>Let's Start Shopping</td></tr>
                      </table>
@@ -821,7 +937,11 @@ var google_conversion_label = "purchase";
  </html>
  <cfabort />
   </cfif>
+<<<<<<< HEAD
 </cflock>
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <!--- TODO: This is narrow table. Need to allow it's width to not be too wide in laptop but in case of mobile we can use full 980 px --->
   <table  id="container3" style="width:400px;margin-top:20px;border-bottom:2px gray solid;" border="0" align="center"  >
   <cftry >
@@ -1003,7 +1123,14 @@ will have to check the sideeffects. One is in itemsell.cfm which picks out carti
 						insert into giftmsg values (#Session.cartid#,'#giftmsg#', '#note#')
 					</cfquery>
 				<cfcatch type="any">
+<<<<<<< HEAD
 				        <cfmail to="anup@semiprecious.com" from="anup@semiprecious.com" subject="Gift cart "  server="MailA40" type="html">
+=======
+				        <cfmail to="anup@semiprecious.com"  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  from="service@semiprecious.com"  subject="Gift cart "   type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 						#giftmsg# for cart #session.cartid#
 		                </cfmail>
 
@@ -1150,7 +1277,14 @@ alert("For whole sale purchase pse make purchases of atleast $200 (after discoun
               <cfinvokeargument name="mail" value="#confirm_mail#" />
               </cfinvoke>
               <cfcatch type="any">
+<<<<<<< HEAD
                 <cfmail to="anup@semiprecious.com" from="cs@semiprecious.com" server="MailA40" subject="At confirmation Could not reverse "  type="html">
+=======
+                <cfmail to="anup@semiprecious.com"  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  from="service@semiprecious.com"  subject="At confirmation Could not reverse "  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                   #cfcatch.detail#, #cfcatch.message# for #confirm_mail#,
                 </cfmail>
                 <!--- 	<cfoutput>#cfcatch.detail#, #cfcatch.message# for #confirm_mail#
@@ -1197,7 +1331,11 @@ alert("For whole sale purchase pse make purchases of atleast $200 (after discoun
       <tr >
          <td colspan="2" align="center" valign="middle" style="padding:2px;background-color:#FFE4EC;border:2px solid #A50A25;color:#A50A25;font-size:2em;" > Wholesale purchase requires minimum order of <cfoutput>#format(minimum)#. <a href="#session.gallery#?#session.filter#" class="gray_url">Click Here to Shop for More Stuff</a></cfoutput>&nbsp;
           If you wish to shop less then please visit <a href=http://www.semiprecious.com>www.semiprecious.com</a>.     &nbsp;</td>
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
       </tr>
       <tr>
         <td colspan="2">&nbsp;</td>
@@ -1211,7 +1349,11 @@ alert("For whole sale purchase pse make purchases of atleast $200 (after discoun
       <tr>
         <td  colspan="2"><font face="Arial, sans-serif" size="+1">To shop for less than the minimum wholesale amount you may switch to retail mode and make purchases at retail prices. <a href="/switchtoretailmode.cfm" class="side_link">Click here to switch and go to gallery</a></font> .</td>
       </tr>
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
       <cfelse>
       <cfif isdefined("tpsale")>
         <cfset modtps = 'y'>
@@ -1278,7 +1420,11 @@ Sales Tax:</td>
 
         <!--- Grand total line --->
         <tr  class="" >
+<<<<<<< HEAD
           <td   align='right' class="found_header" style="padding:5px;"><cfif application.live_support and 0 >
+=======
+          <td   align='right'  style="padding:5px;"><cfif application.live_support and 0 >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
               <div style="display:inline;border:1px ridge ##0A0 ;margin-top:4px;padding:2px 4px" align=center> <a class="login_link" onClick="open_live_support()" href="javascript://"><img style="text-decoration:none;" src="/images/callus.png" height="20px" VALIGN="center" border=0 />&nbsp;<span style="position:relative;bottom:4px">Online Help</span></a> </div>
             </cfif>
             <cfif confirm_mail is application.admin_email>
@@ -1305,7 +1451,14 @@ Sales Tax:</td>
             <div style="width:738px;text-align:center;background-color:#666600;color:white;"> Your Cart Contents have been Saved. </div>
             <cfif len(confirm_mail) and confirm_mail contains '@' >
               <cfset mailto = confirm_mail>
+<<<<<<< HEAD
               <cfmail server="MailA40" bcc="anup@semiprecious.com" to="#mailto#" failto="anup@semiprecious.com" from="service@semiprecious.com" subject="Shop later at semiprecious.com"  type="html">
+=======
+              <cfmail  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  from="service@semiprecious.com"  to="#mailto#" failto="anup@semiprecious.com"  subject="Shop later at semiprecious.com"  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                 Your cart contents have been saved with the cartid #session.cartid#. Please use the <a href="http://www.semiprecious.com/fillcart.cfm?cartid=#session.cartid#">activate
                 cart</a> link given on the home page to continue this shopping. And you
                 can do this from any computer any place! [Link is http://www.semiprecious.com/fillcart.cfm]<br>
@@ -1359,7 +1512,14 @@ Sales Tax:</td>
                   <cfinvokeargument name="shipping" value="#shipping#|#nonUS#|#sh#|#GW#|#AOD#">
           </cfinvoke>
           <cfcatch type="any">
+<<<<<<< HEAD
             <cfmail to="anup@semiprecious.com"  server="MailA40" subject="Error at confirmation" from="cs@semiprecious.com">
+=======
+            <cfmail to="anup@semiprecious.com"  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  from="service@semiprecious.com"  subject="Error at confirmation">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
               #cfcatch.Detail#, #cfcatch.Type#,,#cfcatch.Message# ----- (tell tale sign)[credit for #session.cartid#?]
               <CFIF ISDEFINED("FORM")>
                 <CFDUMP VAR="#FORM#" />
@@ -1412,16 +1572,27 @@ Sales Tax:</td>
                   <td  height="20"  align="center" class="greenbutton"><img src="images/secure_lock_2.gif" width="16" height="17" style="display:inline;" border="0" vspace="0" hspace="0" align="absmiddle"> <b> MOST SECURE AND BEST CREDIT CARD PAYMENT SYSTEMS </b></td>
                 </tr>--->
               <tr>
+<<<<<<< HEAD
                 <td align="center"  >
 
              Your Cart ID is: <cfoutput> <b> #session.cartid# </b> <br>You can access it any time from:
                           #cgi.SERVER_NAME#/myorder </cfoutput></td><td>&nbsp;</td></tr>
+=======
+                <td align="left"  >
+
+             Your Cart ID is: <cfoutput> <b> #session.cartid# </b> <br>You can access it any time from:
+                          <a href="http://#cgi.SERVER_NAME#/myorder" style="text-decoration:underline">My Orders</a> </cfoutput></td><td>&nbsp;</td></tr>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
                     <tr>
                       <td style="margin:auto;width:720px" align=left valign=top colspan="2">
 					<cfif amount LT 0.1 and couponcode neq "">
         <div id="noneedtopay" style="position:absolute;height:200px;font-color:#993333 ;font-weight:bold;font-size:16;font-face:arial">
+<<<<<<< HEAD
 				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, THANK YOU</div><p>&nbsp;<p>
+=======
+				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, THANK YOU</div><p><p>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 				   <cfmail to="semiprecioushelp@gmail.com"  server="MailA40" subject="Order Redeemed by Coupon" from="cs@semiprecious.com">
 					 FYI: Order <cfoutput>#session.cartid#</cfoutput> has redeemed a coupon, not needing payment by CC
      			 </cfmail>
@@ -1429,12 +1600,20 @@ Sales Tax:</td>
 				</cfif>
 				<cfif amount LT 1 and amount GT 0.1 and couponcode neq "">
         <div id="noneedtopay" style="position:absolute;height:200px;font-color:#993333 ;font-weight:bold;font-size:16;font-face:arial">
+<<<<<<< HEAD
 				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, WE WILL TAKE ARE OF THE TINY AMOUNT LEFT IN THIS ORDER. THANK YOU</div><p>&nbsp;<p>
+=======
+				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, WE WILL TAKE ARE OF THE TINY AMOUNT LEFT IN THIS ORDER. THANK YOU</div><p><p>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 				   <cfmail to="semiprecioushelp@gmail.com"  server="MailA40" subject="Order Redeemed by Coupon" from="cs@semiprecious.com">
 					 FYI: Order <cfoutput>#session.cartid#</cfoutput> has redeemed a coupon, not needing payment by CC
      			 </cfmail>
 
+<<<<<<< HEAD
 				</cfif><p>&nbsp;<p>
+=======
+				</cfif><p><p>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 					  <ul class="arrow_ul">
                           <li><h3><a style="text-decoration:none;" name="payment"><b>Use paypal by clicking here:
                         <cfoutput>  <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post"  style="display:inline;">
@@ -1445,7 +1624,13 @@ Sales Tax:</td>
                             <input type="hidden" name="currency_code" value="USD">
                             <input type="hidden" name="item_name" value='#session.cartid##sh##Gw#' />
 							<input type="hidden" name="invoice" value='#session.cartid#' />
+<<<<<<< HEAD
 
+=======
+<input type="hidden" name="return" value="http://www.semiprecious.com/paypalreturnurl.cfm" id="PayPalReturn" />
+<input type="hidden" name="rm" value="2" id="ReturnMethod" />
+<input type="hidden" name="notify_url" value="http://www.semiprecious.com/paypalreturn.cfm?xcartid=#session.cartid#" id="PayPalNotifyUrl" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                             <input type="hidden" name="amount" value='#decimalformat(amount)#'>
                             <input width="70px" type="image" src="https://www.semiprecious.com/images/paypal_logo.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
                             <!--- Newly added variables--Start --->
@@ -1454,7 +1639,29 @@ Sales Tax:</td>
                           </form></cfoutput>
 </h3>
 							 <!---As a security feature authorize.net button is <span style="color:red">valid for next 3 minutes</span> only.---> </li>
+<<<<<<< HEAD
                         </ul></td>
+=======
+						    <!---
+						  <li><cfoutput><h3><a style="text-decoration:none;" name="payment"><b>Use Stripe by clicking here:
+						  <form action="" method="POST" style="display:inline;"><script
+							src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+							data-key="pk_live_E2JwbaR2iOLQ4eBWGRP9ITd2"
+							data-amount="#fix(amount*100)#"
+							data-name="Semiprecious jewelry"
+							data-description=""
+							data-image="/logos/logo.gif"
+
+							data-address="1"
+							data-country="1"
+							id="stripe-script">
+						  </script>		</form>	</b></a></h3> </cfoutput>
+						  </li>
+							--->
+                        </ul>
+
+                        </td>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                     </tr>
 						  <tr>
                       <td valign=top align="right" style="width:480px">
@@ -1466,6 +1673,7 @@ Sales Tax:</td>
 
 
 
+<<<<<<< HEAD
                       &nbsp;
                         <p> Pay Through Paypal (You do not need paypal account, you can pay by credit card also, takes Checks Also)
                         <cfoutput>
@@ -1497,6 +1705,16 @@ Sales Tax:</td>
             </cfif>
 
       
+=======
+						</td><td>&nbsp;</td>
+                    </tr>
+
+
+              </tr>
+            </cfif>
+
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
           </table>
         </cfif>
         <cfinclude template="/mainfooter.cfm" />
@@ -1583,7 +1801,13 @@ function processReqChange()
   </html>
   <CFCATCH TYPE="any">
 
+<<<<<<< HEAD
     <cfmail to="anup@semiprecious.com" from="cs@semiprecious.com" server="MailA40" subject="Confirmation page error"  type="html">
+=======
+    <cfmail to="nitishpandey@gmail.com,anup@semiprecious.com"  port="25"
+  useSSL="false"
+  from="service@semiprecious.com" subject="Confirmation page error"  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
       <cfoutput>#cfcatch.detail#,#cfcatch.message#</cfoutput>
 	<cfdump var='#cfcatch.TagContext[1]#'>
 
@@ -1664,4 +1888,8 @@ function processReqChange()
     </cfcatch>
 
 </ctry>
+<<<<<<< HEAD
 --->
+=======
+--->
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c

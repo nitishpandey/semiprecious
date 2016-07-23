@@ -1,0 +1,24 @@
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:Object reference not set to an instance of an object.
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:d:\inetpub\semiprecious\myproject\CountryIP.aspx.cs(51): error CS0103: The name 'sqlConn' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:d:\inetpub\semiprecious\myproject\CountryIP.aspx.cs(51): error CS0103: The name 'sqlConn' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:d:\inetpub\semiprecious\myproject\CountryIP.aspx.cs(51): error CS0103: The name 'sqlConn' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:Error in: http://www.semiprecious.com/myproject/countryIP.aspx. Error Message:d:\inetpub\semiprecious\myproject\CountryIP.aspx.cs(51): error CS0103: The name 'sqlConn' does not exist in the current context
+__________________________
+
+Log Entry : 
+Error in: http://www.semiprecious.com/myproject/countryIP.aspx?ipaddress=59.161.99.219. Error Message:Error in: http://www.semiprecious.com/myproject/countryIP.aspx?ipaddress=59.161.99.219. Error Message:The process cannot access the file 'd:\inetpub\semiprecious\myproject\CountryIP.aspx.cs' because it is being used by another process.
+__________________________

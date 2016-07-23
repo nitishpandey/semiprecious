@@ -1,0 +1,94 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="TaskManager.master.cs"  Inherits="TaskManager_Master" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>   <script src="/headhunting/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/javascript/ui.core.js" ></script>
+<script type="text/javascript" src="/javascript/jQuery.ui.datepicker.js" ></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+<style type="text/css">
+.style11 {
+color:pink;
+}
+span#help_title {
+float:left;
+color:darkblue;
+font-size:1.1em;
+}
+span#help_close {
+float:right;
+color:red;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body style="background-color:#D9D9D9;">
+    <form id="form1" runat="server">
+    <div>
+        <table cellpadding="0" cellspacing="0" class="style1" 
+            style="background-color:white;" bgcolor="White">
+            <tr>
+                <td style="width:5%;" align="left" valign="top" rowspan="2">
+                    &nbsp;</td>
+                <td class="style2" rowspan="2">
+                    <asp:Image ID="Image3" runat="server" 
+                        ImageUrl="~/Images/semipreciouslogo.jpg" />
+                </td>
+                <td class="style10" align="left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink 
+                        ID="HyperLink1" runat="server" NavigateUrl="/tm-tm/mainmenu.cfm">Main Menu</asp:HyperLink>
+                    &nbsp;&nbsp;<asp:HyperLink ID="HyperLink2" runat="server" 
+                        NavigateUrl="~/Tasks/">Task Menu</asp:HyperLink>
+                    &nbsp; &nbsp;&nbsp;<asp:HyperLink 
+                        ID="HypLogout" runat="server" NavigateUrl="/tm-tm/logout.cfm">Log Out</asp:HyperLink>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label2" runat="server" ForeColor="#0033CC" Text="Logged In :"></asp:Label>
+&nbsp;<asp:Label ID="LblLoginName"  runat="server" ForeColor="#990033"></asp:Label>
+                    &nbsp;</td>
+                <td style="width:5%;" align="left" valign="top" rowspan="2">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style5" align="left">
+                    </td>
+            </tr>
+            <tr style="height:2px;">
+                <td  align="left" valign="top" >
+                    </td>
+                <td  colspan="2" bgcolor="#009999" height="2px">
+                    </td>
+                <td align="left" valign="top">
+                    </td>
+            </tr>
+            
+            <tr>
+                <td class="style9">
+                    &nbsp;</td>
+                <td class="style8" colspan="2"  valign="top">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+         
+            
+            <tr>
+                <td >
+                    &nbsp;</td>
+                <td style="text-align:right" colspan="2">
+                   <asp:Label ID="Label1" runat="server" 
+                        Text="Semiprecious.com All Rights Reserved"></asp:Label>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="filemaster.master.cs" Inherits="filemaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/StyleSheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+         <table cellpadding="0" cellspacing="0" class="style1" 
+            style="background-color:white;" bgcolor="#EEEEEE">
+            <tr>
+                <td style="width:5%;" align="left" valign="top" rowspan="2">
+                    &nbsp;</td>
+                <td class="style2" rowspan="2">
+                    <asp:Image ID="Image3" runat="server" 
+                        ImageUrl="~/Images/semipreciouslogo.jpg" />
+                </td>
+                <td class="style10" align="left">
+                    &nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="../admin.cfm">Admin 
+                    Menu</asp:HyperLink>
+                    &nbsp; &nbsp;<asp:HyperLink 
+                        ID="HyperLink1" runat="server" NavigateUrl="/tm-tm/mainmenu.cfm">Main Menu</asp:HyperLink>
+                    &nbsp;&nbsp;<asp:HyperLink ID="HyperLink3" runat="server" 
+                        NavigateUrl="~/fileupload.aspx">File Upload</asp:HyperLink>
+                    &nbsp;&nbsp;<asp:HyperLink 
+                        ID="HypLogout" runat="server" NavigateUrl="/tm-tm/login.cfm">Log Out</asp:HyperLink>
+                    &nbsp;
+                    <asp:Label ID="Label2" runat="server" ForeColor="#0033CC" Text="Logged In :"></asp:Label>
+&nbsp;<asp:Label ID="LblLoginName"  runat="server" ForeColor="#990033"></asp:Label>
+                    &nbsp;</td>
+                <td style="width:5%;" align="left" valign="top" rowspan="2">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style5" align="left">
+                    </td>
+            </tr>
+            <tr style="height:2px;">
+                <td  align="left" valign="top" rowspan="3" >
+                    </td>
+                <td  colspan="2" bgcolor="#009999" height="2px">
+                    </td>
+                <td align="left" valign="top" rowspan="3">
+                    </td>
+            </tr>
+            
+            <tr>
+                <td class="style8" colspan="2" valign="top">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr style="height:5px">
+                <td bgcolor="#009999" colspan="2">
+                    </td>
+            </tr>
+            <tr>
+                <td >
+                    &nbsp;</td>
+                <td colspan="2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    &nbsp;<asp:Label ID="Label1" runat="server" 
+                        Text="Copyright@Ganna Life Sciences Pvt. Ltd. ,2010. All Rights Reserved"></asp:Label>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,2 @@
+<!--- <table width="100%"><tr><td><a href="logout.cfm">Logout</a></td></tr></table> --->
+<table width="100%"><tr align="justify"><td><a href="mainmenu.cfm">Main Menu</a></td><td>Task Manager</td><td><a href="login.cfm">Logout</a></td></tr></table>

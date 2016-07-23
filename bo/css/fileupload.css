@@ -1,0 +1,39 @@
+﻿body {
+}
+.table_margin
+{   
+	margin-left:0%;
+	margin-right:0%;
+	width: 100%;
+	height: 138px;
+}
+	
+.row_heading
+{
+color:Maroon;
+	
+}	
+
+.firstcol_width
+{
+width:20%;	
+}
+.ftcol_width
+{
+width:18%;	
+}
+.thirdcol_width
+{
+	width:12%;
+}
+.heading_font
+{
+ font-family:Arial;
+ font-size:medium;
+ font-weight:bold;
+ color:Navy;	
+}
+.td_width
+{
+	width:20%;
+}

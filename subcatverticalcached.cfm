@@ -182,7 +182,11 @@ and
 	<cfset subcat3 = replace(trim(subcat3)," ","")>
     
     <!--- If we are on the hubs page, display 'stone+category' otherwise, just the stone --->
+<<<<<<< HEAD
     <cfif CGI.PATH_INFO contains "gem-stone-">
+=======
+    <cfif cgi.script_name contains "gem-stone-">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 		<cfif category eq "" or category eq "ALL">
 			<cfif style neq "">
 			<a  href='/#subcat3#_#categ#.cfm?style=#style#' class="side_link" id="#subcat2#" >

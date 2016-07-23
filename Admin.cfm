@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <try>
+=======
+<cftry>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <cfparam name="form.passcode" default="">
 <cfparam name="session.passcode" default="">
 <cfparam name="session.apptt" default="">
@@ -6,7 +10,11 @@
 <cfif form.passcode eq application.admin_email or session.mail eq application.admin_email or form.passcode eq "29">
 <cfset session.passcode = application.admin_email>
 <Cfset session.mail = application.admin_email>
+<<<<<<< HEAD
 
+=======
+<cfloginuser roles="admin" name="#session.mail#" password="#session.passcode#" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
 <!---<cflocation url="cartstatus21.cfm" addtoken="no">--->
 </cfif>
@@ -18,11 +26,19 @@
   <BODY>
   <HR>
   <H3>Error Occurred While Processing Request</H3>
+<<<<<<< HEAD
   <P> 
   <TABLE BORDER>
     <TR> 
       <TD><H4>Error Diagnostic Information</H4>
         <P>An error has occurred. 
+=======
+  <P>
+  <TABLE BORDER>
+    <TR>
+      <TD><H4>Error Diagnostic Information</H4>
+        <P>An error has occurred.
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
         <P> <B> <H3>HTTP/1.0 404 Object Not Found</B></H3>
         <P></TD>
     </TR>
@@ -32,7 +48,11 @@
 <input name="passcode" type="text">
     <input type="submit" value="BUSH THEM!">
   </form>
+<<<<<<< HEAD
   <P> 
+=======
+  <P>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
   <hr>
   <p>&nbsp;</p>
   </BODY>
@@ -43,7 +63,11 @@
 <head>
 <title>Control Panel</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<<<<<<< HEAD
 <link href="styles/style_semiprecious.css" rel="stylesheet" type="text/css">  
+=======
+<link href="styles/style_semiprecious.css" rel="stylesheet" type="text/css">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
 </head>
 
@@ -56,7 +80,11 @@
 
 <br><ol> <b>FREQUENTLY USED</B>
 <li><cfif isdefined("url.live_support")><cfset application.live_support = url.live_support /></cfif>
+<<<<<<< HEAD
 <cfif application.live_support><img src="/images/error_16x16.png" >Are you on Zoho? &nbsp; <a href="admin.cfm?live_support=0">Switch OFF</a><cfelse><a href="admin.cfm?live_support=1">Swith ON</a> </cfif></li>
+=======
+<cfif application.live_support><img src="/images/error_16x16.png" >Are you on Zoho? &nbsp; <a href="admin.cfm?live_support=0">Switch OFF</a><cfelse><a href="admin.cfm?live_support=1">Switch ON Online Chat</a> </cfif></li>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <li><a href="searchcart.cfm">Locate A  Cart by customer email or name in full or part</a></li>
 <li><a href="/admintools/edititem.cfm">Edit an Item</a></li>
 <li><a href="cartstatus21.cfm" class="greenbutton">Process carts</a></li>
@@ -110,7 +138,11 @@ Gallery By Supplier:<br>
 <cfset session.passcode = 'shaurya'>
 </ol>
 <a href="/india/index.cfm?india=112">Get in Dolloar</a>
+<<<<<<< HEAD
 <span class="title"> Retail Subscription  </span> 
+=======
+<span class="title"> Retail Subscription  </span>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <ol>  <li class="title"><a href="subscribertrail.cfm">View  Subscriber's Visit stamp</a><li>
 <a href="failedemailadd.cfm">Add Subsbcriber on Follow up list</a></li>
 <li ><a href="failednls.cfm">View List of subscribers</a> in follow up list</li>
@@ -121,11 +153,16 @@ Gallery By Supplier:<br>
 
 <li ><a href="http://www.semiprecious.com/myproject/UploadImages.aspx">Upload Images for center graphics and emails </a></li>
 
+<<<<<<< HEAD
   <li class="title"><a href="unsubscribe.cfm">Unsubscribe Mail subscriber </a> with Password(Preferred 
+=======
+  <li class="title"><a href="unsubscribe.cfm">Unsubscribe Mail subscriber </a> with Password(Preferred
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
     mechanism is to place a link to this page in an email to the person)</li>
   <li class="title"><a href="downgradenlstatus.cfm">Unsubscribe or downgrade his nlstatus</a></li>
   <li class="title"><a href="/admintools/showuserdetails.cfm">Show user details</a></li>
   <li><a href="crm">CRM</a></li>
+<<<<<<< HEAD
   <li> 
     <form name="form1" method="get" action="newsletters/nlviewerwithurlid.cfm">
       <span class="title"><a onClick="javascript:document.forms[3].submit();" href="javascript:document.forms[3].submit();">View 
@@ -133,6 +170,15 @@ Gallery By Supplier:<br>
       <input type="hidden" name="customer" value="somecustomer">
       <input name="id" type="text" id="id" value="2" size="2" maxlength="2">
       (Save newsletters as nl3.htm etc.) </span> 
+=======
+  <li>
+    <form name="form1" method="get" action="newsletters/nlviewerwithurlid.cfm">
+      <span class="title"><a onClick="javascript:document.forms[3].submit();" href="javascript:document.forms[3].submit();">View
+      News Letter NO.</a>
+      <input type="hidden" name="customer" value="somecustomer">
+      <input name="id" type="text" id="id" value="2" size="2" maxlength="2">
+      (Save newsletters as nl3.htm etc.) </span>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
     </form>
   <li><a href="contactthem.cfm">Contact Them</a></li>
 		<li> <a href="/admintools/editcredit.cfm" class="banner">Edit Credit for a member</a></li>
@@ -144,7 +190,11 @@ Gallery By Supplier:<br>
 
   </li>
     </ol>
+<<<<<<< HEAD
   <ol><span class="title">  Newsletters </span> 
+=======
+  <ol><span class="title">  Newsletters </span>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	<li><a href="newsletters/nlstatus.cfm?action=incr">Increment number of the newsletter to be sent</a></li>
 	<li> <a href="newsletters/cfmailnewsletters.cfm?mailto=anup@semiprecious.com">CHeck newsletter (sends to nitish at indiatimes)</a></li>
 		<li> <a href="newsletters/cfmailnewsletters.cfm">Send newsletter (sends to next 20)</a></li>
@@ -162,10 +212,17 @@ WHole Sale Members
 <li ><a href="letterhead.cfm?vendor=young">Young Letter Head</a></li>
 <li><a href="affiliate/afsalesdetails.cfm?vid=shau">afsalesdetails.cfm</a></li>
   <li><a href="admintools/contactbulk.cfm">Contact Bulk Buyers</a></li>
+<<<<<<< HEAD
   <li><A href="wholesale_register.cfm">Bulk Buyer Registration</A></li> 
    <li><A href="admintools/wholesale_list.cfm" class="softbluebg">List details Bulk Buyer </A></li>
    <li><A href="admintools/wholesale_delete.cfm">Bulk Buyer remove</A></li> 
   
+=======
+  <li><A href="wholesale_register.cfm">Bulk Buyer Registration</A></li>
+   <li><A href="admintools/wholesale_list.cfm" class="softbluebg">List details Bulk Buyer </A></li>
+   <li><A href="admintools/wholesale_delete.cfm">Bulk Buyer remove</A></li>
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
    <li><a href="admintools/wholesalebuyerminamt.cfm" target="_parent">Reduce WS Buyer's Minimum amount</a></li>
   <li><a href="contactus.cfm?newitem=0">Generate whole sale coupon</a></li>
   </ol>
@@ -198,7 +255,11 @@ WHole Sale Members
   <li class="title"><a href="dsnadminnew.cfm">Manipulate Semiprecious Database</a></li>
     <li class="title"><a href="index.cfm?resettheapplication=1">Reset Application Variables </a></li>
 	<li class="title"><a href="http://www.semiprecious.com/sitegenerator/makemissingfile.cfm?filepathandname=dalmatianjasper_pendants.cfm">Make Missing Page</a></li>
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 </ol>
 <p class="title">Data Feeds</p>
 <ol>
@@ -217,7 +278,11 @@ WHole Sale Members
 
 </ol>
 Miscellaneous<ol>
+<<<<<<< HEAD
 <li><a href="resolution.cfm">No of today and yesterday Visits and cartid</a></li> 
+=======
+<li><a href="resolution.cfm">No of today and yesterday Visits and cartid</a></li>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <li><A href="propertyinitiator.cfm">New Property</A></li>
 <li>Manually Set Value of property</li>
 <li><a href=http://www.semiprecious.com/admintools/charts/gallerySorts.cfm>Charts</a></li>
@@ -229,7 +294,11 @@ Miscellaneous<ol>
 <li><a href="visitcheck.cfm">Visit Check</a></li> Note: Visit adder in application.cfm disabled
 <li><A href="np/editingfilter.html">Editing New Filter</A></li>
 <li><A href="list2.cfm">For Multi Buying at same time</A></li>
+<<<<<<< HEAD
   <li class="title"><a href="np/match/showmatches.cfm">Exhaustive Matcher</a> 
+=======
+  <li class="title"><a href="np/match/showmatches.cfm">Exhaustive Matcher</a>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
     (Also List Matches From There)</li>
 
 <li><A href="np/match/showmatches2.cfm">New Matching interface</A></li>

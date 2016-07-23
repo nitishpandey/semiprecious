@@ -1,0 +1,81 @@
+td {
+font-size: 11px;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+color:333333;
+font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; text-decoration: none
+}
+
+.header1 { 
+font-size: 13px;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-weight:bold;
+background-color:333333;
+color:ffffff; 
+text-align:center;
+}
+
+.header2 { 
+font-size: 11px;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+background-color:333333;
+color:ffffff; 
+}
+
+.header3 { 
+font-size: 13px;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-weight:bold;
+background-color:eeeeee;
+color:666666; 
+text-align:center; 
+}
+
+a:link {
+text-decoration : none;
+color:000099;
+}
+
+a:visited {
+color: cc0000;
+}
+
+
+a:hover {
+color : cc0000;
+}
+
+
+input,select,textarea{ 
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+border-top-width:1px;
+border-left-width:1px;
+}
+
+
+.form_button { 
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+background-color:333333;
+color:ffffff;
+border-top-width:1px;
+border-left-width:1px;
+
+}
+
+.border_configuration { 
+border: 1px solid #cccccc;
+border-collapse:collapse;
+}
+
+.border_configuration td { 
+border: 1px solid #cccccc;
+}
+
+.header { 
+font-size: 12px;
+font-family:Arial;
+background-color: 333333;
+color:ffffff;
+font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; text-decoration: none 
+}

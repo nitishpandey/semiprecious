@@ -1,0 +1,76 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Web.SessionState;
+/// <summary>
+/// Summary description for A
+/// </summary>
+public class A
+{
+   
+    // Gets the current session.
+    public static MySession Current
+    {
+      get
+      {
+
+          HttpContext.Current MySession session =(MySession)HttpContext.Current.Session["__MySession__"];
+        if (session == null)
+        {
+          session = new MySession();
+          HttpContext.Current.Session["__MySession__"] = session;
+        }
+        return session;
+      }
+    }
+
+    // **** add your session properties here, e.g like this:
+    public string Property1 { get; set; }
+    public DateTime MyDate { get; set; }
+    public int LoginId { get; set; }
+
+    private string _Name;
+    private string _Age;
+    private string _Address;
+
+    public string Name
+    {
+        get { return _Name; }
+        set { _Name = value; }
+    }
+    public int age
+    {
+        get { return _Age; }
+        set { _Age = value; }
+    }
+    public string Address
+    {
+        get { return _Address; }
+        set { _Address = value; }
+    }
+
+
+
+    public void information(string a,string b,int c)
+    {
+        this._Address = a;
+        this._Age = b;
+        this._Name = c;
+    
+    }
+    
+    public int Software(int y)
+    {
+        m_x = y;
+    }
+     int m_x;
+
+}

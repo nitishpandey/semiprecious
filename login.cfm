@@ -7,9 +7,15 @@
 </cfif>
 
 		<cfif  form.email contains "@" and form.email neq application.wholesale_guest>
+<<<<<<< HEAD
 			<!--- clear session but not cart if login different from previous login --->	  	
         	 	<cfquery datasource="gemssql" name="validws">
 				   select minamt , email, address,membershipdate,status from bulkbuyers where    email ='#trim(form.email)#' 
+=======
+			<!--- clear session but not cart if login different from previous login --->
+        	 	<cfquery datasource="gemssql" name="validws">
+				   select minamt , email, address,membershipdate,status from bulkbuyers where    email ='#trim(form.email)#'
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 			    </cfquery>
 			    <cfif validws.recordcount >
 					<cfif not len(session.bulkbuyer.id) and  not (cgi.HTTP_REFERER contains 'semipreciouswholesale.com')><!--- true means valid wholesale member who is on ws site. no need to pass current cartid --->
@@ -18,6 +24,7 @@
 				    <cfset valid.recordcount = 0 />
 				<cfelse>
 						<cfquery datasource="gemssql" name="valid">
+<<<<<<< HEAD
 			        		 SELECT * FROM memberinfo  WHERE email='#trim(form.email)#'  
 						</cfquery>	
 			    </cfif>
@@ -25,6 +32,15 @@
 					<cfquery datasource="gemssql" >
 			       		update memberinfo  set loggedin = 1 where email='#trim(form.email)#'  
 					</cfquery>	
+=======
+			        		 SELECT * FROM memberinfo  WHERE email='#trim(form.email)#'
+						</cfquery>
+			    </cfif>
+				<cfif valid.recordcount and not len(session.bulkbuyer.id)><!--- on ws site just don't entertain retail buyers--->
+					<cfquery datasource="gemssql" >
+			       		update memberinfo  set loggedin = 1 where email='#trim(form.email)#'
+					</cfquery>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 						<cfif session.cartitem[1][1]>
 					     	<cfquery datasource="gemssql" name="v">
 			        			UPDATE buyingrecord  SET  email='#trim(form.email)#'                WHERE cartid='#session.cartid#'
@@ -33,6 +49,7 @@
 			        			UPDATE cartstatus  SET  buyer='#trim(form.email)#'                WHERE cartid='#session.cartid#'
 							</cfquery>
 						</cfif>
+<<<<<<< HEAD
 				
 		<!--- creates a new session id with entry in table but does not replicate 
 		  cart inthe db with new id.  --->
@@ -43,11 +60,27 @@
 				<cfelse>
                 <cfif form.email neq application.wholesale_guest >
 					<cflocation addtoken="false" url="/simpleloginform.cfm?msg=retry&email=#trim(form.email)#" /><!--- 
+=======
+
+		<!--- creates a new session id with entry in table but does not replicate
+		  cart inthe db with new id.  --->
+	         <cfelse> <!--- either not a retail member or could be a retail member on ws site. this way he can keep  both memberships --->
+
+			<cfif validws.recordcount>
+				<cflocation addtoken="false" url="http://www.semipreciouswholesale.com/whole_login.cfm?email=#trim(form.email)#&next_url=#cgi.script_name#&qry=#urlencodedformat(cgi.query_string)#" />
+				<cfelse>
+                <cfif form.email neq application.wholesale_guest >
+					<cflocation addtoken="false" url="/simpleloginform.cfm?msg=retry&email=#trim(form.email)#" /><!---
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 				<cflocation addtoken="false" url="http://www.semipreciouswholesale.com/whole_login.cfm?email=#form.email#&tacdid=#session.cartid#" /> --->
         		<cfelse>
                 <cflocation addtoken="false" url="/#session.cart#?msg=retry&email=#trim(form.email)#" />
 				        </cfif>
+<<<<<<< HEAD
 		   </cfif>	    
+=======
+		   </cfif>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	 </cfif>
 	<cfelseif len(form.email) >
 				<cfif form.email neq application.wholesale_guest >
@@ -55,21 +88,37 @@
 				<cfelse>
                 <cflocation addtoken="false" url="/#session.cart#?msg=retry1&email=#trim(form.email)#" />
 	            </cfif>
+<<<<<<< HEAD
                 <cfelse> 
 				<cflocation addtoken="false" url="/simpleloginform.cfm?msg=welcome" />
 		</cfif>
 <!--- we haven't checked if the email id is of signed up member. lets first check for wholesale because wholesale allows switch to retail mode --->
 	  
+=======
+                <cfelse>
+				<cflocation addtoken="false" url="/simpleloginform.cfm?msg=welcome" />
+		</cfif>
+<!--- we haven't checked if the email id is of signed up member. lets first check for wholesale because wholesale allows switch to retail mode --->
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 		  			  <CFQUERY DATASOURCE="gemssql" NAME="login">
 					SELECT lastname, nlstatus, firstname, email, address1, address2, city, state, zip, country, phonenumber, earned
 					FROM memberinfo 	WHERE email='#trim(form.email)#'
 			</CFQUERY>
 			  <CFQUERY DATASOURCE="gemssql" NAME="b">
+<<<<<<< HEAD
 					SELECT top 50 buyingrecord.itemid as ii, items.cat as c, datebought 
 						FROM buyingrecord,items WHERE email='#trim(form.email)#' and buyingrecord.itemid*1 = items.newitem
 			</CFQUERY>
 			  <cfquery dbtype="query" name="buyingrecord">
 			select distinct ii , c from b 
+=======
+					SELECT top 50 buyingrecord.itemid as ii, items.cat as c, datebought
+						FROM buyingrecord,items WHERE email='#trim(form.email)#' and buyingrecord.itemid*1 = items.newitem
+			</CFQUERY>
+			  <cfquery dbtype="query" name="buyingrecord">
+			select distinct ii , c from b
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 			</cfquery>
 						<CFIF login.recordcount and not len(session.mail)>
                                <cfset session.mail=login.email>
@@ -93,6 +142,7 @@ SELECT newitem, dateadded
 FROM wish
 WHERE email='#email#'
 </CFQUERY> --->
+<<<<<<< HEAD
 		
 		<cfsavecontent variable="inheader">
   <title>Welcome to Semiprecious Jewelry Store</title>
@@ -103,6 +153,17 @@ WHERE email='#email#'
 </cfsavecontent>		
 				  	<CFINCLUDE TEMPLATE="/header#session.country#.cfm">
 				   		<div id="container2">
+=======
+<cfset title = "Welcome to Semiprecious Jewelry Store" />
+		<cfsavecontent variable="inheader">
+
+				  <meta name="robots" content="noindex,nofollow">
+					<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		  	<script language="JavaScript" src="/js/imageswap.js"></script>
+</cfsavecontent>
+				  	<CFINCLUDE TEMPLATE="/header#session.country#.cfm">
+				   		<div id="container1">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 				   			  <table  cellspacing="0" cellpadding="2" border="0" style="background:white;padding:0 2px 0 2px">
 			    <tr  align="center">
 			      <td valign="top" WIDT="1px"  align="left" ><!--- BEGIN LEFT SIDE STUFF --->
@@ -114,7 +175,11 @@ WHERE email='#email#'
 					            <div align="center" >
 					              <div class="error2" style="width:390px;font-size:12px;"><br>
 					                <br />
+<<<<<<< HEAD
 					                
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 					                <span style="width:360px;;">SORRY!</span> <br>
 					                Email ID #form.email# not found.<br>
 					                Click <a class="link" href="simpleloginform.cfm">here</a> to try again<br>
@@ -127,22 +192,34 @@ WHERE email='#email#'
 			            <CFELSE>
 							          <cfif login.email contains "@">
 									      <cfquery datasource="gemssql">
+<<<<<<< HEAD
 										      update memberinfo set lastvisit = #Now()# , noofvisits = noofvisits + 1 where email='#login.email#' 
 									      </cfquery>
 									     <cftry>
 												 <cfinvoke component="invitationandcredit" method="reversecredit"  returnvariable="q">  
+=======
+										      update memberinfo set lastvisit = #Now()# , noofvisits = noofvisits + 1 where email='#login.email#'
+									      </cfquery>
+									     <cftry>
+												 <cfinvoke component="invitationandcredit" method="reversecredit"  returnvariable="q">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 													  <cfinvokeargument name="mail" value="#login.mail#" />
 												</cfinvoke>
 										 <cfcatch type="any">
 										 </cfcatch>
 										 </cftry>
+<<<<<<< HEAD
                   
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 								        	  <cfset session.mail=login.email>
 								 	      		<cfif session.mail neq application.admin_email >
 										   		   	<cfset session.desc_flag = 0 />
 												</cfif>
 							              <cfinclude template="sessioncustomerid.cfm" />
 								              <cfset d = datepart('d',now())>
+<<<<<<< HEAD
 								             
 								      
 						
@@ -151,22 +228,44 @@ WHERE email='#email#'
 						            <div class="grayplacard" style="text-align:left;width:80%;font-weight:bold;padding-left:2px;font-size:1.1em;">Your Shopping History and Shipping Details</Div>
 
 								<div style="float:left;margin-top:4px;">						         #login.firstname# <br />
+=======
+
+
+
+						            <div  align="left">
+						            <div id="container2" >
+						            <div class="grayplacard" style="text-align:left;width:80%;font-weight:bold;padding-left:2px;font-size:1.1em;">Your Shopping History and Shipping Details</Div>
+
+									<div style="float:left;margin-top:4px;">						         #login.firstname# <br />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                             						              <cfset session.name = replace(login.firstname,'password','') />
                             						              #login.email#<br />
                             									  <cftry>
                             						              <CFIF #login.address1# is not "" or 1 >
+<<<<<<< HEAD
                             							            Address Line 1:    #login.address1# 
+=======
+                            							            Address Line 1:    #login.address1#
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                             											<br />Address Line 2: #login.address2#<br />
                             							                City: #login.city# &nbsp;<br />State: #login.state# - #login.zip# <br />Country: #login.country#<br />
                             							                Phone: #login.phonenumber#
                             											<!--- set country code --->
                                                                                 </div>
+<<<<<<< HEAD
 <!---									
+=======
+<!---
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 											<cfif session.country neq "india">
 											<div style="position:relative;border:2px dotted green; width:420px;float:left;display:inline;margin-left:10px;">
 
 											<cfquery  datasource="sptm" name="valid">
+<<<<<<< HEAD
 												    select code, max_value,status from bulkbuyercoupons where 	   email = '#session.mail#' and coupon_type = 'referral_35' 
+=======
+												    select code, max_value,status from bulkbuyercoupons where 	   email = '#session.mail#' and coupon_type = 'referral_35'
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 										    </cfquery>
 
 									    <cfif valid.recordcount>
@@ -179,12 +278,21 @@ WHERE email='#email#'
 										<cfelse>
 											<span class="h" style="padding:4px;">
 										         Special 35% discount from our advertising budget &nbsp;&nbsp;&nbsp; <a href="invite.cfm?starting=1" style="display:inline;" class="error1">Start Here</a>
+<<<<<<< HEAD
 											 </span> 
 										</cfif>
 										<img src="/images/que.gif" style="display:inline;position:absolute;top:0px;left:350px;"  onClik="document.getElementById('que_answer').innerHTML='';" onClick="document.getElementById('que_answer').innerHTML=document.getElementById('easy_content1').innerHTML;" />
 											 <span id="que_answer" style="position:absolute;z-index:3;top:10px;left:12px;"></span>
  	 					
 										</div>	
+=======
+											 </span>
+										</cfif>
+										<img src="/images/que.gif" style="display:inline;position:absolute;top:0px;left:350px;"  onClik="document.getElementById('que_answer').innerHTML='';" onClick="document.getElementById('que_answer').innerHTML=document.getElementById('easy_content1').innerHTML;" />
+											 <span id="que_answer" style="position:absolute;z-index:3;top:10px;left:12px;"></span>
+
+										</div>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 										 </cfif>
 										 --->
 <div style="clear:both"></div>
@@ -195,7 +303,11 @@ WHERE email='#email#'
 						  <div class="detailrow"  align="left"	  style="text-transform:none;background-color:white;border:2px ##E6Cf84 solid;border-top:0px;padding:3px;text-align:justify;">
 						  <cfoutput>	You collect discount points for every purchase made on this store by you or your friends. For example, if your purchase is for #format(100)# then you get points worth #format(Application.own_credit)#. <br />
 						  For a friend's cart of #format(100)# we add #format(Application.friend_credit)# to your points. <br />These points are used to give you a discount on your future purchases. The discount you get is 20% on all items and 10% on items on sale. You get a total discount limited by the points you have. More the points bigger the discounts. <br />
+<<<<<<< HEAD
 						  Let's take another example. To use $10.00 credit points, you can make a purchase $50.00  (Because 20% of $50.00 is $10.00). This example assumes you have all items with regular price in your cart. If an item is on sale then the system will calculate discount of 10% on it. The total discount in such manner cannot exceed the credit points you have.</cfoutput> 
+=======
+						  Let's take another example. To use $10.00 credit points, you can make a purchase $50.00  (Because 20% of $50.00 is $10.00). This example assumes you have all items with regular price in your cart. If an item is on sale then the system will calculate discount of 10% on it. The total discount in such manner cannot exceed the credit points you have.</cfoutput>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 							<br />[<span  onClick="document.getElementById('que_answer').innerHTML='';" class="error1" style="cursor:pointer;"><a href="invite.cfm?closeinfo">Close &amp; start spreading the word</a></span>]
 				 		</div>
 		 			</div>
@@ -208,6 +320,7 @@ WHERE email='#email#'
 		 		</div>
 <div style="float:right;margin-right:10px;">
 <!-- 	<div class="heading_bg" style="height:55px; width:150px;border:2px ##6D6 groove;text-align:center;color:padding:4px;margin:6px;margin-left:0px;">
+<<<<<<< HEAD
                   <a class="login_link" href="invite.cfm">Invite friends to Earn Discount Points worth #format(5)# for every friend invited</a> 
 				  </div>
  -->		
@@ -215,12 +328,25 @@ WHERE email='#email#'
 						</cfinvoke>
         
 <cfsilent>	        
+=======
+                  <a class="login_link" href="invite.cfm">Invite friends to Earn Discount Points worth #format(5)# for every friend invited</a>
+				  </div>
+ -->
+					    <cfinvoke component="invitationandcredit" method="reversecredit"  returnvariable="q">
+						</cfinvoke>
+
+<cfsilent>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                <cfinvoke component="invitationandcredit" method="usecredit" returnvariable="grandtotal" >
 			                    <cfinvokeargument name="amounttopay" value="10000">
 			                    <cfinvokeargument name="finalize" value="0">
               </cfinvoke>
 		</cfsilent>
+<<<<<<< HEAD
 		           <cfif grandtotal LT 10000>  
+=======
+		           <cfif grandtotal LT 10000>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 				   <span class="set" style="width:150px;"><strong>
 				   	<!---<a href="/viewinvitecredits.cfm"> --->
 					 Semiprecious.com Cash  <!---</a> --->
@@ -228,11 +354,19 @@ WHERE email='#email#'
 					 <cfset session.loyalty_points = true />
 					  </strong>
                                     </span>
+<<<<<<< HEAD
 				</cfif>	
                         </div>
 				  											
 										<cfset session.address.address1 = login.address1 />
 										<cfset session.address.address2 = login.address2 /> 
+=======
+				</cfif>
+                        </div>
+
+										<cfset session.address.address1 = login.address1 />
+										<cfset session.address.address2 = login.address2 />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 										<cfset session.address.zip = login.zip />
 										<cfset session.address.city = login.city />
                                                                                 <cfset session.address.state = login.state />
@@ -250,7 +384,11 @@ WHERE email='#email#'
 										<cfcase value="5">
 										<cfset session.address.country_code = 'CA' />
 										</cfcase>
+<<<<<<< HEAD
 									
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 										<cfcase value="4">
 										<cfset session.address.country_code = 'GB' />
 										</cfcase>
@@ -263,7 +401,11 @@ WHERE email='#email#'
 										<cfdefaultcase>
 										<cfset session.address.country_code = login.country />
 										</cfdefaultcase>
+<<<<<<< HEAD
 								
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 										</cfswitch>
 			<!--- country code set --->
 						              </cfif>
@@ -274,28 +416,44 @@ WHERE email='#email#'
 				             </cfif>
 				      </div>
 
+<<<<<<< HEAD
 				
          
           
+=======
+
+
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 		  <div  style="width:100%" align="left">
             <span  style="font-weight:bold;"><u>Edit Your Profile</u></span>
             <table border="0" width="758">
               <tr>
                 <td valign="top"><ul class="arrow_ul">
                                 <li>Change your account <a class="link" href="/myaccount/changeemailid.cfm">email id </a>.</li>
+<<<<<<< HEAD
            
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 		            <li>Update your <a class="link" href="/myaccount/updateprofile.cfm?email=#login.email#">shipping address</a>.</li>
                   </ul>
                </td>
                 <!--- <td align="center"><div  style="width:758px;" align="left"><span  style="font-weight:bold;"><u>Member Features</u></span>
             <ul style="line-height:18px;" class="arrow_ul">
+<<<<<<< HEAD
      	       <li>You can <a class="error1" href="/logout.cfm">logout</a> and continue your shopping later from anywhere</li>       
 <li> Maintain your <a href="wish.cfm" class="login_link">wishlist</a> 
+=======
+     	       <li>You can <a class="error1" href="/logout.cfm">logout</a> and continue your shopping later from anywhere</li>
+<li> Maintain your <a href="wish.cfm" class="login_link">wishlist</a>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 </li>
 <li> If an out of stock item in your wishlist is stocked up, we send you a short note to let you know</li>
  <!--  <li>To return a jewelry item you can call us or write in. need to generate an item <a href="returnticket1.cfm">return ticket</a> </li>-->
                     <!-- <li>View Items in your previous <a href="returnticketview.cfm">return ticket</a></li>-->
                   <!--  <li>We would like to hear from you. Send us a <a href="contactus.cfm">message</a>, <a href="marketing/feedback.cfm">feedback</a> or query</li>
+<<<<<<< HEAD
                   
               <li> Get loyalty discounts - Tell your friends about this jewelry  store by <a href="invite.cfm?starting=1">inviting friends</a>. If you do this we thank you with discounts on your purchase...you earn 7.5% credit from each of their purchase!
                 
@@ -303,10 +461,20 @@ WHERE email='#email#'
                 (<b >Example of how you benefit from the loyalty points: If one of your invited friends shops for #format(100)# you can get #format(application.friend_credit)# discount in your next purchase</b>) </li>
               <li> <a href="viewinvitecredits.cfm">View</a> list of friends invited </li>
               
+=======
+
+              <li> Get loyalty discounts - Tell your friends about this jewelry  store by <a href="invite.cfm?starting=1">inviting friends</a>. If you do this we thank you with discounts on your purchase...you earn 7.5% credit from each of their purchase!
+
+<br />
+                (<b >Example of how you benefit from the loyalty points: If one of your invited friends shops for #format(100)# you can get #format(application.friend_credit)# discount in your next purchase</b>) </li>
+              <li> <a href="viewinvitecredits.cfm">View</a> list of friends invited </li>
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
             <li>The system treats you as your best friend and you get #application.own_credit#% credit from each purchase for discount in a later purchase(s). How it gets used up is:
 
 <ul>
 
+<<<<<<< HEAD
                 <li>Maximum discount you get is 20% of the cart value. So, to use #format(10)# credit points, you must purchase #format(50)# worth items (Because 20% of #format(50)# is #format(10)#). 
 				This example assumes you have all items with regular price in your cart. If an item is on sale then the system will calculate discount of 10% on it.
 				The total discount in such manner cannot exceed the credit points you have.
@@ -322,6 +490,23 @@ WHERE email='#email#'
               </tr>
             </table>
         
+=======
+                <li>Maximum discount you get is 20% of the cart value. So, to use #format(10)# credit points, you must purchase #format(50)# worth items (Because 20% of #format(50)# is #format(10)#).
+				This example assumes you have all items with regular price in your cart. If an item is on sale then the system will calculate discount of 10% on it.
+				The total discount in such manner cannot exceed the credit points you have.
+  </li><li>That's not all. You also earn points from this new purchase that  you can use in your next purchase. Yes it is a loyal customer reward. </li>
+
+</ul>-->
+
+<li>Read the <a href="newsletters/nlviewerwithurlid.cfm?id=#login.nlstatus#&customer=#login.firstname#">latest newsletter</a>. </li>
+            </ul>
+          </div>
+
+       		  </td> --->
+              </tr>
+            </table>
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
           </span>
           </div>
           <hr />
@@ -330,12 +515,17 @@ WHERE email='#email#'
                                       </div>
           <br />
           <!---     <CFTABLE QUERY="wishlist" COLHEADERS border="yes" htmltable="yes">
+<<<<<<< HEAD
           <CFCOL	HEADER="Item Number" align="left" 
+=======
+          <CFCOL	HEADER="Item Number" align="left"
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	TEXT="<a href='jewelry_item.cfm?itemnumber=#wishlist.newitem#'>#wishlist.newitem#</a>">
           <CFCOL
 	HEADER="Date Added"
 	TEXT="#wishlist.dateadded#">
         </cftable> --->
+<<<<<<< HEAD
          
          <hr />
          <cfif buyingrecord.recordcount neq 0>
@@ -343,6 +533,15 @@ WHERE email='#email#'
            <div align="left"class="grayplacard" style="text-align:left;width:100%">Gallery of designs bought or liked by you in the past 1 year </div>
 			            <!--- Total Credit Availible: #DollarFormat(login.earned)# --->
 			            
+=======
+
+         <hr />
+         <cfif buyingrecord.recordcount neq 0>
+           <div align="center" style="margin:1px;margin-top:10px;border:ridge 2px ">
+           <div align="left"class="grayplacard" style="text-align:left;width:100%">Gallery of designs bought or liked by you in the past 1 year </div>
+			            <!--- Total Credit Availible: #DollarFormat(login.earned)# --->
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 			              <CFLOOP QUERY="buyingrecord">
 			                <Cfif not (currentrow mod 6) >
 			                  <br />
@@ -364,6 +563,7 @@ WHERE email='#email#'
 	HEADER="Credit Earned"
 	TEXT="#DollarFormat(buyingrecord.earned)#">
     </cftable> --->
+<<<<<<< HEAD
         <br>
         <br>
         <br>
@@ -377,3 +577,15 @@ WHERE email='#email#'
   </body>
   </html>
   
+=======
+        <br />
+        <br />
+        <br />
+      </td>
+    </tr>
+
+  </table>
+   </div>  </div> <cfinclude template="mainfooter.cfm" />
+
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c

@@ -1,1 +1,0 @@
-<cfoutput>#session.mail#</cfoutput>

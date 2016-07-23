@@ -1,0 +1,96 @@
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/AddResponse.aspx?action=rpgoswami. Error Message:Error in: http://localhost:1776/myproject/Task/AddResponse.aspx?action=rpgoswami. Error Message:The DataSourceID of 'GridView1' must be the ID of a control of type IDataSource.  A control with ID 'SqlDataSource3' could not be found.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:The connection name 'sptmConnectionString2' was not found in the applications configuration or the connection string is empty.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/StyleSheet.css. Error Message:Error in: http://localhost:1776/myproject/StyleSheet.css. Error Message:File does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/AddResponse.aspx. Error Message:Error in: http://localhost:1776/myproject/Task/AddResponse.aspx. Error Message:d:\ASPProjects\myproject\Task\AddResponse.aspx.cs(27): error CS1002: ; expected
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Specified cast is not valid.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Specified cast is not valid.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/session.aspx. Error Message:Error in: http://localhost:1776/myproject/session.aspx. Error Message:Invalid URI: The format of the URI could not be determined.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/session.aspx. Error Message:Error in: http://localhost:1776/myproject/session.aspx. Error Message:The remote server returned an error: (500) Internal Server Error.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Input string was not in a correct format.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/AddResponse.aspx?Id=1. Error Message:Error in: http://localhost:1776/myproject/AddResponse.aspx?Id=1. Error Message:The file '/myproject/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/AddResponse.aspx?Id=1. Error Message:Error in: http://localhost:1776/myproject/Task/AddResponse.aspx?Id=1. Error Message:d:\ASPProjects\myproject\Task\AddResponse.aspx.cs(20): error CS1955: Non-invocable member 'System.Web.HttpRequest.QueryString' cannot be used like a method.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:Error in: http://localhost:1776/myproject/Default2.aspx. Error Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'region'.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Task/Taskbyme.aspx. Error Message:A field or property with the name 'tdtoi,tby' was not found on the selected data source.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tby=nitish. Error Message:The file '/myproject/Task/Task/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tby=nitish. Error Message:The file '/myproject/Task/Task/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/AddResponse.aspx?tby=nitish. Error Message:Error in: http://localhost:1776/myproject/AddResponse.aspx?tby=nitish. Error Message:The file '/myproject/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Task/Task/AddResponse.aspx?tby=nitish. Error Message:The file '/myproject/Task/Task/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/ ~/Task/AddResponse.aspx?tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Task/ ~/Task/AddResponse.aspx?tby=nitish. Error Message:The file '/myproject/Task/ ~/Task/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/ ~/Task/AddResponse.aspx?tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Task/ ~/Task/AddResponse.aspx?tby=nitish. Error Message:The file '/myproject/Task/ ~/Task/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/ /AddResponse.aspx?tby=nitish. Error Message:Error in: http://localhost:1776/myproject/Task/ /AddResponse.aspx?tby=nitish. Error Message:
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/Task/Taskbyme.aspx. Error Message:Error in: http://localhost:1776/myproject/Task/Taskbyme.aspx. Error Message:A field or property with the name 'tdtoi{d}' was not found on the selected data source.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:The file '/myproject/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:The file '/myproject/AddResponse.aspx' does not exist.
+__________________________
+
+Log Entry : 
+Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:Error in: http://localhost:1776/myproject/AddResponse.aspx?tdtoi=11/26/2010+8:29:29+PM. Error Message:The file '/myproject/AddResponse.aspx' does not exist.
+__________________________
