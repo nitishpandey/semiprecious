@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 <cftry>
- 
+
 
 <cfif not isuserinrole("superadmin")>
 Not enough privileges.
@@ -415,7 +414,7 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
 			<img src="/images/#edititem.cat#/thumb/#newitem#.jpg" width=50 style="display:inline;" >Descr:
     <textarea cols="40" rows="3" name="description"  wrap="virtual" id="itemdescription">#EditItem.Description#</textarea>
     &nbsp;
-<br>	<a href=/admintools/edit-copyitem.cfm?itemid=#newitem#>COPY THIS DATA TO CREATE A NEW ITEM IN SAME CATEGORY</a> || 
+<br>	<a href=/admintools/edit-copyitem.cfm?itemid=#newitem#>COPY THIS DATA TO CREATE A NEW ITEM IN SAME CATEGORY</a> ||
 <a href=/admintools/edit-copyitem.cfm?itemid=#newitem#&useimage=yes&cat=#edititem.cat#>COPY THIS WITH IMAGE</a>
 
   <INPUT TYPE="button" VALUE="UPDATE" onClick="javascript:verifyinput()">
@@ -652,7 +651,7 @@ select sum(thumbexposure) as TCAT, avg(thumbexposure/(zoom+1)) as avgT2Z, avg(zo
 <cfinclude template="/mainfooter.cfm" />
 =======
 <cftry>
- 
+
 
 <cfif not isuserinrole("superadmin")>
 Not enough privileges.
@@ -1071,7 +1070,7 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
 			<img src="/images/#edititem.cat#/thumb/#newitem#.jpg" width=50 style="display:inline;" >Descr:
     <textarea cols="40" rows="3" name="description"  wrap="virtual" id="itemdescription">#EditItem.Description#</textarea>
     &nbsp;
-<br>	<a href=/admintools/edit-copyitem.cfm?itemid=#newitem#>COPY THIS DATA TO CREATE A NEW ITEM IN SAME CATEGORY</a> || 
+<br>	<a href=/admintools/edit-copyitem.cfm?itemid=#newitem#>COPY THIS DATA TO CREATE A NEW ITEM IN SAME CATEGORY</a> ||
 <a href=/admintools/edit-copyitem.cfm?itemid=#newitem#&useimage=yes&cat=#edititem.cat#>COPY THIS WITH IMAGE</a>
 
 <p>  <INPUT TYPE="button" VALUE="UPDATE" onClick="javascript:verifyinput()"><br>
@@ -1309,4 +1308,4 @@ select sum(thumbexposure) as TCAT, avg(thumbexposure/(zoom+1)) as avgT2Z, avg(zo
 </cfcatch>
 </cftry>
 <cfinclude template="/mainfooter.cfm" />
->>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+

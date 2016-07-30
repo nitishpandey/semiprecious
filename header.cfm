@@ -371,11 +371,9 @@ Country not found
                         </div>
                     </cfif>
                     <cfif not cgi.script_path contains "cart.cfm">
-<<<<<<< HEAD
-                        <cfoutput>
-=======
 
->>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+                        <cfoutput>
+
                             <cfset vQty = 0>
                             <cftry>
                                   <cfif session.cartitem[1][1]>
