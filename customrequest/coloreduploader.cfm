@@ -2,12 +2,12 @@
 <HEAD>
 <title>Coloring of customisable jewelry items</title></HEAD>
 <BODY>
-	
+
 <cfif isdefined("form.files1") and isdefined("form.files2")>
 <cfset dest_dir1 = "#Application.rootfolder#/images/#form.category#" />
 <cfset dest_dir2 = "#Application.rootfolder#/images/custom/#form.category#" />
                            <cfset fileupload = 1 />     <cftry>
-					<cfdirectory action="create" directory="#dest_dir#" />
+					<cfdirectory action="create" recurse="true" directory="#dest_dir#" />
                                                                     <cfcatch type="any">
                                                                     	<!--- in case the directory already exists, do nothing --->
                                                                     </cfcatch>
@@ -20,7 +20,7 @@
                                                      <cfset fileupload = 0 />                                         	<!--- in case the directory already exists, do nothing --->
                                                                     </cfcatch>
 																	</cftry>
-					
+
    <cfif fileUpload >
 	<cfinvoke method="custom_status" component="customrequest.custom" returnvariable="return_" >
 		<cfinvokeargument name="itemid" value="#form.itemid#" />
@@ -58,7 +58,7 @@ To process for layers <a href="build_layers_IHS.cfm?image=#form.itemid#&amp;cate
 </cfinvoke>
 
 <div style="width:400px;float:left">
-	
+
 <cfoutput><img src="/images/#q.category#/#form.itemid#.jpg" />
 #custom_state#</cfoutput>
 </div>
@@ -69,14 +69,14 @@ To process for layers <a href="build_layers_IHS.cfm?image=#form.itemid#&amp;cate
 <cfFORM action=""       enctype="multipart/form-data"
        method="post">
    <P>
- 
+
 <cfINPUT type="hidden" name="itemid" value="#form.itemid#"  />
 
 <cfINPUT type="hidden" name="category" value="#Q.category#" /><BR>
 Select Original PNG File: <INPUT  type="file" name="files1" /><BR>
 
 Select Colored PNG File: <INPUT  type="file" name="files2" /><BR>
-   <INPUT type="submit" value="Upload" /> 
+   <INPUT type="submit" value="Upload" />
 	<INPUT type="reset" />
  </cfFORM>
 
@@ -94,9 +94,9 @@ Current Status is : <cfoutput>#listgetat(custom_state,1)#....<br />To initiate t
 
 <FORM action="" method="post" >
    <P>
- 
+
 Which item id have you colored <INPUT type="text" name="itemid"><BR>
-   <INPUT type="submit" value="Send"> 
+   <INPUT type="submit" value="Send">
 <INPUT type="reset">
  </FORM>
 </div>
