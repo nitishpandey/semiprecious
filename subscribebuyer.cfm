@@ -6,7 +6,7 @@
 <cfparam default="" name="buyer_last_name">
 <cfparam default="" name="buyer_first_name">
 
-<cfquery datasource="semiprecious" name="nl">
+<cfquery datasource="gemssql" name="nl">
 	select pvalue from properties where pname = 'nltosend'
 </cfquery>
 <!--- saleletter 1 indicates that this is a forced subscriber
@@ -42,15 +42,15 @@ phonenumber)
 		<cfswitch expression="#subscribe_type#">
 		<cfcase value="wholesale">
 			<cfset membershipdate = createodbcdate(dateformat(dateadd('d',30,Now()),'yyyy-mm-dd'))>
-						
+
 					<cfquery datasource="sptm" >
-							insert into bulkbuyers (zip, phoneno,address, address2, city,state, country,name,email,registered,id,minamt,status ,membershipdate) 
+							insert into bulkbuyers (zip, phoneno,address, address2, city,state, country,name,email,registered,id,minamt,status ,membershipdate)
 							values ('#buyer_zip#','#phonenumber#','#buyer_street_address#','#buyer_street_address2#','#buyer_city#','#buyer_state#','#buyer_country#','#buyer_name#','#buyer_email#',#now()#,'#email#', #Application.bulkbuyer.minamt#, 2,#membershipdate# )
 						</cfquery>
 
 		</cfcase>
 		<cfcase value="retail">
-		<CFQUERY DATASOURCE="semiprecious" >
+		<CFQUERY DATASOURCE="gemssql" >
 		insert into memberinfo (email,firstname,lastname, address1,address2, city, state, zip,country,nlstatus,noofvisits,totpurchase,
 		phonenumber)
 		 values ('#email#', '#buyer_first_name#','#buyer_last_name#','#buyer_street_address#','#buyer_street_address2#', '#buyer_city#',  '#buyer_state#' , '#buyer_zip#', '#buyer_country#',#nl.pvalue#,1,0,'#phonenumber#')
@@ -58,19 +58,19 @@ phonenumber)
 			<cfinvoke component="invitationandcredit" method="newmember" >
   				<cfinvokeargument name="email" value="#email#">
   			</cfinvoke>
-		</cfcase>	
+		</cfcase>
 		</cfswitch>
 <cfquery datasource="gemssql">
 	insert into crmkey (email,customertype,newmsg,tele) values ('#email#','#subscribe_type#',0,'#phonenumber#')
 </cfquery>
-  
+
   </cfif>
 </cfif>
 <cfcatch type="any">
  <cfmail  to="nitishpandey@gmail.com" from="service@semiprecious.com"  subject="buyer not subscribed" >
-#cfcatch.Detail#, #cfcatch.Message#, 
+#cfcatch.Detail#, #cfcatch.Message#,
 <!---'#email#', '#ship_name#','#ship_street_address#', 1,'#ship_city#',  '#Ship_state#' , '#ship_zip#', '#ship_country#',#nl.pvalue#,1,0,'#phone#' --->
-</cfmail> 
+</cfmail>
 </cfcatch>
 </cftry>
 
