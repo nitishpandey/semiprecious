@@ -1,4 +1,5 @@
-<cfparam name="start" default="1">
+<!--start of includes/gallerypaging.cfm
+--><cfparam name="start" default="1">
 <div align="center" width="100%" style="padding:5px">
 	<!--- Paging links --->
 	<!--- If we are  not on the first page --->
@@ -164,3 +165,4 @@
 	</cfif>
 </div>
 <!--- End Paging links --->
+<!--end of includes/gallerypaging.cfm -->

@@ -1,3 +1,4 @@
+<!--start of silver_jewelry_gallery.cfm -->
 <cfif isdefined("Url.debug") >
 	<CFSET _start = GetTickCount() />
 </cfif>
@@ -9,18 +10,14 @@
 			<cfset category = "All" />
 		</cfif>
 		<cfscript>
-
 			//create a bean or component to hold all data that is needed by the cfm view
 			backing_bean = CreateObject("component", "backing_beans.silver_jewelry_gallery");
-
 			// move the variables scope (global) data to the backing bean Variables scope; lot of variables are being created before this template is invoked.
-			structAppend(Variables, backing_bean.cfparam(Variables,replace(Trim(cgi.script_name),"/","")));
+			structAppend(Variables, backing_bean.cfparam(Variables, replace(Trim(cgi.script_name), "/", "")));
 			//As per legacy code there is an itemsinmemory query that is to be created. Create it
 			itemsinmemory = backing_bean.get_inmemory_resultset();
-
 			//meta data, css and java scripts that go into the header
 			inheader = backing_bean.set_header_content();
-
 			// reduce memory footprint, free memory in the backingbean
 			backing_bean.reset_variables();
 		</cfscript>
@@ -31,24 +28,19 @@
 		</cfif>
 		<!--- header may still have computes that will have to be fixed but before fixing them, put the compute engine as and where it is used --->
 	</cfsilent>
-<cfinclude template="/header#session.country#.cfm" />
-		<cfcatch type="any">
+	<cfinclude template="/header.cfm" />
+	<cfcatch type="any">
 		<cfdump var="#cfcatch#" />
 		<cfabort />
 	</cfcatch>
 </cftry>
- <cfcache  action="cache" timespan="#createtimespan(0,3,0,0)#" useQueryString="true">
-
 <cftry>
-
-
 	<div style="width:100%;position:absolute;top:120;left:0;z-index:1003" align="Center">
 		<div style="width:960px;position:relative;top:-10pt;left:0;">
 			<div   id="zw_0" style="position:absolute;margin-top:-20px;;top:30px;left:60px;background-color:white;padding:0px;">
 			</div>
 		</div>
 	</div>
-
 	<!--- set up for ajax add to cart --->
 	<form>
 		<input type="hidden" id="ajax_context" value=gallery />
@@ -118,8 +110,8 @@
 								<!--- Selection:  --->
 								<Cfif isnumeric(priceless)>
 									&nbsp; Around #format(priceless)#
-									         <img src="/images/arrow_right.gif" style="display:inline;" border="0" hspace="0" vspace="0" align="absmiddle"  title="jewelry gem stone selection" width="15"
-									height="15" />
+									<img src="/images/arrow_right.gif" style="display:inline;" border="0" hspace="0" vspace="0" align="absmiddle"  title="jewelry gem stone selection" width="15"
+										height="15" />
 									<a href="#currentfile#?sortorder=#urlencodedformat(sortorder)#&priceless=#priceless#&pricegreater=#pricegreater#&color=#color#&category=pendants" id="pendants_horiz">
 										Pendants
 									</a>
@@ -310,12 +302,10 @@
 										<div style="float:left;display:inline;width:<cfif mobile>100%<cfelse>184px</cfif>;">
 											<div style="z-index:2;<cfif cgi.server_name contains 'wholesale'>left:20px;top:-200px;</cfif>">
 												<CFINCLUDE TEMPLATE="leftmenus.cfm" />
-
-										<cfelse>
-											<div style="float:left;display:inline;width:18px;">
+											<cfelse>
+												<div style="float:left;display:inline;width:18px;">
 									</cfif>
-										</div>
-									<!---
+									</div> <!---
 										<p>&nbsp;</p><p>&nbsp;</p>
 										<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 										<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
@@ -324,88 +314,27 @@
 										<cfinclude template="/includes/grouplist.cfm">
 										</cfcache>
 										</cfif>
-										--->
-											</div>
+										---> </div>
 								</td>
-
-								<!--- MOBILE --->
-								<cfif mobile>
-
-					  		</tr>
-						</table>
-						<table id="container3" width="100%" cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 2px" align="center">
-					  		<tr>
-					  			  </cfif>
-
-										<td align="center" valign="top">
-												<div id="semiprecious_gallery" style="background-color:#efefef;padding-top:0px;"  > 								<!--- gallery portion starts here --->
-																<cfif (Not len(session.name) or session.mail eq application.admin_email) and start lt 2>
-																<div align="left" style="width:100%; border-collapse:collapse; border:thin;"> 								<cfoutput>
-																								</cfoutput> 								</div> 								</cfif>
-																<h1 class="form_heading"> 								<cfoutput> #count_of_designs# #titlecase(color)# #titlecase(subcat)# 								<cfif groupname neq ""> #titlecase(groupname)#
-																</cfif> #titlecase(url.style)# 								<cfif len(category) GT 3> #titlecase(category)# 								<cfelse> Items 								</cfif> 								<cfif pricegreater neq "0">
-								 Over #format(pricegreater)# 								</cfif> 								<cfif priceless neq ""> Under #format(priceless)# 								</cfif> 								</cfoutput>Designs 								</h1>
-								 &nbsp; &nbsp; &nbsp; &nbsp;
-								 <cfif		((category neq "jewelry" and category neq "All" and (not findnocase(category,GetFileFromPath(GetBaseTemplatePath())))) or (subcat neq "" and (not
-									findnocase(subcat,GetFileFromPath(GetBaseTemplatePath())))) or (groupname neq "" and (not findnocase(groupname,GetFileFromPath(GetBaseTemplatePath()))))  or pricegreater
-									neq "0" or
-									(priceless neq ""  and (not findnocase("under",GetFileFromPath(GetBaseTemplatePath()))))or (color neq "" and (not
-									findnocase(color,GetFileFromPath(GetBaseTemplatePath())))))> <a class="link reg_price" href= 									<cfoutput>#GetFileFromPath(GetBaseTemplatePath())#
-																		</cfoutput> > Clear Filters 									</a> 									</cfif> <!---
-									<div style="background:#EEE;width:100%;padding-left:1px;">
-									<cfinclude template="/includes/searchdropdowns.cfm" />
-																		</div>---> 									<!---<cfif category is 'rings'><cfinclude template='/includes/ringsbysize.cfm'></cfif>---> 									<cfif start is 1>
-																		<div style="position:absolute;left:20px;top:4px;z-index:1003;" class="welcome_shipping"  id="zw_1">
-																		</div>
-																		<cfif session.cartitem[1][1] is 0>
-																		<h2 id="infotable"  <cfif not mobile>style="margin-left:20px;"</cfif>  align="justify" >
-																							<cfif subcat is 'pearl'> 									<font color=gray size="-1">
-									Our Pearls are good quality Freshwater Cultured Pearls, come with a 100% money back guarantee. 									</font>
-																							<cfelse>
-																							<cfoutput>#pagedescription#</cfoutput>
-																							</cfif>
-									<!---
-									<cfif color neq "">
-									Showing #category# with #color# color. --- <CFINCLUDE TEMPLATE="colorinfo.inc">
-																		</cfif>--->
-															</h2>
-												</cfif>
-		 									</cfif>
-
-		 								<cfif session.mail eq application.admin_email> 									<!--- place to put display code --->
-									 									<cfoutput> 									<cfif occasion is 'oos'> OUT OF STOCK ITEMS, REQUEST REMAKING FROM ZOOM PAGE 									</cfif> 									</cfoutput> 									</cfif>
-																		<cfset quick_add = session.quick_add /> 									<!--- The gallery engine takes the data and lays out the main gallery area --->
-																		<div style="margin-top:14px;margin-left:20px;float:left;">
-																			<cfcache action="servercache" usequerystring="true"    >
-
-																								<cfinclude template="/includes/exhibit_designs.cfm" />
-																			</cfcache>
-																					</div>
-																			</div>
-																</td>
+								<!--- MOBILE ---> <cfif mobile>
 							</tr>
 						</table>
-						<!---- container 3 ends --->
+						<table id="container3" width="100%" cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 2px" align="center"> <tr> </cfif> <td align="center" valign="top"> <div id="semiprecious_gallery" style="background-color:#efefef;padding-top:0px;"  > <!--- gallery portion starts here ---> <cfif (Not len(session.name) or session.mail eq application.admin_email) and start lt 2> <div align="left" style="width:100%; border-collapse:collapse; border:thin;"> <cfoutput> </cfoutput> </div> </cfif> <h1 class="form_heading"> <cfoutput> #count_of_designs# #titlecase(color)# #titlecase(subcat)# <cfif groupname neq ""> #titlecase(groupname)# </cfif> #titlecase(url.style)# <cfif len(category) GT 3> #titlecase(category)# <cfelse> Items </cfif> <cfif pricegreater neq "0"> Over #format(pricegreater)# </cfif> <cfif priceless neq ""> Under #format(priceless)# </cfif> </cfoutput>Designs </h1> &nbsp; &nbsp; &nbsp; &nbsp; <cfif		((category neq "jewelry" and category neq "All" and (not findnocase(category,GetFileFromPath(GetBaseTemplatePath())))) or (subcat neq "" and (not
+							findnocase(subcat,GetFileFromPath(GetBaseTemplatePath())))) or (groupname neq "" and (not findnocase(groupname,GetFileFromPath(GetBaseTemplatePath()))))  or pricegreater
+							neq "0" or
+							(priceless neq ""  and (not findnocase("under",GetFileFromPath(GetBaseTemplatePath()))))or (color neq "" and (not
+							findnocase(color,GetFileFromPath(GetBaseTemplatePath())))))> <a class="link reg_price" href= <cfoutput>#GetFileFromPath(GetBaseTemplatePath())# </cfoutput> > Clear Filters </a> </cfif> <!---
+							<div style="background:#EEE;width:100%;padding-left:1px;">
+							<cfinclude template="/includes/searchdropdowns.cfm" />
+							</div>---> <!---<cfif category is 'rings'><cfinclude template='/includes/ringsbysize.cfm'></cfif>---> <cfif start is 1> <div style="position:absolute;left:20px;top:4px;z-index:1003;" class="welcome_shipping"  id="zw_1"> </div> <cfif session.cartitem[1][1] is 0> <h2 id="infotable" <cfif not mobile>style="margin-left:20px;"</cfif> align="justify" > <cfif subcat is 'pearl'> <font color=gray size="-1"> Our Pearls are good quality Freshwater Cultured Pearls, come with a 100% money back guarantee. </font> <cfelse> <cfoutput>#pagedescription#</cfoutput> </cfif> <!---
+							<cfif color neq "">
+							Showing #category# with #color# color. --- <CFINCLUDE TEMPLATE="colorinfo.inc">
+							</cfif>---> </h2> </cfif> </cfif> <cfif session.mail eq application.admin_email> <!--- place to put display code ---> <cfoutput> <cfif occasion is 'oos'> OUT OF STOCK ITEMS, REQUEST REMAKING FROM ZOOM PAGE </cfif> </cfoutput> </cfif> <cfset quick_add = session.quick_add /> <!--- The gallery engine takes the data and lays out the main gallery area ---> <div style="margin-top:14px;margin-left:20px;float:left;"> <cfcache action="servercache" usequerystring="true"    > <cfinclude template="/includes/exhibit_designs.cfm" /> </cfcache> </div> </div> </td> </tr> </table> <!---- container 3 ends --->
 					</td>
 				</tr>
-				<tr>
-					<td>
-						<div align="center" id="cart_summary" style="z-index:6;"> 				</div>
-								<table id="container5"  cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 147px" align="center"> 				<tr> 				<td>
-								<div align="center" style="margin-top:30px;"> 				<!--- Paging links --->
-											<CFINCLUDE TEMPLATE="/includes/gallerypaging.cfm" />
-								</div>
-										</td>
-					 				</tr>
-					 			</table> 				<!--- container 5 ends --->
-						</td>
- 				</tr>
-				<tr>
-						<td align=center>
-									<br /> 				<cfoutput>
-								<cfinclude template="/includes/linkexchangebystone.cfm" />
-								<cfif subcat neq ""> 				<cfinclude template="/marketing/stonelinks.cfm" /> 				</cfif> 				</cfoutput> 				</td>
-				 				</tr>
+				<tr><td> <table id="container5"  cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 <cfif mobile>0<cfelse>150</cfif>px" align="center"> <tr> <td> <div align="center" style="margin-top:20px;">
+					<!--- Paging links ---> <CFINCLUDE TEMPLATE="/includes/gallerypaging.cfm" />
+				</div> </td> </tr> </table> <!--- container 5 ends ---> </td> </tr> <tr> <td align=center> <br /> <cfoutput> <cfinclude template="/includes/linkexchangebystone.cfm" /> <cfif subcat neq ""> <cfinclude template="/marketing/stonelinks.cfm" /> </cfif> </cfoutput> </td> </tr>
 			</table>
 			<!--- container 3 ends ---> <!---<table id="container1" width="900px" cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 154px" align="center">
 				<tr>
@@ -419,20 +348,18 @@
 				</tr>
 				</table>
 				---> <cftry> <cfset session.gallery='/gemstone_jewelry_gallery.cfm' /> <cfset
-
 				session.filter="occasion=#occasion#&start=#start#&pricegreater=#pricegreater#&priceless=#priceless#&color=#urlencodedformat(color)#&sortorder=#urlencodedformat(sortorder)#&style=#urlencodedformat(url.style)#&subcat=#subcat#&category=#category#&advancedsearch=#urlencodedformat(urldecode(advancedsearch))#&salestatus=#salestatus#&groupname=#groupname#&stored=#stored#"
-				> 				<cfcatch type="application"> 				<cfdump var="#cfcatch#" /> 				<cfabort /> 				</cfcatch> 				</cftry>
-								<cfif start LT 12 and (subcat is not "" or color is not "") and not len(session.mail)> 				<CFINCLUDE template="stoneinfo.inc" /> 				</cfif> 				<!--- Footer --->
-								<!--- 		<cfinclude template="/affiliate/includes/googleaffil.cfm">--->
+				> <cfcatch type="application"> <cfdump var="#cfcatch#" /> <cfabort /> </cfcatch> </cftry> <cfif start LT 12 and (subcat is not "" or color is not "") and not len(session.mail)> <CFINCLUDE template="stoneinfo.inc" /> </cfif> <!--- Footer ---> <!--- 		<cfinclude template="/affiliate/includes/googleaffil.cfm">--->
 	</cfif>
 	</div> <!--- container 2 ends ---> </div>
 	<!--- top level container ends --->
 	<footer>
+
 		<script type="text/javascript">
-		<!--
-              document.getElementById("filter_summary").display = "block";
+			<!--
+			document.getElementById("filter_summary").display = "block";
 			//-->
-          </script>
+		</script>
 	</footer>
 	<cfinclude template="/mainfooter.cfm" />
 	<!--- End footer --->
@@ -441,11 +368,11 @@
 			<cftry>
 				<cfoutput>
 					<a href="http://#cgi.server_name#/admintools/contentadder.cfm?pagename=#right(currentfile, len(currentfile)-1)#">
-						Contend Edit
+						Content Edit
 					</a>
 				</cfoutput>
 				<cfcatch>
-					currentfile is of zero lenght. Fix at bottom of gallery page
+					currentfile is of zero length. Fix at bottom of gallery page.
 				</cfcatch>
 			</cftry>
 		</div>
@@ -453,8 +380,14 @@
 	<!---
 		<cfinclude template="/googleadsforlist.htm">--->
 	<cfcatch type="any">
-		<cfdump var="#cfcatch#" />
-		<cfabort />
+		Boom! Hit a hurdle out of no where. I broken ....have sent a mail to the developers :(
+
+			<cfscript>
+					createobject("backing_beans.mailer").sendmail(mailto: 'stacyanup@gmail.com',
+					subject: 'error at gallery',
+					mailcontent: '#cfcatch.detail#-#cfcatch.message#-#getbasetemplatepath()#');
+				</cfscript>
+			<cfinclude template="/mainfooter.cfm" />
 	</cfcatch>
 </cftry>
 <cfif isdefined("Url.debug")>
@@ -464,4 +397,4 @@
 		execution time:#executiontime#
 	</cfoutput>
 </cfif>
-</cfcache>
+<!--end of silver_jewelry_gallery.cfm -->
