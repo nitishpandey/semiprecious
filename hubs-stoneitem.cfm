@@ -1,6 +1,7 @@
+<cfset sub_anchor_title = subcatout & ' ' & cat />
 <cfoutput>
 	<h2>
-		<a href="#themelink#" class="hubs_item">
+		<a title="Buy #sub_anchor_title#" href="#themelink#" class="hubs_item">
 			<cfif cgi.server_name contains "wholesale">
 				WHOLESALE #subcat# #displaycateg#
 			<cfelse>
@@ -17,9 +18,9 @@
 	</cfoutput>
 </cfif>
 <cfset mySpaceFreeVariable = ReReplace(themedesc, "[[:space:]]","","ALL")>
-<cfif  mySpaceFreeVariable neq ""  and mySpaceFreeVariable neq " ">
+<cfif  len(trim(mySpaceFreeVariable)) neq 0>
 	<cfoutput>
-		<a style="display:inline" href="#themelink#">
+		<a title="Collection of #sub_anchor_title#" style="display:inline;float:right" href="#themelink#">
 			<img src="#themeimage#"  border="0">
 		</a>
 	</cfoutput>
@@ -33,7 +34,7 @@
 	</span>
 <cfelse>
 	<cfoutput>
-		<a href="#themelink#">
+		<a title="Buy #sub_anchor_title#" href="#themelink#">
 			<img src="#themeimage#"  border="0">
 		</a>
 	</cfoutput>

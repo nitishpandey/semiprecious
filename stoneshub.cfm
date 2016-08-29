@@ -362,7 +362,10 @@
 
 				   <cfoutput> <img src="/images/stoneshub/#subcatunspaced#.jpg" style="float:left;padding:4px" > <span style='font-size:10pt;font-family:"Palatino Linotype","serif";color:black'> <h1><font color=gray face='verdana'>#ucase(subcat)# <cfif cgi.server_name contains ".in"> JEWELLERY<cfelse> JEWELRY</cfif></h1> <cfoutput>#pagedescription#</cfoutput> </span> </cfoutput> </td> </tr> <!--- End stone type image row --->
 				   <CFINCLUDE TEMPLATE="hubs-bystone.cfm" />
-			</cfcache> <cfif pagedescription neq "" or session.mail is 'acemat@vsnl.com'> <Tr valign="middle"> <td valign="middle" style="color:##666600;" class="rowb"  colspan="2"> <cfif session.mail is application.admin_email> <a href="http://www.semiprecious.com/admintools/contentadder.cfm?pagename=<cfoutput>#right(currentfile, len(currentfile)-1)#</cfoutput>">Content Edit</a> </cfif> </td> </tr> </cfif> <cfset subcat3 = replace(trim(subcat),"_","")> <cfset subcat3 = replace(trim(subcat3)," ","")> <tr  bgcolor="white"> <td align="center" height=30  colspan="2"><cfoutput><a href=#subcat3#_jewelry.cfm>SEE RANDOM #subcat# JEWELRY</cfoutput></a></td> </tr> <!--- End Matt Bayuk - SGM ---> <!---<cfinclude  template="statsrecord.cfm">---> <cfinclude template="includes/linkexchangebystone.cfm"> <cfoutput> <cfif rowsdisplayed LT 5 > <cfif rowsdisplayed  is 0> <cfset rowsdisplayed = 1> </cfif> </cfif> <tr> <td  align=middle  colspan="2"> <!---<a href=http://www.handmadelaptopcase.com><img src=http://www.handmadelaptopcase.com/laptopbags/ads/400x80bags.jpg></a>---> </td> </tr> <cfif subcat neq ""> <cfinclude template="marketing/stonelinks.cfm"> </cfif> </cfoutput> </table> </td> </tr> </table>
+			</cfcache> <cfif pagedescription neq "" or session.mail is 'acemat@vsnl.com'>
+			 <Tr valign="middle"> <td valign="middle" style="color:##666600;" class="rowb"  colspan="2"> <cfif session.mail is application.admin_email> <a href="http://www.semiprecious.com/admintools/contentadder.cfm?pagename=<cfoutput>#right(currentfile, len(currentfile)-1)#</cfoutput>">Content Edit</a> </cfif> </td> </tr> </cfif> <cfset subcat3 = replace(trim(subcat),"_","")> <cfset subcat3 = replace(trim(subcat3)," ","")> <tr  bgcolor="white"> <td align="center" height=30  colspan="2"><cfoutput><a href=#subcat3#_jewelry.cfm>SEE RANDOM #subcat# JEWELRY</cfoutput></a></td> </tr> <!--- End Matt Bayuk - SGM ---> <!---<cfinclude  template="statsrecord.cfm">---> <cfinclude template="includes/linkexchangebystone.cfm"> <cfoutput> <cfif rowsdisplayed LT 5 > <cfif rowsdisplayed  is 0> <cfset rowsdisplayed = 1> </cfif> </cfif> <tr> <td  align=middle  colspan="2"> <!---<a href=http://www.handmadelaptopcase.com><img src=http://www.handmadelaptopcase.com/laptopbags/ads/400x80bags.jpg></a>--->
+			 </td> </tr> <cfif subcat neq ""> <cfinclude template="marketing/stonelinks.cfm"> </cfif> </cfoutput> </table> </td> </tr> </table>
+		<!--- no requirement seen here
 		<cfoutput>
 
 			<script language="JavaScript1.1">
@@ -424,6 +427,7 @@
 				 */
 			</script>
 		</cfoutput>
+		--->
 		<!--- <cfset balance = session.screenwidth - 800>
 			<div style="position:absolute;background-image:url(/images/horizontalgrad.gif);top:0px;left:800px;height:900px;width=#balance#px;">&nbsp;</div>
 			--->
