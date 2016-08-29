@@ -1,3 +1,5 @@
+<!-- hubs-bystone.cfm starts --->
+
 <cfset themelink = "">
 <cfset themeimage = "">
 <cfset imagesUsedList = "">
@@ -113,3 +115,4 @@
 <cfif itemcount mod 2 eq 0>
 	</tr>
 </cfif>
+<!-- hubs-bystone.cfm ends --->

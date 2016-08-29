@@ -1,3 +1,4 @@
+<!-- hubs-stoneitem.cfm starts --->
 <cfset sub_anchor_title = subcatout & ' ' & cat />
 <cfoutput>
 	<h2>
@@ -39,3 +40,4 @@
 		</a>
 	</cfoutput>
 </cfif>
+<!-- hubs-stoneitem.cfm ends --->
