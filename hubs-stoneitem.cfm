@@ -40,4 +40,4 @@
 		</a>
 	</cfoutput>
 </cfif>
-<!-- hubs-stoneitem.cfm ends --->
+<!-- hubs-stoneitem.cfm end --->

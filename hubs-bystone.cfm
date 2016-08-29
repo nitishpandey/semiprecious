@@ -97,7 +97,7 @@
 			</cfinvoke>
 		</cfcatch>
 	</cftry>
-	<!---          <!--- Separate item for all jewelry --->
+	<!---         Separate item for all jewelry
 	<cfif itemcount eq 0 >
 		<tr>
 			<cfset displaycateg = "jewelry">
@@ -108,8 +108,62 @@
 			<cfset themeimage = "/images/" & GetImage.cat & "/thumb/" & GetImage.newitem & ".jpg">
 			<CFINCLUDE TEMPLATE="hubs-stoneitem.cfm">
 			<cfset itemcount = 1>
-	</cfif>
-	---> <cfset displaycateg = lcase(cat)> <!--- End separate item for jewelry ---> <cfset themeitem = Stones.cat> <cfset themedesc = Stones.description> <cfif GetImage.recordcount gt 0  > <!--- Check for duplicate images ---> <cfif listContains(imagesUsedList, GetImage.newitem)> <cfset vItemFound = 0> <cfloop query="GetImage"> <cfif listContains(imagesUsedList, GetImage.newitem) or vItemFound eq 1> <cfelse> <cfset imagesUsedList = listAppend(imagesUsedList,GetImage.newitem)> <cfif categ eq "jewelry"> <cfset themeimage = "/images/" & GetImage.cat & "/thumb/" & GetImage.newitem & ".jpg"> <cfelse> <cfset themeimage = "/images/" & categ & "/thumb/" & GetImage.newitem & ".jpg"> </cfif> <cfset vItemFound = 1> </cfif> </cfloop> <!--- No non duplicates found ---> <cfif vItemFound eq 0> <cfif categ eq "jewelry"> <cfset themeimage = "/images/" & GetImage.cat & "/thumb/" & GetImage.newitem & ".jpg"> <cfelse> <cfset themeimage = "/images/" & categ & "/thumb/" & GetImage.newitem & ".jpg"> </cfif> </cfif> <!--- Was not a duplicate ---> <cfelse> <cfset imagesUsedList= listAppend(imagesUsedList,GetImage.newitem) > <cfif categ eq "jewelry"> <cfset themeimage = "/images/" & GetImage.cat & "/thumb/" & GetImage.newitem & ".jpg"> <cfelse> <cfset themeimage = "/images/" & categ & "/thumb/" & GetImage.newitem & ".jpg"> </cfif> </cfif> <cfif itemcount mod 2 eq 0> <tr> </cfif> <!--- Display a theme ---> <cfset themelink = "/" & #lcase(subcatout)# & "_" & #lcase(cat)# & ".cfm"> <td valign="top"> <CFINCLUDE TEMPLATE="hubs-stoneitem.cfm"> </td> <cfif itemcount mod 2 eq 1> </tr> </cfif> <cfset itemcount = itemcount + 1> </cfif>
+	</cfif>--->
+	 <cfset displaycateg = lcase(cat)> <!--- End separate item for jewelry ---> <cfset themeitem = Stones.cat>
+	 <cfset themedesc = Stones.description> <cfif GetImage.recordcount gt 0  > <!--- Check for duplicate images --->
+	 <cfif listContains(imagesUsedList, GetImage.newitem)> <cfset vItemFound = 0> <cfloop query="GetImage"> <cfif listContains(imagesUsedList, GetImage.newitem) or vItemFound eq 1> <cfelse> <cfset imagesUsedList = listAppend(imagesUsedList,GetImage.newitem)>
+	  <cfif categ eq "jewelry"> <cfset themeimage = "/images/" & GetImage.cat & "/thumb/" & GetImage.newitem & ".jpg"> <cfelse> <cfset themeimage = "/images/" & categ & "/thumb/" & GetImage.newitem & ".jpg"> </cfif> <cfset vItemFound = 1> </cfif> </cfloop> <!--- No non duplicates found --->
+	  <cfif vItemFound eq 0> <cfif categ eq "jewelry"> <cfset themeimage = "/images/" & GetImage.cat & "/thumb/" & GetImage.newitem & ".jpg"> <cfelse> <cfset themeimage = "/images/" & categ & "/thumb/" & GetImage.newitem & ".jpg"> </cfif> </cfif> <!--- Was not a duplicate ---> <cfelse> <cfset imagesUsedList= listAppend(imagesUsedList,GetImage.newitem) >
+	   <cfif categ eq "jewelry"> <cfset themeimage = "/images/" & GetImage.cat & "/thumb/" & GetImage.newitem & ".jpg"> <cfelse> <cfset themeimage = "/images/" & categ & "/thumb/" & GetImage.newitem & ".jpg"> </cfif> </cfif>
+	    <cfif itemcount mod 2 eq 0>
+		   <tr> </cfif> <!--- Display a theme --->
+	 <cfset themelink = "/" & #lcase(subcatout)# & "_" & #lcase(cat)# & ".cfm">
+	  <td valign="top" style="padding-left:10px;padding-bottom:10px;">
+		<!-- hubs-stoneitem.cfm starts --->
+<cfset sub_anchor_title = subcatout & ' ' & cat />
+<cfoutput>
+	<h2>
+		<a title="Buy #sub_anchor_title#" href="#themelink#" class="hubs_item">
+			<cfif cgi.server_name contains "wholesale">
+				WHOLESALE #subcat# #displaycateg#
+			<cfelse>
+				#subcat# #displaycateg#
+			</cfif>
+		</a>
+	</h2>
+</cfoutput>
+<cfif session.mail eq application.admin_email>
+	<cfoutput>
+		<a href="/admintools/stoneedit.cfm?category=#cat#&subcat=#subcat#">
+			Retail EDIT
+		</a>
+	</cfoutput>
+</cfif>
+<cfset mySpaceFreeVariable = ReReplace(themedesc, "[[:space:]]","","ALL")>
+<cfif  len(trim(mySpaceFreeVariable)) neq 0>
+	<cfoutput>
+		<a title="Collection of #sub_anchor_title#" style="display:inline;float:right" href="#themelink#">
+			<img src="#themeimage#"  border="0">
+		</a>
+	</cfoutput>
+	<span class="themetext" >
+		<cfif cgi.server_name contains "wholesale">
+		<cfelse>
+			<cfoutput>
+				#themedesc#
+			</cfoutput>
+		</cfif>
+	</span>
+<cfelse>
+	<cfoutput>
+		<a title="Buy #sub_anchor_title#" href="#themelink#">
+			<img src="#themeimage#"  border="0">
+		</a>
+	</cfoutput>
+</cfif>
+<!-- hubs-stoneitem.cfm end --->
+
+	</td> <cfif itemcount mod 2 eq 1> </tr> </cfif> <cfset itemcount = itemcount + 1> </cfif>
 	<!---</cfif>   cfif for description check --->
 </cfloop>
 <cfif itemcount mod 2 eq 0>
