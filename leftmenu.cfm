@@ -1,3 +1,10 @@
+<cfcache action="servercache" timespan="#createtimespan(10,0,0,0)#">
+<!-- leftmenus.cfm starts cached at
+<cfoutput>
+#createodbcdatetime(now())#
+</cfoutput>
+-->
+
 <!---- set anyone of them, in container page, to 'block' or "" to make that portion of left menu to come open on page open --->
 <cfparam name="leftgemstonedisplay" default="none" />
 <cfparam name="leftcolordisplay" default="none" />
@@ -129,3 +136,4 @@
 
 
 </cfif>
+<!-- leftmenu.cfm ends -->
