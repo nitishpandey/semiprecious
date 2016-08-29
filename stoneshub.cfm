@@ -115,14 +115,11 @@
                         <cfif cgi.server_name contains 'wholesale'>
                    			 Wholesale Stock for
                         </cfif>
-
       			     Silver and  #titleCase(subcat)#  gemstone <cfif category is 'All'> Jewelery <cfelse>#titlecase(category)#</cfif> in a range of styles
 
               </cfif>
   </cfsavecontent>
 			<cfsavecontent variable="inheader">
-
-
 		  <meta name="keywords" content=<cfif metakeywords neq "">"#metakeywords#"<cfelse>"<cfif cgi.server_name contains 'wholesale.com'> Wholesale</cfif>Affordable #subcat#  Gem stone  bracelets, rings, beads, pendants jewelry"</cfif>>
 		  <meta name="author" content="Anup Pandey" />
 		  <meta name="description" content= <cfif metadescription neq "">"#metadescription#"<cfelse>'<cfif cgi.server_name contains 'wholesale.com'> Wholesale</cfif>#subcat#  gem stone pendants, rings, bracelets jewelry for retail and wholesale.
@@ -143,16 +140,7 @@
 			<cfheader name="Location" value="#newurl#">
 		</cfif>
 
-		<cfcache  action="cache" timespan="#createtimespan(0,10,0,0)#">
-
 		<div id="container2">
-	<!-- cached at
-	<cfoutput>
-
-	#createodbcdatetime(now())# for #getbasetemplatepath()#
-
-	</cfoutput>
-	-->
 
 		<!---	<cfif cgi.server_name contains "wholesale-gemstone-jewelry.com">
 			<cfif session.bulkbuyer.id eq "">
@@ -161,8 +149,6 @@
 			</cfif>--->
 
 		<!--- end meta tags for groups ---->
-
-
 		<table cellspacing="0" border="0"
 		<cfif mobile>
 			width="100%"
@@ -185,25 +171,44 @@
 			<!--- MOBILE --->
 			<cfif mobile>
 		</tr>
-		</table> <table cellspacing="0" cellpadding="2" border="0" > <tr  align="center"> </cfif>
-		 <td align="right" valign="top" style="border:1px ##DDDDDD ridge;">
-<table style="margin-left:0px;text-align:center;horizontal-align:center;margin-top:2px;padding:5px 5px 5px 10px"  border="0" cellspacing="0"  cellpadding="0"> <!--- stone type image --->
-		 <cfset subcatunspaced = replace(trim(subcat)," ","")>
+		</table> <table cellspacing="0" cellpadding="2" border="0" > <tr  align="center">
+		</cfif>
 		  <cfcache action="serverCache" timespan="10">
-			   <tr> <td align="left" valign="top" colspan="2" >
+			   <td align="right" valign="top" style="border:1px ##DDDDDD ridge;">
+        <table style="margin-left:0px;text-align:center;horizontal-align:center;margin-top:2px;padding:0px 5px 5px 10px"  border="0" cellspacing="0"  cellpadding="0"> <!--- stone type image --->
+		 <cfset subcatunspaced = replace(trim(subcat)," ","")>
 
+
+
+			   <tr> <td align="left" valign="top" colspan="2" >
+	<!-- cached at
+	<cfoutput>
+
+	#createodbcdatetime(now())# for #getbasetemplatepath()#
+
+	</cfoutput>
+	-->
 				   <cfoutput> <img src="/images/stoneshub/#subcatunspaced#.jpg" style="float:left;padding:4px;padding-top:0px;" >
 				   <span style='font-size:10pt;font-family:"Palatino Linotype","serif";color:black'> <h1 class="hub_heading">#ucase(subcat)# JEWELRY</h1> <cfoutput>#pagedescription#</cfoutput> </span> </cfoutput> </td> </tr> <!--- End stone type image row --->
+
 				   <CFINCLUDE TEMPLATE="hubs-bystone.cfm" />
-			</cfcache> <cfif pagedescription neq "" or session.mail is 'acemat@vsnl.com'>
+
+
+			</cfcache>
+
+			<cfif pagedescription neq "" or session.mail is 'acemat@vsnl.com'>
 			 <Tr valign="middle"> <td valign="middle" style="color:##666600;" class="rowb"  colspan="2"> <cfif session.mail is application.admin_email>
 				 <a href="/admintools/contentadder.cfm?pagename=<cfoutput>#right(currentfile, len(currentfile)-1)#</cfoutput>">Content Edit</a> </cfif> </td> </tr> </cfif>
 				 <cfset subcat3 = replace(trim(subcat),"_","")> <cfset subcat3 = replace(trim(subcat3)," ","")>
-				 <tr  bgcolor="white"> <td align="center" height=30   colspan="2"><cfoutput><a title="Lots of Designs in #subcat#" href=#subcat3#_jewelry.cfm>SEE RANDOM #ucase(subcat)# JEWELRY</cfoutput></a></td> </tr> <!--- End Matt Bayuk - SGM ---> <!---<cfinclude  template="statsrecord.cfm">---> <cfinclude template="includes/linkexchangebystone.cfm">
-				 <cfoutput>
-					  <tr> <td  align="middle"  colspan="2"> <!---<a href=http://www.handmadelaptopcase.com><img src=http://www.handmadelaptopcase.com/laptopbags/ads/400x80bags.jpg></a>--->
-			 </td> </tr> <cfinclude template="marketing/stonelinks.cfm">
-			   </cfoutput>
+				 <tr  bgcolor="white"> <td align="center" height=30   colspan="2"><cfoutput><a title="Lots of Designs in #subcat#" href=#subcat3#_jewelry.cfm>SEE RANDOM #ucase(subcat)# JEWELRY</cfoutput></a></td> </tr> <!--- End Matt Bayuk - SGM ---> <!---<cfinclude  template="statsrecord.cfm">--->
+				  <cfinclude template="includes/linkexchangebystone.cfm">
+
+					 <!---
+					  <tr> <td  align="middle"  colspan="2"> <a href=http://www.handmadelaptopcase.com><img src=http://www.handmadelaptopcase.com/laptopbags/ads/400x80bags.jpg></a>
+			 </td> </tr> --->
+			 <tr><td colspan="2">
+				 <cfinclude template="marketing/stonelinks.cfm">
+			</td></tr>
                  </table> </td> </tr> </table>
 		<!--- no requirement seen here
 		<cfoutput>
@@ -270,7 +275,7 @@
 		--->
 
 	</div>
-	</cfcache>
+
 	</div>
 	<cfinclude template="/mainfooter.cfm">
 	<cfcatch type="any">

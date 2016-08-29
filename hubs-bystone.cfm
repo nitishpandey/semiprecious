@@ -118,7 +118,7 @@
 	    <cfif itemcount mod 2 eq 0>
 		   <tr> </cfif> <!--- Display a theme --->
 	 <cfset themelink = "/" & #lcase(subcatout)# & "_" & #lcase(cat)# & ".cfm">
-	  <td valign="top" style="padding-left:10px;padding-bottom:10px;">
+	  <td valign="top" style="text-align:left;padding-left:10px;padding-bottom:10px;">
 		<!-- hubs-stoneitem.cfm starts --->
 <cfset sub_anchor_title = subcatout & ' ' & cat />
 <cfoutput>
@@ -142,7 +142,7 @@
 <cfset mySpaceFreeVariable = ReReplace(themedesc, "[[:space:]]","","ALL")>
 <cfif  len(trim(mySpaceFreeVariable)) neq 0>
 	<cfoutput>
-		<a title="Collection of #sub_anchor_title#" style="display:inline;float:right" href="#themelink#">
+		<a title="Collection of #sub_anchor_title#" style="margin-top:-10px;display:inline;float:right" href="#themelink#">
 			<img src="#themeimage#"  border="0">
 		</a>
 	</cfoutput>
@@ -156,7 +156,7 @@
 	</span>
 <cfelse>
 	<cfoutput>
-		<a title="Buy #sub_anchor_title#" href="#themelink#">
+		<a title="Buy #sub_anchor_title#" style="margin-top:-10px;display:inline;float:right" href="#themelink#">
 			<img src="#themeimage#"  border="0">
 		</a>
 	</cfoutput>
