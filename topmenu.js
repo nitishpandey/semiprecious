@@ -26,7 +26,7 @@ var pathPrefix_img="";
 var pathPrefix_link="";
 
 //--- Dimensions
-var menuWidth="";
+var menuWidth="100%";
 var menuHeight="";
 var smWidth="";
 var smHeight="";
@@ -49,7 +49,7 @@ var fontDecoration=["none","none"];
 var fontColorDisabled="#AAAAAA";
 
 //--- Appearance
-var menuBackColor="#799ea3";
+var menuBackColor="#527272";
 var menuBackImage="";
 var menuBackRepeat="repeat";
 var menuBorderColor="#FFFFFF";
@@ -59,7 +59,7 @@ var smFrameImage="";
 var smFrameWidth=0;
 
 //--- Item Appearance
-var itemBackColor=["#799ea3","#799ea3"];
+var itemBackColor=["#557777","#557777"];
 var itemBackImage=["",""];
 var itemSlideBack=0;
 var beforeItemImage=["",""];
@@ -171,14 +171,14 @@ var onOverSnd="";
 var onClickSnd="";
 //#9A3073
 var itemStyles = [
-    ["itemBackColor=#799ea3,#799ea3","itemBackImage=,","beforeItemImage=/topmenu.files/tab01_before_n.gif,/topmenu.files/tab01_before_s.gif","afterItemImage=/images/spacer_.gif,/images/spacer_.gif","beforeItemImageW=4","afterItemImageW=4","beforeItemImageH=20","afterItemImageH=20","itemBorderWidth=0px","fontStyle='bold 12px Verdana','bold 12px Verdana'","fontColor=#FFFFFF,#FFFF80"],
+     ["itemBackColor=#557777,#E2EAE7","itemBackImage=,","beforeItemImage=/topmenu.files/tab01_before_n.gif,/topmenu.files/tab01_before_s.gif","afterItemImage=/images/spacer_.gif,/images/spacer_.gif","beforeItemImageW=4","afterItemImageW=4","beforeItemImageH=20","afterItemImageH=20","itemBorderWidth=0px","fontStyle='bold 12px Verdana','bold 12px Verdana'","fontColor=#FFFFFF,#c2458b"],
 ];
 var menuStyles = [
     ["fontStyle='normal 12px Verdana',''","fontColor=#FFFFFF,"],
 ];
 
 var menuItems = [
-       ["Home","/index.cfm", "", "", "", "", "0", "", "", "", "", ],
+    <!---   ["Home","/index.cfm", "", "", "", "", "0", "", "", "", "", ], --->
 			    
     ["All Jewelry","", "", "", "", "", "0", "-1", "", "", "", ],
 			  ["|Silver Jewelry","/sterling-silver-jewelry.cfm", "", "", "Sterling Silver", "", "", "", "", "", "", ],

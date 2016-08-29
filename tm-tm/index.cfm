@@ -5,11 +5,11 @@
 <cfif not isuserloggedin()>
 <cflocation url="login.cfm" />
 </cfif>
-<!-- InstanceBeginEditable name="doctitle" --> 
-<title>Untitled Document</title>
-<!-- InstanceEndEditable --> 
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Admin Panel</title>
+<!-- InstanceEndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<!-- InstanceBeginEditable name="head" --> <!-- InstanceEndEditable --> 
+<!-- InstanceBeginEditable name="head" --> <!-- InstanceEndEditable -->
 <style type="text/css">
 <!--
 .tmbody {
@@ -51,7 +51,7 @@ a {
 <div align="center"><table class="table1" width="100%"><tr>
       <td height="397" align="center" nowrap> <!-- InstanceBeginEditable name="EditRegionbody" -->
 	  <cflocation url="login.cfm">
-	  EdasditRegionbody<!-- InstanceEndEditable --> 
+	  EdasditRegionbody<!-- InstanceEndEditable -->
       </td>
     </tr></table></div>
 <cfinclude template="tmfooter.cfm">

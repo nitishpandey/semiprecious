@@ -10,22 +10,25 @@
 	  </cftry>
       <cfif valid.recordcount >
 		<cfif valid.usertype is "superadmin" or cflogin.name is 'nitish' or cflogin.name is 'anup'  or cflogin.name is 'leena' >
-        		<cfloginuser name="#lcase(cflogin.name)#" password="#cflogin.password#" roles="superadmin" />
-			     <cfset session.role = "superadmin" /> 
+      <cfquery datasource="gemssql"  >
+        update users set lastlogin = #createodbcdatetime(now())# where apptt = '#cflogin.name#'
+		</cfquery>
+			<cfloginuser name="#lcase(cflogin.name)#" password="#cflogin.password#" roles="superadmin" />
+			     <cfset session.role = "superadmin" />
 	  		<cfelseif cflogin.name is 'OC' or cflogin.name is 'designer' >
-			     <cfset session.role = "guestadmin" /> 
+			     <cfset session.role = "guestadmin" />
 		        <cfloginuser name="#cflogin.name#" password="#cflogin.password#" roles="guestadmin" />
 			<cfelseif  cflogin.name is "prashant">
 		        <cfloginuser name="#cflogin.name#" password="#cflogin.password#" roles="Vendor" />
-			     <cfset session.role = "supplier" /> 
+			     <cfset session.role = "supplier" />
 	    	<cfelse>
 	    	    <cfloginuser name="#cflogin.name#" password="#cflogin.password#" roles="admin" />
-			     <cfset session.role = "guestadmin" /> 
+			     <cfset session.role = "guestadmin" />
 			</cfif>
 				  <cfset session.apptt  = lcase(cflogin.name) >
     	        	<cfset session.mail  = application.admin_email>
   		     <cfelse>
-           <cflocation url="login.cfm?msg=please+log+in" addtoken="no"> 
+           <cflocation url="login.cfm?msg=please+log+in" addtoken="no">
               </cfif>
 
  	<cfif not len(session.role)>
@@ -82,20 +85,20 @@
                         <td colspan="2" align="center" class="boldtext1">
 
 	<cfoutput>
-																||				Main Menu for #getAuthUser()# (#session.role#) ||  
+																||				Main Menu for #getAuthUser()# (#session.role#) ||
          </cfoutput>               </td>
                       </tr>
               <cfif isUSERinRole("superadmin") or isuserinRole("admin")>
           										                      <tr>
                         <td width="4%">&nbsp;</td>
                         <td width="96%">
- 								 <a href="/admin.cfm">Admin Page</a> 
+ 								 <a href="/admin.cfm">Admin Page</a>
                         </td>
                       </tr>
 
     <tr>
                         <td width="4%">&nbsp;</td>
-						
+
                         <td width="96%">
                           <a href="/cartstatus21.cfm">List Carts</a>
                         </td>
@@ -120,7 +123,7 @@
                 <td>
                   <a href="../customrequest/">Customisation Menu</a>
                 </td>
-              </tr>             
+              </tr>
                 <tr>
                   <td >&nbsp;</td>
                   <td>
@@ -128,8 +131,8 @@
                   </td>
                 </tr>
 
-							       
-             
+
+
               <tr>
                 <td >&nbsp;</td>
                 <td>
@@ -138,7 +141,7 @@
                 </td>
               </tr></cfif>
                 <cfif isUSERinRole("superadmin")>
-        
+
 <tr>
                 <td >&nbsp;</td>
                 <td>
@@ -150,10 +153,10 @@
                 <td>
 
                   <a href="/bo/fileupload.aspx">Upload Email HTML &amp; Graphics</a>
-		
+
                 </td>
               </tr>
-			
+
 <tr>
                 <td >&nbsp;</td>
                 <td>
@@ -173,7 +176,7 @@
                 </td>
               </tr>
 
-							
+
 			 <tr>
                 <td >&nbsp;</td>
                 <td>
@@ -199,4 +202,3 @@
 </body>
       <!-- InstanceEnd -->
     </html>
-  
