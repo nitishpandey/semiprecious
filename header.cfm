@@ -1,3 +1,5 @@
+<html>
+<!-- header.cfm starts (including the html tag) -->
 <cfparam name="category" default="all">
 		<cfparam name="inheader" default="" />
 		<cfparam name="metadescription" default="The default choice for semiprecious jewelry" />
@@ -51,7 +53,6 @@
 			</cfcatch>
 		</cftry>
 
-	<html>
 	<head>
 
 			<title>
@@ -65,8 +66,18 @@
 
 			<script>google.load("mootools", "1.2.1");</script>
 			--->
+		<script>
+		var sp_mobile =
+			<cfif mobile>
+			 true;
+			<cfelse>
+			 false;
+			</cfif>
+		</script>
 
 		<script language="JavaScript" async="true" type="text/javascript" src="/js/global.js?ver=1.3">
+		</script>
+			<script type="text/javascript" src="/js/jquery-1.4.2.min.js">
 		</script>
 		<!---
  <script type="text/javascript"
@@ -77,8 +88,7 @@
 
 		<script type='text/javascript'	src='/js/jquery.dcverticalmegamenu.1.3.js'>
 		</script>
-
-		<script type="text/javascript">
+    	<script type="text/javascript">
 			$(document).ready(function($) {
 				$('#mega-3').dcVerticalMegaMenu({
 					rowItems: '4',
@@ -97,10 +107,9 @@
 		<script  type="text/javascript" src="/js/html5.js">
 		</script>
 
-		<script type="text/javascript" src="/js/jquery-1.4.2.min.js">
-		</script>
 
-		<script type="text/javascript" src="/js/jcarouselLite.js">
+
+	<!--- not in use	<script type="text/javascript" src="/js/jcarouselLite.js">
 		</script>
 
 		<script>
@@ -130,7 +139,8 @@
 					visible: 1
 				});
 			});
-		</script>
+
+		</script>--->
 		<!---
  <script language="JavaScript" type="text/javascript">
 			<!--
@@ -178,9 +188,9 @@
 			<![endif]
 			-->
 		<![if !IE]>
-		<link href="/css/dcverticalmegamenu.css" rel="stylesheet" type="text/css" />
+		<link href="/css/dcverticalmegamenu.css?cached=get1" rel="stylesheet" type="text/css" />
 		<![endif]>
-		<link href="/style_semiprecious.css?cache=gems" rel="stylesheet" type="text/css" />
+		<link href="/style_semiprecious.css?cache=gemstones" rel="stylesheet" type="text/css" />
 		<style type="text/css">
 			<!--
 				.copyright {
@@ -341,3 +351,4 @@
 				</cfoutput>
 			</cfif>
 		</cfif>
+<!-- header.cfm ends -->
