@@ -33,28 +33,21 @@
                                   </cfif>
     </cfif>
     <cfif not isnumeric(newitem)>
-        		<html>
-                		<head>
-                		    <meta name="robots" content="noindex,nofollow">
-                		</head>
-                		<body>
+        	<cfinclude  template="header.cfm" />
                   Not a valid design id...
-                                </BODY>
-        		</html>
+            <cfinclude template="mainfooter.cfm" />
         		<cfabort />
 	     </cfif>
 
 
-    <CFPARAM NAME="wd.height" DEFAULT= "350" />
-
+  <cfsilent>  <CFPARAM NAME="wd.height" DEFAULT= "350" />
     <CFPARAM NAME="testing" DEFAULT= "no" />
-    <cfparam name="cfselect_required" default="true">
-    <cfif session.country is 'india'>
-        <cfinclude template="zoomdiv.cfm" />
-    <cfelse>
+	<cfparam name="cfselect_required" default="true">
+
+
     <!---<cftry>--->
     <cfset summary = " " />
-    <cfsilent>
+
         <CFPARAM NAME="orderonrequest" DEFAULT= "1" />
         <CFPARAM NAME="country" DEFAULT= "" />
         <CFPARAM NAME="designer" DEFAULT= "" />
@@ -76,8 +69,7 @@
         <CFPARAM NAME="subcategory" DEFAULT= "" >
         <CFPARAM NAME="stonename" DEFAULT= "" >
 		<cfparam name="metatitle" default="">
-	<cfparam name="metadescription" default="">
-	<cfparam name="metakeywords" default="">
+
 
     <cfparam name="itemnumber" default="0"  />
     <cfparam name="session.screenwidth" default="833" type="numeric" />
@@ -86,12 +78,6 @@
      <cfparam name="title" default="Semiprecious Silver Jewelry - peridot, amethyst necklaces, bracelets, pendants" />
     <CFPARAM NAME="editcart" DEFAULT="" />
     <CFPARAM NAME="url.filter" DEFAULT="" />
-
-    <cfif designer neq "" >
-      <cfset itemnumber=designer>
-      <cfset url.newitem=designer>
-      <cfset url.itemnumber=designer>
-    </cfif>
     <!--- processing for item number after a forward slash --->
     <CFPARAM Name="DSNNAME" default="semiprecious" >
     <CFPARAM name="imageloc" default="web" >
@@ -106,6 +92,14 @@
     <CFPARAM name="nextshipdate" default="7/22/08" >
 
 
+    <cfif designer neq "" >
+      <cfset itemnumber=designer>
+      <cfset url.newitem=designer>
+      <cfset url.itemnumber=designer>
+    </cfif>
+
+
+
 
 
 
@@ -113,7 +107,7 @@
 
 
     <!--- the original before adding quertystring to the url <CFIF (category is "") And (itemnumber is  not "")>--->
-    <CFIF  isnumeric(itemnumber)>
+
 
      <!--- <CFQUERY DATASOURCE="gemssql" NAME="stats" >
            update itemstats set zoom=zoom+1 where itemid =#itemnumber#
@@ -149,9 +143,9 @@
 
 
       <cfquery  dbtype="query" name="details">
-             Select  restockdate, material , grouping, supplier,itemnumber, size, weight, style, color, storage,  storageindia, imagelink, inventory,
+             Select   material , grouping, supplier,itemnumber, size, weight, style, color, storage,  storageindia, imagelink, inventory,
                  orderonrequest, price, status, saleprice,clustercount,basecost, wholesaleprice, newitem, optcount,description,
-                  NameID, newitem, subcat, subcat2, cat, morepics from
+                  NameID, newitem, subcat, subcat2, cat, morepics,restockdate from
               detailsinmemory where newitem=#itemnumber#
               </cfquery>
 
@@ -170,7 +164,29 @@
 
 
 
-          <cfif not (details.recordcount is 0)>
+
+		<cfif details.recordcount is 0 or details.cat is "">
+
+
+              <cfinclude template="/header.cfm" >
+                <h3>Sorry, nothing found, that was the last record for the selection Please go back.</h3>
+                </div>
+             </div>
+
+      <div style="border:2px #DADA99 ridge; position:relative;margin-top:2px;padding-right:1px;background-color:white;width:100px" >
+        <span style="width:100%;background-color:#660066;color:white;font-weight:bold;text-align:center;" >
+        <strong>Designs</strong><br />
+        </span> <a href="/showearrings.cfm" >earrings</a> <br />
+        <a href="/shownecklaces.cfm" >necklaces</a><br />
+        <a href="/showbracelets.cfm" >bracelets</a> <br />
+        <a href="/showpendants.cfm" >pendants</a> </p> </div>
+		</div></div>
+    	<cfif cgi.server_name does not contain 'wholesale'>
+                     <cfinclude template="/mainfooter.cfm" >
+       </cfif>
+             <cfabort />
+	 <cfelse>
+
                              <cfquery name="getGroups" dbtype="query" >
                                 Select  groupname from getGroupsinmemory where itemid=#itemnumber#
                             </cfquery>
@@ -216,21 +232,7 @@
                                           <cfelse>
                                               <cfset stonecount = 1 />
                                               <cfset stones2 = stone />
-                                              <cfset Stonename=stone />
                                         </cfif>
-                        <cfelse>
-                            <cfif find(" ",stone)>
-                               <cfset stone = replace(stone," ","_","all") />
-                                 <cfif ListContainsnocase(listofstoneswithproperties, stone) >
-                                      <cfif isdefined("stones2")>
-                                          <cfset stones2 = stones2 & "," & stone />
-                                          <cfset stonecount = stonecount +1 />
-                                       <cfelse>
-                                          <cfset stonecount = 1 />
-                                          <cfset stones2 = stone />
-                                        </cfif>
-                                  </cfif>
-                             </cfif>
                          </cfif>
                 </cfloop>
               </cfif>
@@ -253,63 +255,12 @@
             </cfoutput>
         </cfsavecontent>
        </cfif>
-    <cfelse>
-          <Cfset category = "" >
-          <cfset itemnumber  = 0 >
-          <cfset newitem = 1009>
-     </cfif>
+
 </cfsilent>
 
     <cfset cart_msg= "" /><!--- javacsript at bottom of page is triggered the moment we have a cart msg (checks length). The
     javascript lowers the page so that the message is in focus. This javascript is thus needed if we are putting the message below the image --->
-    <cfif isdefined("form.bought") or url.quantity is 0 > <!--- we are using url.qty = 0 to signfigy attemp to remove this item --->
-        <cfif isdefined("form.bought")>
-            <cfinvoke method="additem" attributecollection="#form#" component="cartcontrol.cartmonitor" returnvariable="added"  />
-        <cfelse>
-            <cfinvoke method="additem" attributecollection="#url#" component="cartcontrol.cartmonitor" returnvariable="added"  />
-        </cfif>
-        <cfinvoke method="cart_summary"  component="cartcontrol.cartmonitor" returnvariable="summary"  />
-        <cfset width = 'thumb' />
 
-    <cfsavecontent variable="t">
-    <cfoutput>
-    <a href="/jewelry_item.cfm?newitem=#newitem#">#titlecase(details.subcat)# #titlecase(details.grouping)#&nbsp;
-                            <cfif details.subcat2 neq ""> #titlecase(details.subcat2)#&nbsp;</cfif>
-                            <cfif details.cat neq 'healing'>#titlecase(left(details.cat, len(details.cat)-1))#</cfif>
-     </a>
-     </cfoutput>
-    </cfsavecontent>
-    <cftry>
-        <cfset what_happened = added.response.newitem.qtyadded.XmlText  />
-        <cfcatch type="any">
-        <cfdump var="#added#">
-        <cfabort />
-        </cfcatch>
-        </cftry>
-        <cfif  what_happened is 0>
-            <cfset cart_msg="Cannot add any more of " & t  />
-        <cfelseif what_happened Lt 0 >
-            <cfif what_happened GT -1000 >
-                  <cfset kappa = -1*what_happened />
-                <cfset cart_msg= kappa & " of " & t & " removed from cart" />
-               <cfelse>
-                <cfset cart_msg= t & " removed from your cart" />
-                </cfif>
-        <cfelse>
-        <cfsavecontent variable="style_for_added">
-            <cfoutput>
-            , .a#form.newitem#_#added.response.newitem.optionid.XmlText#
-            </cfoutput>
-            </cfsavecontent>
-
-	  <cflocation url="/#session.cart#?country=#session.address.country_code#&amp;secure=true&cartid=#session.cartid#" />
-            <cfset cart_msg= what_happened & " of " & t & " added to cart" />
-            <cfif trim(added.response.newitem.optionid.XmlText) neq '0'>
-                <cfset cart_msg= cart_msg & " [Option "&  added.response.newitem.optionid.XmlText & "]" />
-            </cfif>
-        </cfif>
-
-    </cfif>
 
 
 
@@ -317,7 +268,8 @@
 	<cftry>
      <cfoutput>
 		 <link rel="canonical" href="http://www.semiprecious.com/gem_stone_#LCASE(details.cat)#.cfm/#LCASE(details.newitem)#_#LCASE(details.cat)#_#LCASE(replace(trim(details.subcat)," ",""))#<cfif details.grouping neq "">_#LCASE(listfirst(details.grouping))#</cfif>.htm">
-   	</cfoutput><cfcatch type="any">
+   	</cfoutput>
+	<cfcatch type="any">
 
 		<html>
 		<head>
@@ -326,13 +278,17 @@
 		<body>
 		</BODY>
 		</html>
+			<cfmail to="stacyanup@gmail.com" from="cs@semiprecious.com" subject="Error at Jewelry Item page"  type="html">
+  					Catch Detail: #cfcatch.detail#,<br />
+	  		Catch Message: #cfcatch.message# <br />
+	    	Script Name: #getbasetemplatePath()#
+	     	</cfmail>
 		<cfabort />
 
 	 </cfcatch>
 	 </cftry>
 
 
-    <script language="JavaScript" src="/js/global.js?ver=1.2"></script>
     <!---
     <script language="JavaScript" src="/js/mag.js"></script>--->
     <style type="text/css">
@@ -424,7 +380,7 @@
     <script language=JAVASCRIPT src="/javascript/zoom.js" type="text/javascript" ></script>
     </cfif>
 
-    <cfif session.mail neq application.admin_email >
+
       <SCRIPT LANGUAGE="JavaScript1.1" >
     <!-- Original:  Martin Webb (martin@irt.org) -->
 
@@ -465,138 +421,15 @@
     window.onmouseup=right;
     //  End -->
     </script>
-    <cfelse>
-    <script language="JavaScript1.1" src="/javascript/xmlhttp.js"  type="text/javascript" ></script>
-    <script language="JAVASCRIPT1.1" type="TEXT/JAVASCRIPT">
-    <cfoutput>
-    var cat = '#category#' ;
-    </cfoutput>
 
-    function processReqChange()
-    {
 
-    if (req.readyState == 4) {
-            if (req.status == 200 ) {
-    //alert(req.readyState);
-                good = 0;
-                if (window.DOMParser) // our CFC is sending in xml disguised as text. this we had to do  because when we try to send in XML content (http header text/xml) then it creates problems for normal cfmx pages since then the browser believes everything else is also xml compliant
-                {
-    document.getElementById('custom_state').innerHTML =req.responseText;
-    return;
-                xmlDoc=parser.parseFromString(req.responseText,"text/xml");
-                }
-                else // Internet Explorer
-                {
-                xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-                xmlDoc.async="false";
-                xmlDoc.loadXML(req.responseText);
-                }
-                if (xmlDoc)	{
-                    if (xmlDoc.documentElement)  // for mozilla we need to test for req.response itself and this one is for IE
-                    {
-                        good = 1;
-                    }
-                }
-
-                if ( good == 0 )
-                {
-                    //document.getElementById("ajaxcheck").value  = 0 ;
-                    goProcess('add'); // that process basically submits the form for post to web
-                }
-
-        if (good == 1) {
-
-                    var	response = xmlDoc.documentElement;
-                            }
-
-                }
-            }
-        return;
-    }
-
-    function custom_select(i,s)
-    {
-    var p = Math.random();
-
-    var url = '/customrequest/custom.cfc?method=custom_status&itemid='+i+'&category='+cat+"&status="+s +"&dcache="+p;
-    if (window.XMLHttpRequest) {
-    //alert('i called successfully');
-      req = new XMLHttpRequest();
-      req.onreadystatechange = processReqChange;
-      req.open("GET",url,true);
-      req.send(null);
-     }
-     else if ( window.ActiveXObject) {
-
-      req = new ActiveXObject("Microsoft.XMLHTTP");
-    if (req) {
-     //alert(url);
-     req.onreadystatechange = processReqChange;
-     req.open("GET",url,true);
-     req.send();
-             }
-         }
-
-    return;
-    }
-
-    </script>
-
-    </cfif>
 
  </cfsavecontent>
 
 
- <cfif details.recordcount is 0>
 
 
-              <cfinclude template="/header#session.country#.cfm" >
-                <h3>Sorry, nothing found, that was the last record for the selection Please go back.</h3>
-                </div>
-             </div>
 
-      <div style="border:2px #DADA99 ridge; position:relative;margin-top:2px;padding-right:1px;background-color:white;width:100px" >
-        <span style="width:100%;background-color:#660066;color:white;font-weight:bold;text-align:center;" >
-        <strong>Designs</strong><br />
-        </span> <a href="/showearrings.cfm" >earrings</a> <br />
-        <a href="/shownecklaces.cfm" >necklaces</a><br />
-        <a href="/showbracelets.cfm" >bracelets</a> <br />
-        <a href="/showpendants.cfm" >pendants</a> </p> </div>
-      </body>
-                </html>
-             <cfabort />
-	 </cfif>
-
-
-	<CFIF (category is "")>
-          <cfinclude template="/header#session.country#.cfm" >
-
-    <br />
-    <div align="center" style="background-color:pink;margin-top:4px;border:thin ridge #CCFCCC;padding-top:8px;width:798px" >
-      <FORM action='/jewelry_item.cfm' method='get' >
-        If you have the jewelry item number handy please fill it and click on 'Details':
-        <input type='text' name='itemnumber' size='5'>
-        <INPUT type='submit'  class="greenbutton" value='details'>
-      </form>
-      <br />
-      If you were trying to add an item to the shopping cart then make sure you
-      clicked on the 'Looks Good' button. Hitting 'Enter' on your keyboard can
-      cause error.Browser
-        <div style="border:2px #DADA99 ridge; position:relative;margin-top:2px;padding-right:1px;background-color:white;width:100px" >
-          <span style="width:100%;background-color:#660066;color:white;font-weight:bold;text-align:center;" >
-          <strong>Designs</strong><br />
-          </span> <a href="/showearrings.cfm" >earrings</a> <br />
-          <a href="/shownecklaces.cfm" >necklaces</a><br />
-          <a href="/showbracelets.cfm" >bracelets</a> <br />
-          <a href="/showpendants.cfm" >pendants</a> </p> </div>
-    </div>
-			<cfif cgi.server_name does not contain 'wholesale'>
-   			 <cfinclude template="/mainfooter.cfm" >
-		</cfif>
-
-
-    <CFABORT />
-   </cfif>
 
 	<CFIF (category neq "")>
 
@@ -623,7 +456,9 @@
 </cfsavecontent>
 
     </CFIF>
-     <cfinclude template="/header#session.country#.cfm" >
+
+	<!--0>
+     <cfinclude template="/header.cfm" >
 	    <!--- No category --->
         <!--- End no category --->
 			<div align="center"  <cfif not mobile> style="position:relative;width:930px"</cfif> id="container2"  >
@@ -1234,7 +1069,7 @@ union
                                                 </cfif>
                                              </cfif>
                                              </cfif>
-    			<cfif opts.recordcount GT 1 >
+    			<cfif opts.recordcount GT 1 >t
                                 <cfselect id="optionidpulldown" name="optionid" required="#cfselect_required#"   >
                                      <cfif opts.recordcount GT 2 >
                                             <cfloop query="opts" startrow="#start_row#" >
@@ -1578,10 +1413,10 @@ var merchant_id = "3724";
         </cfcatch>
         </cftry>
         --->
-        </cfif>
+
              <cfcatch type="any" >
                <cfdump var="#cfcatch#" />
-         	  <cfabort />
-          </cfcatch>
-        </cftry>
+          <cfabort />
+      </cfcatch>
+ </cftry>
 <!-- jewelry_Item.cfm starts -->
