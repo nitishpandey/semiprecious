@@ -93,14 +93,14 @@ article, section, aside, nav, header, footer {display:block;}
 /*Wrapper*/
 .wrapper {width:100%; margin:0 auto; display:block;} 
 .header {height:85px; position:relative; z-index:999}
-.header .logo  {position:absolute; top:8px; left:6px; background:url(/logos/logo.gif) no-repeat; width:195px; height:63px; display:block; text-indent:-3500px;}
+.header .logo  {z-index:-90;position:absolute; top:8px; left:6px; background:url(/logos/logo.gif) no-repeat; width:195px; height:63px; display:block; text-indent:-3500px;}
 .header h4 {position:absolute; top:10px; left:310px;width:130px;font-size:10px}
 .header h5 {position:absolute; top:5px; left:570px;width:115px;font-size:10px}
 .countryDropDown {position:absolute; top:2px; left:570px;width:115px;font-size:10px}
 
 
 /* .topMenu {position:relative;top:40}  */
-.topNav {text-align:right; display:inline;padding:12px 0 0 0;}
+.topNav {text-align:right; display:inline;padding:12px 0 0 0;z-index:1000}
 .topNav ul {text-align:right;}
 .topNav li {display:inline; border-right:1px solid #9bc8d2; padding:0 6px 0 5px;}
 .topNav li a {color:#7d6173; font-size:11px;}
