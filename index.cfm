@@ -3,9 +3,7 @@
 <cfsilent>
 	<cfparam name="session.bulkbuyer.id" default="">
 	<cfparam name="affil" default="-">
-	<cfparam name="metatitle" default="">
-	<cfparam name="metadescription" default="">
-	<cfparam name="metakeywords" default="">
+
 </cfsilent>
 <!---<cfif CGI.SERVER_NAME contains "semiprecious.in">
 	<cfinclude template="/india/index.cfm">
@@ -53,20 +51,7 @@
 
 <cfset title="#metatitle#" />
 <cfsavecontent variable="inheader">
-	<cfif cgi.server_name contains 'semipreciouswholesale.com'>
-	<meta name="verify-v1" content="AEBLhretFXvzExOTH0gwqJLWaBi+tN2tB/L2fsLDGSc=" >
-<cfelse>
-	<META name="verify-v1" content="qm7Tbru8zXcyS+Ul5gg82c3CD3LAhOl6WZ3tLKub3Zs=" />
-	<link rel="canonical" href="http://www.semiprecious.com" />
-</cfif>
-		<!--- how to use rdf scripts? --->
-		<cfif cgi.server_name contains 'wholesale'>
-			<meta http-equiv="pics-label" content='(pics-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://www.wholesale-gemstone-jewelry.com" r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.wholesale-gemstone-jewelry.com" r (n 0 s 0 v 0 l 0))'>
-		<cfelse>
-			<meta http-equiv="pics-label" content='(pics-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://www.semiprecious.com" r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.semiprecious.com" r (n 0 s 0 v 0 l 0))'>
-		</cfif>
-		<meta name="google-site-verification" content="DkigBobNrTChIEYmwD3PFkSFA9ORp9chDgr7656EoRc" /><meta name="keywords" content="<cfoutput>#metakeywords#</cfoutput>">
-		<meta name="description" content="<cfoutput>#metadescription#</cfoutput>">
+
 
 
 		<link href="styles/hub_ws.css" rel="stylesheet" type="text/css" />
@@ -82,7 +67,7 @@
 				}
 				-->
 		</style>
-		<meta name="author" content="anup pandey" />
+
 
 
 
