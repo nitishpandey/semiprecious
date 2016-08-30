@@ -84,12 +84,12 @@ Select distinct stone as subcat2 from  stonelistpopular<cfif category neq 'beads
 			<ul class="mega-menu right" >
 				<!--- <cfif cgi.server_name  does not contain 'wholesale'>
 					<li  style="background-color:##000"><a href="/jewelry-gemstone-clearance.cfm" ><b>Black Friday</b></a></li>
-					</cfif> --->
+					</cfif>
 				<li>
 					<a title="Daily Deals on Semiprecious Jewelry" href="/daily_deals/daily_deals.cfm">
 						Real Deals
 					</a>
-				</li>
+				</li>--->
 				<cfloop query="temp_stonelist" startrow="1" endrow="#counter1#">
 					<CFIF subcat2 neq "">
 						<cfset subcat3 = replace(trim(lcase(subcat2)),"_","")>
