@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+<cfparam name='category' default="">
+<!---
+	<cfinclude template="setup.cfm"> --->
+<cfset session.india=0>
+=======
 <cfparam name='category' default="" />
 	<cfquery  datasource="gemssql" name="accouncementhome" cachedwithin="#createtimespan(0,1,0,0)#">
 			select description, linkto from contenthome where domain like '#left(cgi.server_name,5)#%' and category='announcement' and seq is null
@@ -6,6 +12,7 @@
 <!---
 	<cfinclude template="setup.cfm"> --->
 <cfset session.india=0 />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <TABLE border="0" width="100%" align="center" style="margin-left: 10px">
 	<tr>
 		<td align="left" valign="top" width="100%" style="padding:0px">
@@ -28,7 +35,11 @@
 				<tr valign=top >
 					<td align=left width=360>
 						<a href=http://www.semiprecious.com/jewelry-sale.cfm>
+<<<<<<< HEAD
+							<img src="/images/center_pics/gemstone-jewelry.jpg" width="360" height="162" border="0" alt='gemstone sterling silver jewelry' />
+=======
 							<img src="/images/center_pics/scarlet.jpg" width="400" height="340" border="0" alt='gemstone sterling silver jewelry' />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 						</a>
 					</td>
 					<td  align=left Class="bradley_big">
@@ -38,9 +49,15 @@
 									Authentic gemstone jewelry in sterling silver
 								</li>
 								<li>
+<<<<<<< HEAD
+									Over 18000 designs of silver jewelry and over
+									<br>
+									80 types of gemstone beads
+=======
 									Over 7000 designs of silver jewelry and over
 									<br>
 									100 types of gemstone beads
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 								</li>
 								<li>
 									30 days flexible return policy
@@ -60,14 +77,28 @@
 						</div>
 					</td></tr>
 					<!---   <cfinclude template="includes/search.cfm">--->
+<<<<<<< HEAD
+					<cfquery  datasource="gemssql" name="accouncementhome" cachedwithin="#createtimespan(0,0,2,0)#">
+  							select description, linkto from contenthome where domain like '#left(cgi.server_name,5)#%' and category='announcement' and seq is null
+  					</cfquery>
+=======
 
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 			<tr align=center valign="top">
                  <td colspan="2" valign="top" class="reg_price" style="padding-top:5px;padding-bottom:5px;" align=justify width=100%>
 					<cfif accouncementhome.recordcount gt 0>
 				 <font color=brown><b>
                  <cfoutput>#accouncementhome.description#. Click <a href=#accouncementhome.linkto#>here</a>.</cfoutput></b></font>
+<<<<<<< HEAD
+		<cfelse>
+
+
+						Align with the cosmos, gift your loved ones a 
+						birthstone Jewelry</a> - earrings, pendants, necklaces, rings for the <a class="reg_price link" href=
+=======
 				<cfelse>
 					Align with the cosmos, gift your loved ones a birthstone Jewelry</a> - earrings, pendants, necklaces, rings for the <a class="reg_price link" href=
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 						<cfoutput>
 							#lcase(monthasstring(month(now())))#-birthstone.cfm>#monthasstring(Month(now()))#
 						</cfoutput> month</a>. Or you can plan ahead for  <a class="reg_price link" href=
@@ -85,13 +116,21 @@
 <a text="Hot Selling Designs in Gems Stones" href="http://www.semiprecious.com/shaped/mini-gemstone-pendants.cfm">-->
 
 <a text="Hot Selling Designs in Semiprecious Gem Stones" href="http://www.semipreciouswholesale.com">
+<<<<<<< HEAD
+				Check out our wholesale site, minimum order $200</a> 
+=======
 				Check out our wholesale site, minimum order $200</a>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 				</h2>
 				 	</td>
 				</tr>
 		<tr align=center valign="top">
 					<td colspan="2" valign="top" align=right >
+<<<<<<< HEAD
+						<cfinclude template="/indexhubcssasclass.cfm">
+=======
 						<cfinclude template="/indexhubcssasclass.cfm" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 					</td>
 				</tr>
 
@@ -112,8 +151,13 @@
 		--->
 	<tr>
 		<td  class="jewelry content" style="border-top:1px solid gray" >
+<<<<<<< HEAD
+			<span style="font-weight:bold">Serving you since 1990</span>, with high customer satisfaction, Semiprecious.com opens up a spectacular world of semiprecious gemstone and sterling silver jewelry, over 16000 items with prices ranging from less than $10 to over $500. 
+ Our jewelry is made from hundreds of authentic gemstones and sterling silver sourced from the world over and handmade into gorgeous jewelry pieces by skilled artisans. Buy one to pamper yourself or as a gift for one you love. You may also contact us to buy jewelry at reasonable wholesale prices.
+=======
 			<span style="font-weight:bold">Serving you since 1990</span>, with high customer satisfaction, Semiprecious.com opens up a spectacular world of semiprecious gemstone and sterling silver jewelry, over 16000 items with prices ranging from less than $10 to over $500.
  			Our jewelry is made from hundreds of authentic gemstones and sterling silver sourced from the world over and handmade into gorgeous jewelry pieces by skilled artisans. Buy one to pamper yourself or as a gift for one you love. You may also contact us to buy jewelry at reasonable wholesale prices.
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 			<br />
 			We feature gemstone Jewelry with designer items at
 			<a class="link" href="cheapjewelry.cfm">
@@ -247,7 +291,11 @@
 				   <div align="center">				<strong>
 									Payment Modes: PayPal, Credit cards, Money Order, Check, Cash on Delivery (COD)
 								</strong>
+<<<<<<< HEAD
+						</div><div align="center" class="row3">		You can also order by phone
+=======
 						</div><div align="center" class="row3">		Order on phone
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 								<strong>
 									<cfoutput>
 										#Application.tollfree#

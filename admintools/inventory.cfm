@@ -10,7 +10,11 @@
 Put in first few characters to get all locations in same area<p>
 <form name=getinventory method=post action=inventory.cfm>
 
+<<<<<<< HEAD
+Put in <b>first few characters</b> or all words of a storage location: <input type=text name=s value="<CFOUTPUT>#S#</CFOUTPUT>">
+=======
 Put in <b>first few characters</b> or all words of a storage location: <input type=text name=s value="">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <input type=submit value=submit>
 </form>
 <cfif s neq 0>
@@ -21,7 +25,11 @@ Select newitem, storage, inventory,   weight, cat, subcat, status, subcat2 from 
 
 <table><tr><td>Location</td><td>itemid</td><td>Name</td><td>Image</td><td>Qty</td></tr>
 <cfoutput query=usitems>
+<<<<<<< HEAD
+<tr><td>#storage#</td><td>#newitem#</td><td>#subcat# #subcat2# #cat# <font color=red>#status# #weight# gm</font></td><td><a href=edititem.cfm?newitem=#newitem#><img src=/images/#cat#/thumb/#newitem#.jpg width=100></a></td><td>#newitem#</td><td>#inventory#</td>	 </tr>
+=======
 <tr><td>#storage#</td><td>#newitem#</td><td>#subcat# #subcat2# #cat# <font color=red>#status# #weight# gm</font></td><td><a href=/edititem.cfm?newitem=#newitem#><img src=/images/#cat#/thumb/#newitem#.jpg width=100></a></td><td>#newitem#</td><td>#inventory#</td>	 </tr>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 </cfoutput>
 </table>
 </cfif>

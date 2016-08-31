@@ -304,7 +304,11 @@ if ( screensize is "small"){
   </cfif>
 </cfif>
 <cfquery name="contentbypage" datasource="gemssql">
+<<<<<<< HEAD
+	Select * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(CGI.path_info),"/","")#'
+=======
 	Select * from contentbypage where domain='#cgi.server_name#' and pagename='#replace(Trim(cgi.script_name),"/","")#'
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	</cfquery>
 <cfif contentbypage.recordcount GT 0>
   <cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'>
@@ -326,7 +330,11 @@ if ( screensize is "small"){
 </cfif>
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
+<<<<<<< HEAD
+<cfset currentfile='#Trim(CGI.path_info)#'>
+=======
 <cfset currentfile='#Trim(cgi.script_name)#'>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <!--- speed up things  --->
 <CFIF start EQ 1 and advancedsearch neq "">
   <cftry>

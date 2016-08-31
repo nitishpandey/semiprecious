@@ -14,13 +14,13 @@
 </cfif>
 <html><!-- InstanceBegin template="/Templates/tm1.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!-- InstanceBeginEditable name="doctitle" --> 
+<!-- InstanceBeginEditable name="doctitle" -->
 <title>Task Manager</title>
-<!-- InstanceEndEditable --> 
+<!-- InstanceEndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<!-- InstanceBeginEditable name="head" --> 
+<!-- InstanceBeginEditable name="head" -->
 
-<!-- InstanceEndEditable --> 
+<!-- InstanceEndEditable -->
 <style type="text/css">
 <!--
 .tmbody {
@@ -43,11 +43,11 @@
 <body class="tmbody">
 <cfinclude template="tmheader.cfm">
 <div align="center"><table class="table1" width="100%"><tr>
-      <td height="397" class="table1"> <!-- InstanceBeginEditable name="EditRegionbody" --> 
-<!--  --> 
+      <td height="397" class="table1"> <!-- InstanceBeginEditable name="EditRegionbody" -->
+<!--  -->
        <form action="mainmenu.cfm"  method="post">
 	      <table width="55%" border="1" align="center" cellpadding="2" class="tmbody">
-            <tr> 
+            <tr>
               <td rowspan="4" bgcolor="#CCCCCC" class="boldtext1">Welcome
                 <hr>
                 <br>
@@ -56,14 +56,14 @@
               <td>Id:</td>
             <td><input name="j_username" type="text" id="appt" size="20" maxlength="14"></td>
           </tr>
-          <tr> 
+          <tr>
             <td>Password:</td>
             <td><input name="j_password" type="password" id="password" size="20" maxlength="14"></td>
           </tr>
-          <tr> 
-              <td colspan="2">Forgotten Password ? contact Nitish. </td>
+          <tr>
+              <td colspan="2">Forgotten Password? Contact Nitish. </td>
           </tr>
-          <tr> 
+          <tr>
             <td><input name="Reset" type="reset" id="Reset" value="Reset"></td>
             <td align="center">
 <input type="submit" name="Submit2" value="Login">
@@ -71,7 +71,7 @@
           </tr>
         </table></form>
 		<cflogout />
-        <!-- InstanceEndEditable --> 
+        <!-- InstanceEndEditable -->
       </td>
     </tr></table></div>
 <p class="tmbody">&nbsp;</p>

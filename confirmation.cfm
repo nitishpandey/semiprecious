@@ -4,6 +4,12 @@
 <cfparam name=form.X_SHIP_TO_COUNTRY default="">
 <cfparam name=session.address.country_code default="#form.x_ship_to_country#">
 <cfparam name="testingpp" default="">
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <cfset THIS.mappings["/cfpayment"]="cfpayment">
 <!---
 	<cfdump var="#form#" />
@@ -43,8 +49,15 @@
 	}
 </cfscript>
 <!---
+<<<<<<< HEAD
 	<cfexit>
 	--->
+=======
+<cfexit>
+--->
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+
+>>>>>>> origin/master
 <!---
 	<CFQUERY DATASOURCE="GEMSSQL" NAME="COUNTRYCODE">
 	SELECT CODE FROM LTBCOUNTRYcode WHERE COUNTRY ='#form.x_ship_to_country#'</CFQUERY>
@@ -111,11 +124,20 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
 				<cfinvokeargument name="comments" value="#form.txtAreaComments#">
 				</cfinvoke>
 				--->
+<<<<<<< HEAD
 			<cfcatch type="Any">
 				<cfmail  port="25"
+=======
+        <cfcatch type="Any">
+<<<<<<< HEAD
+      	<cfmail from="service@semiprecious.com" timeout="30" server="MailA40" to="anup@semiprecious.com"  subject="Shipping Address Confirmation" type="HTML" >
+=======
+      	<cfmail  port="25"
+>>>>>>> origin/master
   useSSL="false"
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  from="service@semiprecious.com" timeout="30" to="anup@semiprecious.com"  subject="Shipping Address Confirmation" type="HTML" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
          	<cfdump var="#cfcatch#" />
        	</cfmail>
 			</cfcatch>
@@ -294,6 +316,7 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
 			<cfquery datasource='gemssql' name='CouponRedeem'>
 			update certificatecode set dateused ='#dateformat(now(),"mm/dd/yyyy")#' where cartid='#session.cartid#'
 </cfquery>
+<<<<<<< HEAD
 			<!--- <cfset tamount= response_array[10] /> --->
 			<CFSET session.cartitem=ArrayNew(2)  />
 			<Cfset session.cartitem[1][1] = 0  />
@@ -354,6 +377,77 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  to="semiprecioushelp@gmail.com" from="service@semiprecious.com"  subject="Shipping Address Confirmation" type="HTML" >
    On relay back from payment, code line 350 <cfdump var="#cfcatch#" />
+=======
+	<!--- <cfset tamount= response_array[10] /> --->
+		<CFSET session.cartitem=ArrayNew(2)  />
+		<Cfset session.cartitem[1][1] = 0  />
+		<Cfset session.cartitem[1][4] = 0  />
+		<Cfset session.cartitem[1][2] = 0  />
+		<Cfset session.cartitem[1][3] = 0  />
+		<Cfset session.cartitem[1][5] = 0  />
+
+		<cfset session.totalqty = 0>
+		<cfset session.grandtotal = 0>
+
+	 <cfset form.x_invoice_num= replace(form.x_invoice_num,'G','')>
+	<cfset form.x_invoice_num= replace(form.x_invoice_num,'O','')>
+	<cfset form.x_invoice_num= replace(form.x_invoice_num,'P','')>
+	<cfset form.x_invoice_num= replace(form.x_invoice_num,'D','')>
+	<cfsilent>
+	 <cfif len(form.x_email)>
+		<cfinvoke component="cartcontrol.cartmonitor"  method="setbuyeremail">
+	        <cfinvokeargument name="cartid" value="#form.x_invoice_num#">
+	        <cfinvokeargument name="overwrite" value="no">
+	        <cfinvokeargument name="email" value="#form.x_email#">
+		</cfinvoke>
+	</cfif>
+    <cfinvoke  component="cartcontrol.cartmonitor" method="updatecart" returnvariable="updateresult">
+		     <cfinvokeargument name="cartid" value="#form.x_invoice_num#"/>
+		     <cfinvokeargument name="mode" value="auth.net"/>
+ 			 <cfinvokeargument name="txnid" value="#transid#"/>
+		</cfinvoke>
+	</cfsilent>
+  <!---	<cfinvoke component="cartcontrol.cartmonitor" method="setpaymode" returnvariable="flag" >
+		<cfinvokeargument name="cartid" value="#form.x_invoice_num#">
+		<cfinvokeargument name="paymode" value="auth.net">
+	</cfinvoke>
+
+	<cfinvoke component="inventory" method="updatepercart" returnvariable="lag" >
+		<cfinvokeargument name="cartid" value="#form.x_invoice_num#">
+	</cfinvoke>
+	--->
+<cftry>
+
+	<!--- changes by ankur --->
+	<cfinvoke component="cartcontrol.cartmonitor" method="addpurchase" returnvariable="result" >
+        <cfinvokeargument name="cartid" value="#form.x_invoice_num#">
+        <cfinvokeargument name="email" value="#form.x_email#">
+        <cfinvokeargument name="shippingname" value="#session.x_ship_to_first_name# #session.x_ship_to_last_name#">
+        <cfinvokeargument name="billingname" value="#form.x_first_name# #form.x_last_name#">
+        <cfinvokeargument name="billingaddress" value="#form.x_address1# <br /> #form.x_address2#">
+        <cfinvokeargument name="billingcity" value="#form.x_city#">
+        <cfinvokeargument name="billingstate" value="#form.x_state# #form.x_zip#">
+        <cfinvokeargument name="billingcountry" value="#form.x_country#">
+        <cfinvokeargument name="billingphone" value="#form.x_phoneno#">
+        <cfinvokeargument name="shippingaddress" value="#session.x_ship_to_address1#">
+        <cfinvokeargument name="shippingaddress2" value="#session.x_ship_to_address2#">
+        <cfinvokeargument name="shippingcity" value="#session.x_ship_to_city#">
+        <cfinvokeargument name="shippingstate" value="#session.x_Ship_to_state#">
+        <cfinvokeargument name="shippingzip" value="#session.x_ship_to_zip#">
+        <cfinvokeargument name="shippingcountry" value="#session.x_ship_to_country#">
+
+	</cfinvoke>
+    <cfcatch type="Any">
+<<<<<<< HEAD
+  <cfmail from="service@semiprecious.com" timeout="30" to="stacyanup@gmail.com" server="MailA40" subject="Shipping Address Confirmation" type="HTML" >
+=======
+  <cfmail  port="25"
+  useSSL="false"
+  username="service@semiprecious.com"
+  password="Prec1ou5sx@"  to="semiprecioushelp@gmail.com" from="service@semiprecious.com"  subject="Shipping Address Confirmation" type="HTML" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+   On relay back from payment, code line 319  <cfdump var="#cfcatch#" />
+>>>>>>> origin/master
    </cfmail>
 				</cfcatch>
 			</cftry>
@@ -367,6 +461,7 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
 					<cfquery datasource="gemssql" name="buyer_type">
    				select couponcode  from cartstatus with (nolock) where cartid = #form.x_invoice_num#
   			</cfquery>
+<<<<<<< HEAD
 					<cfif buyer_type.couponcode is 'regwsale'>
 						<cfset subscribe_type = 'wholesale' />
 					</cfif>
@@ -383,9 +478,34 @@ select cartid from        purchase     WHERE cartid='#session.cartid#'
 				</cfif>
 				<cfcatch type="any">
 					<cfmail  port="25"
+=======
+
+			<cfif buyer_type.couponcode is 'regwsale'>
+				<cfset subscribe_type = 'wholesale' />
+		       </cfif>
+
+		<cfinvoke component="invitationandcredit" method="SIGNUP" returnvariable="signedup" >
+			<CFINVOKEARGUMENT name="cartid" VALUE="#form.x_invoice_num#"  />
+			<CFINVOKEARGUMENT value="#form.x_email#" name="buyer_email"    />
+			<CFINVOKEARGUMENT VALUE="#form.x_phoneno#" name="phonenumber"   />
+			<CFINVOKEARGUMENT  value="#form.x_country#" name="buyer_country"   />
+			<CFINVOKEARGUMENT  name="status" value="1"  />
+            <cfinvokeargument name="subscribe_type" value="#subscribe_type#" />
+			<CFINVOKEARGUMENT value="#form.x_first_name# #form.x_last_name#" name="buyer_first_name"  />
+			<CFINVOKEARGUMENT value="" name="buyer_last_name"    />
+	</cfinvoke>
+</cfif>
+
+        <cfcatch type="any">
+<<<<<<< HEAD
+            <cfmail  to="nitish@semiprecious.com,anup@semiprecious.com" from="cs@semiprecious.com" server="maila40" subject="sign up on confirmation" >
+=======
+            <cfmail  port="25"
+>>>>>>> origin/master
   useSSL="false"
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  from="service@semiprecious.com"  to="nitishpandey@gmail.com,anup@semiprecious.com" subject="sign up on confirmation" >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
         #cfcatch.detail#,#cfcatch.message#
         </cfmail>
 				</cfcatch>
@@ -457,9 +577,14 @@ Email :#form.x_email#<br /></td>
 <img height=1 width=1 border=0 src="http://www.googleadservices.com/pagead/conversion/1072681239/imp.gif?value=1&label=purchase&script=0">
 </noscript>
 
+<<<<<<< HEAD
+ <img src="https://shareasale.com/sale.cfm?amount=<cfoutput>#form.x_amount#&tracking=#form.x_invoice_num#</cfoutput>&transtype=TYPEOFTRANSACTION&merchantID=24548" width="1" height="1">
+=======
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
 </cfoutput>
 </cfsavecontent>
+<<<<<<< HEAD
 		<cfelse>
 			<!--- Commented By Ankur [2/5/2012]
 				<cfset err_mess =response_array[4]>
@@ -470,9 +595,27 @@ Email :#form.x_email#<br /></td>
 			<!--- Code Added  By Ankur [2/5/2012]  [START] --->
 			<cfset err_mess =responseStruct.L_LONGMESSAGE0>
 			<cfmail  port="25"
+=======
+<cfelse>
+
+	<!--- Commented By Ankur [2/5/2012]
+	<cfset err_mess =response_array[4]>
+				    <cfmail to="anup@semiprecious.com" from="cs@semiprecious.com" subject=" #form.x_invoice_num# auth.net"  type="html">
+                   #err_mess#,<cfdump var='#form#' />
+                   </cfmail>
+	--->
+
+<!--- Code Added  By Ankur [2/5/2012]  [START] --->
+<cfset err_mess =responseStruct.L_LONGMESSAGE0>
+<<<<<<< HEAD
+<cfmail to="anup@semiprecious.com" from="cs@semiprecious.com"  server="MailA40" subject=" #form.x_invoice_num# Paypal Direct Payment"  type="html">
+=======
+<cfmail  port="25"
+>>>>>>> origin/master
   useSSL="false"
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  from="service@semiprecious.com" to="nitishpandey@gmail.com,semiprecioushelp@gmail.com" subject=" #form.x_invoice_num# Paypal Direct Payment"  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 #err_mess#,<cfdump var='#form#' />
 </cfmail>
 			<!--- Code Added  By Ankur [2/5/2012]  [END] --->
@@ -694,7 +837,10 @@ Email :#form.x_email#<br /></td>
 
 
 	<script>
+<<<<<<< HEAD
+=======
 		try {
+<<<<<<< HEAD
 			$(document).ready(function() {
 				$("div#err_box").hide();
 				$("select#x_country").change(
@@ -802,6 +948,183 @@ Email :#form.x_email#<br /></td>
 					<cfset Variables.itemcount = Arraylen(session.cartitem) />
 					<cfloop index="k" to="1" from="#ArrayLen(session.cartitem)#" step="-1">
 						<cfquery name="qprice" datasource="gemssql">
+=======
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+	 $(document).ready(function(){
+	  $("div#err_box").hide();
+	 $("select#x_country" ).change(
+	 function()
+	   {
+	   $("input#check_country").val($(this).val());
+	   }
+
+	 );
+
+	  $("input#authbutt" ).click(
+	  function($e)
+	  {
+		return true;
+	    $("div#err_box ul").html("") ;
+      if ($("input#check_country").val() == "" )
+		  {
+	      $e.preventDefault();
+          $("div#err_box ul").append("<li>Billing Country Not Selected</li>");
+		   $("div#err_box").show("fast");
+		  }
+      if ($("input#x_city").val() == "")
+		  {
+	      $e.preventDefault();
+          $("div#err_box ul").append("<li>Billing City Not Provided</li>");
+		   $("div#err_box").show("fast");
+		  }
+      if ($("input#x_state").val() == "")
+		  {
+	      $e.preventDefault();
+          $("div#err_box ul").append("<li>Billing State Not Provided</li>");
+		   $("div#err_box").show("fast");
+		  }
+      if ($("input#x_first_name").val() == "")
+		  {
+	      $e.preventDefault();
+          $("div#err_box ul").append("<li>Billing First Name Not Provided</li>");
+		   $("div#err_box").show("fast");
+		  }
+
+      if ($("input#x_last_name").val() == "")
+		  {
+	      $e.preventDefault();
+          $("div#err_box ul").append("<li>Billing Last Name Not Provided</li>");
+		   $("div#err_box").show("fast");
+		  }
+
+	  if ($("input#clientcreditcard").val() == "")
+		  {
+	      $e.preventDefault();
+          $("div#err_box ul").append("<li>No Credit Card Number Provided</li>");
+		   $("div#err_box").show("fast");
+		   }
+
+
+	  }
+	  );
+	$("span#close_err_box").click(
+	function()
+	{
+      $("div#err_box ul").empty();
+	  $("div#err_box").hide("fast");
+	}
+	);
+
+	 $('#sameas').click(
+	  function(){
+	    if( $('input#sameas:checked').val() == 'on')
+			{
+         	}
+			else
+			{
+
+			}
+		 }
+	 );
+	 }
+	 );
+<<<<<<< HEAD
+	 </script>
+</cfsavecontent>
+
+  <CFINCLUDE TEMPLATE="/header#Session.country#.cfm">
+<div id="container2">
+	<div class="grayplacard" style="text-align:left;font-size:12px;width:80%;font-weight:bold;float:lft;">
+             Please Check Final Total and Select Secure Payment Gateway</div>
+  <cfset timestamp = Now() />
+  <cfset couponcode = trim(couponcode) />
+	<cflock    timeout = "0"   scope = "Session"       throwOnTimeout = "no"   type = "exclusive">
+  
+      
+=======
+			}
+	catch(err){
+
+	}
+	 </script>
+</cfsavecontent>
+
+  <CFINCLUDE TEMPLATE="/header_checkout#Session.country#.cfm">
+<div id="container2">
+	<div class="grayplacard" style="text-align:left;font-size:12px;width:80%;font-weight:bold;float:lft;padding-left:2px">
+              Check Your Final Total and Select A Secure Payment Method</div>
+  <cfset timestamp = Now() />
+  <cfset couponcode = trim(couponcode) />
+
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+          <cfif  session.cartid GT 0 and cgi.HTTP_REFERER contains 'cart.cfm' >
+			    <cfquery datasource="gemssql" name="confirmedstatuscheck">
+						<!--- neq 'null' because in manual updates of status often cost is 0.00 and paymode moves to chck or pp --->
+			            SELECT  buyer FROM cartstatus  with (NOLOCK) WHERE cost>0 and cartid = #session.cartid# and (paymode <> 'null' AND paymode <> '')
+			     </cfquery>
+                  <cfif confirmedstatuscheck.recordcount>
+                            <cfset session.confirmed_cartid = session.cartid />
+                            <cfset session.cartid = 0 />
+                           <cflocation url="#session.cart#?country=#session.address.country_code#&cartid=#session.confirmed_cartid#&reloadmsg=reloaded1##checkout" addtoken="no" />--->
+                  </cfif>
+<<<<<<< HEAD
+   
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+        <cfelseif not isdefined("form.x_invoice_num")>
+              	    <cfset c  = "" />
+                <cfif isdefined("url.cartid")>
+              	          <cfset c = url.cartid>
+              	      <cfelseif isdefined("session.confirmed_cartid")>
+<<<<<<< HEAD
+              	          <cfset c = session.confirmed_cartid>      
+=======
+              	          <cfset c = session.confirmed_cartid>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+              	    </cfif>
+                <cflocation url="#session.cart#?country=#session.address.country_code#&cartid=#c#&reloadmsg=reloaded##checkout" addtoken="no" />
+	<cfelse>
+        	<cfset session.cartid = form.x_invoice_num />
+        	<cfset amount = form.x_amount />
+        	 <table>
+        	 		<tr>
+                              <td bgcolor="#FFFFFF" valign=top align="right" style="width:440px">
+                                 <cfinclude template="/authorizenet/simtoembed.cfm" />
+                                <cfset session.confirmed_cartid = session.cartid />
+<<<<<<< HEAD
+                        
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+                         <cfset session.cartid = 0 />
+                         </td><td>Let's Start Shopping</td></tr>
+                     </table>
+ </div>
+</div>
+<cfinclude template="mainfooter.cfm" />
+ </body>
+ </html>
+ <cfabort />
+  </cfif>
+<<<<<<< HEAD
+</cflock>
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+<!--- TODO: This is narrow table. Need to allow it's width to not be too wide in laptop but in case of mobile we can use full 980 px --->
+  <table  id="container3" style="width:400px;margin-top:20px;border-bottom:2px gray solid;" border="0" align="center"  >
+  <cftry >
+
+    <!--- Loop over each item in cart --->
+<cfset clr  = 1 />
+
+    <cfif session.cartitem[1][1]>
+	 <cfset Variables.itemcount = Arraylen(session.cartitem) />
+      <cfloop index="k" to="1" from="#ArrayLen(session.cartitem)#" step="-1">
+		<cfquery name="qprice" datasource="gemssql">
+>>>>>>> origin/master
      SELECT      <cfif session.cartitem[k][5]>options.valueadd, options.description as optsdesc,</cfif> items.inventory, items.orderonrequest, cat, subcat + ' ' + cat  as description, basecost,price, saleprice, status,     wholesaleprice  FROM Items with (nolock)
      <cfif session.cartitem[k][5]>, options with (nolock) </cfif>
      WHERE newitem=#session.cartitem[k][1]#
@@ -958,11 +1281,20 @@ Email :#form.x_email#<br /></td>
 								<cfquery datasource="gemssql" >
 						insert into giftmsg values (#Session.cartid#,'#giftmsg#', '#note#')
 					</cfquery>
+<<<<<<< HEAD
 								<cfcatch type="any">
 									<cfmail to="anup@semiprecious.com"  port="25"
+=======
+				<cfcatch type="any">
+<<<<<<< HEAD
+				        <cfmail to="anup@semiprecious.com" from="anup@semiprecious.com" subject="Gift cart "  server="MailA40" type="html">
+=======
+				        <cfmail to="anup@semiprecious.com"  port="25"
+>>>>>>> origin/master
   useSSL="false"
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  from="service@semiprecious.com"  subject="Gift cart "   type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 						#giftmsg# for cart #session.cartid#
 		                </cfmail>
 								</cfcatch>
@@ -1122,6 +1454,7 @@ Email :#form.x_email#<br /></td>
 									<cfquery datasource="gemssql" name="insertdata">
                 	update buyingrecord set rate = #bbdf#*wholesaleprice from items, buyingrecord where buyingrecord.itemid=items.newitem and cartid = #session.cartid#
                 </cfquery>
+<<<<<<< HEAD
 								</cfif>
 							</td>
 						</tr>
@@ -1141,10 +1474,45 @@ Email :#form.x_email#<br /></td>
 					</tr>
 					<cfif coupon_saving GT 0 and (not Len(session.bulkbuyer.id)) and not isdefined("tpsale")> <tr class="" > <td  align=right>[<cfoutput>#couponcode# #coupon_msg#</cfoutput>] <!--Your Loyalty Points <strong>Not</strong> Reduced.
 						| Total --> Discount :</td> <td align="center" class="error1"><cfoutput>#format(coupon_saving)#</cfoutput></td> </tr> <cfelseif confirm_mail is session.mail and not len(session.bulkbuyer.id) and session.loyalty_points> <!--- set in cart page and login page ---> <tr> <td   align="right" > <cfoutput>#coupon_msg#</cfoutput> <font color="maroon">Semiprecious.com Cash Back Discount:</font></td> <td align="right"><cftry> <cfinvoke component="invitationandcredit" method="reversecredit"  returnvariable="q"> <cfinvokeargument name="mail" value="#confirm_mail#" /> </cfinvoke> <cfcatch type="any"> <cfmail to="anup@semiprecious.com"  port="25"
+=======
+        </cfif>
+        </td>
+        </tr>
+        <cfset amount = amount + handlingcharges />
+      </cfif>
+      <cfelse>
+      <tr align="center" >
+      <cfif (len(confirm_mail) and not isdefined("url.save")  and not isdefined("tpsale")) or len(session.bulkbuyer.id)  >
+        <td   align="right"  >Items Total:</td>
+        <td align="right"><cfoutput>#format(evaluate(total+coupon_saving))#</cfoutput></td>
+        </tr>
+        <cfif coupon_saving GT 0 and (not Len(session.bulkbuyer.id)) and not isdefined("tpsale")>
+          <tr class="" >
+            <td  align=right>[<cfoutput>#couponcode# #coupon_msg#</cfoutput>] <!--Your Loyalty Points <strong>Not</strong> Reduced.
+
+              | Total --> Discount :</td>
+            <td align="center" class="error1"><cfoutput>#format(coupon_saving)#</cfoutput></td>
+          </tr>
+          <cfelseif confirm_mail is session.mail and not len(session.bulkbuyer.id) and session.loyalty_points> <!--- set in cart page and login page --->
+           <tr>
+          <td   align="right" > <cfoutput>#coupon_msg#</cfoutput>
+	       <font color="maroon">Semiprecious.com Cash Back Discount:</font></td>
+          <td align="right"><cftry>
+              <cfinvoke component="invitationandcredit" method="reversecredit"  returnvariable="q">
+              <cfinvokeargument name="mail" value="#confirm_mail#" />
+              </cfinvoke>
+              <cfcatch type="any">
+<<<<<<< HEAD
+                <cfmail to="anup@semiprecious.com" from="cs@semiprecious.com" server="MailA40" subject="At confirmation Could not reverse "  type="html">
+=======
+                <cfmail to="anup@semiprecious.com"  port="25"
+>>>>>>> origin/master
   useSSL="false"
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  from="service@semiprecious.com"  subject="At confirmation Could not reverse "  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                   #cfcatch.detail#, #cfcatch.message# for #confirm_mail#,
+<<<<<<< HEAD
                 </cfmail> <!--- 	<cfoutput>#cfcatch.detail#, #cfcatch.message# for #confirm_mail#
 						</cfoutput>
 						---> </cfcatch> </cftry> <cfif total><cfinvoke component="invitationandcredit" method="usecredit" returnvariable="reducedtotal" > <cfinvokeargument name="amounttopay" value="#total#"> <cfinvokeargument name="saleitemamount" value="#saletotal#"> <cfinvokeargument name="finalize" value="#session.cartid#"> <!--- a non zero value will finalize but if it is an existing cartid it will only show credit used for that cartid , that not just compute but reduced from total credit available .  Plus using cartid helps us see if the cart is new or old , if old then what credit was used , that is then used again with out reducing from total ---> </cfinvoke> <cfelse> <cfset reducedtotal = total /> </cfif> </font> <cfset loyalty_discount = total - reducedtotal /> <cfset bbdf = reducedtotal/total /> <cfset coupon_saving = loyalty_discount /> <cfset amount = reducedtotal + shipping/> <!--- out here now reduce the rate entered for each item in the database ---> </td> </tr> </cfif> </cfif>
@@ -1310,9 +1678,181 @@ Email :#form.x_email#<br /></td>
 						<!--- End grand total line --->
 		</table>
 		<!--- End totals table ---> </cfoutput> <cfif Giftwrap neq "0"> <cfset gw = "G"> <cfelse> <cfset gw = ""> </cfif> <cfif isdefined("url.save")> <cfinvoke component="invitationandcredit" method="reversecredit"  returnvariable="q"> </cfinvoke> <div align="center"> <div style="width:740px;text-align:center;font-size:12px;"> <div style="width:738px;text-align:center;background-color:#666600;color:white;"> Your Cart Contents have been Saved. </div> <cfif len(confirm_mail) and confirm_mail contains '@' > <cfset mailto = confirm_mail> <cfmail  port="25"
+=======
+                </cfmail>
+                <!--- 	<cfoutput>#cfcatch.detail#, #cfcatch.message# for #confirm_mail#
+			</cfoutput>
+			 --->
+              </cfcatch>
+            </cftry>
+            <cfif total><cfinvoke component="invitationandcredit" method="usecredit" returnvariable="reducedtotal" >
+              <cfinvokeargument name="amounttopay" value="#total#">
+              <cfinvokeargument name="saleitemamount" value="#saletotal#">
+              <cfinvokeargument name="finalize" value="#session.cartid#">
+              <!--- a non zero value will finalize but if it is an existing cartid it will only show credit used for that cartid , that not just compute but reduced from total credit available .  Plus using cartid helps us see if the cart is new or old , if old then what credit was used , that is then used again with out reducing from total --->
+              </cfinvoke>
+              <cfelse>
+              <cfset reducedtotal = total />
+            </cfif>
+            </font>
+            <cfset loyalty_discount = total - reducedtotal />
+			 <cfset bbdf = reducedtotal/total />
+            <cfset coupon_saving = loyalty_discount />
+            <cfset amount = reducedtotal + shipping/>
+
+            <!--- out here now reduce the rate entered for each item in the database --->
+			</td>
+          </tr>
+		</cfif>
+
+      </cfif>
+
+    </cfif>
+    <cfset amountpayable = amount>
+    <cfif isdefined("wholefault")>
+      <cfinvoke component="cartcontrol.cartmonitor" method="newcart" >
+      <cfinvokeargument name="cartid" value="#session.cartid#">
+      <cfinvokeargument name="costprice" value="#inrcost#">
+      <cfinvokeargument name="cost" value="#amount#">
+      <cfinvokeargument name="tps" value="n">
+      <cfinvokeargument name="timestamp" value="#timestamp#">
+      <cfinvokeargument name="couponcode" value="wsalefault">
+      <cfinvokeargument name="saleitemsno" value="#noofsalesitem#">
+      <cfinvokeargument name="tqty" value="#qty#">
+      <cfinvokeargument name="shipping" value="#shipping#|#nonUS#|#sh#|#GW#|">
+      </cfinvoke>
+      <tr >
+         <td colspan="2" align="center" valign="middle" style="padding:2px;background-color:#FFE4EC;border:2px solid #A50A25;color:#A50A25;font-size:2em;" > Wholesale purchase requires minimum order of <cfoutput>#format(minimum)#. <a href="#session.gallery#?#session.filter#" class="gray_url">Click Here to Shop for More Stuff</a></cfoutput>&nbsp;
+          If you wish to shop less then please visit <a href=http://www.semiprecious.com>www.semiprecious.com</a>.     &nbsp;</td>
+<<<<<<< HEAD
+   
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td  colspan="2"><font face="Arial, sans-serif" size="+1">To shop for less than the minimum wholesale amount you may switch to retail mode and make purchases at retail prices. <a href="/switchtoretailmode.cfm" class="side_link">Click here to switch and go to gallery</a></font> .</td>
+      </tr>
+<<<<<<< HEAD
+      
+=======
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+      <cfelse>
+      <cfif isdefined("tpsale")>
+        <cfset modtps = 'y'>
+        <cfelse>
+        <cfset modtps = 'n'>
+      </cfif>
+      <cfoutput>
+
+        <cfif ((coupon_saving and (not loyalty_discount) and couponflag)  and isdefined("tpsale") ) or len(session.bulkbuyer.id) >
+          <tr class="" >
+            <td  align="right">Items Total:</td>
+      <td align="right">#format(evaluate(coupon_saving+amount-shipping))#</td>
+          </tr>
+
+          <cfif coupon_saving>
+            <tr class="" >
+              <td  align="right">#coupon_msg#. Your Total Savings/Discount:</td>
+              <td align="center" class="error1" style="text-align:right;">#format(coupon_saving)#</td>
+            </tr>
+          </cfif>
+		  <cfelseif gift_value GT 0>
+			    <cfset topay = amount - shipping />
+		<!---  <tr class="" >
+              <td  align="right">Total:</td>
+              <td align="center" style="text-align:right;">#format(topay)#</td>
+            </tr>--->
+				    <cfif gift_value GT topay>
+			      <cfset gift_value = topay >
+			   </cfif>
+			   <cfset topay = topay - gift_value />
+               <cfset bbdf = topay/(topay+gift_value) />
+
+			<cfset amount = topay + shipping />
+				  <cfquery datasource="gemssql" >
+                	update buyingrecord  set rate = #bbdf#*rate where cartid = #session.cartid#
+                </cfquery>
+
+		      <tr class="" >
+              <td  class="error1" align="right">#coupon_msg#. Value:</td>
+              <td align="center" class="error1" style="text-align:right;">#format(gift_value)#</td>
+            </tr>
+			 <cfelseif gift_value LT 0 and cgi.server_name does not contain 'laptop'>
+
+		      <tr class="reg_price" >
+              <td  class="error1" align="right">[#coupon_msg#] </td>
+              <td align="center" class="error2" style="text-align:right;">&nbsp;</td>
+            </tr>
+        </cfif>
+				 <cfif cgi.server_name does not contain 'wholesale'  and (session.x_ship_to_state eq 'TX' or session.x_ship_to_state eq 'texas')>
+            <tr>
+              <td  align="right" ><cfset salestax = (amount-shipping)*0.0825 /><cfset amount=salestax+amount>
+Sales Tax:</td>
+              <td align="right" >#dollarformat(salestax)#</td>
+            </tr>
+          </cfif>
+        <tr class="" >
+          <td  align="right">Final Items Total:</td>
+          <td align="right">#format(amount-shipping)#</td>
+        </tr>
+        <tr>
+          <td  align="right" >Shipping &amp; Handling:</td>
+          <td align="right">#format(shipping)#</td>
+        </tr>
+
+        <!--- Grand total line --->
+        <tr  class="" >
+<<<<<<< HEAD
+          <td   align='right' class="found_header" style="padding:5px;"><cfif application.live_support and 0 >
+=======
+          <td   align='right'  style="padding:5px;"><cfif application.live_support and 0 >
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+              <div style="display:inline;border:1px ridge ##0A0 ;margin-top:4px;padding:2px 4px" align=center> <a class="login_link" onClick="open_live_support()" href="javascript://"><img style="text-decoration:none;" src="/images/callus.png" height="20px" VALIGN="center" border=0 />&nbsp;<span style="position:relative;bottom:4px">Online Help</span></a> </div>
+            </cfif>
+            <cfif confirm_mail is application.admin_email>
+              <cfset amount=amount  -admindiscount>
+            </cfif>
+            <font size="+1" color="gray">Grand total:</font></td>
+          <td align="right" style="padding:1px;border:1px 0 1px 0 solid gray"><strong>#format(amount)#</strong></td>
+        </tr>
+        <!--- End grand total line --->
+        </table>
+
+
+        <!--- End totals table --->
+      </cfoutput>
+      <cfif Giftwrap neq "0">
+        <cfset gw = "G">
+        <cfelse>
+        <cfset gw = "">
+      </cfif>
+      <cfif isdefined("url.save")>
+        <cfinvoke component="invitationandcredit" method="reversecredit"  returnvariable="q"> </cfinvoke>
+        <div align="center">
+          <div style="width:740px;text-align:center;font-size:12px;">
+            <div style="width:738px;text-align:center;background-color:#666600;color:white;"> Your Cart Contents have been Saved. </div>
+            <cfif len(confirm_mail) and confirm_mail contains '@' >
+              <cfset mailto = confirm_mail>
+<<<<<<< HEAD
+              <cfmail server="MailA40" bcc="anup@semiprecious.com" to="#mailto#" failto="anup@semiprecious.com" from="service@semiprecious.com" subject="Shop later at semiprecious.com"  type="html">
+=======
+              <cfmail  port="25"
+>>>>>>> origin/master
   useSSL="false"
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  from="service@semiprecious.com"  to="#mailto#" failto="anup@semiprecious.com"  subject="Shop later at semiprecious.com"  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                 Your cart contents have been saved with the cartid #session.cartid#. Please use the <a href="http://www.semiprecious.com/fillcart.cfm?cartid=#session.cartid#">activate
                 cart</a> link given on the home page to continue this shopping. And you
                 can do this from any computer any place! [Link is http://www.semiprecious.com/fillcart.cfm]<br>
@@ -1321,15 +1861,69 @@ Email :#form.x_email#<br /></td>
                 <strong> Note:</strong> Saving of cart does not imply protection against
                 price revisions and stock non-availability on your return. Semiprecious.com
                 assures you of excellent quality, price and service.
+<<<<<<< HEAD
               </cfmail> <div align="left">Details of cart saved and instructions for activating it have been mailed to you. </div> <cfelse> Help instructions could not be mailed to you. If you are registered and logged in the system would e-mail you the cartid and instructions. </cfif> <div class="noticebox" align="justify"> <cfoutput> <strong> Please note the saved cartid: #session.cartid#. </strong><br> <ul> <li> To continue this shopping later you can <br> Use the <a href="http://www.semiprecious.com/fillcart.cfm">activate cart</a> link given on the right side of home page<br> http://www.semiprecious.com/fillcart.cfm?cartid=#session.cartid# </li> <li class="details"> To continue with this shopping right now click <a href="gemstone_jewelry_gallery.cfm?#session.filter#">here</a> </li> <li class="details">To make payment please specify the basic shipping instructions <a href="cart.cfm">here</a></li> </ul> <strong>Note: </strong>Saving of cart does not protect against price revisions and stock non-availability when you return to shop </div> </cfoutput></div> </div> <cfinvoke component="cartcontrol.cartmonitor" method="newcart" > <cfinvokeargument name="cartid" value="#session.cartid#"> <cfinvokeargument name="costprice" value="#inrcost#"> <cfinvokeargument name="cost" value="#amount#"> <cfinvokeargument name="tps" value="#modtps#"> <cfinvokeargument name="timestamp" value="#timestamp#"> <cfinvokeargument name="couponcode" value="saved"> <cfinvokeargument name="saleitemsno" value="#noofsalesitem#"> <cfinvokeargument name="tqty" value="#qty#"> <cfinvokeargument name="shipping" value="#shipping#|#nonUS#|#sh#|#GW#|#AOD#"> </cfinvoke> <cfelse> <cftry> <cfinvoke component="cartcontrol.cartmonitor" method="newcart" > <cfinvokeargument name="cartid" value="#session.cartid#"> <cfinvokeargument name="costprice" value="#inrcost#"> <cfinvokeargument name="cost" value="#amount#"> <cfinvokeargument name="tps" value="#modtps#"> <cfinvokeargument name="timestamp" value="#timestamp#"> <cfinvokeargument name="couponcode" value="#couponcode#"> <cfinvokeargument name="saving" value="#coupon_saving#"> <cfinvokeargument name="saleitemsno" value="#noofsalesitem#"> <cfinvokeargument name="tqty" value="#qty#"> <cfinvokeargument name="shipping" value="#shipping#|#nonUS#|#sh#|#GW#|#AOD#"> </cfinvoke> <cfcatch type="any"> <cfmail to="anup@semiprecious.com"  port="25"
+=======
+              </cfmail>
+              <div align="left">Details of cart saved and instructions for activating it have been mailed to you. </div>
+              <cfelse>
+              Help instructions could not be mailed to you.  If you are registered and logged     in the system would e-mail you the cartid and instructions.
+            </cfif>
+            <div class="noticebox" align="justify">
+            <cfoutput> <strong> Please note the saved cartid: #session.cartid#. </strong><br>
+              <ul>
+                <li> To continue this shopping later you can <br>
+                  Use the <a href="http://www.semiprecious.com/fillcart.cfm">activate   cart</a> link given on the right side of home page<br>
+                  http://www.semiprecious.com/fillcart.cfm?cartid=#session.cartid# </li>
+                <li class="details"> To continue with this shopping  right now click <a href="gemstone_jewelry_gallery.cfm?#session.filter#">here</a> </li>
+                <li class="details">To make payment please specify the basic shipping instructions <a href="cart.cfm">here</a></li>
+              </ul>
+              <strong>Note: </strong>Saving of cart does not protect against price revisions
+              and stock non-availability when you return to shop
+              </div>
+            </cfoutput></div>
+        </div>
+        <cfinvoke component="cartcontrol.cartmonitor" method="newcart" >
+        <cfinvokeargument name="cartid" value="#session.cartid#">
+        <cfinvokeargument name="costprice" value="#inrcost#">
+        <cfinvokeargument name="cost" value="#amount#">
+        <cfinvokeargument name="tps" value="#modtps#">
+        <cfinvokeargument name="timestamp" value="#timestamp#">
+        <cfinvokeargument name="couponcode" value="saved">
+        <cfinvokeargument name="saleitemsno" value="#noofsalesitem#">
+        <cfinvokeargument name="tqty" value="#qty#">
+        <cfinvokeargument name="shipping" value="#shipping#|#nonUS#|#sh#|#GW#|#AOD#">
+        </cfinvoke>
+        <cfelse>
+        <cftry>
+          <cfinvoke component="cartcontrol.cartmonitor" method="newcart" >
+                  <cfinvokeargument name="cartid" value="#session.cartid#">
+                  <cfinvokeargument name="costprice" value="#inrcost#">
+                  <cfinvokeargument name="cost" value="#amount#">
+                  <cfinvokeargument name="tps" value="#modtps#">
+                  <cfinvokeargument name="timestamp" value="#timestamp#">
+                  <cfinvokeargument name="couponcode" value="#couponcode#">
+                  <cfinvokeargument name="saving" value="#coupon_saving#">
+                  <cfinvokeargument name="saleitemsno" value="#noofsalesitem#">
+                  <cfinvokeargument name="tqty" value="#qty#">
+                  <cfinvokeargument name="shipping" value="#shipping#|#nonUS#|#sh#|#GW#|#AOD#">
+          </cfinvoke>
+          <cfcatch type="any">
+<<<<<<< HEAD
+            <cfmail to="anup@semiprecious.com"  server="MailA40" subject="Error at confirmation" from="cs@semiprecious.com">
+=======
+            <cfmail to="anup@semiprecious.com"  port="25"
+>>>>>>> origin/master
   useSSL="false"
   username="service@semiprecious.com"
   password="Prec1ou5sx@"  from="service@semiprecious.com"  subject="Error at confirmation">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
               #cfcatch.Detail#, #cfcatch.Type#,,#cfcatch.Message# ----- (tell tale sign)[credit for #session.cartid#?]
               <CFIF ISDEFINED("FORM")>
                 <CFDUMP VAR="#FORM#" />
               </CFIF>
 
+<<<<<<< HEAD
             </cfmail> </cfcatch> </cftry> <!--- Only one checkout for handmadelaptopcase --->
 			<cfif cgi.server_name contains 'handmadelaptopcase'> <form action="https://www.eProcessingNetwork.Com/cgi-bin/wo/order.pl" method="post"> <input type="hidden" name="ItemQty" value="1"> <input type="hidden" name="ItemDesc" value="invoice/CartID:<cfoutput>#session.cartid#</cfoutput>"> <input type="hidden" name="ItemCost" value="<cfoutput>#amount#</cfoutput>"> <input type="submit" value="Standard Checkout"> <input type="hidden" name="ePNAccount" value="0409369"> <input type="hidden" name="ReturnToURL" value="http://www.handmadelaptopcase.com"> <input type="hidden" name="BackgroundColor" value="White"> <input type="hidden" name="TextColor" value="Black"> </form>
 			 <!--- Display multiple checkout methods ---> <cfelse> <Br /><br /> <table 	border="0" style="margin-top:40px" cellspacing="0" cellpadding="0"> <cfif session.affil eq "share"> <tr> <td align="center" style="background-color:#DDD"><div ><font size="" color="#000099"><a name="grand_total" style="text-decoration:none;"><strong>Pay Below</strong></a></font> or <cfoutput><a href="#session.filter#&em=#confirm_mail#&dest=shop" >Continue Shopping</a></cfoutput> &nbsp;</div></td> </tr> <tr> <td  height="20"  align="center" class="greenbutton"><img src="/images/secure_lock_2.gif" width="16" height="17" style="display:inline;" border="0" vspace="0" hspace="0" align="absmiddle"> <b> Most Secure &amp; Best CREDIT CARD PAYMENT SYSTEM </b></td> </tr> <tr> <td align="center" bgcolor="#FFFFFF" class="row2b"> <table style="margin:auto" width="90%" border="0" cellpadding="0" > <tr> <td bgcolor="#FFFFFF" align="center"> <!--- this does not work if server time is not giving correct conversion to UTC. So check GMT time and tehc conversion that the code is giving. Adjust server time manually to cater for the difference ---> <cfinclude template="/authorizenet/simtoembed.cfm" /> </td>
@@ -1385,6 +1979,217 @@ Email :#form.x_email#<br /></td>
 			---> </td> </tr> <tr> <td valign=top align="right" style=""> <cfif testingpp neq ""> <cfinclude template="/authorizenet/simtoembed.cfm" /> </cfif> </cfif> </td><td>&nbsp;</td></tr> <tr> <td> </td> <td>&nbsp;</td> </tr> </table> </cfif> <cfinclude template="/mainfooter.cfm" /> <!--moved up by Anup---> <cflock scope="Session" timeout="1" type="exclusive" > <cfset session.confirmed_cartid = session.cartid /> <CFQUERY DATASOURCE="gemssql" >
 				update cartstatus set buyer = '#confirm_mail#', agentcode='#agentcode#' where cartid  = '#session.cartid#'
 		</cfquery> </cflock> <!--moved up by Anup---> <!---<cfset session.cartid = 0 />---> <!--- now the cartid will not increase on refresh but otherwise it will ---> <!--- handmade ---> </cfif> </cfif> <cfcatch type="any"> <cfmail to="anup@semiprecious.com"  server="MailA40" subject="Error at confirmation" from="cs@semiprecious.com">
+=======
+          </cfcatch>
+        </cftry>
+        <!--- Only one checkout for handmadelaptopcase --->
+        <cfif cgi.server_name contains 'handmadelaptopcase'>
+          <form action="https://www.eProcessingNetwork.Com/cgi-bin/wo/order.pl" method="post">
+            <input type="hidden" name="ItemQty" value="1">
+            <input type="hidden" name="ItemDesc" value="invoice/CartID:<cfoutput>#session.cartid#</cfoutput>">
+            <input type="hidden" name="ItemCost" value="<cfoutput>#amount#</cfoutput>">
+            <input type="submit" value="Standard Checkout">
+            <input type="hidden" name="ePNAccount" value="0409369">
+            <input type="hidden" name="ReturnToURL" value="http://www.handmadelaptopcase.com">
+            <input type="hidden" name="BackgroundColor" value="White">
+            <input type="hidden" name="TextColor" value="Black">
+          </form>
+          <cfset session.amount=amount>
+          <!--- Display multiple checkout methods --->
+          <cfelse>
+          <table width="730px;"  align="center"		border="0" style="background-color:white;" cellspacing="0" cellpadding="0">
+            <cfif session.affil eq "share">
+              <tr>
+                <td align="center" style="background-color:#DDD"><div ><font size="" color="#000099"><a name="grand_total" style="text-decoration:none;"><strong>Pay Below</strong></a></font> or <cfoutput><a href="#session.filter#&em=#confirm_mail#&dest=shop" >Continue Shopping</a></cfoutput> &nbsp;</div></td>
+              </tr>
+              <tr>
+                <td  height="20"  align="center" class="greenbutton"><img src="/images/secure_lock_2.gif" width="16" height="17" style="display:inline;" border="0" vspace="0" hspace="0" align="absmiddle"> <b> Most Secure &amp; Best CREDIT CARD PAYMENT SYSTEM </b></td>
+              </tr>
+              <tr>
+                <td align="center" bgcolor="#FFFFFF" class="row2b">
+
+				<table style="margin:auto" width="90%" border="0" cellpadding="0" >
+                    <tr>
+                      <td bgcolor="#FFFFFF" align="center">
+	    <!--- this does not work if server time is not giving correct conversion to UTC. So check GMT time and tehc conversion that the code is giving. Adjust server time manually to cater for the difference --->
+							<cfinclude template="/authorizenet/simtoembed.cfm" />
+						</td>
+                      <cfset session.amount=#decimalformat(amount)#>
+                    </tr>
+                  </table>
+				</td>
+              </tr>
+              <cfelse>
+
+              <!---   <tr>
+                  <td  height="20"  align="center" class="greenbutton"><img src="images/secure_lock_2.gif" width="16" height="17" style="display:inline;" border="0" vspace="0" hspace="0" align="absmiddle"> <b> MOST SECURE AND BEST CREDIT CARD PAYMENT SYSTEMS </b></td>
+                </tr>--->
+              <tr>
+<<<<<<< HEAD
+                <td align="center"  >
+
+             Your Cart ID is: <cfoutput> <b> #session.cartid# </b> <br>You can access it any time from:
+                          #cgi.SERVER_NAME#/myorder </cfoutput></td><td>&nbsp;</td></tr>
+=======
+                <td align="left"  >
+
+             Your Cart ID is: <cfoutput> <b> #session.cartid# </b> <br>You can access it any time from:
+                          <a href="http://#cgi.SERVER_NAME#/myorder" style="text-decoration:underline">My Orders</a> </cfoutput></td><td>&nbsp;</td></tr>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+
+                    <tr>
+                      <td style="margin:auto;width:720px" align=left valign=top colspan="2">
+					<cfif amount LT 0.1 and couponcode neq "">
+        <div id="noneedtopay" style="position:absolute;height:200px;font-color:#993333 ;font-weight:bold;font-size:16;font-face:arial">
+<<<<<<< HEAD
+				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, THANK YOU</div><p>&nbsp;<p>
+=======
+				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, THANK YOU</div><p><p>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+				   <cfmail to="semiprecioushelp@gmail.com"  server="MailA40" subject="Order Redeemed by Coupon" from="cs@semiprecious.com">
+					 FYI: Order <cfoutput>#session.cartid#</cfoutput> has redeemed a coupon, not needing payment by CC
+     			 </cfmail>
+
+				</cfif>
+				<cfif amount LT 1 and amount GT 0.1 and couponcode neq "">
+        <div id="noneedtopay" style="position:absolute;height:200px;font-color:#993333 ;font-weight:bold;font-size:16;font-face:arial">
+<<<<<<< HEAD
+				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, WE WILL TAKE ARE OF THE TINY AMOUNT LEFT IN THIS ORDER. THANK YOU</div><p>&nbsp;<p>
+=======
+				YOUR ORDER IS COMPLETE, NOTHING FURTHER TO DO, WE WILL TAKE ARE OF THE TINY AMOUNT LEFT IN THIS ORDER. THANK YOU</div><p><p>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+				   <cfmail to="semiprecioushelp@gmail.com"  server="MailA40" subject="Order Redeemed by Coupon" from="cs@semiprecious.com">
+					 FYI: Order <cfoutput>#session.cartid#</cfoutput> has redeemed a coupon, not needing payment by CC
+     			 </cfmail>
+
+<<<<<<< HEAD
+				</cfif><p>&nbsp;<p>
+=======
+				</cfif><p><p>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+					  <ul class="arrow_ul">
+                          <li><h3><a style="text-decoration:none;" name="payment"><b>Use paypal by clicking here:
+                        <cfoutput>  <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post"  style="display:inline;">
+                            <input type="hidden" name="cmd" value="_xclick">
+
+                              <input type="hidden" name="business" value="anup@semiprecious.com">
+
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="item_name" value='#session.cartid##sh##Gw#' />
+							<input type="hidden" name="invoice" value='#session.cartid#' />
+<<<<<<< HEAD
+
+=======
+<input type="hidden" name="return" value="http://www.semiprecious.com/paypalreturnurl.cfm" id="PayPalReturn" />
+<input type="hidden" name="rm" value="2" id="ReturnMethod" />
+<input type="hidden" name="notify_url" value="http://www.semiprecious.com/paypalreturn.cfm?xcartid=#session.cartid#" id="PayPalNotifyUrl" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+                            <input type="hidden" name="amount" value='#decimalformat(amount)#'>
+                            <input width="70px" type="image" src="https://www.semiprecious.com/images/paypal_logo.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                            <!--- Newly added variables--Start --->
+                            <input type="hidden" name="custom" value="#session.cartid#">
+                            <!--- Newly added variables--End --->
+                          </form></cfoutput>
+</h3>
+							 <!---As a security feature authorize.net button is <span style="color:red">valid for next 3 minutes</span> only.---> </li>
+<<<<<<< HEAD
+                        </ul></td>
+=======
+						    <!---
+						  <li><cfoutput><h3><a style="text-decoration:none;" name="payment"><b>Use Stripe by clicking here:
+						  <form action="" method="POST" style="display:inline;"><script
+							src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+							data-key="pk_live_E2JwbaR2iOLQ4eBWGRP9ITd2"
+							data-amount="#fix(amount*100)#"
+							data-name="Semiprecious jewelry"
+							data-description=""
+							data-image="/logos/logo.gif"
+
+							data-address="1"
+							data-country="1"
+							id="stripe-script">
+						  </script>		</form>	</b></a></h3> </cfoutput>
+						  </li>
+							--->
+                        </ul>
+
+                        </td>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+                    </tr>
+						  <tr>
+                      <td valign=top align="right" style="width:480px">
+<cfif testingpp neq "">
+		<cfinclude template="/authorizenet/simtoembed.cfm" />
+</cfif>
+ </td><td>&nbsp;</td></tr><tr><td>
+            <cfset session.amount=#decimalformat(amount)#>
+
+
+
+<<<<<<< HEAD
+                      &nbsp;
+                        <p> Pay Through Paypal (You do not need paypal account, you can pay by credit card also, takes Checks Also)
+                        <cfoutput>
+                          <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post"  style="display:inline;">
+                            <input type="hidden" name="cmd" value="_xclick">
+                            <cfif cgi.server_name neq "www.ornamentscollect.com">
+                              <input type="hidden" name="business" value="anup@semiprecious.com">
+                              <cfelse>
+                              <input type="hidden" name="business" value="lizzy@ornamentscollect.com">
+                            </cfif>
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="item_name" value='#session.cartid##sh##Gw#' />
+							<input type="hidden" name="invoice" value='#session.cartid#' />
+
+                            <input type="hidden" name="amount" value='#decimalformat(amount)#'>
+                            <input width="150px" type="image" src="https://www.semiprecious.com/images/paypal_logo.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                            <!--- Newly added variables--Start --->
+                            <input type="hidden" name="custom" value="#session.cartid#">
+                            <!--- Newly added variables--End --->
+                          </form>
+                          <p>
+													<!---  <cfset GoogleCart =  createObject("component","googleCheckOut/GoogleCheckout")>
+								#googleCart.CreateForm()#--->
+                        </cfoutput></td><td>&nbsp;</td>
+                    </tr>
+             
+					
+              </tr>
+            </cfif>
+
+      
+=======
+						</td><td>&nbsp;</td>
+                    </tr>
+
+
+              </tr>
+            </cfif>
+
+
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+          </table>
+        </cfif>
+        <cfinclude template="/mainfooter.cfm" />
+        </div>
+
+        <!--moved up by Anup--->
+        <cfset session.confirmed_cartid = session.cartid />
+        <CFQUERY DATASOURCE="gemssql" >
+		update cartstatus set buyer = '#confirm_mail#', agentcode='#agentcode#' where cartid  = '#session.cartid#'
+	</cfquery>
+
+        <!--moved up by Anup--->
+
+        <!---<cfset session.cartid = 0 />--->
+
+        <!--- now the cartid will not increase on refresh but otherwise it will --->
+        <!--- handmade --->
+      </cfif>
+    </cfif>
+    <cfcatch type="any">
+      <cfmail to="anup@semiprecious.com"  server="MailA40" subject="Error at confirmation" from="cs@semiprecious.com">
+>>>>>>> origin/master
         #cfcatch.Detail#, #cfcatch.Type#,,#cfcatch.Message# [credit for #session.cartid#?]
         <CFIF ISDEFINED("FORM")>
           <CFDUMP VAR="#FORM#" />
@@ -1393,6 +2198,7 @@ Email :#form.x_email#<br /></td>
 
         </CFIF>
     	<cfdump var="#cfcatch.tagcontext#" />
+<<<<<<< HEAD
       </cfmail> <cfif cfcatch.detail contains 'deadlock'> line 1424 <!--- <cflocation url="#session.cart#?country=#session.address.country_code#&msg=svrload"   />---> </cfif> <hr /> <div class="error1" style="width:800px;">An Error Occured while processing your request. This message comes up in most cases because the session was timed out for security reasons. This happens when the site sees no activity from your side for a long time. Rarely the session also expires because of server restarts. Whatever be the reason, we are sorry for the inconvenience caused.<span class="side_link"><a href="cart.cfm"> Please Try again</a></span> <br /> If the error persists you may call 1-512 589 9009 or email cs@semiprecious.com. We will take order over the phone. <br /> </div> <hr /> <cfrethrow /> </cfcatch> </cftry>
 		<!---
 			<img src="https://www.pricegrabber.com/conversion.php?retid=10080">
@@ -1428,8 +2234,72 @@ Email :#form.x_email#<br /></td>
 		</script>
 		<CFCATCH TYPE="any">
 			<cfmail to="nitishpandey@gmail.com,anup@semiprecious.com"  port="25"
+=======
+      </cfmail>
+      <cfif cfcatch.detail contains 'deadlock'>
+line 1424       <!--- <cflocation url="#session.cart#?country=#session.address.country_code#&msg=svrload"   />--->
+      </cfif>
+      <hr />
+
+      <div class="error1" style="width:800px;">An Error Occured while processing your request. This message comes up in most   cases because the session was timed out for security reasons. This happens when
+        the site sees no activity from your side for a long time. Rarely the session   also expires because of server restarts. Whatever be the reason, we are sorry
+        for the inconvenience caused.<span class="side_link"><a href="cart.cfm"> Please Try again</a></span> <br />
+        If the error persists you may  call 1-512 589 9009 or email cs@semiprecious.com.
+        We will take order over the phone. <br />
+      </div>
+      <hr />
+      <cfrethrow />
+    </cfcatch>
+  </cftry>
+
+  <!---
+<img src="https://www.pricegrabber.com/conversion.php?retid=10080">
+--->
+  <script language="javascript1.1" >
+  <!--
+ //branch for native XMLHtpRequest ojbect
+//alert('i called successfully');
+var req;
+function processReqChange()
+{
+	return;
+}
+<cfoutput>
+<cftry>
+ var url = '/cartcontrol/cartmonitor.cfc?method=testconfirm&cartid=#session.confirmed_cartid#';
+<cfcatch type="any"></cfcatch></cftry> </cfoutput>
+
+ if (window.XMLHttpRequest) {
+//alert('i called successfully');
+  req = new XMLHttpRequest();
+  req.onreadystatechange = processReqChange;
+  req.open("GET",url,true);
+  req.send(null);
+ }
+ else if ( window.ActiveXObject) {
+  	req = new ActiveXObject("Microsoft.XMLHTTP");
+	if (req) {
+			 //alert(url);
+			// req.onreadystatechange = processReqChange;
+			 req.open("GET",url,true);
+			 req.send();
+	         }
+  		   }
+
+  //-->
+  </script>
+  </body>
+  </html>
+  <CFCATCH TYPE="any">
+
+<<<<<<< HEAD
+    <cfmail to="anup@semiprecious.com" from="cs@semiprecious.com" server="MailA40" subject="Confirmation page error"  type="html">
+=======
+    <cfmail to="nitishpandey@gmail.com,anup@semiprecious.com"  port="25"
+>>>>>>> origin/master
   useSSL="false"
   from="service@semiprecious.com" subject="Confirmation page error"  type="html">
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
       <cfoutput>#cfcatch.detail#,#cfcatch.message#</cfoutput>
 
 
@@ -1491,6 +2361,7 @@ Email :#form.x_email#<br /></td>
 </cffunction>
 
 <!---
+<<<<<<< HEAD
 	<cfcatch type="Any">
 	<cfoutput>
 	<hr>
@@ -1504,3 +2375,23 @@ Email :#form.x_email#<br /></td>
 	</cfcatch>
 	</ctry>
 	--->
+=======
+<cfcatch type="Any">
+        <cfoutput>
+            <hr>
+            <h1>Other Error: #cfcatch.Type#</h1>
+            <ul>
+                <li><b>Message:</b> #cfcatch.Message#
+                <li><b>Detail:</b> #cfcatch.Detail#
+            </ul>
+        </cfoutput>
+        <cfset errorCaught = "General Exception">
+    </cfcatch>
+
+</ctry>
+<<<<<<< HEAD
+--->
+=======
+--->
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
+>>>>>>> origin/master

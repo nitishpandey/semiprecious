@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+?<cftry>
+=======
 <cftry>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <cfparam name="checkout" default="no" />
 <CFPARAM NAME="session.name" DEFAULT="#session.mail#" type="STRING" /><!--- useful for filling up the form for purchase table entries --->
 <CFPARAM NAME="nonUSA" DEFAULT="">
@@ -13,6 +17,10 @@
     <cfset tryingtodelete =  true />
 <Cfelse>
 <cfset tryingtodelete =  false />
+<<<<<<< HEAD
+
+=======
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 </cfif>
  <cfif  checkout is "yes">
         <cfset showheaderjs = 1 />
@@ -32,8 +40,14 @@
 <!--- return variable not really required because the component works directly on session variables --->
 	<cfif comingfromconfirmpage()>
 	      <cfinvoke component="cartcontrol.cartmonitor" method="new_cartid" returnvariable="_new_cartid" >
+<<<<<<< HEAD
+              </cfinvoke>
+
+        </cfif>
+=======
           </cfinvoke>
       </cfif>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
 
 <!--- end cart not empty check --->
@@ -89,7 +103,11 @@
 			<cflocation  url="/#session.cart#" addtoken="false" />
 		</cfif>
    </cfif>
+<<<<<<< HEAD
+	 
+=======
 
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
    <cfparam name="checkout" default="no" />
 <CFPARAM NAME="session.name" DEFAULT="#session.mail#" type="STRING" /><!--- useful for filling up the form for purchase table entries --->
 <CFPARAM NAME="nonUSA" DEFAULT="">
@@ -117,7 +135,10 @@
 <CFPARAM NAME="Price" DEFAULT= "0" />
 <CFPARAM NAME="category" DEFAULT= "" />
 <CFPARAM NAME="newitem" DEFAULT= "" />
+<<<<<<< HEAD
+=======
 <cfparam name="metadescription" default="" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <CFPARAM NAME="cart" DEFAULT= "" />
 <cfparam name="volumediscount" default="1" />
 <CFPARAM NAME="bought" DEFAULT="" />
@@ -184,6 +205,22 @@
 <cfset cart_msg = "" />
 <cfif bought is "buy" and newitem neq "">
 <cfset reload = false />
+<<<<<<< HEAD
+	<cfif isdefined("form.bought")>
+		<cfif not session.cartid >
+			<cfset reload= true />
+		</cfif>
+
+		<cfinvoke method="additem" attributecollection="#form#" component="cartcontrol.cartmonitor" returnvariable="added"  />
+	<cfelse>
+		<cfif not session.cartid >
+			<cfset reload= true />
+		</cfif>
+		<cfinvoke method="additem" attributecollection="#url#" component="cartcontrol.cartmonitor" returnvariable="added"  />
+	</cfif>
+    <cfif reload>
+<cflocation url="#session.cart#?country=#session.address.country_code#&cartid=#session.cartid#&nozero=1" addtoken="no" />
+=======
 	<cftry>
 			<cfif not session.cartid >
 			<cfset reload= true />
@@ -202,6 +239,7 @@
 
     <cfif reload>
 		<cflocation url="#session.cart#?country=#session.address.country_code#&cartid=#session.cartid#&nozero=1" addtoken="no" />
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	</cfif>
 
 <cftry>	<cfset what_happened = added.response.newitem.qtyadded.XmlText />
@@ -342,7 +380,11 @@ SELECT earned, newearned FROM memberinfo WHERE email='#session.mail#'
           <cfif len(session.bulkbuyer.id) and session.bulkbuyer.id neq application.wholesale_guest>
         <!---THIS CHANGED BY ANUP, BULKBUYER IS STILL IN MYSQL--->
         <!---	mysql--->
+<<<<<<< HEAD
+        
+=======
 
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                 <cfif purchaserinfo.RecordCount>
                     <cfset addressset = 1>
         	</cfif>
@@ -427,6 +469,11 @@ switch (listindex)
 
 case "USA" :
 document.cartform.SpecialHandling.options[0]=new Option("Select Shipping Method","");
+<<<<<<< HEAD
+document.cartform.SpecialHandling.options[1]=new Option("Priority Mail $5.99","5.99");
+document.cartform.SpecialHandling.options[2]=new Option("USPS Express Mail $34.99","34.99");
+
+=======
 if (document.getElementById('grandtotal').value*1 > 70)
 { document.cartform.SpecialHandling.options[1]=new Option("Free Shipping","0.00");
 document.cartform.SpecialHandling.options[2]=new Option("Priority Mail $5.99","5.99");
@@ -438,6 +485,7 @@ document.cartform.SpecialHandling.options[2]=new Option("USPS Express Mail $34.9
 
 }
 
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 break;
 
 default:
@@ -727,7 +775,11 @@ self.document.cartform.submit();
 			<cfif cgi.server_name contains 'wholesale'>
 						self.document.cartform.action="https://www.semipreciouswholesale.com/confirmation.cfm?save=1";
 			<cfelse>
+<<<<<<< HEAD
+/* TODO: Done. Nitish: make https when ssl is installed */
+=======
 
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 					self.document.cartform.action="https://www.semiprecious.com/confirmation.cfm?save=1";
 			</cfif>
 
@@ -743,7 +795,11 @@ self.document.cartform.submit();
                 	<cfoutput>location.href='/daily_deals/daily_deals.cfm###newitem#_anchor';</cfoutput>
                 <cfelse>
                 	<cfoutput>location.href='/gemstone_jewelry_gallery.cfm?#session.filter####newitem#_anchor';</cfoutput>
+<<<<<<< HEAD
+                
+=======
 
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                 </cfif>
 	return;
 	/*
@@ -752,8 +808,13 @@ self.document.cartform.submit();
 	*/
 	}
 	if(inString=='indianfranchisee'){
+<<<<<<< HEAD
+self.document.cartform.action="indianfranchisee.cfm";
+	self.document.cartform.submit();
+=======
 		self.document.cartform.action="indianfranchisee.cfm";
 		self.document.cartform.submit();
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 	return;
 	}
 }
@@ -770,7 +831,12 @@ self.document.cartform.submit();
     </div><cfinclude template="mainfooter.cfm" />
     </div>
 
+<<<<<<< HEAD
+</body>
+</html>
+=======
 
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <cfabort />
 </cfif>
 </cfif>
@@ -1440,7 +1506,11 @@ f
 				  	<tr>
                   		<td  align="right">
 
+<<<<<<< HEAD
+                        	<b>Country:</b>
+=======
                         	<b>Country</b>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                         </td>
                   		<td>
                   		<select name="x_ship_to_country" id="x_ship_to_country" onchange="javascript: dropdownlist(this.options[this.selectedIndex].value);">
@@ -1607,7 +1677,11 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
  <img src="/images/moreshopping.gif" style="margin-top:2px;border:2px gray ridge;width:120px;cursor:pointer" onClick="javascript:goProcess('buy more')" > &nbsp;
 				<font color="##799ea3" size=+1><b>OR CONTINUE CHECKOUT BELOW</b></font>
 				</TD></tr>
+<<<<<<< HEAD
+				<tr><td colspan="2" bgcolor="##799ea3" style="color:##FFFFFF" height="24px"><strong>Please Fill In Your Shipping Address <cfif IsDefined('session.mail') AND session.mail neq ''>(Same As Registered? <input type="checkbox" name="sameas" id="sameas" onClick="fnFillForm(this);" style="background-color:##603082;border-color:##603082">)</cfif></strong>
+=======
 				<tr><td colspan="2" bgcolor="##799ea3" style="color:##FFFFFF" height="24px"><strong> Your Shipping Address <cfif IsDefined('session.mail') AND session.mail neq ''>(Same As Registered <input type="checkbox" name="sameas" id="sameas" onClick="fnFillForm(this);" style="background-color:##603082;border-color:##603082">)</cfif></strong>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 </td></tr>
 
 				   <tr>
@@ -1730,8 +1804,11 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
                                     <option value="#country#">#country#</option>
                                 </cfloop> --->
                       		<option  value="" selected>Choose a Country</option>
+<<<<<<< HEAD
+=======
                               <option value="Great Britain">UNITED KINGDOM</option>
                             <option value="USA">UNITED STATES OF AMERICA</option>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                           	<option value="AL">ALBANIA</option>
                             <option value="ARUBA">ARUBA</option>
                             <option value="AUSTRALIA">AUSTRALIA </option>
@@ -1761,11 +1838,21 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
                             <option value="JAPAN">JAPAN</option>
                             <option value="KZ">KAZAKHSTAN</option>
                             <option value="LATVIA">LATVIA</option>
+<<<<<<< HEAD
+														 <option value="MALAYSIA">MALAYSIA</option>
+                            <option value="NEW ZEALAND">NEW ZEALAND</option>
+                            <option value="NETHERLANDS">NETHERLANDS</option>
+                            <option value="NORWAY">NORWAY</option>
+
+                            <option value="SOUTH KOREA">South Korea</option>
+
+=======
 			<option value="MALAYSIA">MALAYSIA</option>
                             <option value="NEW ZEALAND">NEW ZEALAND</option>
                             <option value="NETHERLANDS">NETHERLANDS</option>
                             <option value="NORWAY">NORWAY</option>
                             <option value="SOUTH KOREA">SOUTH  KOREA</option>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                             <option value="POLAND">POLAND</option>
                             <option value="PORTUGAL">PORTUGAL</option>
                             <option value="ROMANIA">ROMANIA</option>
@@ -1775,8 +1862,16 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
                             <option value="SPAIN">SPAIN</option>
                             <option value="SWEDEN">SWEDEN</option>
                             <option value="SWITZERLAND">SWITZERLAND</option>
+<<<<<<< HEAD
+                            <option value="Great Britain">UNITED KINGDOM</option>
+                            <option value="USA">UNITED STATES OF AMERICA</option>
+
+
+                            </select>
+=======
 
                         </select>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
                    		</td>
                     </tr>
               	</cfoutput>
@@ -1787,10 +1882,17 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
                 	<td  align="left" >
                     <div id="tdShipInfo">
                         <select name="SpecialHandling" id="SpecialHandling">
+<<<<<<< HEAD
+                            <option value="3.99">Please Select</option>
+
+                        </select>
+                    </div> 
+=======
                             <option value="3.99" selected>Special Handling?</option>
 
                         </select>
                     </div>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
                 	<cfinclude template="vacation.inc" />
                 	</td>
@@ -1959,6 +2061,11 @@ document.write('<select name="SpecialHandling" id="SpecialHandling"><option valu
 		 		</div>
 		 	</div>
 		</div>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 				 </cfoutput></font></td>
 				 </tr>
 
@@ -2127,12 +2234,18 @@ showing which made no sense. So put this checkout gif here and commented out the
 				document.getElementById('x_ship_to_city').value = ''
 				document.getElementById('x_ship_to_state').value = ''
 				document.getElementById('x_ship_to_zip').value = ''
+<<<<<<< HEAD
+				document.getElementById('x_ship_to_country').options[document.getElementById('x_ship_to_country').selectedIndex].text = 'Choose a Country'
+				document.getElementById('x_ship_to_country').options[document.getElementById('x_ship_to_country').selectedIndex].value = ''
+			}
+=======
 			/*TODO: nitish	This code is making us loose that country name from the drop down. So instead of doing this we should change the selected index to 0
 not change the value of the selected item
                                 document.getElementById('x_ship_to_country').options[document.getElementById('x_ship_to_country').selectedIndex].text = 'Choose a Country'
 				document.getElementById('x_ship_to_country').options[document.getElementById('x_ship_to_country').selectedIndex].value = ''
 			*/
 }
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 
 		}
 		</cfoutput>

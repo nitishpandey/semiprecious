@@ -1,5 +1,10 @@
 
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <cfif #cgi.server_name# contains "forcesofindia">
     <cfif cgi.query_string neq "">
             <cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#?#CGI.QUERY_STRING#">
@@ -108,6 +113,15 @@ Error in line 65 in gemstone.cfm
   </cfloop>
   <cfif styleids.recordcount>
 <cfsavecontent variable="ref_des"   >
+<<<<<<< HEAD
+	<div style="width:100%;position:absolute;top:0;left:0;z-index:4" align="Center">
+	<div style="width:930px;position:relative;top:0;left:0;">
+<div   id="referencitem" style="position:absolute;;top:10px;left:70px;background-color:white;padding:0px;z-index:2;">
+[   <a href="#" onClick="MM_showHideLayers('referenceitem','','show');return false;" class="headerfontsmall"><font size="-2">Show Again</font></a> ]</div>
+<div   id="referenceitem" style="position:absolute;margin-top:-20px;;top:30px;left:60px;background-color:white;padding:0px;z-index:2;">
+<table  border="0" cellspacing="0" cellpadding="0" class="component_box green">
+        <tr><Td class="form_heading">Design  you were seeing</Td></tr>
+=======
 	<div style="width:100%;position:absolute;top:0;left:0;z-index:1002" align="Center">
 	<div style="width:930px;position:relative;top:0;left:0;">
 <div   id="referencitem" style="position:absolute;;top:20px;left:70px;background-color:white;padding:0px;z-index:1002;">
@@ -115,6 +129,7 @@ Error in line 65 in gemstone.cfm
 <div   id="referenceitem" style="position:absolute;margin-top:-20px;;top:30px;left:60px;background-color:white;padding:0px;z-index:1002;">
 <table  border="0" cellspacing="0" cellpadding="0" class="component_box green">
         <tr><Td class="lookinline">Design  To Match</Td></tr>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 		<tr>
           <td align="center" bgcolor="#FFFFFF"> 
      <cfoutput>      <img src="/images/#whatcat.cat#/thumb/#url.itemid#.jpg" vspace="0" hspace="0" border="0" align="absmiddle">
@@ -366,7 +381,11 @@ background-color:##DFE;
 
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
+<<<<<<< HEAD
+<cfset currentfile='#Trim(CGI.path_info)#'>
+=======
 <cfset currentfile='#Trim(cgi.script_name)#'>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <!--- speed up things  --->
 
 <cfoutput>
@@ -526,6 +545,9 @@ background-color:##DFE;
 		
 
  <div id="semiprecious_gallery" style="float:right;margin-right:6px;;overflow:visible;position:relative;" >
+<<<<<<< HEAD
+
+=======
 <div id="lllmmm" style="width:160px;float:left;display:inline;">
 � <cfset leftgemstonedisplay="inline" />
 				<cfif color neq "" >
@@ -540,6 +562,7 @@ This Collection's Id is #styleidlist#
 </cfoutput>		
 � <CFINCLUDE TEMPLATE="leftmenus.cfm">
 � </div>�
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
   <cfif start is 1>
       <cfif session.desc_flag or 1>
   <div id="infotable"   align="justify" > 
@@ -584,7 +607,24 @@ This Collection's Id is #styleidlist#
  --->
 </div>
 
+<<<<<<< HEAD
+<div id="lllmmm" style="width:160px;float:left;display:inline;">
+  <cfset leftgemstonedisplay="inline" />
+				<cfif color neq "" >
+  					<cfset leftcolordisplay="inline" />
+					</cfif>
+				<!---	<cfif pricegreater neq 0 or priceless neq "">
+						<cfset leftpricedisplay = "inline" />
+						<span style="font-weight:bold"><cfinclude template="/includes/price_color_filter.cfm" /></span>
+					</cfif> removed because now we ave a color bar above gallery--->
+			<cfoutput query="styleids" >
+This Collection's Id is #styleidlist#
+</cfoutput>		
+  <CFINCLUDE TEMPLATE="leftmenus.cfm">
+  </div>   </td>
+=======
   </td>
+>>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
   </tr>
   <!--- <tr> <td>
     
