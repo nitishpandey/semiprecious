@@ -303,7 +303,7 @@
       	      	      		{
       	      	      		 document.getElementById('videodiv').style.display='none';
       	      	      		 }
-      	      			/ / -->
+      	      			// -->
       </script>
     <!---
 

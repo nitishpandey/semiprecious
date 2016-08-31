@@ -16,7 +16,7 @@
 		<cfset var newitem = "" />
 		<cfset var underscore = "" />
 			<CFSET var itemnumber = "" />
-
+<cfparam default="" name="designer" type="string" />
 	<cfif designer neq "" >
 			<cfset itemnumber=designer>
 			<cfset url.newitem=designer>
@@ -227,7 +227,7 @@ group by  items.newitem, items.cat, items.subcat
 	<cffunction name="init" access="public" output="false" returntype="backing_beans.bb_jewelry_item">
 		<cfargument name="callerVariables" type="struct" required="true" />
 		<cfscript>
-			structAppend(Variables,arguments.callerVariables) ;
+			//structAppend(Variables,arguments.callerVariables) ;
 		variables.listofstoneswithproperties ="AGATE,AMETHYST,BLOODSTONE,CARNELIAN,CITRINE,FLUORITE,GARNET,HEMATITE,IOLITE,JADE,JASPER,LAPIS_LAZULI,MALACHITE,MOONSTONE,MOSS_AGATE,PEARL,PERIDOT,ROSE_QUARTZ,QUARTZ,SMOKEY_QUARTZ,SMOKY_QUARTZ,SODALITE,TIGER_EYE,TOURMALINE,TURQUOISE" ;
 
     </cfscript>
