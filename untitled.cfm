@@ -931,7 +931,8 @@
                                 </cfif>
                             </cfif>
 <br>
-														<b>Shipping:</b>                            <cfif (details.inventory GT 0) or details.orderonrequest>
+														<b>Shipping:</b>
+											 <cfif (details.inventory GT 0) or details.orderonrequest>
                                 <cfif session.country is "india" >
                                     <cfif details.storageindia is 'prashant'>This item only: 10-14 Days Delivery as it is handmade, stone setting and final finishing is done once we receive the order<cfelse>Ships in 1-2 Business Days</cfif>
                                   <cfelse>
