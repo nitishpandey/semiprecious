@@ -145,6 +145,7 @@
 				groupItems = backing_bean.getGroupItems(numbershow, findGroup.groupName, category);
 			</cfscript>
 			<cfif groupitems.recordcount GT 0 and  len(findGroup.groupname)>
+				<cfelse>
 				<cfscript>
 					othercatbestsellers = backing_bean.getothercatbestsellers(subcategory, category);
 				</cfscript>
@@ -1010,7 +1011,7 @@
 						<cfset subcat3 = replace(trim(subcategory)," ","")>
 						<cfoutput>
 							<a href="/#lcase(subcat3)#_jewelry.cfm">
-								More #titlecase(subcategory)# Jewelry
+								 #titlecase(subcategory)# Jewelry
 							</a>
 						</cfoutput>
 					</cfif>
