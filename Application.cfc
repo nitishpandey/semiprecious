@@ -14,14 +14,19 @@
 	hint="Handle the application.">
 
 	<!--- Set up the application. --->
+	<CFIF cgi.server_name contains 'www.'>
+	<cfset THIS.Name = "wwwSemiprecious" />
+	<cfelse>
 	<cfset THIS.Name = "Semiprecious" />
+	</cfif>
 	<cfset THIS.ApplicationTimeout = CreateTimeSpan( 1, 2, 1, 0 ) />
 	<cfset THIS.SessionManagement = true />
 	<cfset THIS.Sessiontimeout= CreateTimeSpan( 0, 4, 30, 0 ) />
-		<cfset THIS.SetClientCookies = true />
+	<cfset THIS.SetClientCookies = true />
 
-	<cfset Application.datasource = "mq" />
-	<!--- Define the page request properties. --->
+	<!--- <cfset Application.datasource = "mq" />
+	 --->
+	 <!--- Define the page request properties. --->
 	<cfsetting
 		requesttimeout="20"
 		showdebugoutput="true"
@@ -38,8 +43,8 @@
 		<!--- lets set up the entity for post log in options --->
 		<!--- need to add application time out --->
 		<!--- TODO: How does application rerun this section once it is timed out --->
-		<cfset application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath()) />
-		<cfinclude template="includes/application_startup.cfm" />
+		<cfscript> application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
+		</cfscript><cfinclude template="includes/application_startup.cfm" />
 		<cfreturn true />
 	</cffunction>
 
@@ -47,20 +52,19 @@
 		name="OnSessionStart"
 		access="public"
 		returntype="void"
-		output="false"
+		output="true"
 		hint="Fires when the session is first created.">
 		<!--- Return out. --->
 		<cftry>
-			<cfinclude template="includes/session_start.cfm" />
-				<cfif not isdefined("session.mail")>
+			<cfinclude template="/includes/session_start.cfm" />
+			<cfif not isdefined("session.mail")>
 				<cfset session.mail = "" />
 			</cfif>
 			<cfcatch type="any">
 				<!--- we were getting error because of upcountry asps being removed. Swallowing the error for now
-					<cfdump var="#cfcatch#" />---->
-				<cfif not isdefined("session.mail")>
-					<cfset session.mail = "" />
-				</cfif>
+				---->	<cfdump var="#cfcatch#" />
+				<cfabort />
+
 			</cfcatch>
 		</cftry>
 		<cfreturn />
@@ -72,17 +76,14 @@
 		output="true"
 		hint="Fires at first part of page processing. Then OnCFC or OnRequest as the case may be.">
 		<!--- Define arguments. --->
-		<cfargument		name="TargetPage"
-			type="string"
-			required="true"
-			/>
+		<cfargument		name="TargetPage" type="string"	required="true"	/>
 		<!--- figure out the intent --->
-		<cfinclude template="includes/process_non_www.cfm" />
-
+		<cfif not isdefined("request.session_start")>
+			<cfinclude template="/includes/udf.cfm" />
+		</cfif>
 		<cfparam name='cfh' default="">
 		<cfparam name='display' default="900">
 		<cfparam name="nextshipdate" default="" />
-
 		<cfif len(cgi.QUERY_string)>
 			<cfif not isdefined("pre")>
 				<cfset pre = cgi.QUERY_STRING />
@@ -92,29 +93,38 @@
 				<cfset pre = "" />
 			</cfif>
 		</cfif>
-		<cfset session.currency = '$'>
-	<cfset session.country=''>
-	<cfset session.sale_factor = 1 />
-	<cfset session.getCountry = 'US' />
-		<cfif session.mail is "na">
-		<!--- to clean up some page that sets mail to 'na' --->
-		<cfset session.mail = "" />
-	</cfif>
-	<cfif not cgi.QUERY_STRING contains 'asd123' >
-	<cfif len(session.bulkbuyer.id)>
-		<cfset session.tld = 'semipreciouswholesale.com' />
-		<!---<cfelseif session.country is 'india'>
-			<cfset session.tld = 'semiprecious.in' />--->
-	<cfelse>
-		<cfset session.tld = 'semiprecious.com' />
-	</cfif>
+		<cfif cgi.HTTP_HOST contains 'localhost'>
+		 <cfelse>
+		<cfinclude template="includes/process_non_www.cfm" />
+		</cfif>
+<cfif not  isdefined("Application.active") or isdefined("url.resettheapplication")>
+<!--- simulate application start process --->
+	<cfscript> application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
+		</cfscript>
+<cfinclude template="/includes/application_startup.cfm" />
 </cfif>
 
+	   <cfset session.currency = '$'>
+		<cfset session.country=''>
+		<cfset session.sale_factor = 1 />
+		<cfset session.getCountry = 'US' />
+		<cfif session.mail is "na">
+			<!--- to clean up some page that sets mail to 'na' --->
+			<cfset session.mail = "" />
+		</cfif>
+		<cfif not cgi.QUERY_STRING contains 'asd123' >
+			<cfif len(session.bulkbuyer.id)>
+				<cfset session.tld = 'semipreciouswholesale.com' />
+				<!---<cfelseif session.country is 'india'>
+					<cfset session.tld = 'semiprecious.in' />--->
+			<cfelse>
+				<cfset session.tld = 'semiprecious.com' />
+			</cfif>
+		</cfif>
 		<cfloop collection="#url#" item="j">
 			<cfset form["#j#"] = urldecode(url["#j#"]) />
 		</cfloop>
 
-		<cfinclude template="/includes/udf.cfm" />
 	</cffunction>
 
 	<cffunction name="protocol" access="private">
@@ -181,9 +191,7 @@
 		<cfreturn />
 	</cffunction>
 
-	<cffunction access="private" output="false" name="LoadApplicationScope" returntype="void" hint="use url restartApplication in URL">
 
-	</cffunction>
 
 	<cffunction output="true" name="read_properties">
 		<cfif application.mode is "local">
@@ -198,19 +206,18 @@
 			</cfif>
 			<cftry>
 				<cfset application[trim(listgetat(row,1,"="))] = trim(listgetat(row,2,"=")) />
-			 <cfcatch>
-			 <cfoutput> Looks like your properties file has an error!</cfoutput>
-
-			 </cfcatch>
-			 </cftry>
-
+				<cfcatch>
+					<cfoutput>
+						Looks like your properties file has an error!
+					</cfoutput>
+				</cfcatch>
+			</cftry>
 		</cfloop>
 	</cffunction>
 
-    <cffunction name="OnMissingTemplate" access="public">
-
-
+	<cffunction name="OnMissingTemplate" access="public">
 	</cffunction>
+
 	<cffunction name="OnError"
 		access="public"
 		returntype="void"
@@ -229,6 +236,8 @@
 			default=""
 			/>
 		<!--- Return out. --->
+		He
+		<cfdump var="#session#">
 		<cfdump var='#arguments#' />
 		<cfabort />
 		<cfreturn />
