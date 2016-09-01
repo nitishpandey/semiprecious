@@ -114,7 +114,7 @@
 		<cfparam name="volumediscount" default="1" />
 		<CFPARAM NAME="bought" DEFAULT="" />
 		<CFPARAM NAME="quantity" DEFAULT="1" type="numeric" />
-		<CFPARAM NAME="j" DEFAULT=0 type="numeric" />
+		<CFPARAM NAME="j" DEFAULT=0  />
 		<CFPARAM NAME="newQty" DEFAULT="" />
 		<CFPARAM NAME="TotalQty" DEFAULT=0 type="numeric" >
 		<cfparam name="session.gallery" default="list.cfm" />

@@ -21,6 +21,7 @@
 	</cfif>
 	<cfset THIS.ApplicationTimeout = CreateTimeSpan( 1, 2, 1, 0 ) />
 	<cfset THIS.SessionManagement = true />
+	<cfset THIS.ClientManagement = true />
 	<cfset THIS.Sessiontimeout= CreateTimeSpan( 0, 4, 30, 0 ) />
 	<cfset THIS.SetClientCookies = true />
 
@@ -80,7 +81,11 @@
             required="true"
             hint="I am the template that the user requested."
 />
+<!--- if we include this in OnRequestStart, it is not visible to the target template.May be it goes out of scope. But If i include it here then it classhes
+with the include in sessionstart include of same file.  --->
+	<cfif not isdefined("request.session_start")>
 	<cfinclude template="/includes/udf.cfm" />
+	</cfif>
 	<cfinclude template="#Arguments.Template#" />
 </cffunction>
 
