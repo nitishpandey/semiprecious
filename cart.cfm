@@ -563,8 +563,7 @@ td.saleprice {
 				   return;
 			   }
 
-	 // branch
-			for native XMLHtpRequest ojbect
+	 // branch for native XMLHtpRequest object
 			//alert('i called successfully');
 			if (window.XMLHttpRequest) {
 				//alert('i called successfully');
@@ -642,8 +641,8 @@ td.saleprice {
 		}
 		function goProcess(inString) {
 			if (inString == 'Proceed to Checkout') {  <cfif cgi.server_name contains 'wholesale' > self.document.cartform.action = "https://www.semipreciouswholesale.com/confirmation.cfm?cartid=<cfoutput>#session.cartid#</cfoutput>";  <cfelseif session.country is 'india' > self.document.cartform.action = "https://www.semiprecious.com/indiaconfirmation.cfm?cartid=<cfoutput>#session.cartid#</cfoutput>";  <cfelse >
-				<!--
-				--TODO: Done.Nitish Nov 2014 make this https when ssl certification is installed--- > self.document.cartform.action = "https://www.semiprecious.com/confirmation.cfm?cartid=<cfoutput>#session.cartid#</cfoutput>";
+				<!----TODO: Done.Nitish Nov 2014 make this https when ssl certification is installed--->
+				self.document.cartform.action = "https://www.semiprecious.com/confirmation.cfm?cartid=<cfoutput>#session.cartid#</cfoutput>";
 				//BrowserDetect.init();
 				//if ( BrowserDetect.browser == "explorer"  || BrowserDetect.browser == "Explorer")
 				//		  self.document.cartform.action="http://www.semiprecious.com/confirmation.cfm?cartid=#session.cartid#";
@@ -666,14 +665,12 @@ td.saleprice {
 		if(inString=='buy more'){
 	                <cfif session.gallery contains 'gemstone.'>
 	                	<cfoutput>location.href='/gemstone.cfm ? #session.filter#';</cfoutput>
-	                <cfelseif session.gallery contains '
-				angela '>
-	                	<cfoutput>location.href=' / designer_jewelry_angela.cfm ? #session.gallery# ? #session.filter####newitem#_anchor ';</cfoutput>
-	                <cfelseif session.gallery contains '
-				daily '>
-	                	<cfoutput>location.href=' / daily_deals / daily_deals.cfm###newitem#_anchor ';</cfoutput>
+	                <cfelseif session.gallery contains 'angela '>
+	                	<cfoutput>location.href='/designer_jewelry_angela.cfm?#session.gallery#?#session.filter####newitem#_anchor ';</cfoutput>
+	                <cfelseif session.gallery contains 'daily '>
+	                	<cfoutput>location.href='/daily_deals/daily_deals.cfm###newitem#_anchor ';</cfoutput>
 	                <cfelse>
-	                	<cfoutput>location.href=' / gemstone_jewelry_gallery.cfm ? #session.filter####newitem#_anchor ';</cfoutput>
+	                	<cfoutput>location.href='/gemstone_jewelry_gallery.cfm?#session.filter####newitem#_anchor ';</cfoutput>
 
 	                </cfif>
 		return;
@@ -682,8 +679,7 @@ td.saleprice {
 		return;
 		*/
 		}
-		if(inString=='
-				indianfranchisee '){
+		if(inString=='indianfranchisee'){
 			self.document.cartform.action="indianfranchisee.cfm";
 			self.document.cartform.submit();
 		return;
@@ -700,7 +696,7 @@ td.saleprice {
 
 		</style>
 </cfsavecontent>
-		<CFINCLUDE TEMPLATE="/header#session.country#.cfm">
+		<CFINCLUDE TEMPLATE="/header.cfm">
 		<cfif tryingtodelete>
 			<cfif itemsincart.recordcount is 0>
 				<div id="container2">

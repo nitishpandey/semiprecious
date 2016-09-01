@@ -19,7 +19,7 @@
 
 						<!--- Indicator to use to decided whether or not to include udf.cfm in a request.  --->
 			    <cfset request.session_start = true />
-			   	<cfinclude template="/includes/udf#session.country#.cfm" />
+			   	<cfinclude template="/includes/udf.cfm" />
 	 				<cfscript>
 							 session.address.phone = '' ;
 							 session.address.address1 = '' ;

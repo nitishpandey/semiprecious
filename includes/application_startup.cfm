@@ -30,7 +30,7 @@
 			    application.admin_email = "acematnari@vsnl.com";
 			 	application.exch["india"] = 40 ;
 				application.exch["row"] = application.exchangerate;
-				application.silver.ornamentstones = "";
+				 application.silver.ornamentstones = "";
 				application.ornamentstones = "";
 				application.ringstones = "silver";
 	   </cfscript>

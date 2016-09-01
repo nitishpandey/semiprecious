@@ -24,6 +24,7 @@
 	<cfset THIS.Sessiontimeout= CreateTimeSpan( 0, 4, 30, 0 ) />
 	<cfset THIS.SetClientCookies = true />
 
+
 	<!--- <cfset Application.datasource = "mq" />
 	 --->
 	 <!--- Define the page request properties. --->
@@ -69,6 +70,19 @@
 		</cftry>
 		<cfreturn />
 	</cffunction>
+<cffunction name="OnRequest"
+	access="public"
+	returntype="void"
+	output="true">
+		 <cfargument
+            name="Template"
+            type="string"
+            required="true"
+            hint="I am the template that the user requested."
+/>
+	<cfinclude template="/includes/udf.cfm" />
+	<cfinclude template="#Arguments.Template#" />
+</cffunction>
 
 	<cffunction		name="OnRequestStart"
 		access="public"
@@ -78,9 +92,6 @@
 		<!--- Define arguments. --->
 		<cfargument		name="TargetPage" type="string"	required="true"	/>
 		<!--- figure out the intent --->
-		<cfif not isdefined("request.session_start")>
-			<cfinclude template="/includes/udf.cfm" />
-		</cfif>
 		<cfparam name='cfh' default="">
 		<cfparam name='display' default="900">
 		<cfparam name="nextshipdate" default="" />
@@ -94,17 +105,17 @@
 			</cfif>
 		</cfif>
 		<cfif cgi.HTTP_HOST contains 'localhost'>
-		 <cfelse>
-		<cfinclude template="includes/process_non_www.cfm" />
+		<cfelse>
+			<cfinclude template="includes/process_non_www.cfm" />
 		</cfif>
-<cfif not  isdefined("Application.active") or isdefined("url.resettheapplication")>
-<!--- simulate application start process --->
-	<cfscript> application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
-		</cfscript>
-<cfinclude template="/includes/application_startup.cfm" />
-</cfif>
-
-	   <cfset session.currency = '$'>
+		<cfif not  isdefined("Application.active") or isdefined("url.resettheapplication")>
+			<!--- simulate application start process --->
+			<cfscript>
+				application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
+			</cfscript>
+			<cfinclude template="/includes/application_startup.cfm" />
+		</cfif>
+		<cfset session.currency = '$'>
 		<cfset session.country=''>
 		<cfset session.sale_factor = 1 />
 		<cfset session.getCountry = 'US' />
@@ -124,8 +135,9 @@
 		<cfloop collection="#url#" item="j">
 			<cfset form["#j#"] = urldecode(url["#j#"]) />
 		</cfloop>
-
+		<cfreturn true />
 	</cffunction>
+
 
 	<cffunction name="protocol" access="private">
 		<cfreturn listgetat(cgi.SERVER_PROTOCOL,1,"/") />
@@ -236,7 +248,7 @@
 			default=""
 			/>
 		<!--- Return out. --->
-		He
+
 		<cfdump var="#session#">
 		<cfdump var='#arguments#' />
 		<cfabort />
