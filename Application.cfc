@@ -233,6 +233,9 @@ with the include in sessionstart include of same file.  --->
 	</cffunction>
 
 	<cffunction name="OnMissingTemplate" access="public">
+		<cfinclude template="404.cfm" />
+		<!--- if it falls through --->
+		<cfheader statuscode="404" />
 	</cffunction>
 
 	<cffunction name="OnError"
