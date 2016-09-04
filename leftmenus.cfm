@@ -74,7 +74,7 @@
 						<cfif session.country is 'india'>
 							<li><a href="/india/gemstones-jewellery.cfm" ><b><cfoutput>#titlecase(categ)#</cfoutput> by Stones</b></a>
 							<cfelse>
-            	                                        <li><a href="/rare-stones/rare-gems-jewelry.cfm" ><b><cfoutput>#titlecase(categ)#</cfoutput> by Stones</b></a>
+            	                                        <li><a href="/rare-stones/rare-gems-<cfoutput>#titlecase(categ)#.cfm" ><b>#titlecase(categ)#</cfoutput> by Stones</b></a>
                               </cfif>
                                     <CFINCLUDE TEMPLATE="/subcatvertical.cfm" />
 
