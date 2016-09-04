@@ -1,12 +1,4 @@
-<cfparam name=sortorder default="totalqtysold">
-<cfparam name=url.sortorder default="">
-<cfparam name=showSoldOut default="Yes">
-<cfif url.sortorder neq "">
-<cfset sortorder=url.sortorder>
-<cfelse><cfset url.sortorder=sortorder>
-</cfif>
-<cfset no_cookie_img_src = 'http://' & session.tld />
-<cftry>
+<!--- <cftry>
 	<cflock name="checkMemory" type="exclusive" timeout="1" throwontimeout="yes">
 		<cfset runtime = CreateObject("java","java.lang.Runtime").getRuntime()>
 		<cfset freeMemory = runtime.freeMemory() / 1024 / 1024>
@@ -16,21 +8,40 @@
 		</cfif>
 	</cflock>
 	<cfcatch type="any">
-		failed
+
 	</cfcatch>
-</cftry>
-<cfparam name="displayrows" default="1" />
-<cfparam name="displaycolumns" default="4" />
+</cftry> --->
+
+<!---- data fetch region ---->
+<cfparam name=sortorder default="totalqtysold" />
+<cfparam name=url.sortorder default="" />
+<cfparam name=showSoldOut default="Yes" />
+<cfif url.sortorder neq "">
+	<cfset sortorder=url.sortorder>
+<cfelse>
+	<cfset url.sortorder=sortorder />
+</cfif>
+
 <cfparam name="itemslist" default="" />
 
 
 
+
+<!--- start display region --->
+<cfset no_cookie_img_src = 'http://' & session.tld />
+
 <cfif not isdefined("start")>
 	<cfset start = 1 />
 </cfif>
+
+<cfparam name="displayrows" default="1" />
+<cfparam name="displaycolumns" default="4" />
+<!---- overriding logic to dynamically set display columns --->
+<cfset displaycolumns = 4 />
 <cfif not isdefined("endrow")>
 	<cfset endrow = start+displayrows*displaycolumns -1 />
 </cfif>
+
 <cfif isdefined("GetList")>
 
 	<CFLOOP QUERY="Getlist" 	startrow="#start#" endrow="#endrow#">
@@ -38,55 +49,19 @@
 	</cfloop>
 <cfelse>
 <cfset temp_list = "" />
-	<CFLOOP 	from="#start#" to="#endrow#" index="index">
+	<CFLOOP from="#start#" to="#endrow#" index="index">
               <cftry>
 					<cfset temp_list = ListAppend(temp_list, listgetat(itemslist,index)) />
             <cfcatch>
-            <!--- if we have gone beyond the list length --->
+            	<!--- if we have gone beyond the list length --->
             <cfbreak />
             </cfcatch>
             </cftry>
 	</cfloop>
-<Cfset itemslist  = temp_list />
-
-
-
-</cfif>
-
-<cfparam name="quick_add" default="1" />
-<cfif quick_add>
-	<cfset itembottom = '	</div></div>   	</div>' />
-	<cfset itemtop  = '<div class="silver_sub1" style="float:left;
-		font-size:1em;
-		margin-left:-2px;
-		margin-top:24px;
-		overflow:hidden;
-		position:relative;
-		top:1px;
-		width:150px;
-		z-index:1;">
-		<div class="silver_sub-content">' />
-<cfelse>
-	<!--- removed FOR making retail gallery look LIKE ws gallery WITH 5 columns.
-		change includes making width 146 instead OF 188px. Making displaycolumns (matters FOR pagination possibly)
-		and inclusuion OF hub_ws.css FOR retail AS well
-		<cfset itembottom = '          </div>
-		<div class="silver_subBottom" style="border-bottom:0px ##DFDFDF solid"><span></span></div>
-		</div>' /> --->
-	<cfset itembottom ="</div></div>	</div></div><!-- NO quick add-->" />
-	<cfset itemtop  = '<div class="silver_sub1" style="float:left;
-		margin-bottom:2px;
-		margin-left:1px;
-		overflow:hidden;
-		position:relative;
-		top:-5px;
-		z-index:1" >
-		<div class="silver_subTop"><span></span></div>
-		<div class="silver_sub-content">
-		<div class="silver_bottomBarTitle">' />
+	<Cfset itemslist  = temp_list />
 </cfif>
 <cfif listlen("itemslist")>
-	<cfquery name="getgallery" datasource="gemssql">
+<cfquery name="getgallery" datasource="gemssql">
 
 		    SELECT
 		        weight,
@@ -128,8 +103,44 @@
 		    ORDER BY
 		        instock, #sortorder#
 	</cfquery>
-	<div ID="silver_bottomTiles">
-<cfset itemcount =  0 />
+</cfif>
+
+
+<cfparam name="quick_add" default="1" />
+<cfif quick_add>
+	<cfset itembottom = '	</div></div>   	</div>' />
+	<cfset itemtop  = '<div class="Silver_sub1" style="float:left;
+		font-size:1em;
+		margin-left:-2px;
+		margin-top:24px;
+		overflow:hidden;
+		position:relative;
+		top:1px;
+		width:150px;
+		z-index:1;">
+		<div class="silver_sub-content">' />
+<cfelse>
+	<!--- removed FOR making retail gallery look LIKE ws gallery WITH 5 columns.
+		change includes making width 146 instead OF 188px. Making displaycolumns (matters FOR pagination possibly)
+		and inclusuion OF hub_ws.css FOR retail AS well
+		<cfset itembottom = '          </div>
+		<div class="silver_subBottom" style="border-bottom:0px ##DFDFDF solid"><span></span></div>
+		</div>' /> --->
+	<cfset itembottom ="</div></div>	</div></div><!-- NO quick add-->" />
+	<cfset itemtop  = '<div class="Silver_sub1" style="float:left;
+		margin-bottom:2px;
+		margin-left:1px;
+		overflow:hidden;
+		position:relative;
+		top:-2px;
+		z-index:1" >
+		<div class="silver_subTop"><span></span></div>
+		<div class="silver_sub-content">
+		<div class="silver_bottomBarTitle">' />
+</cfif>
+<cfif listlen("itemslist")>
+<div ID="silver_bottomTiles">
+	<cfset itemcount =  0 />
 	<cfloop query="getgallery">
 		<cfset itemCount = itemCount + 1>
 		<cfif inventory GT 0 >
@@ -189,14 +200,22 @@
 				<cfset onclick='onClick="zoom_window(#newitem#,'&"'"&'#getgallery.cat#'&"'"&',#getgallery.currentrow#,#displayrows*displaycolumns#);"' />
 			<cfelse>
 				<cfsavecontent variable="onclick">
-		href='/gem_stone_#lcase(getgallery.cat)#.cfm/#item_arra#<cfif GROUPING neq "">_#listfirst(grouping)#</cfif>.htm'
+
+		href='/gem_stone_#lcase(getgallery.cat)#.cfm/#item_arra#<cfif GROUPING neq "">_#listfirst(getgallery.grouping)#</cfif>.htm'
 				</cfsavecontent>
-			</cfif> 
-			<cfif not FileExists( "D:\home\semiprecious.com\wwwroot\images\#getgallery.cat#\thumb\#newitem#.jpg" )>
-				 	   
-      			<cfimage source="D:\home\semiprecious.com\wwwroot\images\#getgallery.cat#\#newitem#.jpg" action="resize" width="30%"
-          	height="30%" destination="D:\home\semiprecious.com\wwwroot\images\#getgallery.cat#\thumb\#newitem#.jpg" overwrite="yes">
-      		
+			</cfif>
+			<cfif not FileExists( "#application.rootfolder#\images\#getgallery.cat#\thumb\#newitem#.jpg" )>
+
+				<cfif  FileExists( "#application.rootfolder#\images\#getgallery.cat#\#newitem#.jpg" )>
+      			<cfimage source="#application.rootfolder#\images\#getgallery.cat#\#newitem#.jpg" action="resize" width="30%"
+          			height="30%" destination="#application.rootfolder#\images\#getgallery.cat#\thumb\#newitem#.jpg" overwrite="yes">
+				<cfelse>
+					<!--- <cfinvoke method="sendmail" component="backing_beans.mailer" returnvariable="mailsuccess" >
+								<cfinvokeargument name="mailto" value="stacyanup@gmail.com" />
+								<cfinvokeargument name="subject" value="image not found" />
+								<cfinvokeargument name="mailcontent" value="image #newitem# not found." />
+					</cfinvoke> --->
+ 				</cfif>
 			</cfif>
 			<a name='#newitem#_anchor'
 				style="margin-bottom:0;cursor:pointer;display:block;height:123px;overflow:hidden;overflow:x:hidden;" #onclick#	>
@@ -238,8 +257,8 @@
 				</div>
 			</div>
 			<div class="ship_box" align="center">
-				<div style="height:66px;">
-					<div class="shipping_box" id="add_msg_#newitem#" >
+				<div style="height:76px;">
+					 <div class="shipping_box" id="add_msg_#newitem#" >
 						<cfif style contains "silv">
 							Sterling Silver
 						<cfelse>
@@ -247,12 +266,13 @@
 							<!--- TO keep SPACE occupied --->
 						</cfif>
 					</div>
-					<cfif SIZE LT 100>
-						<cfif SIZE LT 0.2 AND SIZE neq 0>
-							Adjustable
-						<cfelseif SIZE neq 0  >
-							#size#
-						</cfif>
+					<cfif SIZE LT 100 >
+							<cfif SIZE LT 0.2 AND SIZE neq 0>
+								Adjustable
+							<cfelseif SIZE neq 0  >
+								#size# inches
+							</cfif>
+						 <cfif trim(size) neq "">
 							<cfif getgallery.cat IS "rings">
 										<cfif  SIZE GT 0.2 >
 											(US size)
@@ -261,14 +281,13 @@
 										</cfif>
 							<cfelseif ((getgallery.cat IS "necklaces" OR getgallery.cat IS "bracelets" OR getgallery.cat IS "bags") AND SIZE neq "") or  (
 							 (getgallery.cat IS "pendants" OR getgallery.cat IS "earrings" OR getgallery.cat IS "brooches") AND SIZE LT 5 AND SIZE neq "") or
-							 ((getgallery.cat IS "chains") AND SIZE neq "") or (SIZE neq 0 AND getgallery.cat IS "beads")>
-								in
+							 ((getgallery.cat IS "chains") AND SIZE neq "") or (SIZE neq 0 AND getgallery.cat IS "beads" AND SIZE neq "")>
+						</cfif>
+						</cfif>
 
-							</cfif>
-					<cfelse>
-						#Round(evaluate(size/25.4))#inches
+
 					</cfif>
-					<cfif weight neq "0" AND weight neq "" >
+					<!--- <cfif weight neq "0" AND weight neq "" >
 						<b>
 							#weight#
 							<cfif category IS "gems" >
@@ -277,7 +296,7 @@
 								gm
 							</cfif>
 						</b>
-					</cfif>
+					</cfif> --->
 					<!--- SOME items giving reverse equation
 						<div class="retail_price">In stores: #round_format(8.18*basecost/application.exchangerate)#</div> --->
 					<cfswitch expression="#status#">
@@ -304,8 +323,8 @@
 							<cfif NOT len(session.bulkbuyer.id)>
 								<div class="sale">
 									<span class="sale_price">
-										<span  title="Xmas sale" style="color:white;background:red">
-											<font size=-1>Xmas Sale</font>
+										<span  title="Sale" style="color:white;background:red">
+											<font size=-1>Sale</font><br>
 										</span>
 										<span class="reg_price">
 											#format(price)#
@@ -460,7 +479,7 @@
 							</form>
 						</div>
 					<cfelse>
-						<a href='/gem_stone_#lcase(getgallery.cat)#.cfm/#item_arra#.htm' class='action_button' >
+						<a #onclick# class='action_button' >
 							<cfif (inventory LTE 0) AND orderonrequest>
 								Make4U
 							<cfelse>
@@ -485,11 +504,9 @@
 				<cfelse>
 				<div style="margin-top:25px;font-family:roman"> <!--- Design #newitem# ---> </div>
 				</cfif>
-
-			#itembottom#
+				#itembottom#
 		</cfoutput>
 		<cfset numberdisplayed = getgallery.currentrow />
-		
 	    </CFLOOP>
 	</div>
 </cfif>
