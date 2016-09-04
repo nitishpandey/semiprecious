@@ -104,7 +104,12 @@
 		        instock, #sortorder#
 	</cfquery>
 </cfif>
+<cfif mobile>
+<cfset thumbdim = 150/>
+<cfelse>
+<cfset thumbdim = 120/>
 
+</cfif>
 
 <cfparam name="quick_add" default="1" />
 <cfif quick_add>
@@ -156,7 +161,7 @@
 		<cfif (inventory GT 0) OR orderonrequest>
 			<cfset status_arra = 1>
 			<cfif  len(session.bulkbuyer.id)>
-				<cfset l = 'AA2222'>
+
 				<cfset price_arra = "Wholesale: " &format(wholesaleprice)>
 			<cfelse>
 				<cfif cgi.server_name contains "semiprecious.com">
@@ -166,7 +171,7 @@
 				</cfif>
 				<cfif status IS 3>
 					<cfif  len(session.bulkbuyer.id)>
-						<cfset l = 'AA2222'>
+
 						<cfset price_arra = "Wholesale: " &format(wholesaleprice)>
 					<cfelse>
 						<CFIF getgallery.saleprice IS "" OR getgallery.Saleprice eq 0>
@@ -182,7 +187,7 @@
 		<cfelse>
 			<cfset status_arra = 0>
 			<cfif  len(session.bulkbuyer.id)>
-				<cfset l = 'AA2222'>
+
 				<cfset price_arra = "Wholesale " &format(wholesaleprice)>
 			<cfelse>
 				<cfset price_arra = "Our price "&format(price) />
@@ -217,14 +222,14 @@
 					</cfinvoke> --->
  				</cfif>
 			</cfif>
-			<a name='#newitem#_anchor'
+			<a title="See details for SKU ID #newitem# from #getgallery.cat# collection" name='#newitem#_anchor'
 				style="margin-bottom:0;cursor:pointer;display:block;height:123px;overflow:hidden;overflow:x:hidden;" #onclick#	>
 				<img style="margin-bottom:0;"
 				<cfif getgallery.cat eq 'pendants' OR getgallery.cat eq 'earrings'>
-					height=120
+					height
 				<cfelse>
-					width=120
-				</cfif>
+					width
+				</cfif>="#thumbdim#px"
 	   src='/images/#getgallery.cat#/thumb/#newitem#.jpg' title="#short_desc#" alt="#short_desc#"
 				longdesc="http://www.semiprecious.com/longdesc.cfm?newitem=#newitem#" border='0' />
 			</a>
@@ -479,13 +484,15 @@
 							</form>
 						</div>
 					<cfelse>
-						<a #onclick# class='action_button' >
+					<cfif !mobile>
+					<a title="See details for SKU ID #newitem# from #getgallery.cat# collection" #onclick# class='action_button' >
 							<cfif (inventory LTE 0) AND orderonrequest>
 								Make4U
 							<cfelse>
 								Zoom
 							</cfif>
-						</a>
+					</a>
+					</cfif>
 						<cfif (inventory LTE 0) AND orderonrequest>
 							<a href="javascript:info('aod');" >
 								<IMG SRC="/images/que.gif" />

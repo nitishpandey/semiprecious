@@ -334,8 +334,7 @@
       	<!--Original: Martin Webb(martin@irt.org) -->
       	<!--This script and many more are available free online at -->
       	<!--The JavaScript Source !! http: //javascript.internet.com -->
-      	<!--
-      	Begin
+      	<!--Begin
       	if (document.layers) window.captureEvents(Event.MOUSEDOWN);
       	if (document.layers) window.captureEvents(Event.MOUSEUP);
       	//  End -->
@@ -347,8 +346,7 @@
       	<!--Original: Martin Webb(martin@irt.org) -->
       	<!--This script and many more are available free online at -->
       	<!--The JavaScript Source !! http: //javascript.internet.com -->
-      	<!--
-      	Begin
+      	<!-- Begin
 
       	function right(e) {
       		if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)) return false;
@@ -687,7 +685,7 @@
 												</cfif>
 											</cfif>
 											<cfif details.weight neq "0" and details.weight neq "" >
-												<br>
+												<br />
 												<b>
 													Weight:
 												</b>
@@ -729,7 +727,7 @@
 							</td>
 						</tr>
 					</table>
-					</cfoutput>
+
 					<!---  <a  href="/customrequest.cfm?newitem=#newitem#&msg=modification:" ><span style="border:blue;padding:2px;background-color:yellow;color:black;font:arial;" >Customize/Modify</span></a>--->
 					<!---
 						<cfquery datasource="gemssql" name="checkcluster">
@@ -766,16 +764,12 @@
 			<!--- End main image --->
 			<!--- MOBILE --->
 			<cfif not mobile>
-		</td>
-		</cfif>
-		<!--- Right side start --->
-		<cfif not len(width)>
-			<cfoutput>
+				</td>
+				<!--- Right side start --->
 				<!--- MOBILE --->
-				<cfif not mobile>
-					<td valign="top" align="center" >
+				<td valign="top" align="center" >
 				</cfif>
-				<CFFORM ACTION="/#session.cart#?country=#session.address.country_code#&amp;secure=true&cartid=#session.cartid#" METHOD="POST" NAME="wishbuy"  style="display:inline;" > <cfif session.mail is application.admin_email> <cfif category is 'bags'> <a href="/editbags.cfm?newitem=#newitem#"  />EDIT Details</a><br /> <cfelse> <a href="/admintools/edititem.cfm?newitem=#newitem#"  />EDIT Details</a><br /> <a href="/admintools/images/makezoom.cfm?newitem=#newitem#&cat=#category#">Edit Zoom</a><br /> <cfif  isuserinrole("superadmin")><a href=/admintools/makeinactive.cfm?inactiveid=#newitem#>deactivate</a></cfif> </cfif> <!---   <cfquery datasource="sptm" name="custom_state">
+			<CFFORM ACTION="/#session.cart#?country=#session.address.country_code#&amp;secure=true&cartid=#session.cartid#" METHOD="POST" NAME="wishbuy"  style="display:inline;" > <cfif session.mail is application.admin_email> <cfif category is 'bags'> <a href="/editbags.cfm?newitem=#newitem#"  />EDIT Details</a><br /> <cfelse> <a href="/admintools/edititem.cfm?newitem=#newitem#"  />EDIT Details</a><br /> <a href="/admintools/images/makezoom.cfm?newitem=#newitem#&cat=#category#">Edit Zoom</a><br /> <cfif  isuserinrole("superadmin")><a href=/admintools/makeinactive.cfm?inactiveid=#newitem#>deactivate</a></cfif> </cfif> <!---   <cfquery datasource="sptm" name="custom_state">
 					select status, mask from custom_items where imageid = #newitem#
 					</cfquery>
 					<br />
@@ -800,7 +794,9 @@
 					Pause- Yes: <input type="RADIO" name="mask" value="Y" onClick="javascript:custom_select(#newitem#,'mask');" > <br />
 					No:                    <input type="RADIO" name="mask" value="N" onClick="javascript:custom_select(#newitem#,'unmask');" >
 					</cfif>
-					---> </cfif> <!--- End next/edit button ---> <div align="center" style="padding-top:80px"> Design Id #newitem#<br /> <CFIF price eq 0 and cgi.server_name does not contain 'wholesale'> Not for retail sale <CFELSEif cgi.server_name contains 'wholesale' and price eq 0> Not for wholesale <cfelse> <cfif status eq 0 or status eq 3 > <font color="black" > <!--- at times giving reverse equation
+					--->
+			</cfif> <!--- End next/edit button --->
+			<div align="center" style="padding-top:8<cfif not mobile>0</cfif>px"> Design Id #newitem#<br /> <CFIF price eq 0 and cgi.server_name does not contain 'wholesale'> Not for retail sale <CFELSEif cgi.server_name contains 'wholesale' and price eq 0> Not for wholesale <cfelse> <cfif status eq 0 or status eq 3 > <font color="black" > <!--- at times giving reverse equation
 					<cfif details.basecost >
 					<span style="color:gray;">Store Price
 					#round_format(8.18*details.basecost/application.exchangerate)# </span>
@@ -898,8 +894,8 @@
 					</div>
 						<cfif  category is 'rings' and cgi.server_name does not contain 'wholesale'>
 							<br />
-							<a href="http://en.wikipedia.org/wiki/Ring_size">
-								Sizing Guide
+							<a title="Read more about ring sizing" href="http://en.wikipedia.org/wiki/Ring_size">
+								Sizing Guide <br />
 							</a>
 						</cfif>
 						<input style=" <cfif not mobile>width:101px;</cfif>margin-top:6px;" class="action_button" type=submit value="Add To Cart" name="Add To Cart">
@@ -914,11 +910,11 @@
 						</font>
 						</cfif>
 						<!--- Angela --->
-						<cfif not len(width)>
+
 						<br />	<INPUT TYPE="button" id="a2w1" style="color:black; <cfif not mobile>width:100px;</cfif>margin-top:12px;border:1px gray solid;"  onClick="javascript:goProcess('Add to Wish List')" VALUE="Add To Wishlist" >
 							<!--  <a style="display:block;margin-top:14px;width:100px;height:20px;border:1px purple solid ;text-decoration:none;" class="greenbutton" accesskey="Z" href="/wish.cfm"  >See Wishlist</a>
 								-->
-						</cfif>
+
 						<!---&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=http://www.semiprecious.com/viral/tellafriend.cfm?item=#newitem#>Tell a Friend</a>--->
 						<INPUT TYPE="hidden" NAME="cart" VALUE="#session.cart#" >
 						<input type="hidden" name="invent" value="#invent#" >
@@ -927,26 +923,70 @@
 						<cfif  cgi.server_name contains 'wholesale'>
 							#decimalformat(details.wholesaleprice)#
 						<cfelse>
-							 <CFIF status is 3>
-							 #decimalformat(saleprice*session.sale_factor)#<cfelse>#decimalformat(details.price)#</cfif></cfif>" >
+							<CFIF status is 3>
+								#decimalformat(saleprice*session.sale_factor)#
+							<cfelse>
+								#decimalformat(details.price)#
+							</cfif>
+						</cfif>
+						" >
 						<INPUT TYPE="hidden" NAME="category" id="unclashcategory" VALUE="#category#" >
 						<!-- because if id was category, javascript was picking up another tag with name category  which could not be removed because that would have meant much more work-->
 						<cfelse>
-						<cfif cgi.server_name neq "63.135.126.234" >
-							Item Not Available. Need it? Email us.
+								<cfif cgi.server_name neq "63.135.126.234" >
+									Item Not Available. Need it? Email us.
+								</cfif>
 						</cfif>
-						</cfif> </CFIF> </cfif>
-
-		</CFFORM> <!--- cgi---> <!---                Shop By<br />
-			Item No.: <br />
+						</CFIF>
+						 </cfif>
+			</CFFORM
+> <!--- cgi---> <!---                Shop By<br />
+			Item No.:
+			<br />
 			<input type="text" name="nextitem" value="" size="4" maxlength="4" >
-			<INPUT TYPE="button" class="greenbutton" onClick="javascript:goProcess('Show Next')" VALUE="Show" >---> <br /> <!--- unclutter the zoom page ---> <cfif category is  "beads" and cgi.server_name contains 'wholesale'> <a href="/beads.cfm?subcat=#subcategory#" >#subcatcatcount.sccount# more #subcategory# #category#</a> <cfelseif category is 'gems'> <a href="/gems.cfm?category=#category#&subcat=#subcategory#" >more #lcase(subcategory)#<br> #lcase(category)#</a> <cfelse> <a href="/#lcase(replace(trim(details.subcat)," ",""))#_#lcase(category)#.cfm" >#subcatcatcount.sccount# more #lcase(subcategory)#<br> #lcase(category)#</a> </cfif> <br /><br /> <a href="/contactus.cfm?newitem=#newitem#&folder=#folder#" >Ask Us</a><br /> <!--- Help button ---
-			<a onClick="MM_showHideLayers('howto','','show');" style="color:maroon;margin-bottom:2px;" > ---> <a href="/contactus.cfm?newitem=#newitem#&folder=#folder#" ><img src="/images/help.gif" border="0" vspace="0" hspace="0" align="absmiddle" width="43" height="30" ></a> <!--- End help button ---> </cfoutput> <br /> </div> </div> <!-- change this to darkgreen when putting image back --> <!--- End wholesalers next image ---> <!--- MOBILE ---> <cfif not mobile> </td> </cfif> </cfif>
-		<!--- if width variable set by cfinvoke add is set to thumb then next column --->
-		<!--- End right side? --->
-		<!--- 4th column --->
-		<!--- MOBILE --->
-		<cfif not mobile>
+			<INPUT TYPE="button" class="greenbutton" onClick="javascript:goProcess('Show Next')" VALUE="Show" >
+			--->
+			<br />
+			<!--- unclutter the zoom page --->
+			<cfif category is  "beads" and cgi.server_name contains 'wholesale'>
+				<a href="/beads.cfm?subcat=#subcategory#" >
+					#subcatcatcount.sccount# more #subcategory# #category#
+				</a>
+			<cfelseif category is 'gems'>
+				<a href="/gems.cfm?category=#category#&subcat=#subcategory#" >
+					more #lcase(subcategory)#
+					<br>
+					#lcase(category)#
+				</a>
+			<cfelse>
+				<a href="/#lcase(replace(trim(details.subcat)," ",""))#_#lcase(category)#.cfm" >#subcatcatcount.sccount# more #lcase(subcategory)#
+				<br>
+				#lcase(category)#</a>
+			</cfif>
+			<br />
+			<br />
+			<a href="/contactus.cfm?newitem=#newitem#&folder=#folder#" >
+				Ask Us
+			</a>
+			<br />
+			<!--- Help button ---
+				<a onClick="MM_showHideLayers('howto','','show');" style="color:maroon;margin-bottom:2px;" > --->
+			<a href="/contactus.cfm?newitem=#newitem#&folder=#folder#" >
+				<img src="/images/help.gif" border="0" vspace="0" hspace="0" align="absmiddle" width="43" height="30" >
+			</a>
+			<!--- End help button --->
+			</cfoutput>
+			<br />
+			</div> </div>
+			<!-- change this to darkgreen when putting image back -->
+			<!--- End wholesalers next image --->
+			<!--- MOBILE --->
+			<cfif not mobile>
+				</td>
+			<!--- if width variable set by cfinvoke add is set to thumb then next column --->
+			<!--- End right side? --->
+			<!--- 4th column --->
+			<!--- MOBILE --->
 			<td align="center" >
 		</cfif>
 		<div class="form_heading">
@@ -979,7 +1019,7 @@
 					<cfif groupitems.recordcount GT 0 and  len(findGroup.groupname)>
 						<cfoutput query="groupitems" >
 							<div style="margin-top:4px;">
-								<a href=/detail.cfm?newitem=#itemid#>
+								<a href=/jewelry_item.cfm?newitem=#itemid#>
 									<img src=/images/#category#/thumb/#itemID#.jpg border=0 width=70 height=70 />
 								</a>
 							</div>
@@ -997,14 +1037,14 @@
 						</cfoutput>
 						<cfoutput query="othercatbestsellers" >
 							<div style="margin-top:4px;">
-								<a href="detail.cfm?newitem=#newitem#">
+								<a title="See details for SKU ID #newitem#"  href="jewelry_item.cfm?newitem=#newitem#">
 									<img src="/images/#othercatbestsellers.cat#/thumb/#newitem#.jpg" border="0" width="75" />
 								</a>
 							</div>
 						</cfoutput>
 						<cfset subcat3 = replace(trim(subcategory)," ","")>
 						<cfoutput>
-							<a href="/#lcase(subcat3)#_jewelry.cfm">
+							<a title="See collection in #subcat3# jewelry" href="/#lcase(subcat3)#_jewelry.cfm">
 								 #titlecase(subcategory)# Jewelry
 							</a>
 						</cfoutput>
@@ -1056,7 +1096,7 @@
 		</td>
 </tr>
 	</table>
-	<cfoutput>
+	<!--- <cfoutput>
 
 		<script language="javascript" >
 			/*
@@ -1072,7 +1112,7 @@
 				document.getElementById('quantity').focus();
 			}
 		</script>
-	</cfoutput>
+	</cfoutput> --->
 	<div  id="howto" style="padding:2px;border:4px gray solid;visibility:hidden;position:absolute;top:130px;left:220px;color:#666600;background-color:white;z-index:2; <cfif not mobile>width:300px;</cfif>" >
 		<div class="noticebox" >
 			This page helps you to add an item to your cart. Select the number of pieces (1 or more) you wish to buy from the drop down box above the 'Add to Cart' button and click on the 'Add to Cart' button. Your cart will be filled by the selected number of this design. It does not matter if the item is already there in your cart. The quantity in cart will be the number you select now.

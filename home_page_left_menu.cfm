@@ -183,17 +183,19 @@ Select distinct stone as subcat2 from  stonelistpopular<cfif category neq 'beads
 									<cfif style neq "">
 				<li><a href='/#subcat3#_#categ#.cfm?style=#style#' id="#subcat2#" > <cfelse> <li><a href="/#lcase(subcat3)#_#categ#.cfm" id="#subcat2#" > </cfif> <cfelse> <li><a href='/#subcat3#_#category#.cfm<cfif style neq "">?style=#style#</cfif>' id="#subcat2#" > </cfif> #subcat2# </a></li> <cfelse> <cfif category eq "" or category eq "ALL" or category eq "jewelry"> <cfif style neq ""> <li><a  href='/#subcat3#_jewelry.cfm?style=#style#' id="#subcat2#" > <cfelse> <cfif cgi.server_name contains 'wholesale'> <li><a href="/#lcase(subcat3)#_jewelry.cfm" id="#subcat2#" > <cfelse> <li><a href="/#lcase(subcat3)#.cfm" id="#subcat2#" > </cfif> </cfif> #subcat2#<cfif style neq "">-#style#</cfif></a></li> <cfelse> <li><a  href='/#subcat3#_#category#.cfm' id="#subcat2#" > #subcat2#</a></li> </cfif> </cfif> </CFIF> </cfloop>
 				<li>
-					<a title="Jewelry Catalogue In Semiprecious Gemstones" href=/rare-stones/rare-gems-<cfoutput>#categ#</cfoutput>.cfm>In Other Gemstones</a>
+					<a title="Jewelry Catalogue In Semiprecious Gemstones" href=/rare-stones/rare-gems-<cfoutput>#categ#</cfoutput>.cfm>See Other Gemstones</a>
 				</li>
+				<cfif mobile>
 				<li>
-					<cfoutput><cfloop list="necklaces,rings,brooches,pendants,bracelets,cufflinks" index="listCategory" >
+					<cfoutput><cfloop list="#Application.cat_list#" index="listCategory" >
 
-					<a title="#listCategory# Catalogue In Many Semiprecious Gemstones" href=/#listCategory#.cfm>#listCategory#</a>
+					<a title="#listCategory# Catalogue In Many Semiprecious Gemstones" style="text-transform:capitalize" href=/#listCategory#.cfm>#listCategory#</a>
 
 					</cfloop>
 				</cfoutput>	<!---<cfif category eq "" or category eq "ALL">--->
 
 				</li>
+				</cfif>
 			</ul>
 			<!---</cfif>--->
 		</cfoutput>
