@@ -48,6 +48,7 @@
 <cfparam name="screensize" default="big">
 <cfparam name="style" default="" />
 <cfparam name="url.style" default="">
+<cfparam name="P" default="jewelry" />
 
 
 <cfif cgi.server_name contains "handmadelaptopcase.com">
