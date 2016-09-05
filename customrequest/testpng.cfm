@@ -55,6 +55,13 @@
 				width: 3px;
 				height: 3px;
 			}
+
+			#texture {
+			display:block;
+			}
+			#hue {
+			display:block;
+			}
     </style>
 
 <script type="text/javascript" src="../imagejs/Base64.js"></script>
@@ -97,18 +104,14 @@
 	 }
 	}
  function change_stone(a,b,c) {
- if (b.length)
+ 	changecss(a,'opacity',c);
+
+	if (b.length)
    {
-	 	changecss(a,'opacity',c);
-		changecss(a,'background-color',b);
+	 	changecss(a,'background-color',b);
 
    }
-   else
-   {
-	changecss(a,'opacity',c);
-
-   }
-   return;
+     return;
  }
 <!-- Begin
 	<cftry>
@@ -121,7 +124,7 @@
 				</cfscript>
 		<!--- 		<cfhttp url="http://www.semiprecious.com/customrequest/png.php" />
 				<cfset b = trim(cfhttp.filecontent) /> --->
-			var gravatr = '#b#';
+			var original = '#b#';
 <cffile action = "readBinary" file = "#application.rootfolder#customrequest/images/custom#urldecode(url.image)#.png" variable = "aBinaryObj" charset="utf-8"   >
 				<cfscript>
 				b = BinaryEncode(aBinaryObj, 'Base64');
@@ -129,12 +132,12 @@
 				</cfscript>
 		<!--- 		<cfhttp url="http://www.semiprecious.com/customrequest/png.php" />
 				<cfset b = trim(cfhttp.filecontent) /> --->
-			var gravatar = '#b#';
+			var custom = '#b#';
 	</cfoutput>
 
 	<cfcatch type="any">
 	Image not customizable.
-		var gravatar = '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';
+		var custom = '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';
 </cfcatch>
 	</cftry>
 
@@ -201,8 +204,8 @@
     }
     else
     {
-        var i = Math.floor(hue * 6);
-        var f = (hue * 6) - i;
+        var i = Math.floor(hue * 5.8);
+        var f = (hue * 5.8) - i;
         var p = value * (1 - saturation);
         var q = value * (1 - (saturation * f));
         var t = value * (1 - (saturation * (1 - f)));
@@ -275,28 +278,28 @@ var stone_col, stone_row;
 	var various_colors = Array();
 	var cols_for_class = Array();
 	var class_in_row = Array();
-function show(data,data2){
+
+function show(custom,original){
 
 	//	document.getElementById('nativeimage').src = 'data:image/png;base64,' + data;
 	//
 
 //	document.getElementById('nativeimage').src = document.getElementById('place').firstChild.src;
-	<cfoutput>document.getElementById('nativeimage').src = "images/#url.image#.png" ;</cfoutput>
+	<cfoutput>
+		document.getElementById('nativeimage').src = "images/#url.image#.png" ;</cfoutput>
 
-	var png = new PNG(data);
+	var custom = new PNG(custom);
 
-	var png2 = new PNG(data2);
+	var original = new PNG(original);
 
-	var simg = document.getElementById('texture');
-	var simg2 = document.getElementById('hue');
-	simg.innerHTML = '';
-	simg2.innerHTML = '';
+	var texture = document.getElementById('texture');
+	var hue = document.getElementById('hue');
+	texture.innerHTML = '';
+	hue.innerHTML = '';
 	//	limg.innerHTML = '';
-	simg.style.width = png.width + 'px';
-	simg.style.height = png.height + 'px';
+	texture.style.width =hue.style.width  = custom.width + 'px';
+	texture.style.height = hue.style.height = custom.height + 'px';
 
-	simg2.style.width = png.width + 'px';
-	simg2.style.height = png.height + 'px';
 	var line;
 	kd = 1;
 	var min_ = 1010010;
@@ -305,15 +308,19 @@ function show(data,data2){
 	//  for that many groups find new_stone
 	// if not 'same' then get name
 	// with name use an associative array to get red green blue
-<cfset url.red = 255 />
-<cfset url.blue = 255 />
-<cfset url.green = 255 />
-<cfoutput>	 rtogd = #url.red#/#url.green# ;
+<cfparam name="url.red" default= 245 />
+<cfparam name="url.green" default= 245 />
+<cfparam name="url.blue" default= 245 />
+
+<cfoutput>
+	<!---
+ rtogd = #url.red#/#url.green# ;
 	 rtobd = #url.red#/#url.blue#;
 	 gtobd = #url.green#/#url.blue#;
 	 btogd = #url.blue#/#url.green#;
-	hsv = rgbToHsv(#url.red#,#url.green#,#url.blue#);
-    yellowh = rgbToHsv(240,240,190).h;
+ --->
+	 whitehsv = rgbToHsv(#url.red#,#url.green#,#url.blue#);
+ //   yellowh = rgbToHsv(240,240,190).h;
 </cfoutput>
 	var br = 0;
 	var top0 = -1 ;
@@ -326,14 +333,15 @@ function show(data,data2){
 	group1_h = 0.833;
 	group2_h= 0.614;
       var groups = [16851,6022893,16711935];
-	  	while(line = png.readLine())
+	var px = "";
+	while(line = custom.readLine())
 	{
-	  line2 = png2.readLine();
+	  line2 = original.readLine();
 		   prev = false;
 		for (var x = 0; x < line.length; x++){
           	pixel_count += 1;
-		   	top1 = Math.floor(pixel_count/png.width);
-		   left1 = (pixel_count % png.width)-1;
+		   	top1 = Math.floor(pixel_count/custom.width);
+		   left1 = (pixel_count % custom.width)-1;
 		   if (top1 != top0)
 		      {
 		   	if (change == 1)
@@ -357,7 +365,7 @@ function show(data,data2){
 			 // what is the hue?
 			 oldhsv = rgbToHsv(rd,gd,bd);
 
-		if (  (newcolor == groups[0]) || newcolor == groups[1]|| newcolor == groups[2])
+		if (  (newcolor == groups[0]) || (newcolor == groups[1]) || (newcolor == groups[2]))
 
 		//((newcolor > 17822064) && (newcolor < 17834064)) || ((newcolor < 16800) &&(newcolor > 16527))
 		// if (   ( newcolor*1 >16421 && newcolor*1 < 17200) || ( newcolor*1 >16711900 && newcolor*1 < 16712000) )
@@ -369,7 +377,7 @@ function show(data,data2){
 			 _dgb = Math.abs(gd - bd);
 			 // is it non-silver and non-background
 
-				var px = document.createElement('div');
+				 px = document.createElement('div');
 				  if (col0 == 0)
 			    	  {
 			      		col1 = col1+1;
@@ -378,11 +386,11 @@ function show(data,data2){
 				      	class_in_row[top1].push(k);
 				    	cols_for_class[k] = Array();
 
-						 px2 = document.createElement('div');
+						px2 = document.createElement('div');
 						px2.style.top = top1;
 						px2.style.left = left1;
 						px2.backgroundPosition="0 " + top1 ;
-						simg2.appendChild(px2);
+						hue.appendChild(px2);
 			    	  }
 			          else
 					   {
@@ -420,22 +428,45 @@ function show(data,data2){
 			if (t != various_colors[various_colors.length-1])
 			     various_colors.push(t);
 			 oldhsv = rgbToHsv(rd,gd,bd);
+			 // if it is near dark then keep whitening factor high
+			 // if rd/gd is nearly rd/bd and rd is LT 20
+			 whitener = 0.95;
+			  if (gd != 0 && bd != 0)
+			  {
+			  if((rd < 50) && (((rd/gd - rd/bd) < 0.25) && (rd/gd - rd/bd) > -0.25) )
+			  {
+			  whitener = 0.90;
+
+		   	  }
+		   	  if((rd > 240) && (((rd/gd - rd/bd) < 0.25) && (rd/gd - rd/bd) > -0.25))
+			  {
+			  whitener = 0.975;
+
+		   	  }
+		   	  }
 		   	 //alert(newhsv.h);
 		     // create new rgb using desired hue and old s and v
-//		     newrgb = hsvToRgb(hsv.h,oldhsv.s,oldhsv.v); // hsv.h + oldhsv.s + oldhsv.v gives okay for most colors but not for black or white.
-	 	    newrgb = hsvToRgb(hsv.h, hsv.s,1.15*oldhsv.v); // hsv.h + hsv.s + oldhsv.v makes black give white (crystal)
+//		     newrgb = hsvToRgb(whitehsv.h,oldhsv.s,oldhsv.v); // hsv.h + oldhsv.s + oldhsv.v gives okay for most colors but not for black or white.
+//original
+//	 	    newrgb = hsvToRgb(whitehsv.h, whitehsv.s,1.15*oldhsv.v); // hsv.h + hsv.s + oldhsv.v makes black give white (crystal)
+//Makes Texture red!
+//	 	    newrgb = hsvToRgb(whitehsv.h, oldhsv.s,0.95*oldhsv.v); // hsv.h + hsv.s + oldhsv.v makes black give white (crystal)
+
+	 	    newrgb = hsvToRgb(whitehsv.h, whitehsv.s,whitener*oldhsv.v); // hsv.h + hsv.s + oldhsv.v makes black give white (crystal)
+// PRETTY GOOD
+// newrgb = hsvToRgb(whitehsv.h, (whitehsv.s+0.2*oldhsv.s)/1.2,0.95*oldhsv.v); // hsv.h + hsv.s + oldhsv.v makes black give white (crystal)
 
 		     //alert(newrgb.r);
-		     //conver to new decimal values
+		     //convert to new decimal values
 		     rdn = Math.floor(newrgb.r);
 		     bdn = Math.floor(newrgb.b);
 		     gdn = Math.floor(newrgb.g);
 
 			px.style.backgroundColor  = 'rgb(' + rdn +','+ gdn +','+ bdn+')';
-				simg.appendChild(px);
+				texture.appendChild(px);
 
 
-				     }	else {
+		}	else {
 
 				           col0 = 0;
 				     		if (top1 != top0)
@@ -444,7 +475,8 @@ function show(data,data2){
 
 			}
 	if (br == 1)
-	break;	}
+	break;
+	}
  }
 
 var IE = document.all?true:false;
@@ -471,10 +503,11 @@ return true;
 //  End -->
 </script>
 </head>
-<body onLoad="show(gravatar,gravatr);">
+<body onLoad="show(custom,original);">
 	The image converted to binary data and shown here using base64 data:
 	<cftry>
-		<div id="place" style="display:none;"><cfimage action="writetobrowser" source="#aBinaryObj#" />
+		<div id="place" style="display:none;">
+	<!--- 		<cfimage action="writetobrowser" source="#aBinaryObj#" /> --->
 </div>
 <cfoutput><br />2. Dumping the data in HTML Tag:<br /><br />
 <div style="position:relative;top:20;left:30;">
