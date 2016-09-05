@@ -4,7 +4,7 @@
      <cfargument name="Data" type="query" required="yes" />
      <cfargument name="size" type="numeric" required="no" default="0" />
      <cfargument name="start" type="numeric" required="no" default="1" />
-    
+
 <cfif not arguments.size>
 	<cfset arguments.size = data.recordcount />
 </cfif>
@@ -12,31 +12,31 @@
      <cfscript>
      // Define the local scope.
      var LOCAL = StructNew();
-    
+
 
      // Get the column names as an List.
-    
+
 
      // Create an List that will hold the query equivalent.
      LOCAL.QueryList = "";
-    
+
 
      // Loop over the query.
      for (LOCAL.RowIndex = Arguments.start ; LOCAL.RowIndex LTE  (Arguments.start + Arguments.size -1) AND  (LOCAL.RowIndex LTE  Arguments.data.recordcount) ; LOCAL.RowIndex = (LOCAL.RowIndex + 1))
      {
    Local.QueryList = ListAppend( LOCAL.QueryList, Arguments.data[listgetat(Arguments.data.Columnlist,1)][Local.rowindex]);
          }
-    
-  
+
+
      // Return the List equivalent.
      return( LOCAL.QueryList );
-    
+
 
      </cfscript>
-     </cffunction> 
+     </cffunction>
 	<cffunction name="get_color_codes" access="package" output="false" returntype="string" >
 		<cfquery datasource="sptm" name="cc">
-			select color_code from stone_color_codes 
+			select color_code from stone_color_codes
 		</cfquery>
 <cfinvoke method="querytolist" component="custom" returnvariable="color_list"  >
   <cfinvokeargument name="Data" value="#cc#" />
@@ -59,7 +59,7 @@
 		<!--- TODO: Implement Method --->
 		<cfreturn />
 	</cffunction>
-	
+
 
 	<cffunction name="get_stone_IHS" access="package" output="false" returntype="Array">
 		<cfargument name="stone_name" type="String" required="false" />
@@ -87,7 +87,7 @@ select mask,status from custom_items where imageid = #arguments.itemid#
 </cfif>
 
 	<cfif not len(arguments.status)>
-		<cfset result = '#custom_state.status#, #custom_state.mask#' />	
+		<cfset result = '#custom_state.status#, #custom_state.mask#' />
 		<cfreturn result />
 	</cfif>
 
@@ -95,7 +95,7 @@ select mask,status from custom_items where imageid = #arguments.itemid#
 
 <cfswitch expression="#arguments.status#">
 <cfdefaultcase>
-Nothing to do 
+Nothing to do
 </cfdefaultcase>
 <cfcase value="initiated">
 	<cfif custom_state.recordcount>
@@ -106,7 +106,7 @@ Nothing to do
 	    </cfif>
 
     <cfelse>
-  
+
         <cfquery datasource="sptm" name="custom_state">
             insert into custom_items (imageid,status,mask,category,dateofupdate,selected_by) values (#arguments.itemid#,'initiated','N','#Arguments.category#','#dateformat(now(),'yyyy-mm-dd')#','#session.apptt#')
         </cfquery>
@@ -128,7 +128,7 @@ Nothing to do
              <cfquery datasource="sptm" name="custom_state"><!--- so that we go only one stage back --->
                 update custom_items set status = 'layered' where imageid = #arguments.itemid#
             </cfquery>
-	 </cfif> 
+	 </cfif>
   </cfif>
 </cfcase>
 
@@ -138,7 +138,7 @@ Nothing to do
              <cfquery datasource="sptm" name="custom_state"><!--- so that we go only one stage back --->
                 update custom_items set status = 'metadata' where imageid = #arguments.itemid#
             </cfquery>
-	 </cfif> 
+	 </cfif>
   </cfif>
 </cfcase>
 
@@ -198,7 +198,7 @@ Nothing to do
             insert into custom_items (imageid,status,mask,category,dateofupdate,selected_by) values (#arguments.itemid#,'initiated','N','#Arguments.category#','#dateformat(now(),'yyyy-mm-dd')#','#session.apptt#')
 	      </cfquery>
 			<cfset return_value = 'N , selected' />
-          
+
 
     </cfif>
 	</cfcase>
