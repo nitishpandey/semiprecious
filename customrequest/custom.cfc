@@ -35,6 +35,9 @@
      </cfscript>
      </cffunction>
 	<cffunction name="get_color_codes" access="package" output="false" returntype="string" >
+		<cfset color_codes = '16851,65535,16711935,16763904' />
+         <cfreturn color_codes />
+		<!--- We can consider storing them in a table --->
 		<cfquery datasource="sptm" name="cc">
 			select color_code from stone_color_codes
 		</cfquery>
