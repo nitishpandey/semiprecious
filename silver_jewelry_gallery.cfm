@@ -142,7 +142,7 @@
 								<cfif len(trim(subcat)) >
 									<cfset subcat3 = replace(trim(replace(trim(subcat),"_",""))," ","")>
 									<img src="/images/dots1.gif" style="display:inline;" />
-									<a href="/#subcat3#.cfm" id="jewelry" title="jewelry in #subcat# gem stone">
+									<a href="/#subcat3#.cfm" id="jewelry" title="Jewelry in #subcat# gem stone">
 										#subcat# home
 									</a>
 									&nbsp;&nbsp;&nbsp;
@@ -405,7 +405,10 @@
 										</cfif>
 										<cfset quick_add = session.quick_add />
 										<!--- The gallery engine takes the data and lays out the main gallery area --->
-										<div style="margin-top:14px;margin-left:20px;float:left;">
+										<div style="margin-top:10px;margin-left:<cfif mobile>4px<cfelse>20px</cfif>;float:left;">
+											<cfif mobile>
+												<cfset url.mobile = mobile>
+											</cfif>
 											<cfcache action="servercache" usequerystring="true"    >
 												<cfinclude template="/includes/exhibit_designs.cfm" />
 											</cfcache>
