@@ -187,7 +187,8 @@ Select distinct stone as subcat2 from  stonelistpopular<cfif category neq 'beads
 				</li>
 				<cfif mobile>
 				<li>
-					<cfoutput><cfloop list="#Application.cat_list#" index="listCategory" >
+					<cfoutput>
+						<cfloop list="#Application.cat_list#" index="listCategory" >
 
 					<a title="#listCategory# Catalogue In Many Semiprecious Gemstones" style="text-transform:capitalize" href=/#listCategory#.cfm>#listCategory#</a>
 
@@ -195,7 +196,19 @@ Select distinct stone as subcat2 from  stonelistpopular<cfif category neq 'beads
 				</cfoutput>	<!---<cfif category eq "" or category eq "ALL">--->
 
 				</li>
+
+
 				</cfif>
+				<li>
+					<cfoutput>
+						<cfloop list="#Application.color_list#" index="listColor" >
+
+					<a title="Catalogue In Sterling Silver and  #listColor# Semiprecious Gemstones" style="text-transform:capitalize" href="/#listColor#-gemstone-jewelry.cfm">#listColor#</a>
+
+					</cfloop>
+				</cfoutput>	<!---<cfif category eq "" or category eq "ALL">--->
+
+				</li>
 			</ul>
 			<!---</cfif>--->
 		</cfoutput>

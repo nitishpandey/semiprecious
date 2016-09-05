@@ -33,7 +33,7 @@
 		<li><a href="/" ><b>Home</b></a></li>
 		</cfif>
 
-	      <cfif session.country neq 'india'>
+
             	<li><a href="#" ><b><cfoutput>#titlecase(categ)#</cfoutput> by Price</b></a>
                 	<ul><li>
                              <ul>
@@ -51,24 +51,8 @@
                     </li>
                    </ul>
                 </li>
-             <cfelseif session.country is "india">
-            	<cfoutput>
-            		<li><a href="##" ><b>#categ# by Price</b></a>
-                        	<ul><li><a href="##">Price</a>
-                                                <ul>
-                                                    <li><a href="/gemstone_jewelry_gallery.cfm?pricegreater=#(0/application.exch['india'])#&priceless=#(500/application.exch['india'])#&category=#categ#">
-                                                    Upto Rs 500
-                                                </a></li>
-                                    <li><a href="/gemstone_jewelry_gallery.cfm?pricegreater=#(500/application.exch['india'])#&priceless=#(1250/application.exch['india'])#&category=#categ#">Rs 500 to Rs 1250</a></li>
-                                    <li><a href="/gemstone_jewelry_gallery.cfm?pricegreater=#(1000/application.exch['india'])#&priceless=#(2500/application.exch['india'])#&category=#categ#">Rs 1000 to Rs 2500</a></li>
-                                    <li><a href="/gemstone_jewelry_gallery.cfm?pricegreater=#(2000/application.exch['india'])#&priceless=#(5000/application.exch['india'])#&category=#categ#">Rs 2000 to Rs 5000</a></li>
-                                    <li><a href="/gemstone_jewelry_gallery.cfm?pricegreater=#(5000/application.exch['india'])#&priceless=#(20000/application.exch['india'])#&category=#categ#">Above Rs 5000</a></li>
-                                            </ul>
-                                </li>
-                    </ul>
-                    </li>
-                </cfoutput>
-            </cfif>
+
+
 
             <cfif category neq 'gems'>
 						<cfif session.country is 'india'>
@@ -89,7 +73,7 @@
 
             <cfoutput>
 
-                <li><a href="##" ><b><cfoutput>#titlecase(categ)#</cfoutput> by Color</b></a>
+                <li><a href="##" ><b>#titlecase(categ)# by Color</b></a>
 
                     	<ul><li>
                             	<ul>
@@ -104,7 +88,6 @@
                             </li>
                     </ul>
                 </li>
-
             </cfoutput>
 			<li><a href="/latest-<cfoutput>#titlecase(categ)#</cfoutput>.cfm" ><b>New <cfoutput>#titlecase(categ)#</cfoutput></b></a></li>
 			  <li><a href="/backinstock.cfm" ><b>Back In Stock</b></a></li>

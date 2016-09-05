@@ -142,55 +142,55 @@
 								<cfif len(trim(subcat)) >
 									<cfset subcat3 = replace(trim(replace(trim(subcat),"_",""))," ","")>
 									<img src="/images/dots1.gif" style="display:inline;" />
-									<a href="/#subcat3#.cfm" id="jewelry" title="jewelry from this stone">
+									<a href="/#subcat3#.cfm" id="jewelry" title="jewelry in #subcat# gem stone">
 										#subcat# home
 									</a>
 									&nbsp;&nbsp;&nbsp;
 									<img src="/images/dots1.gif" style="display:inline;" />
 									<cfif listfindnocase(Application.cufflinkstones,subcat)>
-										<a href="/#subcat3#_cufflinks.cfm" id="cufflinks_horiz" title="cufflinks of this stone">
+										<a href="/#subcat3#_cufflinks.cfm" id="cufflinks_horiz" title="cufflinks of #subcat# stone">
 											#subcat# cufflinks
 										</a>
 										&nbsp;
 										<img src="/images/dots1.gif" style="display:inline;" />
 									</cfif>
 									<cfif listfindnocase(Application.necklacestones,subcat)>
-										<a href="/#subcat3#_necklaces.cfm" id="necklaces_horiz" title="more necklaces in this stone">
+										<a href="/#subcat3#_necklaces.cfm" id="necklaces_horiz" title="more necklaces in #subcat# stone">
 											#subcat# necklaces
 										</a>
 										&nbsp;
 										<img src="/images/dots1.gif" style="display:inline;" />
 									</cfif>
 									<cfif listfindnocase(Application.Braceletstones,subcat)>
-										<a href="/#subcat3#_bracelets.cfm" id="bracelets_horiz" title="click for bracelets in this collection">
+										<a href="/#subcat3#_bracelets.cfm" id="bracelets_horiz" title="click for bracelets in #subcat# collection">
 											#subcat# bracelets
 										</a>
 										&nbsp;
 										<img src="/images/dots1.gif" style="display:inline;" />
 									</cfif>
 									<cfif listfindnocase(Application.ringstones,subcat)>
-										<a href="/#subcat3#_rings.cfm" id="rings_horiz" title="see rings in this semiprecious stone">
+										<a href="/#subcat3#_rings.cfm" id="rings_horiz" title="see rings in #subcat# semiprecious stone">
 											#subcat# rings
 										</a>
 										&nbsp;
 										<img src="/images/dots1.gif" style="display:inline;" />
 									</cfif>
 									<cfif listfindnocase(Application.earringstones,subcat)>
-										<a href="/#subcat3#_earrings.cfm" id="earrings_horiz" title="see earrings in this semiprecious stone">
+										<a href="/#subcat3#_earrings.cfm" id="earrings_horiz" title="see earrings in #subcat# semiprecious stone">
 											#subcat# earrings
 										</a>
 										&nbsp;
 										<img src="/images/dots1.gif" style="display:inline;" />
 									</cfif>
 									<cfif listfindnocase(Application.pendantstones,subcat)>
-										<a href="/#subcat3#_pendants.cfm" id="pendants_horiz" title="pendants of this stone">
+										<a href="/#subcat3#_pendants.cfm" id="pendants_horiz" title="pendants of #subcat# gem stone">
 											#subcat# pendants
 										</a>
 										&nbsp;
 										<img src="/images/dots1.gif" style="display:inline;" />
 									</cfif>
 									<cfif listfindnocase(Application.beadstones,subcat)>
-										<a href="/#subcat3#_beads.cfm" id="beads_horiz" title="beads of this stone">
+										<a href="/#subcat3#_beads.cfm" id="beads_horiz" title="beads of #subcat# gem stone">
 											#subcat# beads
 										</a>
 										&nbsp;
@@ -198,27 +198,27 @@
 									</cfif>
 								<cfelseif  color neq "">
 									<img src="/images/arrow_right.gif" style="display:inline;" border="0" hspace="0" vspace="0" align="absmiddle"  title="jewelry gemstone selection" width="15" height="15" />
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=pendants" id="pendants_horiz">
+									<a title="Pendants collection in #color# and sterling silver" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=pendants" id="pendants_horiz">
 										#color# Pendants
 									</a>
 									&nbsp;
 									<img src="/images/dots1.gif" style="display:inline;" />
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=rings" id="rings_horiz">
+									<a title="rings collection in #color# and sterling silver" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=rings" id="rings_horiz">
 										#color# Rings
 									</a>
 									&nbsp;
 									<img src="/images/dots1.gif" style="display:inline;" />
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=Earrings" id="earrings_horiz">
+									<a title="Earrings collection in #color# and sterling silver" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=Earrings" id="earrings_horiz">
 										#color# Earrings
 									</a>
 									&nbsp;
 									<img src="/images/dots1.gif" style="display:inline;" />
-									<a href="/gemstone_jewelry_gallery.cfm?color=#color#&category=Bracelets&sortorder=#urlencodedformat(sortorder)#" id="bracelets_horiz">
+									<a title="Bracelets collection in #color# and sterling silver"  href="/gemstone_jewelry_gallery.cfm?color=#color#&category=Bracelets&sortorder=#urlencodedformat(sortorder)#" id="bracelets_horiz">
 										#color# Bracelets
 									</a>
 									&nbsp;
 									<img src="/images/dots1.gif" style="display:inline;" />
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=Necklaces" id="necklaces_horiz">
+									<a title="necklaces collection in #color# and sterling silver" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&category=Necklaces" id="necklaces_horiz">
 										#color# Necklaces
 									</a>
 									&nbsp;
@@ -227,23 +227,23 @@
 										On Sale
 									</span>
 									<img src="/images/arrow_right.gif" style="display:inline;" border="0" hspace="0" vspace="0" align="absmiddle"  title="jewelry gemstone selection" width="15" height="15" />
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=pendants" id="pendants_horiz">
+									<a title="On sale Pendants" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=pendants" id="pendants_horiz">
 										Pendants
 									</a>
 									&nbsp;
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=rings" id="rings_horiz">
+									<a title="On sale rings" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=rings" id="rings_horiz">
 										rings
 									</a>
 									&nbsp;
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=Earrings" id="earrings_horiz">
+									<a title="On sale Earrings" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=Earrings" id="earrings_horiz">
 										Earrings
 									</a>
 									&nbsp;
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&salestatus=#salestatus#&category=Bracelets" id="bracelets_horiz">
+									<a title="On sale Bracelets" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&color=#color#&salestatus=#salestatus#&category=Bracelets" id="bracelets_horiz">
 										Bracelets
 									</a>
 									&nbsp;
-									<a href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=Necklaces" id="necklaces_horiz">
+									<a title="On sale Necklaces" href="/gemstone_jewelry_gallery.cfm?sortorder=#urlencodedformat(sortorder)#&salestatus=#salestatus#&category=Necklaces" id="necklaces_horiz">
 										Necklaces
 									</a>
 									&nbsp;
