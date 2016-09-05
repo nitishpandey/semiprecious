@@ -1,4 +1,4 @@
-  <cfcache action="cache" timespan="#CreateTimeSpan(0,2,0,0)#"> 
+  <cfcache action="cache" timespan="#CreateTimeSpan(0,2,0,0)#">
   <cftry>
 <cfsilent>
 <cfif #cgi.server_name# contains "semiprecious.in">
@@ -9,7 +9,7 @@
 </cfif>
 
 <cfheader statuscode="301" statustext="Moved permanently">
-<cfheader name="Location" value="#newurl#"> 
+<cfheader name="Location" value="#newurl#">
 </cfif>
 <cfif #cgi.server_name# does not contain "www.">
   <cfset newurl= "http://www.#CGI.SERVER_NAME##lcase(CGI.SCRIPT_NAME)#">
@@ -23,7 +23,7 @@
 <cfset newurl= "http://www.semiprecious.com#CGI.SCRIPT_NAME#">
 </cfif>
 <cfheader statuscode="301" statustext="Moved permanently">
-<cfheader name="Location" value="#newurl#"> 
+<cfheader name="Location" value="#newurl#">
 </cfif>
 <cfparam name="metatitle" default="">
 <cfparam name="metadescription" default="">
@@ -114,7 +114,7 @@
     <!-- (c) 2009, by Deluxe-Menu.com -->
 <link href="styles/style_semiprecious.css" rel="stylesheet" type="text/css" />
 <script src="/js/basicfunctions.js" language="JavaScript1.1" type="text/javascript"></script>
-  
+
   <TITLE style="text-transform:capitalize;"><cfif metatitle neq "">#metatitle#    <cfelse>    <cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'>Wholesale    </cfif>    #titleCase(color)# #titleCase(subcat)# #style# #titlecase(p)# gem stone  </cfif></TITLE>
   <meta name="keywords" content=<cfif metakeywords neq "">"#metakeywords#"<cfelse>"<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'> Wholesale</cfif> #color# Gem stone,  #p#"</cfif>>
   <meta name="author" content="Anup Pandey" />
@@ -125,11 +125,11 @@
 </cfsavecontent>
 
   <CFINCLUDE TEMPLATE="/header#session.country#.cfm">
-  
+
 <div id="container2">
 <table  width="100%" cellspacing="0" cellpadding="0" border="0" style="padding:0 1px 0 1px">
   <tr >
-  
+
   <cfif cgi.server_name does not contain "wholesale" or category eq "beads">
     <td  valign="top" width="184px"  >
 	<!--- BEGIN LEFT SIDE STUFF --->
@@ -140,7 +140,7 @@
     </td>
   </cfif>
   <td align="center" valign="top" style="background:white;padding:0px;">
-  
+
   <cfset rowsdisplayed = 0>
   <table style="margin-left:0px;width:760px;text-align:center;horizontal-align:center;margin-top:2px;"  border="0" cellspacing="0"  cellpadding="0">
     <tr>
@@ -175,7 +175,7 @@
 
   </tr>
 </table>
-</div>  
+</div>
 <cfinclude template="/mainfooter.cfm">
 </div>
 </BODY>
@@ -184,5 +184,3 @@
 <cfdump var="#cfcatch#" />
 </cfcatch>
 </cftry>
-
-  

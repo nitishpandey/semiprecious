@@ -46,7 +46,8 @@
 		<!--- need to add application time out --->
 		<!--- TODO: How does application rerun this section once it is timed out --->
 		<cfscript> application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
-		</cfscript><cfinclude template="includes/application_startup.cfm" />
+		</cfscript>
+		<cfinclude template="includes/application_startup.cfm" />
 		<cfreturn true />
 	</cffunction>
 
