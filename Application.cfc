@@ -15,20 +15,18 @@
 
 	<!--- Set up the application. --->
 	<CFIF cgi.server_name contains 'www.'>
-	<cfset THIS.Name = "wwwSemiprecious" />
+		<cfset THIS.Name = "wwwSemiprecious" />
 	<cfelse>
-	<cfset THIS.Name = "Semiprecious" />
+		<cfset THIS.Name = "Semiprecious" />
 	</cfif>
 	<cfset THIS.ApplicationTimeout = CreateTimeSpan( 1, 2, 1, 0 ) />
 	<cfset THIS.SessionManagement = true />
 	<cfset THIS.ClientManagement = true />
 	<cfset THIS.Sessiontimeout= CreateTimeSpan( 0, 4, 30, 0 ) />
 	<cfset THIS.SetClientCookies = true />
-
-
 	<!--- <cfset Application.datasource = "mq" />
-	 --->
-	 <!--- Define the page request properties. --->
+		--->
+	<!--- Define the page request properties. --->
 	<cfsetting
 		requesttimeout="20"
 		showdebugoutput="true"
@@ -45,7 +43,8 @@
 		<!--- lets set up the entity for post log in options --->
 		<!--- need to add application time out --->
 		<!--- TODO: How does application rerun this section once it is timed out --->
-		<cfscript> application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
+		<cfscript>
+			application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
 		</cfscript>
 		<cfinclude template="includes/application_startup.cfm" />
 		<cfreturn true />
@@ -65,30 +64,31 @@
 			</cfif>
 			<cfcatch type="any">
 				<!--- we were getting error because of upcountry asps being removed. Swallowing the error for now
-				---->	<cfdump var="#cfcatch#" />
+					---->
+				<cfdump var="#cfcatch#" />
 				<cfabort />
-
 			</cfcatch>
 		</cftry>
 		<cfreturn />
 	</cffunction>
-<cffunction name="OnRequest"
-	access="public"
-	returntype="void"
-	output="true">
-		 <cfargument
-            name="Template"
-            type="string"
-            required="true"
-            hint="I am the template that the user requested."
-/>
-<!--- if we include this in OnRequestStart, it is not visible to the target template.May be it goes out of scope. But If i include it here then it classhes
-with the include in sessionstart include of same file.  --->
-	<cfif not isdefined("request.session_start")>
-	<cfinclude template="/includes/udf.cfm" />
-	</cfif>
-	<cfinclude template="#Arguments.Template#" />
-</cffunction>
+
+	<cffunction name="OnRequest"
+		access="public"
+		returntype="void"
+		output="true">
+		<cfargument
+			name="TargetPage"
+			type="string"
+			required="true"
+			hint="I am the template that the user requested."
+			/>
+		<!--- if we include this in OnRequestStart, it is not visible to the target template.May be it goes out of scope. But If i include it here then it classhes
+			with the include in sessionstart include of same file.  --->
+		<cfif not isdefined("request.session_start")>
+			<cfinclude template="/includes/udf.cfm" />
+		</cfif>
+		<cfinclude template="#Arguments.TargetPage#" />
+	</cffunction>
 
 	<cffunction		name="OnRequestStart"
 		access="public"
@@ -143,7 +143,6 @@ with the include in sessionstart include of same file.  --->
 		</cfloop>
 		<cfreturn true />
 	</cffunction>
-
 
 	<cffunction name="protocol" access="private">
 		<cfreturn listgetat(cgi.SERVER_PROTOCOL,1,"/") />
@@ -209,8 +208,6 @@ with the include in sessionstart include of same file.  --->
 		<cfreturn />
 	</cffunction>
 
-
-
 	<cffunction output="true" name="read_properties">
 		<cfif application.mode is "local">
 			<!--- the four up movements are based on the fact that working directory is configured 4 levels deep from location of the openbd app context --->
@@ -234,9 +231,19 @@ with the include in sessionstart include of same file.  --->
 	</cffunction>
 
 	<cffunction name="OnMissingTemplate" access="public">
-		<cfinclude template="404.cfm" />
-		<!--- if it falls through --->
+
+<!--- http://www.semiprecious.com/shaped/claw-gemstone-jewellery.cfm to be honoured in place of http://www.semiprecious.com/shaped/claw-gemstone-jewelry.cfm --->
+	<cfif cgi.script_name contains '/shaped' AND cgi.script_name contains 'jewelry.cfm'>
+		<cfscript>
+		OnRequestStart("dummy.cfm");
+		OnRequest(TargetPage:'#replacenocase(replacenocase(cgi.SCRIPT_NAME,application.rootfolder,""),"jewelry","jewellery")#');
+		</cfscript>
+
+	</cfif>
+
+
 		<cfheader statuscode="404" />
+		<cfinclude template="404.cfm" />
 	</cffunction>
 
 	<cffunction name="OnError"
@@ -257,7 +264,6 @@ with the include in sessionstart include of same file.  --->
 			default=""
 			/>
 		<!--- Return out. --->
-
 		<cfdump var="#session#">
 		<cfdump var='#arguments#' />
 		<cfabort />
