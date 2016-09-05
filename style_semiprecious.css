@@ -23,7 +23,7 @@ a.side_link,.reg_price{font-size:12px;color:#666699;font-weight:400;text-decorat
 .jewelry_box_home .content{height:100px}
 .jewelry_box_home .category_description{height:70px;margin-bottom:1px;display:block;width:99%;white-space:pre-line}.jewelry{float:left;padding:1px}.content img{width:60px;display:inline;float:right;margin:2px}.content{border-top:0 ridge gray;display:block;font-size:10pt;font-family:"Palatino Linotype",serif;color:#000;position:relative;left:0;padding:0}a img{text-decoration:none;border:0}.content .big_image img{float:left;border:0;width:90px}
 .jewelry_box_home .content .big_image{overflow:hidden;margin-left:32px}div.bottomTiles{clear:both;color:#06b3e1;font-family:"Trebuchet MS";font-size:14px;text-align:center;margin-left:4px;margin-top:44px;position:inherit;width:758px}.sub1{background:url(/images/leftside.gif) repeat-y scroll left top #FFF;margin-bottom:4px;float:left;height:210px;position:relative;overflow:invisible;top:-5px;width:186px;z-index:1}.subTop{background:url(/images/top.gif) no-repeat scroll left top transparent;height:20px;width:100%}.subTop span{background:url(/images/top-right.gif) no-repeat scroll right top transparent;display:block;height:20px;position:relative}.sub-content{font-family:"Trebuchet MS";font-size:14px;background:url(/images/rightside.gif) repeat-y scroll right top transparent;height:190px;text-align:center;position:relative;margin:-1px 0 -30px;padding:1px 20px 1px 25px}.subBottom{background:url(/images/bottom.gif) no-repeat scroll left bottom transparent;height:39px}.subBottom span{background:url(/images/bottom-right.gif) no-repeat scroll right top transparent;display:block;height:36px;position:relative}
-#wrapper{font-family:"Trebuchet MS";font-size:14px;height:auto!important;min-height:100%;overflow:hidden;position:relative;text-align:center;width:756px;margin:10px auto -10px}#semiprecious_gallery{background-color:#efefef;padding-top:0px;margin:0 2px;height:auto!important;min-height:100%;overflow:hidden;position:relative;text-align:center;padding-left:12px;}#LEFTMENUS{text-align:CENTER;float:left;width:164px;padding:0}.dd_text_box{height:70px;overflow:hidden;position:relative}
+#wrapper{font-family:"Trebuchet MS";font-size:14px;height:auto!important;min-height:100%;overflow:hidden;position:relative;text-align:center;width:756px;margin:10px auto -10px}#semiprecious_gallery{background-color:#f6f8f8;padding-top:0px;margin:0 6px;height:auto!important;min-height:100%;overflow:hidden;position:relative;text-align:center;padding-left:12px;}#LEFTMENUS{text-align:CENTER;float:left;width:164px;padding:0}.dd_text_box{height:70px;overflow:hidden;position:relative}
 #container1{background:white;}
 #container2 {margin-top:20px;width:100%}.found_header {background-color:#799ea3;border:1px solid #718e93;color:white; margin-bottom:4px}.found_header a{color:black;}
 #container3, #container4 {width:100%}
@@ -433,7 +433,7 @@ article, section, aside, nav, header, footer {display:block;}
 .social li a.mail {background:url(/images/mail.jpg) no-repeat left;}
 
 /*Why Semi*/
-.whySemi {background:#ededed; padding:24px 0 24px 20px;}
+.whySemi {background:#f6f8f8; margin:4px;padding:24px 0 24px 20px;}
 .paypal {max-width:100%;width:376px; height:76px; float:left; margin:6px 55px 0 0;}
 .semiprecious {max-width:100%; width:500px; float:left;}
 .semiprecious h2 {font-size:14px; font-weight:normal; color:#333; padding-bottom:5px;}
@@ -557,7 +557,6 @@ ul#sliding-navigation li.sliding-element a:hover { color: #ffff66; }
 	margin:2px 0 0 -1px;
 }
 .contactustext{
-   width: 180px;
    padding: 3px;
    font-size: 12px;
    border: 1px solid #ccc;
