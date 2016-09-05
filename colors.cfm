@@ -25,62 +25,8 @@
 <cfheader statuscode="301" statustext="Moved permanently">
 <cfheader name="Location" value="#newurl#">
 </cfif>
-<cfparam name="metatitle" default="">
-<cfparam name="metadescription" default="">
-<cfparam name="sortorder" default="newitem">
-<cfparam name="metakeywords" default="">
-<cfparam name="session.bulkbuyer.id" default="">
-<cfparam name="LatesStartingBackMonths" default="1">
-<cfparam name="pendantsdone" default="no">
-<cfparam name="earringsdone" default="no" />
-<cfparam name="braceletsdone" default="no" />
-<cfparam name="subcat" default="" />
-<cfparam name="url.ringsize" default="" />
-<cfparam name="ringsize" default="" />
-<CFPARAM NAME="color" DEFAULT= "gray" />
-<cfparam name="category" default="" />
-<cfparam name="pagedescription" default="">
-<cfparam name="screensize" default="big">
-<cfparam name="style" default="" />
-<cfparam name="url.style" default="">
-
-
-<cfif cgi.server_name contains "handmadelaptopcase.com">
-  <cflocation url="http://www.handmadelaptopcase.com/laptopbags" addtoken="no">
-</cfif>
-
-</cfsilent>
-
-
-<cfsilent>
-
-<CFINCLUDE TEMPLATE="setup.cfm">
-<cfparam name="sortorder" default="">
-<cfif sortorder neq "">
-  <cfset url.sortorder =sortorder>
-</cfif>
-<cfif url.sortorder eq 'datetakendesc' or url.sortorder eq 'newitemdesc' or url.sortorder eq 'datetaken'>
-  <cfset url.sortorder = 'datetaken desc'>
-</cfif>
-<cfif url.sortorder is 'pricedesc'>
-  <cfset url.sortorder = 'price desc' />
-</cfif>
-<cfif url.sortorder is 'lastbought'>
-  <cfset url.sortorder = 'lastbought desc' />
-</cfif>
-<!--- <cfoutput>url.sortorder is #url.sortorder#</cfoutput> --->
-</cfsilent>
-
-
-<cfset categ=category>
-<cfif category is "All">
-  <cfset categ="jewelry">
-</cfif>
-
-<!--- meta tags addition for groups--->
-<cfparam name="groupname" default="">
 <cfquery name="contentbypage" datasource="gemssql">
-	Select * from contentbypage where pagename='#replace(Trim(CGI.path_info),"/","")#'
+	Select * from contentbypage where pagename='#replace(Trim(CGI.SCRIPT_NAME),"/","")#'
 	</cfquery>
 <cfif contentbypage.recordcount GT 0>
   <cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'>
@@ -95,42 +41,63 @@
     <cfset pagedescription="#contentbypage.description#">
   </cfif>
 </cfif>
+<cfparam name="LatesStartingBackMonths" default="1">
+<cfparam name="subcat" default="" />
+<CFPARAM NAME="color" DEFAULT= "pink" />
+
+<cfparam name="screensize" default="big">
+<cfparam name="style" default="" />
+<cfparam name="url.style" default="">
+
+
+<cfif cgi.server_name contains "handmadelaptopcase.com">
+  <cflocation url="http://www.handmadelaptopcase.com/laptopbags" addtoken="no">
+</cfif>
+
+</cfsilent>
+
+
+
+
+
+<!--- meta tags addition for groups--->
+<cfparam name="groupname" default="">
+
+
 <!--- end meta tags for groups ---->
 <cfset currentpathfile='#replace(replacenocase(GetCurrentTemplatePath(),'d:\inetpub\semiprecious\',''),'\','/')#'>
 <cfset currentfile='#Trim(CGI.path_info)#'>
 
 
-  <cfif category is "ALL" or category is "">
-    <cfset p = "Jewelry">
-    <cfelse>
-    <cfset p = category>
-  </cfif>
   <cfsavecontent variable="inheader">
   <CFOUTPUT>
-  <script language="JavaScript" src="js/mm_menu.js"></script>
-<!-- Deluxe Menu -->
-    <noscript><p><a href="http://deluxe-menu.com">Javascript Menu by Deluxe-Menu.com</a></p></noscript>
-    <script type="text/javascript" src="newtopmenu.files/dmenu.js"></script>
-    <!-- (c) 2009, by Deluxe-Menu.com -->
-<link href="styles/style_semiprecious.css" rel="stylesheet" type="text/css" />
-<script src="/js/basicfunctions.js" language="JavaScript1.1" type="text/javascript"></script>
+<cfif metatitle neq "">
+  <cfset title = "#metatitle#  in #color#">
 
-  <TITLE style="text-transform:capitalize;"><cfif metatitle neq "">#metatitle#    <cfelse>    <cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'>Wholesale    </cfif>    #titleCase(color)# #titleCase(subcat)# #style# #titlecase(p)# gem stone  </cfif></TITLE>
+  <cfelse>
+<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'>
+
+<cfset title = "Wholesale">
+<cfelse>
+<cfset title = "" />
+
+</cfif>
+<cfset title = title & "  #titleCase(color)#   gem stone jewelry in Sterling Silver" />
+</cfif>
   <meta name="keywords" content=<cfif metakeywords neq "">"#metakeywords#"<cfelse>"<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'> Wholesale</cfif> #color# Gem stone,  #p#"</cfif>>
-  <meta name="author" content="Anup Pandey" />
   <meta name="description" content= <cfif metadescription neq "">"#metadescription#"<cfelse>'<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'> Wholesale</cfif>#color# #style# #p# gem stone jewelry, retail and wholesale.'</cfif>>
 </cfoutput>
 <META content="30 days" name=revisit-after>
 <script language="JavaScript" src="/js/imageswap.js"></script>
 </cfsavecontent>
 
-  <CFINCLUDE TEMPLATE="/header#session.country#.cfm">
+  <CFINCLUDE TEMPLATE="/header.cfm">
 
 <div id="container2">
 <table  width="100%" cellspacing="0" cellpadding="0" border="0" style="padding:0 1px 0 1px">
   <tr >
 
-  <cfif cgi.server_name does not contain "wholesale" or category eq "beads">
+  <cfif cgi.server_name does not contain "wholesale" >
     <td  valign="top" width="184px"  >
 	<!--- BEGIN LEFT SIDE STUFF --->
 			<cfset leftcolordisplay="inline" />
@@ -175,11 +142,7 @@
 
   </tr>
 </table>
-</div>
 <cfinclude template="/mainfooter.cfm">
-</div>
-</BODY>
-</HTML>
 <cfcatch type="any">
 <cfdump var="#cfcatch#" />
 </cfcatch>
