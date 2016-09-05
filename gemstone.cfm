@@ -74,7 +74,7 @@ Error in gemstone.cfm
   <cfelseif itemid neq 0>
 	<cftry>
    <cfquery datasource="gemssql" name="whatcat">
-       select cat from items where newitem = #url.itemid#
+       select cat from items where newitem = #itemid#
 		</cfquery>
 		<cfcatch type="any">
 		Error in line 46 gemstone.cfm
@@ -105,8 +105,9 @@ Error in line 65 in gemstone.cfm
 </cftry>
     <cfset itemidlist = listappend(itemidlist,arraytolist(getitemid['itemid']))>
   </cfloop>
-  <cfif styleids.recordcount>
 <cfsavecontent variable="ref_des"   >
+	  <cfif styleids.recordcount>
+
 	<div style="width:100%;position:absolute;top:0;left:0;z-index:1002" align="Center">
 	<div style="width:930px;position:relative;top:0;left:0;">
 <div   id="referencitem" style="position:absolute;;top:20px;left:70px;background-color:white;padding:0px;z-index:1002;">
@@ -116,8 +117,10 @@ Error in line 65 in gemstone.cfm
         <tr><Td class="lookinline">Design  To Match</Td></tr>
 		<tr>
           <td align="center" bgcolor="#FFFFFF">
-     <cfoutput>      <img src="/images/#whatcat.cat#/thumb/#url.itemid#.jpg" vspace="0" hspace="0" border="0" align="absmiddle">
-       </cfoutput>   </td>
+     <cfoutput>
+		  <img src="/images/#whatcat.cat#/thumb/#url.itemid#.jpg" vspace="0" hspace="0" border="0" align="absmiddle">
+       </cfoutput>
+	 </td>
 
         </tr>
         <tr>
@@ -128,20 +131,23 @@ Error in line 65 in gemstone.cfm
 </div>
 </div>
 </div>
-</cfsavecontent>
+
 <cfelse>
 <cfset top = "" />
    <!--- 2 and 3 => set , 1, 3 indicate style (look) --->
 <!--- clustercount not showing correct value --->
 <cftry>
   <cfquery datasource="gemssql" name="notpaidcart">
-       select clustercount from items where newitem = #url.itemid#
+       select clustercount from items where newitem = #itemid#
 		</cfquery>
 		<cfcatch type="any">
 		Error in line 102 in gemstone.cfm
+<cfdump var="#cfcatch#">
+<cfabort>
 		</cfcatch></cftry>
 
-	<cfif notpaidcart.clustercount is 1 or notpaidcart.clustercount is 2 ><!--- we must have come here then only for look or style --->
+	<cfif notpaidcart.clustercount is 1 or notpaidcart.clustercount is 2 >
+	<!--- we must have come here then only for look or style --->
 	<cfset cluster_derived = 0 />
 	<cfelse>
 	<cfif type is 'look'><!--- so we failed on look hence both has to be reduced only to set positive --->
@@ -152,13 +158,14 @@ Error in line 65 in gemstone.cfm
 	</cfif>
 	<cftry>
   <cfquery datasource="gemssql" name="notpaidcart">
-        update items set clustercount = #cluster_derived# where newitem = #url.itemid#
+        update items set clustercount = #cluster_derived# where newitem = #itemid#
 		</cfquery>
 		<cfcatch type="any">
 		Error in line 119 in gemstone.cfm
 		</cfcatch></cftry>
 
 </cfif>
+</cfsavecontent>
   <cfelse>
   <cflocation url="gemstone_jewelry_gallery.cfm" />
 </cfif>
@@ -299,11 +306,6 @@ if ( screensize is "small"){
 }
 </cfscript>
 
-<HTML>
-<HEAD>
-<meta name="robots" content="noindex,nofollow">
-</head>
-<body>
 
 
 <!--- <cfif session.quick_add>
@@ -351,7 +353,7 @@ background-color:##DFE;
   Matching Sets for Semiprecious and Gemstones Jewelry and <cfoutput>#getitemid.cat#</cfoutput></TITLE></CFIF>
 
   <meta name="keywords" content="#saved_metakeywords#" >
-  <meta name="author" content="Anup Pandey" >
+
 <cfif cgi.server_name contains "semiprecious.in">
 <meta name=ICBM content="28.5573901, 77.1571443" />
 <meta name="geo.position" content="28.5573901;77.1571443" />
@@ -404,7 +406,7 @@ background-color:##DFE;
  ---><meta name="robots" content="noindex,nofollow">
 
 
- <cfinclude template="/header#session.country#.cfm">
+ <cfinclude template="/header.cfm">
 <div id="container2">
               <div style="width:930px;">
                <CFIF not gETLIst.recordcount>
@@ -623,12 +625,7 @@ This Collection's Id is #styleidlist#
 </div>
 </cfif>
 </div>
+<cfoutput>#ref_des#</cfoutput>
 </div>
         <cfinclude template="/mainfooter.cfm">
 
-</div>
-<cfoutput>#ref_des#</cfoutput>
-
-
-</BODY>
-</HTML>
