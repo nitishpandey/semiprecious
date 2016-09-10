@@ -144,9 +144,7 @@
 		<cfreturn true />
 	</cffunction>
 
-	<cffunction name="protocol" access="private">
-		<cfreturn listgetat(cgi.SERVER_PROTOCOL,1,"/") />
-	</cffunction>
+
 
 	<!---
 
@@ -230,19 +228,63 @@
 		</cfloop>
 	</cffunction>
 
-	<cffunction name="OnMissingTemplate" access="public">
+	<cffunction name="OnMissingTemplate" output="true" access="public">
 
 <!--- http://www.semiprecious.com/shaped/claw-gemstone-jewellery.cfm to be honoured in place of http://www.semiprecious.com/shaped/claw-gemstone-jewelry.cfm --->
-	<cfif cgi.script_name contains '/shaped' AND cgi.script_name contains 'jewelry.cfm'>
-		<cfscript>
+<cfset var script = replacenocase(cgi.SCRIPT_NAME,application.rootfolder,"") />
+
+<cfif script contains '/shaped'>
+<cfif script contains 'jewelry.cfm'>
+	<cfscript>
 		OnRequestStart("dummy.cfm");
-		OnRequest(TargetPage:'#replacenocase(replacenocase(cgi.SCRIPT_NAME,application.rootfolder,""),"jewelry","jewellery")#');
+		OnRequest(TargetPage: '#replacenocase(script,"jewelry","jewellery")#');
+		return true;
+	</cfscript>
+</cfif>
+<!--- http://www.semiprecious.com/shaped/round-gemstone-rings.cfm --->
+
+<cfset script = replacenocase(script,".cfm","") />
+<!--- http://www.semiprecious.com/shaped/round-gemstone-rings.cfm --->
+<cfif script contains '-gemstone-'>
+    	<cfif listfind(application.cat_list,listgetat(script,listlen(script,"-"),"-"))>
+	<cfscript>
+		OnRequestStart("dummy.cfm");
+		if (listlen(script,"-") is 3)
+		{
+        url.groupname=listgetat(script,2,"/-");
+        OnRequest(TargetPage:'#listgetat(script,3,"-")#.cfm');
+
+		}
+			else
+		{
+				if (listlen(script,"-") is 4)
+	        	{
+	        		url.groupname=listgetat(script,2,"/-") & "-" & listgetat(script,3,"/-");
+	            	OnRequest(TargetPage:'#listgetat(script,4,"-")#.cfm');
+	        	}
+		}
+
+   return true;
+
+	</cfscript>
+	</cfif>
+
+</cfif>
+</cfif>
+
+
+
+	 <cfif listfind(Application.cat_list,listgetat(script,2,"_-"))>
+	  <cfset url.subcat =  listgetat(script,1,"/_-") />
+	      	<cfscript>
+		OnRequestStart("dummy.cfm");
+		OnRequest(TargetPage:'#listgetat(script,2,"_-")#.cfm');
+		return true;
 		</cfscript>
+
 
 	</cfif>
 
-
-		<cfheader statuscode="404" />
 		<cfinclude template="404.cfm" />
 	</cffunction>
 

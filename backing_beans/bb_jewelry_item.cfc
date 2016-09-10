@@ -54,7 +54,52 @@
 		<cfset variables.itemnumber = variables.newitem />
 		<cfreturn variables.newitem />
 	</cffunction>
+	<cffunction name="getCanonical" access="public" output="false" >
+			<cfargument name="details" type="query">
+			<cfset var temp = '' />
+<cftry>
 
+		<cfif arguments.details.grouping neq "">
+			<cfset temp  = "_" & LCASE(listfirst(arguments.details.grouping)) />
+		</cfif>
+		<cfreturn  "#Application.protocol#://www.#session.tld#/gem_stone_#LCASE(arguments.details.cat)#.cfm/#LCASE(arguments.details.newitem)#_#LCASE(arguments.details.cat)#_#LCASE(replace(trim(arguments.details.subcat)," ",""))##temp#.htm" />
+<cfcatch type="any">
+		<cfmail to="stacyanup@gmail.com" from="cs@semiprecious.com" subject="Error at Jewelry Item bean canonical construction"  type="html">
+  			Catch Detail: #cfcatch.detail#,<br />
+	  		Catch Message: #cfcatch.message# <br />
+	    	Script Name: #getbasetemplatePath()#
+	     	</cfmail>
+<cfreturn "" />
+</cfcatch>
+</cftry>	</cffunction>
+	<cffunction name="getTitle" access="public" output="false" returntype="String">
+		<cfargument name="details" type="query">
+		<cfargument name="getgroups" type="query">
+		<cfargument name="category" type="string">
+		<cfargument name="subcategory" type="string">
+		<cfargument name="itemnumber" type="numeric">
+
+
+		<cfset var title = "" />
+	<cfsavecontent variable="title" >
+            <cfoutput>
+                <cfif cgi.server_name contains 'wholesale'>
+                    Wholesale
+                  </cfif>
+                 #arguments.subcategory#
+                  <cfif arguments.details.subcat2 neq "" >
+                      & #arguments.details.subcat2#
+                 </cfif>
+          </cfoutput>
+    	<cfoutput query="arguments.getgroups" >
+            #groupname#
+          </cfoutput>
+              <cfoutput>
+                  #arguments.details.color# gem stone <cfif arguments.details.style is 'silver setting'>Sterling Silver</cfif> #arguments.category# #arguments.itemnumber#
+            </cfoutput>
+        </cfsavecontent>
+		<cfreturn title />
+	</cffunction>
 	<cffunction name="getVideo" access="public" output="false" returntype="Query">
 		<cftry>
 			<cfset var video = '' />

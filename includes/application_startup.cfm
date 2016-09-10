@@ -1,11 +1,11 @@
-			<cfscript>
+		<cfscript>
 			Application.helpemailid = 'semiprecioushelp@gmail.com' ;
-		   application.paymode_stage1 = 'pp,auth.net,ccavenu,arb1,AUTH.NET,ichck,goog,chck,authphone,ebs';
+		    application.paymode_stage1 = 'pp,auth.net,ccavenu,arb1,AUTH.NET,ichck,goog,chck,authphone,ebs';
 			application.paymode_shipped = 'paypal,wellscc,ccav,ichk,google,check,wellsphone,eebeess';
 			application.friendcredit = 7.5 ; // this needs to be stored in the db with the user sign on
-	           application.cat_list = "rings,earrings,pendants,brooches,necklaces,bracelets,gems,anklets,beads,chains,healing,cufflinks" ;
-	           application.category_list = 	            application.cat_list;
-			   application.friend_credit = 7.5;
+	        application.cat_list = "rings,earrings,pendants,brooches,necklaces,bracelets,gems,anklets,beads,chains,healing,cufflinks" ;
+	        application.category_list = 	            application.cat_list;
+			application.friend_credit = 7.5;
 			application.owncredit=20;
 			application.own_credit=20;
 			application.signup_points = 5 ;
@@ -26,13 +26,14 @@
 				application.india_log0 = "/india/images/semiprecious_logo.jpg";
 			    application.bg_image = "/images/header_bg.jpg" ;
 			    application.live_support = 0 ;
+			    application.protocol =listgetat(cgi.SERVER_PROTOCOL,1,"/");
 				application.tollfree = '<font color="purple">512-666-GEMS(4367)</font>' ;
 		 	    application.color_list="black,blue,brown,green,gray,multi-color,orange,pink,purple,red,white,yellow" ;
 			    application.admin_email = "acematnari@vsnl.com";
 			 	application.exch["india"] = 40 ;
 				application.exch["row"] = application.exchangerate;
 	   </cfscript>
-			<!--- uniq cartid --->
+
 
 	        	<cfparam name="application.silver.beadstones" default="">
 

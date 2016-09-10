@@ -285,13 +285,16 @@ and  cat <> 'ornaments' and cat <>'bags'  and cat <>'beads' and cat <>'healing' 
     <cfif cgi.server_name contains 'semipreciouswholesale.com'>
 Wholesale
     </cfif>
-    #titleCase(color)# #titleCase(subcat)# #style# #titlecase(p)# gem stone catalogue
+     #style# #titlecase(p)# gem stone catalogue
   </cfif>
 
   </cfoutput>
   </cfsavecontent>
 	<cfsavecontent variable="inheader" >
   <cfoutput>
+      <cfif cgi.script_name contains 'jewelry.cfm' and (category neq 'all' and category neq 'jewelry')>
+          <link rel="canonical" href="#Application.protocol#://www.#session.tld#/rare-stones/rare-gems-#category#.cfm" />
+    </cfif>
   <meta name="keywords" content=<cfif metakeywords neq "">"#metakeywords#"<cfelse>"<cfif cgi.server_name contains 'wholesale-gemstone-jewelry.com'> Wholesale</cfif>Affordable #color# #subcat#, Gem stone,  #p#"</cfif>>
   <meta name="author" content="Anup Pandey" />
 

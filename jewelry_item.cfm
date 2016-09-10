@@ -164,6 +164,8 @@
 			getGroups = backing_bean.getGroups();
 			getCluster = backing_bean.getCluster(details.inventory);
 			subcatcatcount = backing_bean.getsubcatcatcount(subcategory, category);
+			title = backing_bean.getTitle(details,getgroups,category,subcategory,itemnumber);
+			canonical = backing_bean.getCanonical(details);
 		</cfscript>
 
 		 <cfif optcount and not (url.optionid)>
@@ -172,23 +174,6 @@
 				<cfset opts = backing_bean.getOptions(url.optionid) />
 		  </cfif>
 
-		<cfsavecontent variable="title" >
-            <cfoutput>
-                <cfif cgi.server_name contains 'iwholesale'>
-                    Wholesale
-                  </cfif>
-                 #subcategory#
-                  <cfif details.subcat2 neq "" >
-                      & #details.subcat2#
-                 </cfif>
-          </cfoutput>
-    	<cfoutput query="getgroups" >
-            #groupname#
-          </cfoutput>
-              <cfoutput>
-                  #details.color# gem stone <cfif details.style is 'silver setting'>Sterling Silver</cfif> #category# #itemnumber#
-            </cfoutput>
-        </cfsavecontent>
 		<cfset frameHeight = ''>
 		<cftry>
 			<cfimage source="#application.rootfolder#\images\#folder#\#imagename#" action="info" structname="wd" />
@@ -204,20 +189,13 @@
 		<!--- include file to display clustered items, and other category items by Anup--->
 	</cfsilent>
 	<cfsavecontent variable="inheader">
-	<cftry>
+
+ <cfif len(canonical)>
      <cfoutput>
-		 <link rel="canonical" href="http://www.semiprecious.com/gem_stone_#LCASE(details.cat)#.cfm/#LCASE(details.newitem)#_#LCASE(details.cat)#_#LCASE(replace(trim(details.subcat)," ",""))#<cfif details.grouping neq "">_#LCASE(listfirst(details.grouping))#</cfif>.htm">
-   	</cfoutput>
-	<cfcatch type="any">
-       		<cfmail to="stacyanup@gmail.com" from="cs@semiprecious.com" subject="Error at Jewelry Item page"  type="html">
-  					Catch Detail: #cfcatch.detail#,<br />
-	  		Catch Message: #cfcatch.message# <br />
-	    	Script Name: #getbasetemplatePath()#
-	     	</cfmail>
+		 <link rel="canonical" href="#canonical#" />
+		</cfoutput>
+	</cfif>
 
-
-	 </cfcatch>
-	 </cftry>
     <!---
 
 

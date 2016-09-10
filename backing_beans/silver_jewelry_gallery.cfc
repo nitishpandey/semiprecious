@@ -303,7 +303,6 @@ string = Replace(string," In "," in ","ALL");
 						<CFPARAM NAME="url.sortorder" DEFAULT="disporder" >
 					</cfif>
 				</cfif>
-				<cfparam name="sortorder" default="disporder">
 				<cfif sortorder neq "">
 					<cfset url.sortorder =sortorder>
 				</cfif>
@@ -721,15 +720,16 @@ if ( screensize is "small"){
 						<meta name="description" content="Our <cfif p is 'jewelry' or p is 'necklaces' or p is 'pendants'>handcrafted<cfelse>handmade</cfif> <cfif groupname neq ""> #groupname#</cfif><cfif color neq ""> #color# gemstone</cfif><cfif subcat neq ""> #subcat#</cfif>
 						#p# <cfif p is "jewelry">comes<cfelseif p is "healing"> items come<cfelse>come</cfif> in many varieties. We are your source for<cfif groupname neq ""> #groupname#</cfif><cfif color neq ""> #color# stone</cfif><cfif subcat neq ""> #subcat#</cfif> #p# in silver, beads, necklaces, pendants, rings, earrings, bracelets & healing.<cfif url.start GT 1>Gallery starting from #url.start#th item.</cfif>">
 					</cfif>
+						</cfoutput>
 <cfscript>
 	var canonical = getcanonical();
 if (len(canonical))
   {
-  	<link rel="canonical" href="#canonical#" />
+  	writeoutput('<link rel="canonical" href="#application.protocol#://www.#session.tld#/#canonical#" />');
   }
 </cfscript>
 
-				</cfoutput>
+
 			</cfsavecontent>
 		<cfreturn somevariable />
 </cffunction>
@@ -759,20 +759,48 @@ if (len(canonical))
 							</cfif>
 					</cfif>
 					<!--- sortorder=price&priceless=62.5&pricegreater=25&start=241 --->
-					<cfset var narrowing_params = 'sortorder,priceless,pricegreater,start' />
+					<cfset var narrowing_params = 'style,sortorder,priceless,pricegreater,start' />
 					<cfset var  url_params ="?" />
-					<cfloop list="narrowing_params" index="param_" >
+					<cfloop list="#narrowing_params#" index="param_" >
 						<cfif isdefined("param_")>
 							<cfif param_ is 'start'>
 								<cfif start eq 1>
 									<cfcontinue />
 								</cfif>
 							 </cfif>
-							<cfset url_params &= param_&"="&form["#param_#"]&"&" />
+							 	<cfif param_ is 'priceless'>
+								<cfif priceless eq "">
+									<cfcontinue />
+								</cfif>
+							 </cfif>
+							  	<cfif param_ is 'style'>
+								<cfif style eq "">
+									<cfcontinue />
+								</cfif>
+								<cfif style is 'silver'>
+								<cfif category neq "all"  and category neq 'healing'>
+									<cfset canonical = 'silver_gemstone_#lcase(category)#' & ".cfm">
+									<cfcontinue />
+								</cfif>
+								</cfif>
+							 </cfif>
+							 <cfif param_ is 'pricegreater'>
+								<cfif pricegreater eq 0>
+									<cfcontinue />
+								</cfif>
+							 </cfif>
+							 	<cfif param_ is 'sortorder'>
+								<cfif  sortorder eq 'disporder'>
+									<cfcontinue />
+									<cfelse>
+									<cfset form['sortorder'] = sortorder />
+								</cfif>
+							 </cfif>
+							<cfset url_params &= param_&"="&evaluate(param_)&"&amp;" />
 						</cfif>
 					</cfloop>
 					<cfif len(url_params) GT 1>
-						<cfset canonical = canonical & left(url_params,len(url_params)-1) >
+						<cfset canonical = canonical & left(url_params,len(url_params)-5) >
 					</cfif>
 						<cfif canonical neq cgi.SCRIPT_NAME>
 						<cfreturn canonical />
