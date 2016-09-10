@@ -44,13 +44,13 @@
 	<cfelse>
 		<cfset mobile= "no" />
 	</cfif>
-	<cftry>
+<!--- 	<cftry>
 		<cfquery name="getHeaderCountries" datasource="gemssql"  cachedwithin="#createTimespan(2,2,13,0)#">
 		SELECT 	DISTINCT country  FROM	ltbshipping
 	</cfquery>
 		<cfcatch type="any">
 		</cfcatch>
-	</cftry>
+	</cftry> --->
 	<head>
 		<title>
 			<cfoutput>

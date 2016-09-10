@@ -1,4 +1,5 @@
 <!--start of silver_jewelry_gallery.cfm -->
+<cfif >
 <cfif isdefined("Url.debug") >
 	<CFSET _start = GetTickCount() />
 </cfif>
@@ -16,7 +17,7 @@
 			structAppend(Variables, backing_bean.cfparam(Variables, replace(Trim(cgi.script_name), "/", "")));
 			//As per legacy code there is an itemsinmemory query that is to be created. Create it
 			itemsinmemory = backing_bean.get_inmemory_resultset();
-			//meta data, css and java scripts that go into the header
+			//meta data, css, metadescription, title and javascripts that go into the header
 			inheader = backing_bean.set_header_content();
 			// reduce memory footprint, free memory in the backingbean
 			backing_bean.reset_variables();
@@ -460,7 +461,9 @@
 				</table>
 				---> <cftry> <cfset session.gallery='/gemstone_jewelry_gallery.cfm' /> <cfset
 				session.filter="occasion=#occasion#&start=#start#&pricegreater=#pricegreater#&priceless=#priceless#&color=#urlencodedformat(color)#&sortorder=#urlencodedformat(sortorder)#&style=#urlencodedformat(url.style)#&subcat=#subcat#&category=#category#&advancedsearch=#urlencodedformat(urldecode(advancedsearch))#&salestatus=#salestatus#&groupname=#groupname#&stored=#stored#"
-				> <cfcatch type="application"> <cfdump var="#cfcatch#" /> <cfabort /> </cfcatch> </cftry> <cfif start LT 12 and (subcat is not "" or color is not "") and not len(session.mail)> <CFINCLUDE template="stoneinfo.inc" /> </cfif> <!--- Footer ---> <!--- 		<cfinclude template="/affiliate/includes/googleaffil.cfm">--->
+				> <cfcatch type="application"> <cfdump var="#cfcatch#" /> <cfabort /> </cfcatch> </cftry>
+				 <cfif start LT 12 and (subcat is not "" or color is not "") and not len(session.mail)> <CFINCLUDE template="stoneinfo.inc" />
+				</cfif> <!--- Footer ---> <!--- 		<cfinclude template="/affiliate/includes/googleaffil.cfm">--->
 	</cfif>
 	</div> <!--- container 2 ends ---> </div>
 	<!--- top level container ends --->
@@ -472,7 +475,7 @@
 			//-->
 		</script>
 	</footer>
-	<cfinclude template="/mainfooter.cfm" />
+
 	<!--- End footer --->
 	<cfif IsUserInRole("admin") or IsUserInRole("superadmin")>
 		<div>
@@ -498,9 +501,10 @@
 					subject: 'error at gallery',
 					mailcontent: '#cfcatch.detail#-#cfcatch.message#-#getbasetemplatepath()#');
 				</cfscript>
-			<cfinclude template="/mainfooter.cfm" />
+
 	</cfcatch>
 </cftry>
+	<cfinclude template="/mainfooter.cfm" />
 <cfif isdefined("Url.debug")>
 	<CFSET _end=GetTickCount()>
 	<CFSET executiontime=_end-_start>

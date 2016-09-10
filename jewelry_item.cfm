@@ -44,16 +44,24 @@
 			update items set disporder=disporder-0.1*disporder where newitem=#itemnumber#
 			</cfquery>--->
 		<cfscript>
+		    try {
 			backing_bean = createObject("component", "backing_beans.bb_jewelry_item").init(Variables);
 			newitem = backing_bean.getItemId(cgi.PATH_INFO);
 			itemnumber = newitem;
+			}
+			catch(Any e){
+			newitem = "";
+
+			}
 		</cfscript>
+
 		<cfif not isnumeric(newitem)>
+
 			<cfinclude  template="header.cfm" />
 			<cfoutput>
-				#newitem#
+			The id	#newitem# is not correct.
 			</cfoutput>
-			is not a valid design id.
+
 			<cfinclude template="mainfooter.cfm" />
 			<cfabort />
 		</cfif>
@@ -91,7 +99,8 @@
 				</a>
 				</p>
 			</div>
-			</div></div>
+			</div>
+		</div>
 			<cfif cgi.server_name does not contain 'wholesale'>
 				<cfinclude template="/mainfooter.cfm" >
 			</cfif>
@@ -401,7 +410,7 @@
 	</CFIF>
 	<!--setup complete --->
 	<cfinclude template="/header.cfm" >
-	<!--- No category --->
+	<!-- No category -->
 	<!--- End no category --->
 	<div align="center"
 	<cfif not mobile>
