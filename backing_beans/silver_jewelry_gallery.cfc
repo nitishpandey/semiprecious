@@ -193,10 +193,12 @@ string = Replace(string," In "," in ","ALL");
 					</cfif>
 				 made in #titleCase(subcat)# #style#
 					<cfif trim(color) neq "">
-					  	#titleCase(color)# gem stones
+					  	#titleCase(color)#
 					</cfif>
 					<cfif trim(groupname) neq "">
 					 from 	#titlecase(groupname)# #title_cat#
+					 <cfelse>
+					 gem stones
 					</cfif>
 					</cfoutput>
 				</cfsavecontent>
@@ -243,7 +245,7 @@ string = Replace(string," In "," in ","ALL");
 					<cfif url.category neq "">
 						<cfset category=url.category>
 					<cfelse>
-						<cfset category="">
+						<CFSET CATEGORY ="all">
 					</cfif>
 				</cfif>
 				<CFIF CATEGORY  EQ "">
@@ -719,9 +721,64 @@ if ( screensize is "small"){
 						<meta name="description" content="Our <cfif p is 'jewelry' or p is 'necklaces' or p is 'pendants'>handcrafted<cfelse>handmade</cfif> <cfif groupname neq ""> #groupname#</cfif><cfif color neq ""> #color# gemstone</cfif><cfif subcat neq ""> #subcat#</cfif>
 						#p# <cfif p is "jewelry">comes<cfelseif p is "healing"> items come<cfelse>come</cfif> in many varieties. We are your source for<cfif groupname neq ""> #groupname#</cfif><cfif color neq ""> #color# stone</cfif><cfif subcat neq ""> #subcat#</cfif> #p# in silver, beads, necklaces, pendants, rings, earrings, bracelets & healing.<cfif url.start GT 1>Gallery starting from #url.start#th item.</cfif>">
 					</cfif>
+<cfscript>
+	var canonical = getcanonical();
+if (len(canonical))
+  {
+  	<link rel="canonical" href="#canonical#" />
+  }
+</cfscript>
+
 				</cfoutput>
 			</cfsavecontent>
 		<cfreturn somevariable />
+</cffunction>
+<cffunction name="getcanonical" output="false" access="private" returntype="String" description="helps setup the canonical URL form for non-canonical destinations" hint="not all canonicals are covered" >
+ <cfset var canonical = "" />
+					<!--- agate_anklets.cfm is the canonical form  --->
+						<!--- agate_anklets.cfm is the canonical form  --->
+					<cfif subcat neq "">
+						<cfif category neq 'all'>
+							<cfset canonical = lcase(subcat) & "_" & lcase(category) & ".cfm">
+						<cfelse>
+							<cfset canonical = lcase(subcat) & "_jewelry.cfm" />
+							<!--- ruby.cfm kind pages are hubs for most but not all stones.
+							That list has to be figured out and canonicals mapped for those not having hubs
+							to _jewelry.cfm type canonicals --->
+						</cfif>
+<!--- should we skip this if the page invoked itself is the canonical --->
+					<!--- should we suffix query string minus subcat and category? such as color, price range and pagination? --->
+
+					<cfelse>
+					    <!--- subcat is "" --->
+					    <!--- http://www.semiprecious.com/rings.cfm?category=Rings&sortorder=price&priceless=62.5&pricegreater=25&start=241 --->
+						    <cfif category neq 'all'>
+								<cfset canonical = lcase(category) & ".cfm">
+							<cfelse>
+								<cfset canonical = "gemstone_jewelry_gallery.cfm" />
+							</cfif>
+					</cfif>
+					<!--- sortorder=price&priceless=62.5&pricegreater=25&start=241 --->
+					<cfset var narrowing_params = 'sortorder,priceless,pricegreater,start' />
+					<cfset var  url_params ="?" />
+					<cfloop list="narrowing_params" index="param_" >
+						<cfif isdefined("param_")>
+							<cfif param_ is 'start'>
+								<cfif start eq 1>
+									<cfcontinue />
+								</cfif>
+							 </cfif>
+							<cfset url_params &= param_&"="&form["#param_#"]&"&" />
+						</cfif>
+					</cfloop>
+					<cfif len(url_params) GT 1>
+						<cfset canonical = canonical & left(url_params,len(url_params)-1) >
+					</cfif>
+						<cfif canonical neq cgi.SCRIPT_NAME>
+						<cfreturn canonical />
+						<cfelse>
+						<cfreturn "" />
+						</cfif>
 </cffunction>
 
 <cffunction name="get_inmemory_resultset" output="false" access="public"   returntype="query"    displayname="initialise" >
@@ -751,11 +808,11 @@ if ( screensize is "small"){
   <cffunction name="set_p" output="false" access="public"      displayname="initialise variable p"  returntype="string"  >
 
 			<cfif category is "ALL" or category is "">
-				<cfset p = "Jewelry">
+				<cfset variables.p = "Jewelry">
 			<cfelse>
-				<cfset p = category>
+				<cfset variables.p = category>
 			</cfif>
-			<cfreturn p />
+			<cfreturn variables.p />
    </cffunction>
 
   <cffunction name="set_start" output="false" access="public"      displayname="initialise variable p"  returntype="numeric"  >

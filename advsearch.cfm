@@ -10,21 +10,21 @@
   <cfset categ = "jewelry">
 </cfif>
 
-<cfquery name="stonelistpopular" datasource="gemssql"  cachedwithin="#createtimespan(0,1,0,0)#">	
+<cfquery name="stonelistpopular" datasource="gemssql"  cachedwithin="#createtimespan(0,1,0,0)#">
     select cat, stone,  style, count(stone) as inventory,   popular
-    from items, ltbstonesmaster 
-    where inventory>0 and items.subCAT=ltbstonesmaster.stone 
-    group by cat, stone,style,  popular order by cat,popular desc , stone 
+    from items, ltbstonesmaster
+    where inventory>0 and items.subCAT=ltbstonesmaster.stone
+    group by cat, stone,style,  popular order by cat,popular desc , stone
 </cfquery>
 
 <cfquery name="stonelist" dbtype="query">
-	Select distinct stone as subcat2 
+	Select distinct stone as subcat2
     from  stonelistpopular
-	<cfif category neq 'beads' and category neq  'gems' and category neq  'brooches'  and category neq 'healing'> 
+	<cfif category neq 'beads' and category neq  'gems' and category neq  'brooches'  and category neq 'healing'>
         where popular=1
     </cfif>
 </cfquery>
-       
+
 <cfoutput>
     <form action="" method="post" name="frmAdvSearch">
         <div id="mySelect" class="styled-select" >
@@ -88,24 +88,24 @@
                     <option value="above5000">Above Rs 5000</option>
                 </cfif>
             </select>
-        </div> 
+        </div>
     </form>
 </cfoutput>
 <script type="text/javascript">
 
 	function fnSearchByGemstones(ele){
-		
+
 		if(ele.value != -1){
 			document.frmAdvSearch.action = "/"+ele.value+".cfm"
 		}
 		document.frmAdvSearch.submit();
 	}
-	
+
 
 	function fnSearchByColor(ele){
-		
+
 		var arrColorLink = ele.value.split('_')
-		<cfoutput>var categ = '#categ#'</cfoutput> 
+		<cfoutput>var categ = '#categ#'</cfoutput>
 		if(arrColorLink[1] == 1){
 			document.frmAdvSearch.action = '/'+arrColorLink[0]+'-gemstone-jewelry.cfm'
 		}
@@ -114,45 +114,45 @@
 		}
 		document.frmAdvSearch.submit();
 	}
-	
-	
+
+
 	function fnSearchByTypes(ele){
-		
+
 		if(ele.value == 'Gems'){
-			document.frmAdvSearch.action = "gems.cfm"
+			document.frmAdvSearch.action = "/gems.cfm"
 		}
 		else if(ele.value == 'Pendants'){
-			document.frmAdvSearch.action = "gem-stone-pendants.cfm"
+			document.frmAdvSearch.action = "/gem-stone-pendants.cfm"
 		}
 		else if(ele.value == 'Rings'){
-			document.frmAdvSearch.action = "gem-stone-rings.cfm"
+			document.frmAdvSearch.action = "/gem-stone-rings.cfm"
 		}
 		else if(ele.value == 'Earrings'){
-			document.frmAdvSearch.action = "gem-stone-earrings.cfm"
+			document.frmAdvSearch.action = "/gem-stone-earrings.cfm"
 		}
 		else if(ele.value == 'Necklaces'){
-			document.frmAdvSearch.action = "gem-stone-necklaces.cfm"
+			document.frmAdvSearch.action = "/gem-stone-necklaces.cfm"
 		}
 		else if(ele.value == 'Bracelets'){
-			document.frmAdvSearch.action = "gem-stone-bracelets.cfm"
+			document.frmAdvSearch.action = "/gem-stone-bracelets.cfm"
 		}
 		else if(ele.value == 'Cuffins'){
-			document.frmAdvSearch.action = "gem-stone-cufflinks.cfm"
+			document.frmAdvSearch.action = "/gem-stone-cufflinks.cfm"
 		}
 		else if(ele.value == 'Brooches'){
-			document.frmAdvSearch.action = "gem-stone-brooches.cfm"
+			document.frmAdvSearch.action = "/gem-stone-brooches.cfm"
 		}
 		else if(ele.value == 'Healing'){
-			document.frmAdvSearch.action = "gem-stone-healing.cfm"
+			document.frmAdvSearch.action = "/gem-stone-healing.cfm"
 		}
 		else if(ele.value == 'Beads'){
-			document.frmAdvSearch.action = "gem-stone-beads.cfm"
+			document.frmAdvSearch.action = "/gem-stone-beads.cfm"
 		}
 		document.frmAdvSearch.submit();
 	}
-	
+
 	function fnSearchByPrice(ele){
-		
+
 		if(ele.value == 'under10'){
 			document.frmAdvSearch.action = "/jewelry-under-$10.cfm?"
 		}

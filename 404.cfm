@@ -1,11 +1,13 @@
-<cfset categories = "rings,pendants,bracelets,necklaces,cufflinks,earrings,brooches" />
+<cfset categories = "rings,pendants,bracelets,necklaces,cufflinks,earrings,brooches,anklets" />
+<!---
+<cfdump var="#cgi#" /> --->
 
 
-
+<!--- jewelry/pendants/amethyst  --->
 <cfif not find(".cfm",cgi.query_string)>
 
 
-
+<!--- Query string that comes to 404 file  	404;http://www.semiprecious.com:80/jewelry/pendants/amethyst  --->
             <cfset url_ = rereplace(cgi.query_string,"404;http://www.semiprecious.com:80/","") />
 
             <cfset token = "" />
@@ -46,16 +48,27 @@
 
             </cfloop>
    		   <cfif token neq "" and token neq 'jewelry.cfm'>
-			<cfoutput>#token#</cfoutput>
+			<cfif token contains ".cfm" >
 
-          <!---        <cflocation statuscode="301" addtoken="no" url="/#token#" />
-          ---><cfelse>
+
+          <cflocation statuscode="301" addtoken="no" url="/#token#" />
+		  </cfif>
+      <cfelse>
 				 <cfheader statuscode="404"  />
     		</cfif>
 
              <cfelse>
-
+	   <cfset url_ = rereplace(cgi.query_string,"404;http://www.semiprecious.com:80/","") />
+	   <cfset url_ = rereplace(url_,".cfm","") />
+<!--- http://www.semiprecious.com/agate_anklets.cfm --->
+ <cfif listfind(categories,listgetat(url_,2,"_"))>
+	  <cfset subcat =  listgetat(url_,1,"_") />
+	      <cfinclude template="/#listgetat(url_,2,"_")#.cfm"/>
+          <cfabort />
+	</cfif>
 
 <cfheader statuscode="404"  />
+
+<cfoutput>#url_#,#listgetat(url_,2,"_")#</cfoutput>
 
      </cfif>
