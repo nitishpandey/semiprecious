@@ -4,7 +4,9 @@
 
 
 <!--- jewelry/pendants/amethyst  --->
-<cfif not find(".cfm",cgi.query_string)>
+
+<cfif  find("/jewelry/",cgi.query_string) or find("/by-stone/",cgi.query_string) >
+
 
 
 <!--- Query string that comes to 404 file  	404;http://www.semiprecious.com:80/jewelry/pendants/amethyst  --->
@@ -58,17 +60,9 @@
     		</cfif>
 
              <cfelse>
-	   <cfset url_ = rereplace(cgi.query_string,"404;http://www.semiprecious.com:80/","") />
-	   <cfset url_ = rereplace(url_,".cfm","") />
-<!--- http://www.semiprecious.com/agate_anklets.cfm --->
- <cfif listfind(categories,listgetat(url_,2,"_"))>
-	  <cfset subcat =  listgetat(url_,1,"_") />
-	      <cfinclude template="/#listgetat(url_,2,"_")#.cfm"/>
-          <cfabort />
-	</cfif>
 
 <cfheader statuscode="404"  />
 
-<cfoutput>#url_#,#listgetat(url_,2,"_")#</cfoutput>
+
 
      </cfif>

@@ -1,5 +1,5 @@
 <!--start of silver_jewelry_gallery.cfm -->
-<cfif >
+
 <cfif isdefined("Url.debug") >
 	<CFSET _start = GetTickCount() />
 </cfif>
@@ -75,10 +75,7 @@
 					--->
 			</cfif>
 		</div>
-		<!---  <cfmail from="nitish@semiprecious.com" to="anup@semiprecious.com"  server="mail23" subject="a criteria that is out of stock" type="html" >
-			#session.mail#,#cgi.QUERY_STRING# .
-			</cfmail>
-			--->
+
 		<br />
 		<span class="error">
 			No Designs Found. Please Try Again.
@@ -88,7 +85,7 @@
 			<cfinclude template="pippinindex.htm" />
 		</cfif>
 	<cfelse>
-		<cfset display = displaycolumns*displayrows />
+		<cfset display = 15 />
 		<CFIF GetList2.cat is not "">
 			<input type='hidden' name='category' value='#GetList2.cat#' />
 		<CFELSE>

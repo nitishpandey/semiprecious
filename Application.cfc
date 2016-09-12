@@ -121,15 +121,20 @@
 			</cfscript>
 			<cfinclude template="/includes/application_startup.cfm" />
 		</cfif>
-		<cfset session.currency = '$'>
-		<cfset session.country=''>
-		<cfset session.sale_factor = 1 />
-		<cfset session.getCountry = 'US' />
+
+
+		<!---  This gets destroyed during log out but onSessionStart doesn't get invoked after that --->
+		<cfif (not isdefined("session.mail"))>
+			<cfinclude template="/includes/session_start.cfm" />
+		</cfif>
+
 		<cfif session.mail is "na">
 			<!--- to clean up some page that sets mail to 'na' --->
 			<cfset session.mail = "" />
+			<cfset session.bulkbuyer.id = "" />
+
 		</cfif>
-		<cfif not cgi.QUERY_STRING contains 'asd123' >
+
 			<cfif len(session.bulkbuyer.id)>
 				<cfset session.tld = 'semipreciouswholesale.com' />
 				<!---<cfelseif session.country is 'india'>
@@ -137,7 +142,7 @@
 			<cfelse>
 				<cfset session.tld = 'semiprecious.com' />
 			</cfif>
-		</cfif>
+
 		<cfloop collection="#url#" item="j">
 			<cfset form["#j#"] = urldecode(url["#j#"]) />
 		</cfloop>
@@ -233,56 +238,57 @@
 <!--- http://www.semiprecious.com/shaped/claw-gemstone-jewellery.cfm to be honoured in place of http://www.semiprecious.com/shaped/claw-gemstone-jewelry.cfm --->
 <cfset var script = replacenocase(cgi.SCRIPT_NAME,application.rootfolder,"") />
 
+
 <cfif script contains '/shaped'>
-<cfif script contains 'jewelry.cfm'>
-	<cfscript>
-		OnRequestStart("dummy.cfm");
-		OnRequest(TargetPage: '#replacenocase(script,"jewelry","jewellery")#');
-		return true;
-	</cfscript>
-</cfif>
-<!--- http://www.semiprecious.com/shaped/round-gemstone-rings.cfm --->
-
-<cfset script = replacenocase(script,".cfm","") />
-<!--- http://www.semiprecious.com/shaped/round-gemstone-rings.cfm --->
-<cfif script contains '-gemstone-'>
-    	<cfif listfind(application.cat_list,listgetat(script,listlen(script,"-"),"-"))>
-	<cfscript>
-		OnRequestStart("dummy.cfm");
-		if (listlen(script,"-") is 3)
-		{
-        url.groupname=listgetat(script,2,"/-");
-        OnRequest(TargetPage:'#listgetat(script,3,"-")#.cfm');
-
-		}
-			else
-		{
-				if (listlen(script,"-") is 4)
-	        	{
-	        		url.groupname=listgetat(script,2,"/-") & "-" & listgetat(script,3,"/-");
-	            	OnRequest(TargetPage:'#listgetat(script,4,"-")#.cfm');
-	        	}
-		}
-
-   return true;
-
-	</cfscript>
-	</cfif>
-
-</cfif>
-</cfif>
-
-
-
-	 <cfif listfind(Application.cat_list,listgetat(script,2,"_-"))>
-	  <cfset url.subcat =  listgetat(script,1,"/_-") />
-	      	<cfscript>
-		OnRequestStart("dummy.cfm");
-		OnRequest(TargetPage:'#listgetat(script,2,"_-")#.cfm');
-		return true;
+	<cfif script contains 'jewelry.cfm'>
+		<cfscript>
+			OnRequestStart("dummy.cfm");
+			OnRequest(TargetPage: '#replacenocase(script,"jewelry","jewellery")#');
+			return true;
 		</cfscript>
+	</cfif>
+<!--- http://www.semiprecious.com/shaped/round-gemstone-rings.cfm --->
+
+	<cfset script = replacenocase(script,".cfm","") />
+	<!--- http://www.semiprecious.com/shaped/round-gemstone-rings.cfm --->
+	<cfif script contains '-gemstone-'>
+
+    	<cfif listfind(application.cat_list,listgetat(script,listlen(script,"-"),"-"))>
+
+			<cfscript>
+				OnRequestStart("dummy.cfm");
+				if (listlen(script,"-") is 3)
+				{
+		        url.groupname=listgetat(script,2,"/-");
+		        OnRequest(TargetPage:'#listgetat(script,3,"-")#.cfm');
+		 		return true;
+				}
+					else
+				{
+						if (listlen(script,"-") is 4)
+			        	{
+			        		url.groupname=listgetat(script,2,"/-") & "-" & listgetat(script,3,"/-");
+			            	OnRequest(TargetPage:'#listgetat(script,4,"-")#.cfm');
+			         		return true;
+			         	}
+				}
+			</cfscript>
+		</cfif>
+	</cfif>
+</cfif>
 
 
+	<cfif listlen(script,"_-") GT 1>
+		 <cfif listfind(Application.cat_list,listgetat(script,2,"_-"))>
+		  <cfset url.subcat =  listgetat(script,1,"/_-") />
+		      	<cfscript>
+			OnRequestStart("dummy.cfm");
+			OnRequest(TargetPage:'#listgetat(script,2,"_-")#.cfm');
+			return true;
+			</cfscript>
+
+
+		</cfif>
 	</cfif>
 
 		<cfinclude template="404.cfm" />

@@ -97,8 +97,10 @@ string = Replace(string," In "," in ","ALL");
 	<cfparam name="subcat2" DEFAULT= "" />
 	<cfparam name="categ" default="jewelry" />
 	<cfparam name="metakeywords" default="" />
-	<cfparam name="LatestStartingBackMonths" default="1" />
-	<cfparam name="ringsize" default="" />
+<cfparam name="light" default="##91a5a5" />
+
+	<cfparam name="dark" default="##557777" />
+		<cfparam name="ringsize" default="" />
 	<cfparam name="url.ringsize" default="" />
 	<cfparam name="url.category" default="" />
 	<cfparam name="pagedescription" default="" />
@@ -108,15 +110,11 @@ string = Replace(string," In "," in ","ALL");
 	<cfparam name="silverjewelry" default="" />
 	<cfparam name="displaycolumns" DEFAULT="5" />
 	<cfparam name="display" DEFAULT="3" />
-	<cfparam name="light" default="pink" />
-	<cfparam name="dark" default="##D64578" />
 	<cfparam name="numpages" DEFAULT="0" />
 	<cfparam name="jewelrysize" default="" />
-	<cfparam default="106" name="stonelistht" />
 	<cfparam name="category" DEFAULT="all" />
 	<cfparam name="priceless" DEFAULT="" />
 	<cfparam name="category2" DEFAULT="all" />
-	<cfparam default="662222" name="l" />
 	<cfparam name="invstatus" default=-3	/>
 	<cfparam name="url.start" default="1" />
 	<cfparam name="start" DEFAULT= "1" />
@@ -128,13 +126,12 @@ string = Replace(string," In "," in ","ALL");
 	<cfparam name="advancedsearch2" DEFAULT= "" />
 	<cfparam name="advancedsearch3" DEFAULT= "" />
 	<cfparam name="color" DEFAULT= "" />
-	<cfparam name="Bcolor" DEFAULT= "white" />
 	<cfparam name="salestatus" DEFAULT="" />
-	<cfparam name="newcart" DEFAULT="" />
+
 	<cfparam name="invent" DEFAULT="" />
 	<cfparam name="j" DEFAULT="" />
 	<cfparam name="pricegreater" DEFAULT="0" />
-	<cfparam name="imagepath" DEFAULT="http://www.semiprecious.com/images/" />
+	<cfparam name="imagepath" DEFAULT="http://semiprecious.com/images/" />
 	<cfparam name="masterpath" DEFAULT="http://www.semiprecious.com/" />
          <cfset leftgemstonedisplay="block" />
 		<cfif color neq "" >
@@ -173,6 +170,9 @@ string = Replace(string," In "," in ","ALL");
 
 			</cfif>
 			<cfsavecontent variable="title">
+			   <cfif isdefined("title")>
+			   <cfoutput>#title#</cfoutput>
+			   <cfelse>
                  <cfif findnocase( "latest",cgi.script_name)>
                   New Arrivals  for
                  <Cfelseif findnocase("cheap",cgi.script_name)>
@@ -201,6 +201,7 @@ string = Replace(string," In "," in ","ALL");
 					 gem stones
 					</cfif>
 					</cfoutput>
+				</cfif>
 				</cfsavecontent>
 
 
@@ -700,9 +701,9 @@ if ( screensize is "small"){
 			<META content="20 days" name=revisit-after >
 
 			<cfif  len(session.bulkbuyer.id) >
-				<link href="/styles/hub_ws.css?gems=beads" rel="stylesheet" type="text/css" >
+				<link href="/styles/hub_ws.css" rel="stylesheet" type="text/css" >
 			<cfelse>
-				<link href="/styles/hub_ws.css?gems=beads" rel="stylesheet" type="text/css" >
+				<link href="/styles/hub_ws.css?gems=original" rel="stylesheet" type="text/css" >
 			</cfif>
 
 			<link rel="shortcut icon" href="/favicon.ico" >
@@ -737,6 +738,9 @@ if (len(canonical))
  <cfset var canonical = "" />
 					<!--- agate_anklets.cfm is the canonical form  --->
 						<!--- agate_anklets.cfm is the canonical form  --->
+						<cfif cgi.script_name contains "handmade_">
+						<cfreturn cgi.script_name />
+						</cfif>
 					<cfif subcat neq "">
 						<cfif category neq 'all'>
 							<cfset canonical = lcase(subcat) & "_" & lcase(category) & ".cfm">
@@ -752,24 +756,40 @@ if (len(canonical))
 					<cfelse>
 					    <!--- subcat is "" --->
 					    <!--- http://www.semiprecious.com/rings.cfm?category=Rings&sortorder=price&priceless=62.5&pricegreater=25&start=241 --->
-						    <cfif category neq 'all'>
+						 <cfif color neq ''>
+					<!--- color-gem-stone/purple-necklaces.cfm --->
+						 	<cfif category neq 'all'>
+									<cfset canonical = "color-gem-stone/#color#-#category#.cfm" />
+								<cfelse>
+									<cfset canonical = "color-gem-stone/#color#-jewelry.cfm" />
+							</cfif>
+						<Cfelse>
+						   <cfif category neq 'all'>
 								<cfset canonical = lcase(category) & ".cfm">
 							<cfelse>
 								<cfset canonical = "gemstone_jewelry_gallery.cfm" />
 							</cfif>
+						</cfif>
 					</cfif>
+
 					<!--- sortorder=price&priceless=62.5&pricegreater=25&start=241 --->
-					<cfset var narrowing_params = 'style,sortorder,priceless,pricegreater,start' />
+					<cfset var narrowing_params = 'style,groupname,sortorder,priceless,pricegreater,start' />
 					<cfset var  url_params ="?" />
 					<cfloop list="#narrowing_params#" index="param_" >
 						<cfif isdefined("param_")>
 							<cfif param_ is 'start'>
-								<cfif start eq 1>
+								<cfif start eq 0 or start eq 1>
 									<cfcontinue />
 								</cfif>
 							 </cfif>
+							 <cfif param_ is 'groupname'>
+								<cfif groupname neq "">
+										<cfset canonical = '/shaped/#groupname#-gemstone-#lcase(category)#' & ".cfm">
+								</cfif>
+								<cfcontinue />
+							 </cfif>
 							 	<cfif param_ is 'priceless'>
-								<cfif priceless eq "">
+								<cfif priceless eq "" >
 									<cfcontinue />
 								</cfif>
 							 </cfif>
@@ -790,7 +810,7 @@ if (len(canonical))
 								</cfif>
 							 </cfif>
 							 	<cfif param_ is 'sortorder'>
-								<cfif  sortorder eq 'disporder'>
+								<cfif  url.sortorder is 'newitem desc' or sortorder is 'disporder'>
 									<cfcontinue />
 									<cfelse>
 									<cfset form['sortorder'] = sortorder />

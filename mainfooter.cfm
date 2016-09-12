@@ -4,8 +4,10 @@
 	</a>
 </center>
 <br>
-
-	<cfif session.cartid GT 0>
+	<cfif session.tld is '.semiprecious.in'>
+		~</div>
+	</cfif>
+<!--- 	<cfif session.cartid GT 0>
 		<cfif not isdefined("client.cfcartid")>
 
 			<script language="javasrtip1.2">
@@ -18,30 +20,11 @@
 
 			</script>
 		</cfif>
-	</cfif>
+	</cfif> --->
 <cfif cgi.server_name contains 'wholesale'>
 
 <div style="clear:both;background-color:transparent" id="mainfooter"  >
 		<div style="100%;padding:1px;" >
-			<cfif cgi.server_name contains 'semiprecious.in' or cgi.server_name contains 'semiprecious.com'>
-				<a  title="The traditionally and astrologically recommended semiprecious stones benefits for health" href="/healing_properties.htm">
-					Healing Properties
-				</a>
-				|
-				<a title="The physical and chemical properties of many semiprecious stones" href="/physical_chemical_properties.htm">
-					Physical & Chemical Properties
-				</a>
-				|
-				<a title="Anthropological facts about semiprecious stones - geographical deposits" href="/Geographical_deposits.htm">
-					Geographical Locations
-				</a>
-				|
-				<a title="Anthropological facts about semiprecious stones - origin and history" href="/origin_history.htm">
-					History & Origin
-				</a>
-				<br>
-				<BR>
-			</cfif>
 
 				<div id="wholesalefooter" style="position:relative;top:140px">
 					<a title="Payment Options"  href='/Checks_Discover_Jewelry_Payment.cfm'>
@@ -56,19 +39,18 @@
 						SemipreciousWholesale
 					</a>
 				</div>
+
 			 <!---
-				<a href=/jewelry-articles/knowledge.cfm>Knowledge Base</a> |---> <a href=/contactus.cfm>Contact Us</a> <a href='/privacy_in.cfm'>Privacy Policy</a> | <a href='/about.cfm'>About us</a> | </div>
+				<a href=/jewelry-articles/knowledge.cfm>Knowledge Base</a> |--->
+				<a href=/contactus.cfm>Contact Us</a> <a href='/privacy_in.cfm'>Privacy Policy</a> | <a href='/about.cfm'>About us</a> | </div>
 		</div>
 		<div style="width:100%;margin-top:10px;position:relative;top:140px">
 			<table align="center" style="display:table;">
 				<tr>
 					<td>
-						<!---<cfif session.tld is 'semiprecious.in'>--->
-							<a href="https://www.facebook.com/austinGems" target="_TOP">
 
 						<img alt="semiprecious jewelry fans on facebook" style="display:inline" src=/images/facebook-gemstone.png> </a>
 					</td>
-					<cfif session.country neq 'india'>
 						<td>
 							<a href="https://www.twitter.com/beads_gems" title="Follow us on Twitter">
 								<img style="display:inline" src="/images/twitter.ico" height=40 width=40 alt="Follow Jewelry store on Twitter" border="0" />
@@ -79,29 +61,8 @@
 								<img src="https://www.semiprecious.com/images/verification_seal.gif" border="0" height=40 width=40 alt="Official PayPal Seal, Click to Verify" />
 							</a>
 						</td>
-						<cfif cgi.server_name contains "semiprecious.com">
-							<td>
-								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-									<input type="hidden" name="cmd" value="_s-xclick">
-									<input type="hidden" name="hosted_button_id" value="P9SW8ZFSY8NBC">
-									<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_giftCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-									<img alt="paypal gifts" style="display:inline" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-								</form>
-							</td>
-							<td>
-								<form action='https://madmimi.com/signups/subscribe/35940' method='post'>
-									<div>
-										<label for='signup_email'>
-											Email:
-										</label>
-										<input id='signup_email' size=25 name='signup[email]' type='text' />
-										<br />
-										<input name='commit'  type='submit' value='Sign Up For Deals/News' />
-									</div>
-								</form>
-							</td>
-						</cfif>
-					</cfif>
+
+
 				</tr>
 			</table>
 		</div>
@@ -120,6 +81,8 @@
 		<div class="footerLine" align="center">
 		</div>
 	</cfif>
+	<cfset url.server_name = cgi.SERVER_NAME />
+<cfcache action="servercache"  usequerystring="true"  stripWhiteSpace="true"  idletime="3">
 	<article class="wrapper">
 		<section class="footage">
 			<div class="footageBox" align="left">
@@ -264,7 +227,7 @@
 								var g = d.createElement(t);
 								var s = d.getElementsByTagName(t)[0];
 								g.id = "yelp-biz-badge-script-plain-aZr4LjOAUxrMgNSkeDU8eA";
-								g.src = "//dyn.yelpcdn.com/biz_badge_js/en_US/plain/aZr4LjOAUxrMgNSkeDU8eA.js";
+								g.src = "https://dyn.yelpcdn.com/biz_badge_js/en_US/plain/aZr4LjOAUxrMgNSkeDU8eA.js";
 								s.parentNode.insertBefore(g, s);
 							}(document, 'script'));
 						</script>
@@ -300,11 +263,11 @@
 					Why Semiprecious?
 				</h2>
 				<p>
-					This is why 40,000 customers prefer Semiprecious:
+					This is why 30,000 customers prefer Semiprecious:
 				</p>
 				<ul>
 					<li>
-						Over 18,000 Designs
+						18,000 Designs
 					</li>
 					<li>
 						Authentic Gemstone &amp; Sterling Silver
@@ -365,7 +328,6 @@
 					</a>
 				</li>
 
-
 					<li>
 						<a href='/Checks_Discover_Jewelry_Payment.cfm'>
 							Payment Options
@@ -400,8 +362,8 @@
 		</footer>
 		<!--Footer Ends-->
 	</article>
-
-		<script type="text/javascript">
+</cfcache>
+<!--- 		<script async=true type="text/javascript">
 			adroll_adv_id = "PLQPBJSLJ5ABTBDLMFMW6F";
 			adroll_pix_id = "CHWO6SS4CJGCBIUQ2EUVWX";
 			(function() {
@@ -419,7 +381,7 @@
 					}
 				};
 			}());
-		</script>
+		</script> --->
 </cfif>
 <script type="text/javascript">
 		try {
@@ -435,6 +397,7 @@
 		}
 		catch (e) {}
 	</script>
+
 <!-- Start Alexa Certify Javascript -->
 
 <script type="text/javascript" src="https://d31qbv1cthcecs.cloudfront.net/atrk.js">

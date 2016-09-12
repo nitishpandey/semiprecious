@@ -1,1 +1,15 @@
-div.Silver_bottomTiles{color:#393939;font-family:"Trebuchet MS";font-size:11px;margin-left:20px;margin-top:20px;position:inherit;text-align:center}.Silver_sub1WS{font-size:1em;float:left;margin-left:1px;margin-top:24px;position:relative;top:1px;height:290px;width:192px;z-index:1}.Silver_sub1{font-size:1em;float:left;margin-left:1px;margin-top:10px;position:relative;top:1px;height:310px;width:182px;z-index:1}.Silver_subTop{display:none;height:0;width:100%}.Silver_subTop span{display:block;height:20px;position:relative}.Silver_subBottom{height:1px;z-index:-3}.thumbnail_box{height:120px;overflow:hidden;position:relative;width:120px;margin-top:6px}.thumbnail_box img{margin-bottom:2px}.text_box{height:64px;overflow:hidden;position:relative;padding-top:2px;margin-top:-18px}.ship_box{z-index:2;display:block;height:118px;margin-top:-2px;overflow:hidden;padding-top:0;padding-left:2px;margin-left:4px;position:relative}.shipping_box{color:#503040;background-color:#FAFAFA;font-weight:700;border:0 #929391 solid;padding:1px 2px}.Silver_subBottom span{display:block;height:36px;position:relative}.silver_bottomBarTitle{overflow:hidden}silver_sub1WS img,silver_sub1 img{width:132px}
+div.Silver_bottomTiles{color:#393939;font-family:"Trebuchet MS";font-size:11px;margin-left:20px;margin-top:20px;position:inherit;text-align:center}.Silver_sub1WS{font-size:1em;float:left;margin-left:1px;margin-top:24px;position:relative;top:1px;height:290px;width:192px;z-index:1}
+.Silver_sub1{
+	    border:1px groove #99CCCC;
+	    font-size:1em;
+	    float:left;
+	    margin-left:16px;
+	    margin-top:10px;
+	    position:relative;
+	    height:310px;
+	    width:182px;
+	    margin-bottom:2px;
+		overflow:hidden;
+		top:-2px;
+		z-index:1}
+		.Silver_subTop{display:none;height:0;width:100%}.Silver_subTop span{display:block;height:20px;position:relative}.Silver_subBottom{height:1px;z-index:-3}.thumbnail_box{height:120px;overflow:hidden;position:relative;width:120px;margin-top:6px}.thumbnail_box img{margin-bottom:2px}.text_box{height:64px;overflow:hidden;position:relative;padding-top:2px;margin-top:-18px}.ship_box{z-index:2;display:block;height:118px;margin-top:-2px;overflow:hidden;padding-top:0;padding-left:2px;margin-left:4px;position:relative}.shipping_box{color:#503040;background-color:#FAFAFA;font-weight:700;border:0 #929391 solid;padding:1px 2px}.Silver_subBottom span{display:block;height:36px;position:relative}.silver_bottomBarTitle{overflow:hidden}silver_sub1WS img,silver_sub1 img{width:132px}
