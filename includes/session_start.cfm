@@ -90,6 +90,9 @@
 	   	session.agentnumber = '5123867676';
 		*/
        	session.filter="" ;
+
+	 session.sale_factor = 1 ;
+		 session.getCountry = 'US' ;
 		session.gallery="/gemstone_jewelry_gallery.cfm" ;
 		session.edit="" ;
 		session.priceless="" ;

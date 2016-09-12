@@ -132,13 +132,13 @@
 		<div class="silver_subBottom" style="border-bottom:0px ##DFDFDF solid"><span></span></div>
 		</div>' /> --->
 	<cfset itembottom ="</div></div>	</div></div><!-- NO quick add-->" />
-	<cfset itemtop  = '<div class="Silver_sub1" style="float:left;
-		margin-bottom:2px;
-		margin-left:1px;
-		overflow:hidden;
-		position:relative;
-		top:-2px;
-		z-index:1" >
+	<cfif mobile>
+		<cfset margin_silver_sub1 ="margin-left:2px" />
+		<cfelse>
+		<cfset margin_silver_sub1 ="" />
+
+	</cfif>
+	<cfset itemtop  = '<div class="Silver_sub1" style="#margin_silver_sub1#" >
 		<div class="silver_subTop"><span></span></div>
 		<div class="silver_sub-content">
 		<div class="silver_bottomBarTitle">' />

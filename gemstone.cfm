@@ -36,7 +36,7 @@
 <CFPARAM NAME="category" DEFAULT="all" >
 <CFPARAM NAME="priceless" DEFAULT="">
 <CFPARAM NAME="category2" DEFAULT="all" >
-<cfparam default="662222" name="l">
+<cfset ref_des = "" />
 <cfparam name="invstatus" default=-3	>
 <cfparam name="url.start" default="1">
 <CFPARAM NAME="start" DEFAULT= "1">
@@ -59,7 +59,8 @@ inventory , newitem,  style, lower(subcat) as subcat, subcat2, datetaken,  NameI
 	 </cfquery>
 
 	 <cfcatch type="any">
-	 Error in itemsinmemory</cfcatch>
+	 Error in itemsinmemory
+	</cfcatch>
 	 </cftry>
 <cfif isdefined("url.clusterid")>
 <cftry>
