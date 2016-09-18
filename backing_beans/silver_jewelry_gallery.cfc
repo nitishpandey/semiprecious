@@ -784,7 +784,12 @@ if (len(canonical))
 							 </cfif>
 							 <cfif param_ is 'groupname'>
 								<cfif groupname neq "">
-										<cfset canonical = '/shaped/#groupname#-gemstone-#lcase(category)#' & ".cfm">
+									<cfif category neq 'all'>
+											<cfset canonical = '/shaped/#groupname#-gemstone-#lcase(category)#' & ".cfm">
+										<cfelse>
+											<cfset canonical = '/shaped/#groupname#-gemstone-jewelry' & ".cfm">
+
+									</cfif>
 								</cfif>
 								<cfcontinue />
 							 </cfif>
