@@ -1,7 +1,6 @@
 <cfif (not IsUserInRole("admin")) and (not IsUserInRole("superadmin"))>
 Not enough privileges
 <cfelse>
-
 <cfparam name="grouping" default="">
 <cfparam name="grouping2" default="">
 <cftry>
@@ -10,7 +9,9 @@ Not enough privileges
 <cfset k = structdelete(form,"existing_cat","false") />
 <cfset k = structdelete(form,"url_newitem","false") />
 <cfparam name="grouping3" default="">
- <cftry>
+<cftry>
+
+
  <CFQUERY datasource="gemssql" name="detailsinmemory">
 		  Select   material,grouping, itemnumber, size, weight, style, color, storage, imagelink, inventory,
 			 orderonrequest, price, status, saleprice,clustercount,basecost, wholesaleprice, newitem, itemnumber as optcount,description,
@@ -18,7 +19,14 @@ Not enough privileges
 		  items where cat<>'ornaments' and cat <>'bags' and (status =0 or status=3)
 	  </cfquery>
 		<cfcatch type="database">
-<h2>DB error, email cs@semiprecious.com with this error</h2>
+<h2>DB error, email sent to cs@semiprecious.com with this error</h2>
+	<cfscript>
+			mailer = createobject("component", "backing_beans.mailer");
+			mailer.sendmail(mailto: 'anup@semiprecious.com,nitishpandey@gmail.com',
+
+			subject: 'Error at item update',
+			mailcontent: 'SQL:#cfcatch.SQL#, Detail: #cfcatch.Detail#,Message: #cfcatch.Message#');
+		</cfscript>
 </cfcatch>
 </cftry>
 
@@ -73,6 +81,13 @@ insert into itemsUpdateLog (itemid, updateuser) select #newitem#, '#getAuthUser(
 <cfcatch type="database">
 <h2>DB error, email cs@semiprecious.com with this error</h2>
 <cfoutput>#cfcatch.detail##cfcatch.message#</cfoutput>
+	<cfscript>
+			mailer = createobject("component", "backing_beans.mailer");
+			mailer.sendmail(mailto: 'anup@semiprecious.com,nitishpandey@gmail.com',
+
+			subject: 'Error at item update',
+			mailcontent: 'SQL:#cfcatch.SQL#, Detail: #cfcatch.Detail#,Message: #cfcatch.Message#, itemid:#form.newitem#');
+		</cfscript>
 </cfcatch>
 </cftry>
 
@@ -84,7 +99,14 @@ insert into ItemsbyGroup (itemid, category, groupname) select #form.newitem#,'#f
 itemid=#form.newitem# and groupname ='#grouping#')=0
 </cfquery>
 <cfcatch type="database">
-<h2>DB error, email cs@semiprecious.com with this error</h2>
+<h2>DB error, email sent to cs@semiprecious.com with this error</h2>
+	<cfscript>
+			 mailer = createobject("component", "backing_beans.mailer");
+			mailer.sendmail(mailto: 'anup@semiprecious.com,nitishpandey@gmail.com',
+
+			subject: 'Error at item update',
+			mailcontent: 'SQL:#cfcatch.SQL#, Detail: #cfcatch.Detail#,Message: #cfcatch.Message#, itemid:#form.newitem#,grouping: #grouping#');
+		</cfscript>
 </cfcatch>
 </cftry>
 </cfif>
@@ -106,11 +128,17 @@ Select email from wish where newitem = #form.newitem#
 
 		<cfcatch type="database">
 <h2>DB error, email cs@semiprecious.com with this error</h2>
+<cfscript>
+			 mailer = createobject("component", "backing_beans.mailer");
+			mailer.sendmail(mailto: 'anup@semiprecious.com,nitishpandey@gmail.com',
+			subject: 'Error at item update',
+			mailcontent: 'SQL:#cfcatch.SQL#, Detail: #cfcatch.Detail#,Message: #cfcatch.Message#, itemid:#form.newitem#');
+		</cfscript>
 </cfcatch>
 </cftry>
 <cfloop query = "wishlist">
 
-Reminder emails sent to: <cfoutput>#email#,</cfoutput>
+Reminder emails NOT sent to: <cfoutput>#email#,</cfoutput>
 <!--- DAILY EMAIL GOING NOW FROM STASKS/ACTVEDAYS.CFM--- BELOW CODE REDUNDANT--->
 <!---<cfmail   to="#wishlist.email#"  from = "service@semiprecious.com"  subject = "Your wish-list Jewelry in stock now"   replyto = "cs@semiprecious.com"
    failto = "stacyanup@gmail.com" >
@@ -143,13 +171,14 @@ Semiprecious.com
 <HEAD>
 <cfoutput>
 <TITLE>Item #newitem# updated</TITLE>
-
+</cfoutput>
 </HEAD>
-<BODY BGCOLOR="##FFFFFF"  alink="##FFFF99" TEXT="##000000" LINK="##0000FF" VLINK="##800080" onLoad="javascript:document.forms[0].newitem.focus();">
+<BODY BGCOLOR="#FFFFFF"  alink="#FFFF99" TEXT="#000000" LINK="#0000FF" VLINK="#800080" onLoad="javascript:document.forms[0].newitem.focus();">
 <!--Don't forget to add your FREE HitBOX statistics to your web page. To
 do so, click on Tools\Online Services\Add statistics...-->
-<h1>Thank you Prashant, Ravi and Leena!</h1>
+<h1>Thank you!</h1>
 
+<cfoutput>
 <h2>Item #newitem# updated</h2>
 
 <cfif form.status is 1><h2><font color=red>WARNING: #newitem# IS INACTIVE</h2></cfif>
@@ -184,15 +213,30 @@ Or
 </cftry>--->
 <cftry>
 IMAGE EDITED:<p>
-<cfoutput><cfimage action="info" source="#application.rootfolder#\images\#form.cat#\thumb\#form.newitem#.jpg" structname="gim" />
+<cfoutput>
+	<cfimage action="info" source="#application.rootfolder#\images\#form.cat#\thumb\#form.newitem#.jpg" structname="gim" />
 <div style="float:left;position:relative;border:1px gray groove">
-<span style="background-color:yellow;position:absolute;top:-10px;left:20px;">#gim.height# by #gim.width#</span><img src=http://www.semiprecious.com/images/#form.cat#/thumb/#form.newitem#.jpg>
+	<span style="background-color:yellow;position:absolute;top:-10px;left:20px;">
+		#gim.height# by #gim.width#
+	</span>
+	<img src=http://www.semiprecious.com/images/#form.cat#/thumb/#form.newitem#.jpg>
 </div>
-<div style="float:left;position:relative;border:1px gray groove"><cfimage action="info" source="#application.rootfolder#\images\#form.cat#\#form.newitem#.jpg" structname="gim" />
-<span style="border:1px blue solid;position:absolute;top:-10px;left:20px;background-color:pink;">#gim.height# by #gim.width#</span>
-<img src=http://www.semiprecious.com/images/#form.cat#/#form.newitem#.jpg></div>
- </cfoutput>
+<div style="float:left;position:relative;border:1px gray groove">
+	<cfimage action="info" source="#application.rootfolder#\images\#form.cat#\#form.newitem#.jpg" structname="gim" />
+	<span style="border:1px blue solid;position:absolute;top:-10px;left:20px;background-color:pink;">
+		#gim.height# by #gim.width#
+	</span>
+	<img src="http://www.semiprecious.com/images/#form.cat#/#form.newitem#.jpg">
+</div>
+</cfoutput>
 <cfcatch type="any">
+	<cfscript>
+			 mailer = createobject("component", "backing_beans.mailer");
+			mailer.sendmail(mailto: 'anup@semiprecious.com,nitishpandey@gmail.com',
+
+			subject: 'Error at item update',
+			mailcontent: ' Detail: #cfcatch.Detail#,Message: #cfcatch.Message#, itemid:#form.newitem#');
+		</cfscript>
 </cfcatch>
 </cftry>
 </BODY>
