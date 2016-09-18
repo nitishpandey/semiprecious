@@ -63,13 +63,9 @@ Select inventory as inventoryusa, inventory+inventoryindia as inventory from ite
 
 <CFUPDATE DATASOURCE='gemssql' TABLENAME="Items">
 
-<<<<<<< HEAD
 <cfif form.inventory LT 1>
 <Font color="red" size=32>WARNING INVENTORY IS 0!!!!</font><p>
 </cfif>
-=======
-
->>>>>>> 517cdd0b57a55d33c250fd80a427d5856e5c669c
 <cfquery datasource="gemssql" name="updateuser">
 insert into itemsUpdateLog (itemid, updateuser) select #newitem#, '#getAuthUser()#'
 </cfquery>

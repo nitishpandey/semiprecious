@@ -409,7 +409,7 @@
 					<cfif not mobile>
 						width="560px"
 					</cfif>
-					height=450px align="center" style="border:0 opx height:450px #CFFCCF solid;padding-top:2px;" >
+					height=450px align="center" style="border:0px;#CFFCCF solid;padding-top:2px;" >
 					<table border="0" cellpadding="0" cellspacing="0" style="padding:1px" >
 						<tr valign="middle" >
 							<td valign="middle" align="center">
@@ -447,10 +447,10 @@
 															<cfif video.recordcount is 1>
 																<td>
 																	<div id="showvideobutton" onclick="showvideo()">
-																		<img src ='/images/#folder#/#newitem#.jpg'  height="70px" border="1" />
+																		<img alt="Video link for #newitem# jewelry design" title="Video link for #newitem# jewelry design" src ='/images/#folder#/#newitem#.jpg'  height="70px" border="1" />
 																	</div>
 																	<div id="playbutton" style="position:relative;top:-20px;left:20px;height:10px;" onclick="showvideo()">
-																		<img src="/images/playvideo.gif" height=20px  alt="play video" />
+																		<img alt="Click to Play video" title="Click to Play Video" src="/images/playvideo.gif" height=20px  alt="play video" />
 																		<br />
 																		play video
 																	</div>
@@ -459,12 +459,12 @@
 															<td valign="top">
 																<cfif details.morepics GT 0 >
 																	<div  align="left" >
-																		<img src ='/images/#folder#/#imagename#'	alt="unique #subcategory# #category# Jewelry"   height="70px" border="1" style="cursor:pointer"		onMouseOver="swapMainImage('/images/#folder#/#imagename#');"  alt='unique #subcategory# #category# Jewelry' >
+																		<img src ='/images/#folder#/#imagename#'	alt="unique #subcategory# #category# Jewelry for design #imagename#" title="Another pic for #imagename# in #subcategory# #category# Jewelry"    border="1" style="height:70px;cursor:pointer"		onMouseOver="swapMainImage('/images/#folder#/#imagename#');"  alt='unique #subcategory# #category# Jewelry' >
 																		<cfloop index="picCount" from="1" to=#details.morepics#>
 																			<cfset imagename2= newitem & "-" & picCount & ".jpg" />
 																			<cfif fileexists('#application.rootfolder#/images/jewelry/#category#/#imagename2#')>
 																				<cfimage source="#application.rootfolder#/images/jewelry/#category#/#imagename2#" action="info" structname="dg" />
-																				<img src ="/images/jewelry/#category#/#imagename2#" alt="unique #subcategory# #category# Jewelry"		border="1" height="70px" style="cursor:pointer"
+																				<img title="Zoom to see this SKU #newitem# second pic" src ="/images/jewelry/#category#/#imagename2#" alt="SKU #newitem# unique #subcategory# #category# Jewelry"		border="1"  style="height:70px;cursor:pointer"
 																					onMouseOver="swapMainImage('/images/jewelry/#category#/#imagename2#');" >
 																				<cfif wd.height gt dg.height>
 																					<cfset frameHeight = wd.height>
@@ -473,8 +473,8 @@
 																				</cfif>
 																			<cfelse>
 																				<CFQUERY datasource="gemssql" >
-											                                                                update items set morepics = morepics - 1 where newitem = #newitem#
-											                                                            </cfquery>
+											                                          update items set morepics = morepics - 1 where newitem = #newitem#
+											                               </cfquery>
 																			</cfif>
 																		</cfloop>
 																	</div>
@@ -491,7 +491,7 @@
 																	Enlarge:
 																</font>
 																<a href="/images/pictureonly.cfm?category=#category#&itemid=#newitem#" alt="#ucase(subcategory)# #ucase(details.subcat2)#" >
-																	<img src="/images/magglass.jpg" border="0" width="25" height="24">
+																	<img alt="Click to See only the picture" src="/images/magglass.jpg" title="Click to See only the picture" src="/images/magglass.jpg" border="0" width="25" height="24">
 																</a>
 															</td>
 														</tr>
@@ -506,14 +506,14 @@
 																<div>
 																	<!--- <img  src="/images/spacer_.gif" height="240px;" style="float:left;height:200px;width:1px;display:inline;" /> --->
 																	<!--- <cfimage source="#application.rootfolder#\images\#folder#\#width#\#imagename#" action="info" structname="wd" /> --->
-																	<a href="/images/pictureonly.cfm?category=#category#&itemid=#newitem#" alt="#ucase(subcategory)# #ucase(details.subcat2)#" >
+																	<a href="/images/pictureonly.cfm?category=#category#&itemid=#newitem#" alt="SKU #newitem# in #ucase(subcategory)# and #ucase(details.subcat2)#" >
 																		<img
 																		<cfif wd.height GTE wd.width and wd.height GT 450>
 																			height="450px"
 																		<cfelseif wd.width GTE wd.height and wd.width GT 450>
 																			width="450px"
 																		</cfif>
-																		id="mainimage" style="display:inline;vertical-align:top" src ='/images/#folder#/#width#/#imagename#' alt="unique #subcategory# #category# Jewelry" border="0" />
+																		id="mainimage" style="display:inline;vertical-align:top" src ='/images/#folder#/#width#/#imagename#' alt="SKU #newitem# - a #subcategory# #category# Jewelry Design image" title="SKU #newitem# main image from #subcategory# #category# Collection" border="0" />
 																	</a>
 																</div>
 															</td>
@@ -788,7 +788,7 @@
 					<span style="color:gray;">Store Price
 					#round_format(8.18*details.basecost/application.exchangerate)# </span>
 					</cfif>
-					---> <cfif cgi.server_name contains 'wholesale'> <br />Wholesale <cfelse> <br />Price </cfif> <CFIF  status eq 3 and cgi.server_name does not contain 'wholesale'><b> <strike>#format(price)#</strike></b> <cfelse> <b>#format(price)#</b> </cfif> </FONT> </div> <cfif cgi.server_name neq "63.135.126.234" > <div align="center" style="margin:4 0;"> <cfif cgi.server_name does not contain 'wholesale'> <CFIF  status eq 3> <b> <font color="red"> <cfif details.wholesaleprice eq details.saleprice> Sale! <cfelse> For Mommy!! </cfif> </font> #format(saleprice)# </b> <br /> <cfelse> <br /> </CFIF> </cfif> </div> <div class="details" align="center" > <div id="ajaxoutput" align="center" > <span id="erroraddingitem"  class="hidden" >Select Failed!</span> <INPUT TYPE="hidden" NAME="bought" VALUE="buy" > <!---       <CFIF invent LT 1 and details.storage does not contain 'CM'><font color="##FF9966" >4 week delivery</font><cfelse>---> <!---</cfif>---> <br /> <cfif details.inventory LTE 0 and details.orderonrequest><a href="javascript:alert('This design is made on demand. This request will take 4 to 6
+					---> <cfif cgi.server_name contains 'wholesale'> <br />Wholesale <cfelse> <br />Price </cfif> <CFIF  status eq 3 and cgi.server_name does not contain 'wholesale'><b> <strike>#format(price)#</strike></b> <cfelse> <b>#format(price)#</b> </cfif> </FONT> </div> <cfif cgi.server_name neq "63.135.126.234" > <div align="center" style="margin:4 0;"> <cfif cgi.server_name does not contain 'wholesale'> <CFIF  status eq 3> <b> <font color="red"> <cfif details.wholesaleprice eq details.saleprice> Sale! <cfelse> Deal!! </cfif> </font> #format(saleprice)# </b> <br /> <cfelse> <br /> </CFIF> </cfif> </div> <div class="details" align="center" > <div id="ajaxoutput" align="center" > <span id="erroraddingitem"  class="hidden" >Select Failed!</span> <INPUT TYPE="hidden" NAME="bought" VALUE="buy" > <!---       <CFIF invent LT 1 and details.storage does not contain 'CM'><font color="##FF9966" >4 week delivery</font><cfelse>---> <!---</cfif>---> <br /> <cfif details.inventory LTE 0 and details.orderonrequest><a href="javascript:alert('This design is made on demand. This request will take 4 to 6
 					to reach you')" class="error1"><b><cfif cgi.server_name contains 'wholesale' and details.weight LT 75>Min. 3</cfif> Made on Order<br> 3-5 week delivery</b></a> </cfif> <CFIF (invent LTE 0) and not details.orderonrequest > Sold Out <br><a href="/contactus.cfm?newitem=#newitem#&folder=#folder#" >Back Order</a> <cfelse> <cfif invent LT 4> <cfif  invent LTE 0 > <cfset invent = 10 /> <cfelse> Only #invent# in stock <br /> </cfif> </cfif> <cfif cgi.server_name contains 'wholesale' and details.inventory LTE 0 and details.orderonrequest and details.weight LT 75><cfset minqty=3><cfelse><cfset minqty=1></cfif> <select id="quantity" name="quantity" > <cfloop from="#minqty#" to="#invent#" index="j"> <cfif url.existqty eq j> <option value="#j#" selected >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#j# in Cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> <cfelse> <option value="#j#" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<cfif details.inventory LTE 0>Make<cfelse>Buy</cfif> #j#&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;</option> </cfif> </cfloop> </select> <!--- <CFINPUT  type="text" SIZE="1"  id="quantity" Name="quantity" VALUE="#existqty#" REQUIRED="yes" Message="Please enter quantity" VALIDATE="integer" onclick="this.focus();" > ---> <br /> <!--- Display item options ---> <!--- 	<cfif  len(session.bulkbuyer.id) and optcount><!---- this section disabled for now. when options would be modified use it ---> <cfswitch expression="#category#"> <cfcase value="rings"> Below Size 10 Add #format(0.5)# Above Size 10 Add #format(1.5)# </cfcase> </cfswitch> <!-- 	<input type="hidden" name="optionid" value="0" />
 					--> </cfif> ---> <!---<cfif cgi.server_name does not contain 'wholesale'>--->
 					 <cfif optcount and not (url.optionid)>
@@ -1002,12 +1002,12 @@
 				<!--- &nbsp;&nbsp;&nbsp;&nbsp;
 					<cfoutput><a title="Check Cart and start checkout" href="/#session.cart#?country=#urlencodedformat(session.address.country_code)#&amp;pehp=3e.2210&amp;cartid=#session.cartid#" ></cfoutput><img alt="shopping cart and start checkout" src=/images/add_to_cart_icon.jpg></a><br />&nbsp;&nbsp;&nbsp;&nbsp;<b>CART</b><br><br>
 					--->
-				<cfif findgroup.recordcount gt 0>
+			 <cfif findgroup.recordcount gt 0>
 					<cfif groupitems.recordcount GT 0 and  len(findGroup.groupname)>
 						<cfoutput query="groupitems" >
 							<div style="margin-top:4px;">
 								<a href=/jewelry_item.cfm?newitem=#itemid#>
-									<img src=/images/#category#/thumb/#itemID#.jpg border=0 width=70 height=70 />
+									<img alt="similar item #itemID# thumbnail" title="Click to see details of SKU #itemID# from #category#" src=/images/#category#/thumb/#itemID#.jpg border=0 width=70 height=70 />
 								</a>
 							</div>
 						</cfoutput>
@@ -1057,28 +1057,27 @@
 						</div>
 						<!--- <div style="position:relative;border:1px gray solid;padding:0;margin:0;border-top:2px black solid;" >
 							<span style="position:absolute;top:-10px;left:30px;background-color:black;border:1px gray solid;border-left:2px black solid;border-right:2px black solid;">&nbsp; --->
-						<cfif session.country neq 'india'>
 							<div style="padding:2px;border-collapse:collapse;width:90px;align:right">
 								<cfoutput query="getcluster">
 									<div>
-										<a title="#lcase(subcat)# #lcase(cat)#" href="/jewelry_item.cfm?newitem=#itemid#" >
+										<a title="#lcase(subcat)# #lcase(cat)# for #itemid#" href="/jewelry_item.cfm?newitem=#itemid#" >
 											<img border=10 bordercolor=white  title="#lcase(subcat)# #lcase(cat)#" alt="#lcase(subcat)# #lcase(cat)#" src="/images/#cat#/thumb/#itemid#.jpg" border=0 height=80 width="80" />
 										</a>
 										<cfif not getcluster.inventory and not getcluster.orderonrequest >
 											<br />
 											<i>
-												sold out
+												Sold Out
 											</i>
 										</cfif>
 									</div>
 								</cfoutput>
 							</div>
-						</cfif>
+
 					</div>
 				</cfif>
 			</div>
 		</div>
-		</div>
+	</div>
 		<!--- End 4th column 1:52 PM--->
 		</td>
 </tr>
@@ -1164,7 +1163,7 @@
 		--->
 	<cfcatch type="any" >
 		<cfdump var="#cfcatch#" />
-		<cfabort />
+
 	</cfcatch>
 </cftry>
 <!-- jewelry_Item.cfm ends -->
