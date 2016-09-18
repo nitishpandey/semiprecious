@@ -1,4 +1,3 @@
-
 <cftry>
 <cfif (not IsUserInRole("admin")) and (not IsUserInRole("superadmin"))>
 Not enough privileges
@@ -29,7 +28,7 @@ ImageID:
     </cfquery>
 	<cfoutput>delete from itemsbygroup where itemid = #groupdel# and groupname='#urldecode(grouping)#'
     </cfoutput>
-<cfset url.newitem = groupdel>  
+<cfset url.newitem = groupdel>
 <!--- <cflocation url="http://www.semiprecious.com/edititem.cfm?newitem=#groupdel#" addtoken="no">
  ---></cfif>
 
@@ -106,11 +105,11 @@ function multiplier(multi)
 function changeBase(country)
 {
    if (country == "in")
-   {   
+   {
        vBase = document.CFForm_1.basecost.value / vExchangeRate;
 	  document.getElementById("basecostus").innerHTML = vBase.toFixed(2);
   }
-   
+
    if (vCurrentBase != 0)
    {
    Ratio =  (vBase)/(vCurrentBase/vExchangeRate);
@@ -131,54 +130,54 @@ function calcprices()
 {
 
 document.form.wholesaleprice.value=document.form.basecost*1.5;
-	
+
 	}
-	
-	
+
+
 function verifyinput()
-// Confirm that all required fields are filled.  If so, update, else alert user 
+// Confirm that all required fields are filled.  If so, update, else alert user
 {
 
 var badinput = 0;
 var baditems = "Please enter a value for:\n";
-if (document.getElementById("itemweight").value == "" ) 
+if (document.getElementById("itemweight").value == "" )
   { badinput = 1; baditems = baditems + "Weight\n" ; }
-if (isNaN(document.getElementById("itemweight").value) || document.getElementById("itemweight").value < 0 ) 
+if (isNaN(document.getElementById("itemweight").value) || document.getElementById("itemweight").value < 0 )
   { badinput = 1; baditems = baditems + "Weight - Please enter a valid number.\n" ; }
- 
-if (document.getElementById("itemrate").value == "" ) 
+
+if (document.getElementById("itemrate").value == "" )
   { badinput = 1; baditems = baditems + "Rate\n" ; }
-if (isNaN(document.getElementById("itemrate").value) || document.getElementById("itemrate").value < 0 ) 
+if (isNaN(document.getElementById("itemrate").value) || document.getElementById("itemrate").value < 0 )
   { badinput = 1; baditems = baditems + "Rate - Please enter a valid number.\n" ; }
 
-if (document.getElementById("itemcat").value == "" ) 
+if (document.getElementById("itemcat").value == "" )
   { badinput = 1; baditems = baditems + "Rs/Gm Cat\n" ; }
-  
-if (document.getElementById("itemprice").value == "" ) 
+
+if (document.getElementById("itemprice").value == "" )
   { badinput = 1; baditems = baditems + "Price: Reg:\n" ; }
-if (isNaN(document.getElementById("itemprice").value) || document.getElementById("itemprice").value < 0 ) 
+if (isNaN(document.getElementById("itemprice").value) || document.getElementById("itemprice").value < 0 )
   { badinput = 1; baditems = baditems + "Price: Reg: - Please enter a valid number.\n" ; }
-  
-if (document.getElementById("itemsalesprice").value == "" ) 
+
+if (document.getElementById("itemsalesprice").value == "" )
   { badinput = 1; baditems = baditems + "Price: Sale:\n" ; }
-if (isNaN(document.getElementById("itemsalesprice").value) || document.getElementById("itemsalesprice").value < 0 ) 
+if (isNaN(document.getElementById("itemsalesprice").value) || document.getElementById("itemsalesprice").value < 0 )
   { badinput = 1; baditems = baditems + "Price: Sale: - Please enter a valid number.\n" ; }
 
-if (document.getElementById("itembasecost").value == "" ) 
+if (document.getElementById("itembasecost").value == "" )
   { badinput = 1; baditems = baditems + "Cost: Rs\n" ; }
-if (isNaN(document.getElementById("itembasecost").value) || document.getElementById("itembasecost").value < 0 ) 
+if (isNaN(document.getElementById("itembasecost").value) || document.getElementById("itembasecost").value < 0 )
   { badinput = 1; baditems = baditems + "Cost: Rs - Please enter a valid number.\n" ; }
 
-if (document.getElementById("itemwholesaleprice").value == "" ) 
+if (document.getElementById("itemwholesaleprice").value == "" )
   { badinput = 1; baditems = baditems + "WholeSale\n" ; }
-if (isNaN(document.getElementById("itemwholesaleprice").value) || document.getElementById("itemwholesaleprice").value < 0 ) 
+if (isNaN(document.getElementById("itemwholesaleprice").value) || document.getElementById("itemwholesaleprice").value < 0 )
   { badinput = 1; baditems = baditems + "itemstorage - Please enter a valid number.\n" ; }
 
 if (document.getElementById("itemsize").value == "" )
   { badinput = 1; baditems = baditems + "Size\n" ; }
-if (isNaN(document.getElementById("itemsize").value) || document.getElementById("itemsize").value < 0 ) 
+if (isNaN(document.getElementById("itemsize").value) || document.getElementById("itemsize").value < 0 )
   { badinput = 1; baditems = baditems + "Size - Please enter a valid number.\n" ; }
-  
+
   var colorlist = "";
   var selObj = document.CFForm_1.color;
   var colorcount = 0;
@@ -193,24 +192,24 @@ if (isNaN(document.getElementById("itemsize").value) || document.getElementById(
 			{  colorlist = colorlist + "," + selObj[i].value; }
 		}
 	  }
-		  if (colorcount > 3) 
+		  if (colorcount > 3)
              { badinput = 1; baditems = baditems + "Too many colors selected.\n" ; }
 else
 {
 
-		if (colorlist == "" ) 
+		if (colorlist == "" )
 		  { badinput = 1; baditems = baditems + "Color not selected.\n" ; }
 		else
 		  { document.CFForm_1.color.value = colorlist; }
     }
-if (document.getElementById("itemstorage").value == "" ) 
+if (document.getElementById("itemstorage").value == "" )
   { badinput = 1; baditems = baditems + "Storage\n" ; }
-if (document.getElementById("orderonrequest").value == "" ) 
+if (document.getElementById("orderonrequest").value == "" )
   { badinput = 1; baditems = baditems + "re-order?\n" ; }
-  
+
 if (document.CFForm_1.faceted.value == "")
   { badinput = 1; baditems = baditems + "Faceted - Check faceted or unfaceted.\n"; }
-  
+
 if (badinput == 0 )
   { document.CFForm_1.submit(); }
 else
@@ -223,7 +222,7 @@ else
 <CFINCLUDE TEMPLATE="/setup.cfm">
 <CFQUERY DATASOURCE="gemssql" NAME="EditItem">
     SELECT nameid, storageindia, material, inventoryindia, datetaken, g2i,orderonrequest, morepics, cwt,cwt2, cwt3,clustercount,saleprice,disporder,storage,cat,lastbought , rate, supplier,subcat,subcat2,subcat3,style,size, NameID, price,totalqtysold, wholesaleprice,basecost, Description, weight,   shipping, faceted, inventory, color, status, shape, REORDER,internalnote from Items with (nolock) where newitem=#newitem#
-		
+
 </CFQUERY>
 <CFQUERY DATASOURCE="gemssql" NAME="groupassigned">
     Select GroupName from itemsbygroup with (nolock) where itemid = #newitem#
@@ -231,7 +230,7 @@ else
 
 <!--- Changes by ankur --->
 <CFQUERY DATASOURCE="gemssql" NAME="qryGetAccess">
-    Select	limitedAccess 
+    Select	limitedAccess
     from 	users with (nolock)
     where 	apptt = '#session.apptt#'
     And	  	usertype = 'superadmin'
@@ -256,9 +255,9 @@ Semiprecious.com Administration - Edit Details for Item#: <CFOUTPUT>#newitem# <a
 </cfif>
 <cfform  action="updateitem.cfm?" method="post">
   <CFOUTPUT> <br>
- Existing Cat (change this only if you have created this form byy copying an item from a category that is different from the one you are about to create): <input type="text" value="#edititem.cat#" name="existing_cat" > 
- Existing Item (change to move this item from this cat to another): <input type="hidden" value="#newitem#" name="url_newitem" > 
- 
+ Existing Cat (change this only if you have created this form byy copying an item from a category that is different from the one you are about to create): <input type="text" value="#edititem.cat#" name="existing_cat" >
+ Existing Item (change to move this item from this cat to another): <input type="hidden" value="#newitem#" name="url_newitem" >
+
     TotQty added to cart: #edititem.totalqtysold# , Last added to cart on : {#dateformat(EditItem.lastbought,'mm/dd/yy')#}. <br>
     Clustercount : #edititem.clustercount# indicates This is a member of  a
     <cfswitch expression="#edititem.clustercount#">
@@ -278,7 +277,7 @@ Semiprecious.com Administration - Edit Details for Item#: <CFOUTPUT>#newitem# <a
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>
-			
+
         <cfif isdefined("url.olditem")>
           <cfINPUT required="yes" TYPE="hidden" NAME="newitem" VALUE="#olditem#">
           <cfelse>
@@ -292,14 +291,14 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
        <!---   <cfif session.mail is "acemat@vsnl.com">
             <option value="2"  <CFIF #editItem.status# is 2>selected</cfif>>Delete forever</option>
           </cfif>--->
-          <option  <CFIF #editItem.status# is 3>selected</cfif> value="3">On 
+          <option  <CFIF #editItem.status# is 3>selected</cfif> value="3">On
           Sale</option>
           <option <CFIF #editItem.status# is 4>selected</cfif> value="4">Free</option>
-          <option <CFIF #editItem.status# is 5>selected</cfif> value="5">No 
+          <option <CFIF #editItem.status# is 5>selected</cfif> value="5">No
           Picture</option>
         </select>
         <cfoutput>#editItem.status#</cfoutput>,
-    
+
         ------  Picture:
         <Select NAME="g2i">
           <option <CFIF #editItem.g2i# is 0>selected</cfif> value="0">So So</option>
@@ -331,7 +330,7 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
         <option value="spherical">Spherical</option>
         <option value="square">Square</option>
       </select>
-    
+
       Style:
       <Select NAME="style">
         <option value=<cfoutput>"#edititem.style#"</cfoutput>  selected><cfoutput>#edititem.style#</cfoutput></option>
@@ -376,10 +375,10 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
       <Select NAME="subcat2">
         <option value="">None</option>
         <option value="<cfoutput>#EditItem.subCAT2#</cfoutput>" selected ><cfoutput>#EditItem.subCAT2#</cfoutput></option>
-         			            <option value="Bulk Lots"  >Bulk Lots</option> 
+         			            <option value="Bulk Lots"  >Bulk Lots</option>
         <cfloop query="stonelist">
 <cfoutput>
-			
+
             <option value="#Stone#"  >#Stone#</option>
           </cfoutput>
         </cfloop>
@@ -403,29 +402,29 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
 	<option value="3" <cfif edititem.morepics is 3> selected</cfif>>3</option>
 	</select>
 
-    
-      <img src="/images/#edititem.cat#/#newitem#.jpg" width=200 style="display:inline;" > 
+
+      <img src="/images/#edititem.cat#/#newitem#.jpg" width=200 style="display:inline;" >
 			<img src="/images/#edititem.cat#/thumb/#newitem#.jpg" width=50 style="display:inline;" >Descr:
     <textarea cols="40" rows="3" name="description"  wrap="virtual" id="itemdescription">#EditItem.Description#</textarea>
-    &nbsp; 
+    &nbsp;
 <br>	<a href=/admintools/edit-copyitem.cfm?itemid=#newitem#>COPY THIS DATA TO CREATE A NEW ITEM IN SAME CATEGORY</a> || <a href=/admintools/edit-copyitem.cfm?itemid=#newitem#&useimage=yes&cat=#edititem.cat#>COPY THIS WITH IMAGE</a></td>
-   
+
   <INPUT TYPE="button" VALUE="UPDATE" onClick="javascript:verifyinput()">
-  [Read carefully: If this number is changed then, the newnumber.jpg is removed 
-  and copied to the oldnumber.jpg. You must then specify the correct cat of newnumber 
-  item on top. Or all will fail. The new category will be for the newitem but with old number retained. Thus you 
-  can replace image or use an old number for totally new item. If you want to 
+  [Read carefully: If this number is changed then, the newnumber.jpg is removed
+  and copied to the oldnumber.jpg. You must then specify the correct cat of newnumber
+  item on top. Or all will fail. The new category will be for the newitem but with old number retained. Thus you
+  can replace image or use an old number for totally new item. If you want to
   just change the category, just change category, the images will be moved between folders.] <a href="videoadd.cfm?itemid=#newitem#">ADD VIDEOID</a>
   <input type='button' onClick="javascript:calcprices()">    <td>
   	<!--- Changes By Ankur --->
-  	<span 
+  	<span
 		<cfif qryGetAccess.limitedaccess eq '1'>
     		style="display:none"
 		<cfelse>
         	style="display:inline"
 		</cfif>
     >
-    
+
     Base Cost (Rs):
 <cfif IsUserInRole("superadmin")>
     <INPUT TYPE="text" SIZE="4" NAME="basecost" VALUE="<CFOUTPUT>#Round(EditItem.BaseCost*100)/100#</CFOUTPUT>" id="itembasecost" onChange="javascript:changeBase('in');" />
@@ -442,14 +441,14 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
 	</script>
     Multipliers:
     <input type="button" value="2/1.5" onClick="javascript:multiplier(2);" />
-    
+
     <input type="button" value="3/1.7" onClick="javascript:multiplier(3);" />
-  
+
     <input type="button" value="4/2" onClick="javascript:multiplier(4);" />
-    
+
     <input type="button" value="5/2.3" onClick="javascript:multiplier(5);" />
     <input type="button" value="6/2.5" onClick="javascript:multiplier(6);" />
-   
+
 	  <input type="button" value="7/2.7" onClick="javascript:multiplier(7);" />
 	  <input type="button" value="8/3" onClick="javascript:multiplier(8);" /><br>
  	  <input type="button" value="CLEARANCE" onClick="javascript:multiplier(9);" />
@@ -459,7 +458,7 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
     &nbsp;Sale: $
     <INPUT TYPE="text" SIZE="4" NAME="Saleprice" VALUE="#round(EditItem.saleprice*100)/100#</CFOUTPUT>" id="itemsalesprice">
     &nbsp;
-    
+
     WholeSale : $
     <INPUT TYPE="text" SIZE="4" NAME="Wholesaleprice" VALUE="<CFOUTPUT>#round(EditItem.WholeSalePrice*100)/100#</CFOUTPUT>" id="itemwholesaleprice">
     </span>
@@ -490,13 +489,13 @@ Stock India:  <INPUT TYPE="text" SIZE="2" NAME="inventoryindia" VALUE="#EditItem
      </td><td>
     <input type="checkbox" name="color" value="green" <cfif Edititem.color contains 'green'>checked="checked"</cfif> /> Green
      </td><td>
-    <input type="checkbox" name="color" value="gray" <cfif Edititem.color contains 'gray'>checked="checked"</cfif> /> Gray 
+    <input type="checkbox" name="color" value="gray" <cfif Edititem.color contains 'gray'>checked="checked"</cfif> /> Gray
     </td><td>
     <input type="checkbox" name="color" value="orange" <cfif Edititem.color contains 'orange'>checked="checked"</cfif> /> Orange
      </td></tr><tr><td>
     <input type="checkbox" name="color" value="pink" <cfif Edititem.color contains 'pink'>checked="checked"</cfif> /> Pink
      </td><td>
-    <input type="checkbox" name="color" value="purple" <cfif Edititem.color contains 'purple'>checked="checked"</cfif> /> Purple 
+    <input type="checkbox" name="color" value="purple" <cfif Edititem.color contains 'purple'>checked="checked"</cfif> /> Purple
     </td><td>
     <input type="checkbox" name="color" value="red" <cfif Edititem.color contains 'red'>checked="checked"</cfif> /> Red
      </td><td>
@@ -533,9 +532,9 @@ Stock India:  <INPUT TYPE="text" SIZE="2" NAME="inventoryindia" VALUE="#EditItem
 	</cfif>
 	<cfloop query="suppliers">
       <OPTION value="#suppliername#" >#suppliername#</option>
-	 </cfloop> 
+	 </cfloop>
 	</select>
-	
+
 
     <br>
     Note:
@@ -558,10 +557,10 @@ Stock India:  <INPUT TYPE="text" SIZE="2" NAME="inventoryindia" VALUE="#EditItem
        <a href=addoptionsbracelets.cfm?itemnumber=#newitem#>Add All Bracelet Sizes</a>
     </cfif>
     ---- <cfquery datasource="gemssql" name="w1">
-select count(*) as sold from buyingrecordall as buyingrecord, anup.cartstatusall as cartstatus where cartstatus.cartid=buyingrecord.cartid and itemid  = #url.newitem# and cartstatus.paymode <> 'null' 
+select count(*) as sold from buyingrecordall as buyingrecord, anup.cartstatusall as cartstatus where cartstatus.cartid=buyingrecord.cartid and itemid  = #url.newitem# and cartstatus.paymode <> 'null'
 </cfquery><br>Sold since <cfoutput>#dateformat(edititem.datetaken, "mmm-dd-yy")#: #w1.sold#</cfoutput><a href="whensold.cfm?newitem=#newitem#"> When all sold?</a></span></CFOUTPUT>
-	
-	
+
+
   </td>
   </tr>
   </table>
@@ -571,8 +570,8 @@ select count(*) as sold from buyingrecordall as buyingrecord, anup.cartstatusall
 
 Last inventory update: <cfoutput>#edititem.lastbought#</cfoutput>
 <h2>UPLOADING ADDITIONAL IMAGE:</h2>
-<form name="imageform" action="imageextra.cfm" 
-      enctype="multipart/form-data" 
+<form name="imageform" action="imageextra.cfm"
+      enctype="multipart/form-data"
       method="post">
   Images being uploaded should have dimensions of less than 450 pixels on larger side. Second image should be 350 wide. Height can be anything<br>
   Thumbnail size should be under 7 kb for thumbnail and dimensions 120x80:
@@ -588,7 +587,7 @@ Last inventory update: <cfoutput>#edititem.lastbought#</cfoutput>
   <option value="1" <cfif edititem.morepics is 1> selected</cfif>>1</option>
 	  <option value="2" <cfif edititem.morepics is 2> selected</cfif>>2</option>
 		  <option value="3" <cfif edititem.morepics is 3> selected</cfif>>3</option></select>
-			
+
   <INPUT TYPE="hidden" NAME="newitem" VALUE="<cfoutput>#newitem#</cfoutput>">
   <input type="hidden" name="destin" value="<cfoutput>#root#\images\jewelry\#edititem.cat#\#newitem#</cfoutput>">
   <input type="hidden" name="origdestin" value="<cfoutput>#root#\images\#edititem.cat#\#newitem#.jpg</cfoutput>">
