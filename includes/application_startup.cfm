@@ -15,6 +15,9 @@
 			application.arb_amount = 100 ;
 		 	application.retail_free_shipping = 70 ; // only for international orders.
 		  	application.exchangerate = 65 ;
+		  	application.smtpuser = 'service@semiprecious.com';
+			application.smtppassword = 'Prec1ou5sx@';
+			application.smtpserver = 'mail.semiprecious.com';
 	        	application.bulkbuyer.fivehundreddiscount= 5 ;
 	    	    application.bulkbuyer.thousanddiscount= 10 ;
 				application.bulkbuyer.twothousanddiscount= 15 ;
