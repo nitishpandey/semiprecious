@@ -15,11 +15,8 @@
 		<cfargument name="mailcontent" required="true" />
 		<cfargument name="fromemail" required="false" default="service@semiprecious.com" type="string">
 		<cftry>
-			<cfmail  server="mail.semiprecious.com"
-			  port="25"
-			  useSSL="false"
-			  from="#arguments.fromemail#"
-			  password="Prec1ou5sx@"  username="service@semiprecious.com"  bcc="#arguments.bccto#" to="#arguments.mailto#" subject="#arguments.subject#" cc="#arguments.ccto#"   type="html">
+			<cfmail  server="#application.smtpserver#" port="25" useSSL="false" from="#arguments.fromemail#"
+			  password="#application.smtppassword#"  username="#application.smtpuser#"  bcc="#arguments.bccto#" to="#arguments.mailto#" subject="#arguments.subject#" cc="#arguments.ccto#"   type="html">
 			         #arguments.mailcontent#
 			</cfmail>
 			<cfcatch type="any">

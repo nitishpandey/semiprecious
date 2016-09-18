@@ -234,13 +234,13 @@
 			  <cfif not isdefined("contactemail") >
 				  <tr>
 					  <td width="35%" >Name</td> <td width="65%" >
-						  <cfinput value="#form.name#" name="name" type="text" size="40" required="yes" id="name" class="contactustext" />
+						  <cfinput value="#form.name#" name="name" type="text" size="20" required="yes" id="name" class="contactustext" />
 						</td>
 					</tr>
 					<tr>
 						<td width="35%" >Email Address:</td>
 						<td>
-							 <cfinput value="#form.contact#" name="contact"  type="text" validate="email" message="Please provide a valid email id." size="40" required="yes" id="contact" class="contactustext" />
+							 <cfinput value="#form.contact#" name="contact"  type="text" validate="email" message="Please provide a valid email id." size="20" required="yes" id="contact" class="contactustext" />
 						</td>
 					</tr>
 				  <cfelse>
