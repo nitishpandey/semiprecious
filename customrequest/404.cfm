@@ -1,6 +1,7 @@
 <cfset categories = "rings,pendants,bracelets,necklaces,cufflinks,earrings,brooches" />
 
-
+<cfdump var="#cgi#">
+<cfabort />
 
 <cfif not find(".cfm",cgi.query_string)>
 

@@ -17,18 +17,18 @@
  <cfloop list="#form.update#" index="j">
 		<cfquery datasource="sptm" >
 			update stone_name_variants set rgbhex = '#form.rgbhex#'
-		, opacity = #form.opacity/100#	 
-		where id = #j# 
-		</cfquery> 
+		, opacity = #form.opacity/100#
+		where id = #j#
+		</cfquery>
  </cfloop>
 </cfif>
 
 <cfquery name="stone_ranges" datasource="sptm">
 SELECT *
 FROM stone_name_variants, stone_names, stone_variants
-WHERE 
-stone_name_variants.stone_names_id = stone_names.id  
-and stone_name_variants.stone_variants_id = stone_variants.id  
+WHERE
+stone_name_variants.stone_names_id = stone_names.id
+and stone_name_variants.stone_variants_id = stone_variants.id
 order by
 stone_names.name asc
 </cfquery>
@@ -78,14 +78,16 @@ z-index:10;
 
 		}
   function check(a)
-     {document.getElementById('rgbhex').value = a;	
+     {
+     document.getElementById('rgbhex').value = a;
      process();
-     return;}
+     return;
+     	}
 		function test(t1,b)
 		{
 			if (!t1)
 			 		t1 = document.getElementById('rgbhex').value;
-				   	  
+
 				   	  rd  = h2d(left_(t1,2));
 					  gd = h2d(right(left_(t1,4),2));
 					 bd = h2d(right(t1,2));
@@ -143,28 +145,28 @@ z-index:10;
  function change_stone(a,b,c) {
  if (b.length)
    {
-	 	changecss(a,'opacity',c);   
-		changecss(a,'background-color',b);   
-	 
+	 	changecss(a,'opacity',c);
+		changecss(a,'background-color',b);
+
    }
    else
    {
-	changecss(a,'opacity',c);   
+	changecss(a,'opacity',c);
 
    }
    return;
  }
 </script>
-<script type="text/javascript" src="/js/jscolor.js"></script>
+<script type="text/javascript" src="../js/jscolor.js"></script>
 <script type="text/javascript" src="../imagejs/color.js"></script>
 <script type="text/javascript" src="../imagejs/Deflate.js"></script>
 <script type="text/javascript" src="../imagejs/PNG.js"></script>
 <script type="text/javascript" src="../imagejs/Base64.js"></script>
 <script language="javascript1.2" type="text/javascript">
-<!-- Begin
+<!-- Begin -->
 	<cftry>
 
-		<cffile action = "readBinary" file = "#dest_dir1#\#urldecode(url.image)#.png" variable = "aBinaryObj" charset="utf-8"   > 
+		<cffile action = "readBinary" file = "#dest_dir1#\#urldecode(url.image)#.png" variable = "aBinaryObj" charset="utf-8"   >
 		<cfoutput>
 		<cfscript>
 				b = BinaryEncode(aBinaryObj, 'Base64');
@@ -172,7 +174,7 @@ z-index:10;
 		<!--- 		<cfhttp url="http://www.semiprecious.com/customrequest/png.php" />
 				<cfset b = trim(cfhttp.filecontent) /> --->
 			var original = '#b#';
-<cffile action = "readBinary" file = "#dest_dir2#\#urldecode(url.image)#.png" variable = "aBinaryObj" charset="utf-8"   > 
+<cffile action = "readBinary" file = "#dest_dir2#\#urldecode(url.image)#.png" variable = "aBinaryObj" charset="utf-8"   >
 				<cfscript>
 				b = BinaryEncode(aBinaryObj, 'Base64');
 				//b = toBase64(aBinaryObj,'iso-8859-1');
@@ -182,7 +184,7 @@ z-index:10;
 			var colored = '#b#';
 			var milestone = 11;
 	</cfoutput>
-		
+
 	<cfcatch type="any">
 	</script><cfoutput>#cfcatch.Detail#,#cfcatch.Message#</cfoutput>
 	Image not customizable.
@@ -190,10 +192,10 @@ z-index:10;
 </cfcatch>
 	</cftry>
 
-<!--- 	<cfimage  source="http://www.semiprecious.com/#url.img#" name="myLogo"> ---> 
+<!--- 	<cfimage  source="http://www.semiprecious.com/#url.img#" name="myLogo"> --->
 
 <!--- <cfquery datasource="gemssql" name="opts">
-                select * from options where itemid = 1707    
+                select * from options where itemid = 1707
                 </cfquery>
  --->			<!--- <cfdump var="#aBinaryObj#"> --->
 
@@ -206,7 +208,7 @@ var various_colors = Array();
 	 stone[2] =  new Array();
 	 stone[3] =  new Array();
     <cfoutput>
-	  
+
 	  var texture  =  new Array(#listlen(color_codes)#);
 	  <cfloop from="0" to="#evaluate(listlen(color_codes)-1)#" index="p">
 
@@ -237,7 +239,7 @@ function process(){
 					   	 rd  = h2d(left_(t1,2));
 						 gd = h2d(right(left_(t1,4),2));
 						 bd = h2d(right(t1,2));
-						
+
 	 hsv = rgbToHsv(rd,gd,bd);
 	if (start)
 	{
@@ -249,10 +251,10 @@ function process(){
 	var max_h = -1;
 	var min_h = 100;
 	var top0 = -1 ;
-	
-     
+
+
 	var in_zone = 0;
-	
+
 
 		var simg2 = document.getElementById('what');
 		simg2.innerHTML = "";
@@ -264,7 +266,7 @@ function process(){
 	var new_RGB = 0;
 	var curr_color = 0;
 	var new_color = 0;
-								
+
 	<cfoutput>
 		 <cfloop list="#color_codes#" index="p">
 		   	groups.splice(groups.length,0,#p#);
@@ -279,7 +281,7 @@ function process(){
 	var pixel_count = 0;
 
 	while(orig_line = orig.readLine())
-		{ 
+		{
 	     color_line = color.readLine();
 	     for (var x = 0; x < color_line.length; x++){
 			   pixel_count += 1;
@@ -298,7 +300,7 @@ function process(){
 		  	        {
        		     	if (new_color == curr_color && curr_zone != -1)//different texture but  same zone  (further,with RGB different color would equal only in zone )
          		     	{
-   			        
+
 			           // stone[curr_zone][stone[curr_zone].length-1] = stone[curr_zone][stone[curr_zone].length-1]+1;
 			    		 t1 = new_RGB.toString(16).padRight('0', 6);;
 /*					   	 rd  = h2d(left_(t1,2));
@@ -306,11 +308,11 @@ function process(){
 						 bd = h2d(right(t1,2));
 */
 						 oldhsv = rgbToHsv(h2d(left_(t1,2)), h2d(right(left_(t1,4),2)), h2d(right(t1,2)));
- // hsv.h + hsv.s + oldhsv.v makes black give white (crystal) 
+ // hsv.h + hsv.s + oldhsv.v makes black give white (crystal)
 
 			   top1 = Math.floor(pixel_count/color.width)+1; //y value
 			   left1 = (pixel_count % color.width) ;   // x value
-        	
+
 					  	      texture[curr_zone][texture[curr_zone].length] = left1;
 					  	      texture[curr_zone][texture[curr_zone].length] = top1;
 //					  	      texture[curr_zone][texture[curr_zone].length] = oldhsv.h;
@@ -320,7 +322,7 @@ function process(){
 							  curr_RGB = new_RGB;
 							  continue;
 					}else
-						{ // niether rgb nor color are same. find new zone	  	  
+						{ // niether rgb nor color are same. find new zone
 			           new_zone = -1;
 			            switch(new_color)  {
 				         case  groups2[0] : new_zone = 0;
@@ -347,7 +349,7 @@ function process(){
 						 bd = h2d(right(t1,2));
 						 oldhsv = rgbToHsv(rd,gd,bd); */
 	 					 oldhsv = rgbToHsv(h2d(left_(t1,2)), h2d(right(left_(t1,4),2)), h2d(right(t1,2)));
-					     
+
 			   top1 = Math.floor(pixel_count/color.width)+1; //y value
 			   left1 = (pixel_count % color.width) ;   // x value
         			  	      texture[curr_zone][texture[curr_zone].length] = left1;
@@ -362,12 +364,12 @@ function process(){
 		  		     	   }
 		        	    }
 			       }     /* start of layer formation */
-			/* end of layer formation */				
+			/* end of layer formation */
 			}
 
 		start = 0;	}else
 			{
-		    	(simg2 =	document.getElementById('what')).innerHTML = '';              
+		    	(simg2 =	document.getElementById('what')).innerHTML = '';
 				for (i = 0; i < texture.length;i++)
                    for (j = 0; j < texture[i].length;j = j+5) {
 						px2 = document.createElement('div');
@@ -383,7 +385,7 @@ function process(){
 						px2.className = 'texture_pixel';
 						simg2.appendChild(px2);
 						}
-						
+
 
 			  }
 		 return;
@@ -396,7 +398,7 @@ function process(){
 <body onLoad="process();">
 
 
-<a href="." >Custom Main Menu</a> 
+<a href="." >Custom Main Menu</a>
 	<cftry>
   <!--- working fine but not required. IE does not support this <cfimage action="writetobrowser" source="#aBinaryObj#" /> --->
 
@@ -413,7 +415,7 @@ function process(){
 <div style="display:block;">
 
 Discover Color: <input id="rgbhex" name="rgbhex" nchange="javascript:process();" class="color {pickerMode:'HSV'}">
-<input id="opacity" name="opacity" type="hidden" value="50" > 
+<input id="opacity" name="opacity" type="hidden" value="50" >
 <input id="opacity1" name="opacity1" type="hidden" value="50" >Then click 'test' <a href="javascript:process();">Test</a>
 
 </div>
@@ -422,7 +424,8 @@ Discover Color: <input id="rgbhex" name="rgbhex" nchange="javascript:process();"
 <cfoutput  query="stone_ranges">
 	<tr><td>#name#</td><td>#description#</td>
 	<td style="border:1px black solid;background-color:###rgbhex#;">&nbsp;</td>
-	<td><input type="checkbox" name="update" value="#id#" /></td><td><a href="javascript:check('#rgbhex#');">Check</a></td>
+	<td><input type="checkbox" name="update" value="#id#" />
+	</td><td><a href="javascript:check('#rgbhex#');">Check</a></td>
 	</tr>
 </cfoutput>
 </table><cfif session.mail is application.admin_email>
@@ -435,8 +438,8 @@ Discover Color: <input id="rgbhex" name="rgbhex" nchange="javascript:process();"
 </div>
 <cfcatch type="any">
 </cfcatch>
-</cftry>             
-Select Image: <a href="?image=14312"><img src="images/14312.png" width="50px" /></a> <a href="?image=14321"><img src="images/14321.png" width="50px" /></a>
+</cftry>
+Select Image: <a href="?image=14312"><img src="images/rings/14312.png" width="50px" /></a> <a href="?image=14321"><img src="images/rings/14321.png" width="50px" /></a>
 
 <br>
 <cfoutput>

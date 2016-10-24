@@ -12,7 +12,7 @@ Not enough privileges
 <cftry>
 
 
- <CFQUERY datasource="gemssql" name="detailsinmemory">
+ <CFQUERY datasource="gemssql" name="detailsinmemory" >
 		  Select   material,grouping, itemnumber, size, weight, style, color, storage, imagelink, inventory,
 			 orderonrequest, price, status, saleprice,clustercount,basecost, wholesaleprice, newitem, itemnumber as optcount,description,
 			  NameID, newitem, subcat, subcat2, cat, morepics from

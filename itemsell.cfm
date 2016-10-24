@@ -6,11 +6,11 @@
 <CFPARAM name="showimage" default="">
 <CFPARAM name="mooitem" default="">
 <CFPARAM name="zoom" default="">
-<cfparam name="orderby" default="storage">
+<cfparam name="orderby" default="cat" />
 <cfset solditems.recordcount = 0 />
   <CFPARAM name="gift" default="no">
-  <CFPARAM name="form.paymode" default="">
-<CFPARAM name="categ" default="">
+  <CFPARAM name="form.paymode" default="" />
+<CFPARAM name="categ" default="" />
 <CFPARAM name="url.print" default="0">
 <CFPARAM name="pay" default="">
 <CFPARAM name="fraction" default="1">
@@ -26,8 +26,6 @@
 <cfset ringsize = 0 />
 <cfset moo = 0 />
 
-<link rel="stylesheet" type="text/css" href="/style.css" />
-<script src="/js/html5.js" type="text/javascript"></script>
 
 <cfif movetracking is "yes">
   <cftry>
@@ -67,8 +65,12 @@
 	</cftry>
 </cfif>
 
+
 <html>
 <head>
+
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<script src="/js/html5.js" type="text/javascript"></script>
  <link href="/styles/style_semiprecious.css" rel="stylesheet" type="text/css" />
 <style type="text/css" media="screen">
 a:visited {
@@ -534,7 +536,7 @@ ENTER Tracking- : <cfoutput>Add <a href=/admintools/cartissues.cfm?cartid=#carti
     <cfoutput QUERY="solditems" group="cat" >
 	<!---<tr><td class="rowb" colspan="2" ><i>#lcase(cat)#</i></td><td colspan="4">&nbsp;</td></tr>--->
 
-<tr><TD colspan="7">#CAT#</TD></tr>
+<tr><TD colspan="7">#ucase(CAT)#</TD></tr>
 <CFOUTPUT>
 <cfif weight neq "">
 <cfset totalwt=totalwt+weight></cfif>
@@ -783,7 +785,7 @@ ENTER Tracking- : <cfoutput>Add <a href=/admintools/cartissues.cfm?cartid=#carti
       #city#  #STATE# &nbsp;#zip#<br>
       #COUNTRY#</font><br>
       Cartid/Billing Email:<strong>#email#</strong><br>
-	  Billing Phone: <strong>#phonenumber#</strong></span></cfoutput><cfelse>Not Shown </cfif> 
+	  Billing Phone: <strong>#phonenumber#</strong></span></cfoutput><cfelse>Not Shown </cfif>
 Billing City-ZIP - <cfoutput>#purchaser.billingstate#</cfoutput></div>
      </td>
 	 <td align=left width="640px" style="border:1px blue solid;"><b>Return Label</b> (Include reason/requests to customize):<br>

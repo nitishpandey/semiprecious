@@ -1,26 +1,37 @@
+<!--mainfooter.cfm starts--->
 <center>
 	<a title="Curated Premium Jewelry in Semiprecious"  href='http://www.elinamira.com'>
-		<img style="width:100%;max-width:800px" src='/ads/elinamira_curated_jewelry.jpg'>
+		<img style="width:100%;max-width:800px" src='/ads/elinamira_curated_jewelry.jpg' />
 	</a>
 </center>
-<br>
+<br />
 	<cfif session.tld is '.semiprecious.in'>
 		~</div>
 	</cfif>
-<!--- 	<cfif session.cartid GT 0>
+<!---
+	<cfif session.cartid GT 0>
 		<cfif not isdefined("client.cfcartid")>
 
 			<script language="javasrtip1.2">
 				try {
 					cv = "CFCARTID=" + <cfoutput> #session.cartid# </cfoutput>+"#";
 								writeCookie("CFCLIENT_WWWSEMIPRECIOUS",cv,1000);
-							} catch(e)
+							}
+							catch(e)
 							{
+
 							}
 
 			</script>
 		</cfif>
-	</cfif> --->
+	</cfif>
+	--->
+		<cfset cachedFooter = cacheGet("mainfooter-#cgi.server_name#-#mobile#")>
+
+<!--- If the data is not cached, create it and do a cache put. --->
+<cfif isNull(cachedFooter)>
+<cfsavecontent variable="mainfooter">
+
 <cfif cgi.server_name contains 'wholesale'>
 
 <div style="clear:both;background-color:transparent" id="mainfooter"  >
@@ -82,8 +93,12 @@
 		</div>
 	</cfif>
 	<cfset url.server_name = cgi.SERVER_NAME />
-<cfcache action="servercache"  usequerystring="true"  stripWhiteSpace="true"  idletime="3">
-	<article class="wrapper">
+
+
+		<!--
+		Cached at <cfoutput>#now()#</cfoutput>
+		-->
+<article class="wrapper">
 		<section class="footage">
 			<div class="footageBox" align="left">
 				<h2>
@@ -362,7 +377,7 @@
 		</footer>
 		<!--Footer Ends-->
 	</article>
-</cfcache>
+
 <!--- 		<script async=true type="text/javascript">
 			adroll_adv_id = "PLQPBJSLJ5ABTBDLMFMW6F";
 			adroll_pix_id = "CHWO6SS4CJGCBIUQ2EUVWX";
@@ -414,5 +429,12 @@
 	<img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=mdXrf1aUOO00qh" style="display:none" height="1" width="1" alt="" />
 </noscript>
 <!-- End Alexa Certify Javascript -->
+</cfsavecontent>
+
+    <cfset cachePut("mainfooter-#cgi.server_name#-#mobile#", mainfooter, CreateTimeSpan(0,0,10,10))>
+</cfif>
+<cfoutput>#cachedFooter#</cfoutput>
+
 </body>
 </html>
+<!--mainfooter.cfm ends--->

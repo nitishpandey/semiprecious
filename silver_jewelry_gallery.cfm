@@ -1,5 +1,4 @@
 <!--start of silver_jewelry_gallery.cfm -->
-
 <cfif isdefined("Url.debug") >
 	<CFSET _start = GetTickCount() />
 </cfif>
@@ -305,7 +304,8 @@
 												    <div style="z-index:2;<cfif cgi.server_name contains 'wholesale'>left:20px;top:-200px;</cfif>">
 
 									</cfif>
-									</div> <!---
+									</div>
+									<!---
 										<p>&nbsp;</p><p>&nbsp;</p>
 										<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 										<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
@@ -314,7 +314,8 @@
 										<cfinclude template="/includes/grouplist.cfm">
 										</cfcache>
 										</cfif>
-										---> </div>
+										--->
+										 </div>
 								</td>
 								<!--- MOBILE ---> <cfif mobile>
 							</tr>
@@ -402,14 +403,18 @@
 											</cfoutput>
 										</cfif>
 										<cfset quick_add = session.quick_add />
-										<!--- The gallery engine takes the data and lays out the main gallery area --->
-										<div style="margin-top:10px;margin-left:<cfif mobile>4px<cfelse>20px</cfif>;float:left;">
+										   <cfset url.quick_add = session.quick_add />
 											<cfif mobile>
 												<cfset url.mobile = mobile>
 											</cfif>
-											<cfcache action="servercache" usequerystring="true"    >
+											<cfcache action="cache" usequerystring="true"    >
+												<!-- cached at <cfoutput>#Now()#
+												</cfoutput>
+												-->
+										<!--- The gallery engine takes the data and lays out the main gallery area --->
+										<div style="margin-top:10px;margin-left:<cfif mobile>4px<cfelse>20px</cfif>;float:left;">
 												<cfinclude template="/includes/exhibit_designs.cfm" />
-											</cfcache>
+
 										</div>
 									</div>
 								</td>
@@ -429,20 +434,21 @@
 										</td>
 									</tr>
 								</table>
+								</cfcache>
 								<!--- container 5 ends --->
 							</td>
 						</tr>
-						<tr>
+						<!---<tr>
 							<td align=center>
 								<br />
 								<cfoutput>
 									<cfinclude template="/includes/linkexchangebystone.cfm" />
-									<cfif subcat neq "">
+								 	<cfif subcat neq "">
 										<cfinclude template="/marketing/stonelinks.cfm" />
 									</cfif>
 								</cfoutput>
 							</td>
-						</tr>
+						</tr>--->
 						</table>
 
 			<!--- container 3 ends ---> <!---<table id="container1" width="900px" cellspacing="0" cellpadding="0" border="0"  style="padding:0 2px 0 154px" align="center">
@@ -459,19 +465,13 @@
 				---> <cftry> <cfset session.gallery='/gemstone_jewelry_gallery.cfm' /> <cfset
 				session.filter="occasion=#occasion#&start=#start#&pricegreater=#pricegreater#&priceless=#priceless#&color=#urlencodedformat(color)#&sortorder=#urlencodedformat(sortorder)#&style=#urlencodedformat(url.style)#&subcat=#subcat#&category=#category#&advancedsearch=#urlencodedformat(urldecode(advancedsearch))#&salestatus=#salestatus#&groupname=#groupname#&stored=#stored#"
 				> <cfcatch type="application"> <cfdump var="#cfcatch#" /> <cfabort /> </cfcatch> </cftry>
-				 <cfif start LT 12 and (subcat is not "" or color is not "") and not len(session.mail)> <CFINCLUDE template="stoneinfo.inc" />
+				 <cfif start LT 12 and (subcat is not "" or color is not "") and not len(session.mail)>
+					  <CFINCLUDE template="stoneinfo.inc" />
 				</cfif> <!--- Footer ---> <!--- 		<cfinclude template="/affiliate/includes/googleaffil.cfm">--->
 	</cfif>
 	</div> <!--- container 2 ends ---> </div>
 	<!--- top level container ends --->
-	<footer>
 
-		<script type="text/javascript">
-			<!--
-			document.getElementById("filter_summary").display = "block";
-			//-->
-		</script>
-	</footer>
 
 	<!--- End footer --->
 	<cfif IsUserInRole("admin") or IsUserInRole("superadmin")>
@@ -509,4 +509,5 @@
 		execution time:#executiontime#
 	</cfoutput>
 </cfif>
-<!--end of silver_jewelry_gallery.cfm -->
+<!--end of silver_jewelry_gallery.cfm
+-->

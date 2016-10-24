@@ -35,9 +35,10 @@
 </cfif>
 
 <cfparam name="displayrows" default="1" />
-<cfparam name="displaycolumns" default="4" />
+
 <!---- overriding logic to dynamically set display columns --->
-<cfset displaycolumns = 4 />
+<cfset displaycolumns = 5 />
+
 <cfif not isdefined("endrow")>
 	<cfset endrow = start+displayrows*displaycolumns -1 />
 </cfif>
@@ -105,9 +106,9 @@
 	</cfquery>
 </cfif>
 <cfif mobile>
-<cfset thumbdim = 150/>
+<cfset thumbdim = 140/>
 <cfelse>
-<cfset thumbdim = 120/>
+<cfset thumbdim = 150/>
 
 </cfif>
 
@@ -133,12 +134,12 @@
 		</div>' /> --->
 	<cfset itembottom ="</div></div>	</div></div><!-- NO quick add-->" />
 	<cfif mobile>
-		<cfset margin_silver_sub1 ="margin-left:2px" />
+		<cfset style_silver_sub1 ="margin-left:2px;height:290px" />
 		<cfelse>
-		<cfset margin_silver_sub1 ="" />
+		<cfset style_silver_sub1 ="" />
 
 	</cfif>
-	<cfset itemtop  = '<div class="Silver_sub1" style="#margin_silver_sub1#" >
+	<cfset itemtop  = '<div class="Silver_sub1" style="#style_silver_sub1#;" >
 		<div class="silver_subTop"><span></span></div>
 		<div class="silver_sub-content">
 		<div class="silver_bottomBarTitle">' />
@@ -223,20 +224,20 @@
  				</cfif>
 			</cfif>
 			<a title="See details for SKU ID #newitem# from #getgallery.cat# collection" name='#newitem#_anchor'
-				style="margin-bottom:0;cursor:pointer;display:block;height:123px;overflow:hidden;overflow:x:hidden;" #onclick#	>
-				<img style="margin-bottom:0;"
+				style="margin-top:2px;cursor:pointer;display:block;height:#thumbdim#px;overflow:hidden;overflow:x:hidden;" #onclick#	>
+				<img style="margin-bottom:0;<cfif mobile>margin-top:10px;margin-left:2px;</cfif>"
 				<cfif getgallery.cat eq 'pendants' OR getgallery.cat eq 'earrings'>
 					height
 				<cfelse>
 					width
 				</cfif>="#thumbdim#px"
-	   src='/images/#getgallery.cat#/thumb/#newitem#.jpg' title="#short_desc#" alt="#short_desc#"
+	   src='#no_cookie_img_src#/images/#getgallery.cat#/#newitem#.jpg' title="#short_desc#" alt="#short_desc#"
 				longdesc="http://www.semiprecious.com/longdesc.cfm?newitem=#newitem#" border='0' />
 			</a>
 
 			<div id="#newitem#_msg_on_thumb" class="msg_on_thumb"  >
 			</div>
-			<div class="text_box" >
+			<div class="text_box" <cfif mobile>style="margin-top:-6px"</cfif> >
 				<!---<img src='magnify.gif'  onClick="javascript:zoomImage('/images/#getgallery.cat#/#newitem#.jpg')"/>&nbsp;&nbsp; <a
 				href="javascript:showDetails('#itemCount#');">Info</a><br><a href='/gem_stone_#lcase(cat)#.cfm/#item_array[columns]#.htm'>Details</a>--->
 				<a style="text-transform:capitalize;cursor:pointer;"  class="a#newitem#_in_cart1"
@@ -316,7 +317,7 @@
 									#price_arra#
 								</div>
 							<cfelse>
-								<span class="sold_out_thumb">
+								<span class="sold_out_thumb" <cfif mobile>style="left:40px"</cfif>>
 									Sold Out&nbsp;
 								</span>
 								<div class="reg_price">

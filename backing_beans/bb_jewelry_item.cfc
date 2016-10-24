@@ -180,7 +180,7 @@ group by  items.newitem, items.cat, items.subcat
 		<cfargument name="category" required="true" />
 		<cfset var subcatcatcount = "" />
 		<cfquery name="subcatcatcount" dbtype="query">
-														Select count(*) as sccount from Application.detailsinmemory where subcat='#arguments.subcategory#' and cat='#arguments.category#'
+														Select count(*) as sccount from detailsinmemory where subcat='#arguments.subcategory#' and cat='#arguments.category#'
 						</cfquery>
 		<cfreturn subcatcatcount />
 	</cffunction>
@@ -199,26 +199,48 @@ group by  items.newitem, items.cat, items.subcat
 		<cfreturn othercatbestsellers />
 	</cffunction>
 
-	<cffunction name="getDetails" access="public" output="false" returntype="Query">
-		<cfargument name="testing" default="false" required="false" type="boolean">
-		<cfset var details = "" />
-		<cfif arguments.testing is "yes">
-			<cfset cts = createTimespan(0,0,0,0) />
-		<cfelse>
-			<cfset cts = createTimespan(0,10,5,0) />
-		</cfif>
-		<CFQUERY  datasource="gemssql" name="Application.detailsinmemory"  	cachedwithin="#cts#">
-              Select   'stone' as material, grouping, itemnumber, size, weight,supplier, style, color, storage, '0' as storageindia, imagelink, inventory,
-                 orderonrequest, price, status, saleprice,clustercount,basecost, wholesaleprice, newitem, itemnumber as optcount,description,
-                  NameID, newitem, subcat, subcat2, cat, morepics, restockdate from
-              items where cat<>'ornaments'  and (status =0 or status=3)
-      </cfquery>
-		<cfquery  dbtype="query" name="details">
+ <cffunction name="_getDetails" access="private" output="false"  returntype="Query">
+
+<cftry>
+			<cfquery  dbtype="query" name="details">
              Select   material , grouping, supplier,itemnumber, size, weight, style, color, storage,  storageindia, imagelink, inventory,
                  orderonrequest, price, status, saleprice,clustercount,basecost, wholesaleprice, newitem, optcount,description,
                   NameID, newitem, subcat, subcat2, cat, morepics,restockdate from
-              Application.detailsinmemory where newitem=#variables.newitem#
+               detailsinmemory where newitem=#variables.newitem#
               </cfquery>
+<cfcatch type="any">
+<cfrethrow />
+</cfcatch>
+</cftry>
+	<cfreturn details />
+
+
+</cffunction>
+
+	<cffunction name="getDetails" access="public" output="false" returntype="Query">
+		<cfargument name="testing" default="false" required="false" type="boolean">
+		<cfset var details = "" />
+	<cftry>
+		<cfset  details = _getDetails() />
+
+		  <cfcatch type="any">
+		  	<cfif arguments.testing is "yes">
+		  		<cfset cts = createTimespan(0,0,0,0) />
+		  	<cfelse>
+		  		<cfset cts = createTimespan(0,10,5,0) />
+		  	</cfif>
+		  		<CFQUERY  datasource="gemssql" name="detailsinmemory"  	cachedwithin="#cts#">
+		                Select   'stone' as material, grouping, itemnumber, size, weight,supplier, style, color, storage, '0' as storageindia, imagelink, inventory,
+		                   orderonrequest, price, status, saleprice,clustercount,basecost, wholesaleprice, newitem, itemnumber as optcount,description,
+		                    NameID, newitem, subcat, subcat2, cat, morepics, restockdate from
+		                items where cat<>'ornaments'  and (status =0 or status=3)
+		  			</cfquery>
+		  	<cfset  details = _getDetails() />
+		  </cfcatch>
+  </cftry>
+
+
+
 		<cfif details.recordcount eq 0>
 			<!--- when google re-crawls old items, it registers the page as an error if data not found, so showing inactive items anyway if some one does use an ID that is now inactive or 0 in stock--->
 			<cfquery   datasource="gemssql"  name="details">

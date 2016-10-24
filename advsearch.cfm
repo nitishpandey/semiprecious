@@ -1,3 +1,5 @@
+<!-- advsearch.cfm starts --->
+<!-- cached output at <cfoutput>#now()#</cfoutput> -->
 <cfparam name="leftgemstonedisplay" default="none" />
 <cfparam name="leftcolordisplay" default="none" />
 <cfparam name="leftpricedisplay" default="open" />
@@ -10,7 +12,7 @@
   <cfset categ = "jewelry">
 </cfif>
 
-<cfquery name="stonelistpopular" datasource="gemssql"  cachedwithin="#createtimespan(0,1,0,0)#">
+<cfquery name="stonelistpopular" datasource="gemssql"  cachedwithin="#createtimespan(1,1,0,0)#">
     select cat, stone,  style, count(stone) as inventory,   popular
     from items, ltbstonesmaster
     where inventory>0 and items.subCAT=ltbstonesmaster.stone
@@ -53,17 +55,18 @@
         <div id="mySelect2" class="styled-select">
             <select name="selByType" id="selByType" onChange="fnSearchByTypes(this);">
                 <option value="-1">Types</option>
-                <option value="Gems">Gems</option>
-                <option value="Pendants">Pendants</option>
+                <option value="Cufflinks">Cufflinks</option>
+                <option value="Earrings">Earrings</option>
+                <option value="Healing">Healing</option>
+                <option value="Beads">Beads</option>
+                <option value="Anklets">Anklets</option>
+           <option value="Pendants">Pendants</option>
                 <option value="Rings">Rings</option>
                 <option value="Earrings">Earrings</option>
                 <option value="Necklaces">Necklaces</option>
                 <option value="Bracelets">Bracelets</option>
-                <option value="Cuffins">Cuffins</option>
-                <option value="Earrings">Earrings</option>
-                <option value="Healing">Healing</option>
-                <option value="Beads">Beads</option>
-            </select>
+				 <option value="Gems">Gems</option>
+                 </select>
         </div>
         <div id="mySelect3" class="styled-select">
             <select name="selByPrice" id="selByPrice" onChange="fnSearchByPrice(this);">
@@ -121,32 +124,9 @@
 		if(ele.value == 'Gems'){
 			document.frmAdvSearch.action = "/gems.cfm"
 		}
-		else if(ele.value == 'Pendants'){
-			document.frmAdvSearch.action = "/gem-stone-pendants.cfm"
-		}
-		else if(ele.value == 'Rings'){
-			document.frmAdvSearch.action = "/gem-stone-rings.cfm"
-		}
-		else if(ele.value == 'Earrings'){
-			document.frmAdvSearch.action = "/gem-stone-earrings.cfm"
-		}
-		else if(ele.value == 'Necklaces'){
-			document.frmAdvSearch.action = "/gem-stone-necklaces.cfm"
-		}
-		else if(ele.value == 'Bracelets'){
-			document.frmAdvSearch.action = "/gem-stone-bracelets.cfm"
-		}
-		else if(ele.value == 'Cuffins'){
-			document.frmAdvSearch.action = "/gem-stone-cufflinks.cfm"
-		}
-		else if(ele.value == 'Brooches'){
-			document.frmAdvSearch.action = "/gem-stone-brooches.cfm"
-		}
-		else if(ele.value == 'Healing'){
-			document.frmAdvSearch.action = "/gem-stone-healing.cfm"
-		}
-		else if(ele.value == 'Beads'){
-			document.frmAdvSearch.action = "/gem-stone-beads.cfm"
+		else
+		{
+			document.frmAdvSearch.action = "/gem-stone-" + ele.value.toLowerCase() + ".cfm";
 		}
 		document.frmAdvSearch.submit();
 	}
@@ -194,3 +174,4 @@
 		document.frmAdvSearch.submit();
 	}
 </script>
+<!-- advsearch.cfm ends --->

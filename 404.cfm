@@ -44,6 +44,8 @@
                        <!--- here we should create a list of colors, stones, shapes and themes. Then check where does the second token gets found. And then add the URL
                        param accordingly --->
                        <cfset t = replace(t,".html","") />
+
+                       <cfset t = replace(t,"?","") />
                         <cfset token =token & "?subcat=" & t />
                     </cfif>
                   </cfif>

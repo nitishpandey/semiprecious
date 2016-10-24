@@ -1,22 +1,14 @@
-<!--- --------------------------------------------------------------------------------------- ----
-	Blog Entry:
-	ColdFusion Application.cfc Tutorial And Application.cfc Reference
-	Author:
-	Ben Nadel / Kinky Solutions // A reference file
-	Link:
-	http://www.bennadel.com/index.cfm?event=blog.view&id=726
-	Date Posted:
-	May 25, 2007 at 7:22 AM
-	---- --------------------------------------------------------------------------------------- --->
 <cfcomponent
 	displayname="Application"
 	output="false"
 	hint="Handle the application.">
 
 	<!--- Set up the application. --->
-	<CFIF cgi.server_name contains 'www.'>
-		<cfset THIS.Name = "wwwSemiprecious" />
-	<cfelse>
+		<CFIF cgi.server_name contains 'www.' or cgi.HTTP_HOST contains 'localhost' >
+			<cfset THIS.Name = "wwwSemiprecious" />
+		<cfelse>
+			<cfinclude template="includes/process_non_www.cfm" />
+
 		<cfset THIS.Name = "Semiprecious" />
 	</cfif>
 	<cfset THIS.ApplicationTimeout = CreateTimeSpan( 1, 2, 1, 0 ) />
@@ -46,7 +38,7 @@
 		<cfscript>
 			application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
 		</cfscript>
-		<cfinclude template="includes/application_startup.cfm" />
+		<cfinclude template="/includes/application_startup.cfm" />
 		<cfreturn true />
 	</cffunction>
 
@@ -110,10 +102,7 @@
 				<cfset pre = "" />
 			</cfif>
 		</cfif>
-		<cfif cgi.HTTP_HOST contains 'localhost'>
-		<cfelse>
-			<cfinclude template="includes/process_non_www.cfm" />
-		</cfif>
+
 		<cfif not  isdefined("Application.active") or isdefined("url.resettheapplication")>
 			<!--- simulate application start process --->
 			<cfscript>
@@ -124,14 +113,14 @@
 
 
 		<!---  This gets destroyed during log out but onSessionStart doesn't get invoked after that --->
-		<cfif (not isdefined("session.mail"))>
+		<cfif  (not isdefined("session.bulkbuyer.id"))>
 			<cfinclude template="/includes/session_start.cfm" />
 		</cfif>
 
 		<cfif session.mail is "na">
 			<!--- to clean up some page that sets mail to 'na' --->
 			<cfset session.mail = "" />
-			<cfset session.bulkbuyer.id = "" />
+
 
 		</cfif>
 

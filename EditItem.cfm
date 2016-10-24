@@ -228,13 +228,7 @@ else
     Select GroupName from itemsbygroup with (nolock) where itemid = #newitem#
 </CFQUERY>
 
-<!--- Changes by ankur --->
-<CFQUERY DATASOURCE="gemssql" NAME="qryGetAccess">
-    Select	limitedAccess
-    from 	users with (nolock)
-    where 	apptt = '#session.apptt#'
-    And	  	usertype = 'superadmin'
-</CFQUERY>
+
 
 <BODY  style="padding:10px;border:thin dotted #CC6600;color:#996666;">
 Semiprecious.com Administration - Edit Details for Item#: <CFOUTPUT>#newitem# <a href="?newitem=#evaluate(newitem + 1)#">Edit Next</a> <a href="/admin.cfm">go to admin page</a> &nbsp;<a href="/cartstatus21.cfm">Carts</a><a href="?newitem=#evaluate(newitem - 1)#">Edit Prev</a> </cfoutput>
@@ -248,11 +242,18 @@ Semiprecious.com Administration - Edit Details for Item#: <CFOUTPUT>#newitem# <a
 	select suppliername from ltbsuppliers with (nolock)
 	</cfquery>
 <b><font color=green><cfoutput>#session.apptt#</cfoutput> is editing</font></b>
+<!--- Changes by ankur --->
+<!--- <CFQUERY DATASOURCE="gemssql" NAME="qryGetAccess">
+    Select	limitedAccess
+    from 	users with (nolock)
+    where 	apptt = '#session.apptt#'
+    And	  	usertype = 'superadmin'
+</CFQUERY>
 <cfif qryGetAccess.limitedaccess neq '1'>
     <div align="right">
         <a href="limitaccess.cfm">Limit SuperAdmin Access</a></span>
     </div>
-</cfif>
+</cfif> --->
 <cfform  action="updateitem.cfm?" method="post">
   <CFOUTPUT> <br>
  Existing Cat (change this only if you have created this form byy copying an item from a category that is different from the one you are about to create): <input type="text" value="#edititem.cat#" name="existing_cat" >
@@ -416,7 +417,7 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
   can replace image or use an old number for totally new item. If you want to
   just change the category, just change category, the images will be moved between folders.] <a href="videoadd.cfm?itemid=#newitem#">ADD VIDEOID</a>
   <input type='button' onClick="javascript:calcprices()">    <td>
-  	<!--- Changes By Ankur --->
+  	<!--- Changes By Ankur
   	<span
 		<cfif qryGetAccess.limitedaccess eq '1'>
     		style="display:none"
@@ -424,7 +425,7 @@ TITLE: <cfinput required="yes" name="nameid" value="#edititem.nameid#" size="40"
         	style="display:inline"
 		</cfif>
     >
-
+ --->
     Base Cost (Rs):
 <cfif IsUserInRole("superadmin")>
     <INPUT TYPE="text" SIZE="4" NAME="basecost" VALUE="<CFOUTPUT>#Round(EditItem.BaseCost*100)/100#</CFOUTPUT>" id="itembasecost" onChange="javascript:changeBase('in');" />

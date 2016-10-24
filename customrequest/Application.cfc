@@ -62,7 +62,11 @@
 		<cfif not isdefined("session.user")>
 			  <cfinvoke method="dologin" returnvariable="r" />
 		</cfif>
-		<cfset Application.rootdir = getdirectoryfrompath(getcurrenttemplatepath()) />
+		<cfscript> application.rootfolder = getdirectoryfrompath(getcurrenttemplatepath());
+
+
+		 Application.rootdir = getdirectoryfrompath(getcurrenttemplatepath()) ;
+		</cfscript>
 		<cfset session.mail  = '' />
 		<cfset Application.admin_email = session.mail />
 		<cfset session.apptt="nitish" />
