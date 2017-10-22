@@ -6,6 +6,7 @@
 <CFPARAM name="showimage" default="">
 <CFPARAM name="mooitem" default="">
 <CFPARAM name="zoom" default="">
+<cfparam name="mobile" default="false" />
 <cfparam name="orderby" default="cat" />
 <cfset solditems.recordcount = 0 />
   <CFPARAM name="gift" default="no">
